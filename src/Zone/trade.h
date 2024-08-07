@@ -12,16 +12,10 @@
  * You should have received a copy of the GNU General Public License
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
-------------------------------------------------------------------------*/
+ ------------------------------------------------------------------------*/
 
-/*------------------------------------------------------------------------
- Module:        Version 1.7.1 - Angel Ex
- Author:        Odin Developer Team Copyrights (c) 2004
- Project:       Project Odin Zone Server
- Creation Date: Dicember 6, 2003
- Modified Date: Nomverber 2, 2004
- Description:   Ragnarok Online Server Emulator
-------------------------------------------------------------------------*/
+#ifndef _TRADE_H_
+#define _TRADE_H_
 
 int mmo_map_trade_request(struct map_session_data *sd);
 int mmo_map_trade_accept(struct map_session_data *sd);
@@ -29,3 +23,4 @@ int mmo_map_trade_additem(struct map_session_data *sd);
 int mmo_map_trade_deal(struct map_session_data *sd);
 int mmo_map_trade_cancel(struct map_session_data *sd);
 int mmo_map_trade_send(struct map_session_data *sd);
+#endif

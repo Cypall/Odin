@@ -12,16 +12,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
-------------------------------------------------------------------------*/
-
-/*------------------------------------------------------------------------
- Module:        Version 1.7.1 - Angel Ex
- Author:        Odin Developer Team Copyrights (c) 2004
- Project:       Project Odin Zone Server
- Creation Date: Dicember 6, 2003
- Modified Date: November 2, 2004
- Description:   Ragnarok Online Server Emulator
-------------------------------------------------------------------------*/
+ ------------------------------------------------------------------------*/
 
 #include "core.h"
 #include "mmo.h"
@@ -31,25 +22,20 @@
 #include "trade.h"
 #include "save.h"
 
-/*======================================
- *	TRADE: Trade Functions
- *--------------------------------------
- */
-
 int mmo_map_trade_request(struct map_session_data *sd)
 {
 	int i, ep = 0;
 	unsigned int fd = sd->fd;
-	struct map_session_data *target_sd = NULL;
+	struct map_session_data *target_sd;
 
 	if (sd->status.skill[0].lv >= 1) {
 		for (i = 5; i < FD_SETSIZE; i++) {
 			if (session[i] && session[i]->session_data) {
 				target_sd = session[i]->session_data;
-				if (target_sd->account_id == (signed)RFIFOL(fd, 2)) {
+				if ((unsigned)target_sd->account_id == RFIFOL(fd, 2)) {
 					ep = 1;
 					if (target_sd->status.skill[0].lv >= 1) {
-						if ((target_sd->status.trade_partner != 0) || (sd->status.trade_partner != 0)) {
+						if (target_sd->status.trade_partner != 0 || sd->status.trade_partner != 0) {
 							WFIFOW(fd, 0) = 0xe7;
 							WFIFOB(fd, 2) = 2;
 							WFIFOSET(fd, packet_len_table[0xe7]);
@@ -104,7 +90,7 @@ int mmo_map_trade_accept(struct map_session_data *sd)
 {
 	int i;
 	unsigned int fd = sd->fd;
-	struct map_session_data *target_sd = NULL;
+	struct map_session_data *target_sd;
 
 	for (i = 5; i < FD_SETSIZE; i++) {
 		if (session[i] && session[i]->session_data) {
@@ -144,14 +130,14 @@ int mmo_map_trade_additem(struct map_session_data *sd)
 	int i, ep = 0;
 	int trade_i;
 	unsigned int fd = sd->fd;
-	struct map_session_data *target_sd = NULL;
+	struct map_session_data *target_sd;
 
 	for (i = 5; i < FD_SETSIZE; i++) {
 		if (session[i] && session[i]->session_data) {
 			target_sd = session[i]->session_data;
-			if ((target_sd->account_id == sd->status.trade_partner) && (sd->status.deal_locked < 1)) {
-				if ((RFIFOW(fd, 2) < 2) || (RFIFOW(fd, 2) >= MAX_INVENTORY + 2)) {
-					if ((RFIFOW(fd, 2) == 0) && (RFIFOL(fd, 4) > 0) && ((signed)RFIFOL(fd, 4) <= sd->status.zeny)) {
+			if (target_sd->account_id == sd->status.trade_partner && sd->status.deal_locked < 1) {
+				if (RFIFOW(fd, 2) < 2 || (RFIFOW(fd, 2) >= MAX_INVENTORY + 2)) {
+					if (RFIFOW(fd, 2) == 0 && RFIFOL(fd, 4) > 0 && RFIFOL(fd, 4) <= (unsigned)sd->status.zeny) {
 						sd->status.deal_zeny = RFIFOL(fd, 4);
 						WFIFOW(i, 0) = 0xe9;
 						WFIFOL(i, 2) = RFIFOL(fd, 4);
@@ -166,7 +152,7 @@ int mmo_map_trade_additem(struct map_session_data *sd)
 						WFIFOSET(i, packet_len_table[0xe9]);
 					}
 				}
-				else if (((signed)RFIFOL(fd, 4) <= sd->status.inventory[RFIFOW(fd, 2)-2].amount) && (RFIFOL(fd, 4) > 0)) {
+				else if (RFIFOL(fd, 4) <= (unsigned)sd->status.inventory[RFIFOW(fd, 2)-2].amount && RFIFOL(fd, 4) > 0) {
 					for (trade_i = 0; trade_i < 10; trade_i++) {
 						if (sd->status.deal_inventory[trade_i].amount == 0) {
 							ep = 1;
@@ -213,7 +199,7 @@ int mmo_map_trade_deal(struct map_session_data *sd)
 {
 	int i;
 	unsigned int fd = sd->fd;
-	struct map_session_data *target_sd = NULL;
+	struct map_session_data *target_sd;
 
 	for (i = 5; i < FD_SETSIZE; i++) {
 		if (session[i] && session[i]->session_data) {
@@ -243,7 +229,7 @@ int mmo_map_trade_cancel(struct map_session_data *sd)
 	int i, len;
 	int trade_i;
 	unsigned int fd = sd->fd;
-	struct map_session_data *target_sd = NULL;
+	struct map_session_data *target_sd;
 
 	for (i = 5; i < FD_SETSIZE; i++) {
 		if (session[i] && session[i]->session_data) {
@@ -258,9 +244,9 @@ int mmo_map_trade_cancel(struct map_session_data *sd)
 				}
 				if (sd->status.deal_zeny) {
 					len = mmo_map_set_param(fd, WFIFOP(fd, 0), SP_ZENY);
-					if (len > 0) {
+					if (len > 0)
 						WFIFOSET(fd, len);
-					}
+
 					sd->status.deal_zeny = 0;
 				}
 				sd->status.deal_locked = 0;
@@ -278,9 +264,9 @@ int mmo_map_trade_cancel(struct map_session_data *sd)
 				}
 				if (target_sd->status.deal_zeny) {
 					len = mmo_map_set_param(i, WFIFOP(i, 0), SP_ZENY);
-					if (len > 0) {
+					if (len > 0)
 						WFIFOSET(i, len);
-					}
+
 					target_sd->status.deal_zeny = 0;
 				}
 				target_sd->status.deal_locked = 0;
@@ -299,16 +285,16 @@ int mmo_map_trade_send(struct map_session_data *sd)
 	int i, len;
 	int trade_i;
 	unsigned int fd = sd->fd;
-	struct map_session_data *target_sd = NULL;
+	struct map_session_data *target_sd;
 
 	for (i = 5; i < FD_SETSIZE; i++) {
 		if (session[i] && session[i]->session_data) {
 			target_sd = session[i]->session_data;
 			if (target_sd->account_id == sd->status.trade_partner) {
-				if ((sd->status.deal_locked >= 1) && (target_sd->status.deal_locked >= 1)) {
-					if (sd->status.deal_locked < 2) {
+				if (sd->status.deal_locked >= 1 && target_sd->status.deal_locked >= 1) {
+					if (sd->status.deal_locked < 2)
 						sd->status.deal_locked = 2;
-					}
+
 					if (target_sd->status.deal_locked == 2) {
 						for (trade_i = 0; trade_i < 10; trade_i++) {
 							if (sd->status.deal_inventory[trade_i].amount != 0) {
@@ -329,27 +315,27 @@ int mmo_map_trade_send(struct map_session_data *sd)
 						if (sd->status.deal_zeny) {
 							sd->status.zeny = sd->status.zeny - sd->status.deal_zeny;
 							len = mmo_map_set_param(fd, WFIFOP(fd, 0), SP_ZENY);
-							if (len > 0) {
+							if (len > 0)
 								WFIFOSET(fd, len);
-							}
+
 							target_sd->status.zeny = target_sd->status.zeny + sd->status.deal_zeny;
 							len = mmo_map_set_param(i, WFIFOP(i, 0), SP_ZENY);
-							if (len > 0) {
+							if (len > 0)
 								WFIFOSET(i, len);
-							}
+
 							sd->status.deal_zeny = 0;
 						}
 						if (target_sd->status.deal_zeny) {
 							target_sd->status.zeny = target_sd->status.zeny - target_sd->status.deal_zeny;
 							len = mmo_map_set_param(i, WFIFOP(i, 0), SP_ZENY);
-							if (len > 0) {
+							if (len > 0)
 								WFIFOSET(i, len);
-							}
+
 							sd->status.zeny = sd->status.zeny + target_sd->status.deal_zeny;
 							len = mmo_map_set_param(fd, WFIFOP(fd, 0), SP_ZENY);
-							if (len > 0) {
+							if (len > 0)
 								WFIFOSET(fd, len);
-							}
+
 							target_sd->status.deal_zeny = 0;
 						}
 						sd->status.deal_locked = 0;

@@ -1,0 +1,1609 @@
+//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++QuadRO Scripts++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++--->
+//_________________________________________________________________________________________________________________________________________________________.							    
+//Script : \\\\Ultra Warper////		Original Script by : Tsusai	    | ._______________________:    Odin Scripts - By RaX     :___________________. |
+//	 _____	 __    __   __					   	    | | - O									 | |
+//	/  __ \	/  \   \ \ / /					   	    | | - D									 | |
+//  	| <__> | /\ \	\ V /						    | | - I									 | |
+//  BY:	|    _/	/__\ \  / _ \					            | | - N									 | |
+//	| |\ \  ____  \/ / \ \					            | | 									 | |
+//	|_| \_\/     \_\/   \_\					    	    | | 									 | |
+//									    | |__________________________________________________________________________| |
+//      			Powered by ODIN;			   / ______________________________________________________________________________|
+//________________________________________________________________________/ //
+//_________________________________________________________________________//		
+//
+prontera.gat,158,193,4	script	Ultra Warper	721,{
+	cutin "kafra_07",2;
+	mes "[Ultra Warper]";
+	mes "I'm the Ultra Warper Babe";
+	mes "I can warp you directly to a town, dungeon, guild castle, PvP arena, or a free heal.";
+	mes "So, what will it be love?";
+	next;
+	menu "A Guild Castle",L_Guild,"A Dungeon",L_Dungeon,"A Town",L_Town,"A Different Domain",L_Domain,"PvP Arena",P_Arena,"Full Heal",W_Heal,"Nevermind",L_UBError;
+	close;
+DENY:
+	mes "I knew you'd see it my way =P";
+	close;
+W_Heal:
+	mes "[Ultra Warper]";
+	mes "Here you go babe.";
+	full_heal;
+	close;
+L_Guild:
+	mes "[Ultra Warper]";
+	mes "To a guild castle eh,";
+	mes "Well, I can warp you directly in front of a castle gate";
+	mes "But which one......";
+	next;
+	menu "Prontera",L_Prt,"Aldebaran",L_Alde,"Payon",L_Pay,"Geffen",L_Gef,"Nevermind.",L_UBError;
+	close;
+L_Prt:
+	mes "[Ultra Warper]";
+	mes "Please choose a Prontera castle:";
+	next;
+	menu "Top Left Castle",L_p1,"Top Right Castle",L_p2,"Mid Castle",L_p3,"Bottom Left",L_p4,"Bottom Right",L_p5,"Nevermind.",L_UBError;
+	close;
+L_Alde:
+	mes "[Ultra Warper]";
+	mes "Please choose a Aldebaran castle:";
+	next;
+	menu "Top Right Castle",L_a1,"Top Left Castle",L_a2,"Bottom Right Castle",L_a3,"Bottom Left Castle",L_a4,"Nevermind.",L_UBError;
+	close;
+L_Gef:
+	mes "[Ultra Warper]";
+	mes "Please choose a Geffen castle:";
+	next;
+	menu "Top Left Castle",L_g1,"Top Right Castle",L_g2,"Mid Left Castle",L_g3,"Bottom Right Castle",L_g4,"Bottom Left Castle",L_g5,"Nevermind.",L_UBError;
+	close;
+L_Pay:
+	mes "[Ultra Warper]";
+	mes "Please choose a Payon castle:";
+	next;
+	menu "Top Right Castle",L_pp1,"Top Middle Castle",L_pp2,"Top Left Castle",L_pp3,"Bottom Right Castle",L_pp4,"Bottom Left Castle",L_pp5,"Nevermind.",L_UBError;
+	close;
+//payon castle warps
+L_pp1:
+	warp "pay_gld.gat",315,294;
+	close;
+L_pp2:
+	warp "pay_gld.gat",199,262;
+	close;
+L_pp3:
+	warp "pay_gld.gat",120,231;
+	close;
+L_pp4:
+	warp "pay_gld.gat",297,115;
+	close;
+L_pp5:
+	warp "pay_gld.gat",140,161;
+	close;
+//geffen castle warps
+L_g1:
+	warp "gef_fild13.gat",193,276;
+	close;
+L_g2:
+	warp "gef_fild13.gat",308,239;
+	close;
+L_g3:
+	warp "gef_fild13.gat",83,178;
+	close;
+L_g4:
+	warp "gef_fild13.gat",310,89;
+	close;
+L_g5:
+	warp "gef_fild13.gat",217,73;
+	close;
+//prontera castle warps
+L_p1:
+	warp "prt_gld.gat",109,240;
+	close;
+L_p2:
+	warp "prt_gld.gat",210,240;
+	close;
+L_p3:
+	warp "prt_gld.gat",153,138;
+	close;
+L_p4:
+	warp "prt_gld.gat",134,64;
+	close;
+L_p5:
+	warp "prt_gld.gat",240,127;
+	close;
+//aldebaran castle warps
+L_a1:
+	warp "alde_gld.gat",240,245;
+	close;
+L_a2:
+	warp "alde_gld.gat",93,247;
+	close;
+L_a3:
+	warp "alde_gld.gat",268,88;
+	close;
+L_a4:
+	warp "alde_gld.gat",46,84;
+	close;
+//
+//Prontera Dungeon Warp List
+//
+L_Dungeon:
+	mes "[Ultra Warper]";
+	mes "A Dungeon eh? Which one?.";
+	next;
+L_MENU_0_1:
+	menu "Bibalan Dungeon",M_Bil,"Sunken Ship",M_Sunken,"Hidden Temple",M_Prt_fild01,"Orc Dungeon",M_Gef_fild10,"Ant Hell",M_Moc_fild04,"Coal Mines",M_mjolnir_02,"Sphinx Dungeon",M_moc_fild19,"Glast Heim",M_gef_fild06,"Beach Dungeon",M_Beach,"Turtle Dungeon",M_Turtle,"Magma Dungeon",M_Magma,"Pyramids",M_Pyra,"Not today babe",L_UBError;
+	close;
+M_Bil:
+        warp "izlu2dun.gat",108,52;
+	close;	
+M_Sunken:
+        warp "alb2trea.gat",43,53;
+	close;	
+M_Prt_fild01:
+        warp "prt_fild01.gat",136,368;
+	close; 
+M_Gef_fild10:
+        warp "gef_fild10.gat",67,334;
+	close;
+M_Moc_fild04:
+        warp "moc_fild04.gat",210,328;
+	close;
+M_mjolnir_02:
+        warp "mjolnir_02.gat",79,361;
+	close;
+M_moc_fild19:
+        warp "moc_fild19.gat",106,99;
+	close;
+M_gef_fild06:
+        warp "gef_fild06.gat",23,304;
+	close;
+M_Beach:
+        warp "comodo.gat",28,215;
+	close;
+M_Turtle:
+        warp "tur_dun01.gat",162,33;
+	close;
+M_Magma:
+        warp "yuno_fild03.gat",41,146;
+	close;
+M_Pyra:
+        warp "moc_ruins.gat",63,160;
+	close;
+//
+//Prontera Town Warp List
+//
+L_Town:
+	mes "[Ultra Warper]";	
+	mes "To what town?";
+	next;
+	menu "Prontera",W_pron,"Izlude",W_izlud,"Geffen",W_geff,"Alberta",W_alber,"Payon South",W_payon,"Payon North",W_payon2,"Morocc",W_moro,"Aldebaran",W_alde,"Lutie",W_lutie,"Comodo",W_como,"Yuno",W_yuno,"Gonryon",W_gonry,"Amatsu",W_amat,"Umbala",W_Umba,"Niflheim",W_Nif,"Nevermind",L_UBError;
+	close;
+W_pron:
+	warp "prontera.gat",155,180;
+	close;
+W_izlud:
+	warp "izlude.gat",128,93;
+	close;
+W_geff:
+	warp "geffen.gat",119,67;
+	close;
+W_alber:
+	warp "alberta.gat",116,56;
+	close;
+W_payon:
+	warp "payon.gat",90,114;
+	close;
+W_payon2:
+	warp "pay_arche.gat",52,128;
+	close;
+W_moro:
+	warp "morocc.gat",159,93;
+	close;
+W_alde:
+	warp "aldebaran.gat",140,121;
+	close;
+W_lutie:
+	warp "xmas.gat",147,132;
+	close;
+W_como:
+	warp "comodo.gat",189,150;
+	close;
+W_yuno:
+	warp "yuno.gat",157,167;
+	close;
+W_gonry:
+	warp "gon_fild01.gat",266,95;
+	close;
+W_amat:
+	warp "amatsu.gat",197,86;
+	close;
+W_Umba:
+	warp "umbala.gat",123,143;
+	close;
+W_Nif:
+	warp "niflheim.gat",195,185;
+	close;
+L_UBError:
+	mes "[Ultra Warper]";
+	mes "I'll always be here if you need me.";
+	close;
+L_Domain:
+	mes "[Ultra Warper]";
+	mes "Which World?";
+	menu "Valhalla",W_Val;
+	close;
+W_Val:
+	warp "valkyrie.gat",49,8;
+	close;
+P_Arena:
+	mes "[Ultra Warper]";
+	mes "Where can I send you?";
+	menu "Cave Arena",Z_1,"Castle Arena",Z_3,"Tactical Arena",Z_4,"Nothing",C_1;
+C_1:
+	close;
+Z_1:
+	                warp "job_wizard.gat",106,92;
+	close;
+Z_3:
+	                warp "job_knight.gat",100,100;
+	close;
+Z_4:
+	                warp "pvp_2vs2.gat",36,49;
+	close;
+}
+//Izlude Town warper
+izlude.gat,136,93,4	script	Town Warper	721,{
+	cutin "kafra_07",2;
+	mes "[Town Warper]";
+	mes "Hello, I'm the Town Warper. I can warp you to almost all Cities of Midgard.";
+	next;
+	mes "Where would you like to go?";
+	mes "Please choose your destination";
+	next;
+	menu "Prontera",W_pron,"Izlude",W_izlud,"Geffen",W_geff,"Alberta",W_alber,"Payon South",W_payon,"Payon North",W_payon2,"Morocc",W_moro,"Aldebaran",W_alde,"Lutie",W_lutie,"Comodo",W_como,"Yuno",W_yuno,"Gonryon",W_gonry,"Amatsu",W_amat,"Umbala",W_Umba,"Niflheim",W_Nif,"Nevermind",C_2;
+C_2:	
+	close;
+W_pron:
+	warp "prontera.gat",155,180;
+	close;
+W_izlud:
+	warp "izlude.gat",128,93;
+	close;
+W_geff:
+	warp "geffen.gat",119,67;
+	close;
+W_alber:
+	warp "alberta.gat",116,56;
+	close;
+W_payon:
+	warp "payon.gat",90,114;
+	close;
+W_payon2:
+	warp "pay_arche.gat",52,128;
+	close;
+W_moro:
+	warp "morocc.gat",159,93;
+	close;
+W_alde:
+	warp "aldebaran.gat",140,121;
+	close;
+W_lutie:
+	warp "xmas.gat",147,132;
+	close;
+W_como:
+	warp "comodo.gat",189,150;
+	close;
+W_yuno:
+	warp "yuno.gat",157,167;
+	close;
+W_gonry:
+	warp "gon_fild01.gat",266,95;
+	close;
+W_amat:
+	warp "amatsu.gat",197,86;
+	close;
+W_Umba:
+	warp "umbala.gat",123,143;
+	close;
+W_Nif:
+	warp "niflheim.gat",195,185;
+	close;
+}
+// Geffen Town Warper
+geffen.gat,122,62,4	script	Town Warper	721,{
+	cutin "kafra_07",2;
+	mes "[Town Warper]";
+	mes "Hello, I'm the Town Warper. I can warp you to almost all Cities of Midgard.";
+	next;
+	mes "Where would you like to go?";
+	mes "Please choose your destination";
+	next;
+	menu "Prontera",W_pron,"Izlude",W_izlud,"Geffen",W_geff,"Alberta",W_alber,"Payon South",W_payon,"Payon North",W_payon2,"Morocc",W_moro,"Aldebaran",W_alde,"Lutie",W_lutie,"Comodo",W_como,"Yuno",W_yuno,"Gonryon",W_gonry,"Amatsu",W_amat,"Umbala",W_Umba,"Niflheim",W_Nif,"Nevermind",C_3;
+C_3:
+	close;
+W_pron:
+	warp "prontera.gat",155,180;
+	close;
+W_izlud:
+	warp "izlude.gat",128,93;
+	close;
+W_geff:
+	warp "geffen.gat",119,67;
+	close;
+W_alber:
+	warp "alberta.gat",116,56;
+	close;
+W_payon:
+	warp "payon.gat",90,114;
+	close;
+W_payon2:
+	warp "pay_arche.gat",52,128;
+	close;
+W_moro:
+	warp "morocc.gat",159,93;
+	close;
+W_alde:
+	warp "aldebaran.gat",140,121;
+	close;
+W_lutie:
+	warp "xmas.gat",147,132;
+	close;
+W_como:
+	warp "comodo.gat",189,150;
+	close;
+W_yuno:
+	warp "yuno.gat",157,167;
+	close;
+W_gonry:
+	warp "gon_fild01.gat",266,95;
+	close;
+W_amat:
+	warp "amatsu.gat",197,86;
+	close;
+W_Umba:
+	warp "umbala.gat",123,143;
+	close;
+W_Nif:
+	warp "niflheim.gat",195,185;
+	close;
+}
+// Alberta Town Warper
+alberta.gat,112,53,4	script	Town Warper	721,{
+	cutin "kafra_07",2;
+	mes "[Town Warper]";
+	mes "Hello, I'm the Town Warper. I can warp you to almost all Cities of Midgard.";
+	next;
+	mes "Where would you like to go?";
+	mes "Please choose your destination";
+	next;
+	menu "Prontera",W_pron,"Izlude",W_izlud,"Geffen",W_geff,"Alberta",W_alber,"Payon South",W_payon,"Payon North",W_payon2,"Morocc",W_moro,"Aldebaran",W_alde,"Lutie",W_lutie,"Comodo",W_como,"Yuno",W_yuno,"Gonryon",W_gonry,"Amatsu",W_amat,"Umbala",W_Umba,"Niflheim",W_Nif,"Nevermind",C_4;
+C_4:
+	close;
+W_pron:
+	warp "prontera.gat",155,180;
+	close;
+W_izlud:
+	warp "izlude.gat",128,93;
+	close;
+W_geff:
+	warp "geffen.gat",119,67;
+	close;
+W_alber:
+	warp "alberta.gat",116,56;
+	close;
+W_payon:
+	warp "payon.gat",90,114;
+	close;
+W_payon2:
+	warp "pay_arche.gat",52,128;
+	close;
+W_moro:
+	warp "morocc.gat",159,93;
+	close;
+W_alde:
+	warp "aldebaran.gat",140,121;
+	close;
+W_lutie:
+	warp "xmas.gat",147,132;
+	close;
+W_como:
+	warp "comodo.gat",189,150;
+	close;
+W_yuno:
+	warp "yuno.gat",157,167;
+	close;
+W_gonry:
+	warp "gon_fild01.gat",266,95;
+	close;
+W_amat:
+	warp "amatsu.gat",197,86;
+	close;
+W_Umba:
+	warp "umbala.gat",123,143;
+	close;
+W_Nif:
+	warp "niflheim.gat",195,185;
+	close;
+}
+// Payon South Town Warper
+payon.gat,97,114,4	script	Town Warper	721,{
+	cutin "kafra_07",2;
+	mes "[Town Warper]";
+	mes "Hello, I'm the Town Warper. I can warp you to almost all Cities of Midgard.";
+	next;
+	mes "Where would you like to go?";
+	mes "Please choose your destination";
+	next;
+	menu "Prontera",W_pron,"Izlude",W_izlud,"Geffen",W_geff,"Alberta",W_alber,"Payon South",W_payon,"Payon North",W_payon2,"Morocc",W_moro,"Aldebaran",W_alde,"Lutie",W_lutie,"Comodo",W_como,"Yuno",W_yuno,"Gonryon",W_gonry,"Amatsu",W_amat,"Umbala",W_Umba,"Niflheim",W_Nif,"Nevermind",C_5;
+C_5:
+	close;
+W_pron:
+	warp "prontera.gat",155,180;
+	close;
+W_izlud:
+	warp "izlude.gat",128,93;
+	close;
+W_geff:
+	warp "geffen.gat",119,67;
+	close;
+W_alber:
+	warp "alberta.gat",116,56;
+	close;
+W_payon:
+	warp "payon.gat",90,114;
+	close;
+W_payon2:
+	warp "pay_arche.gat",52,128;
+	close;
+W_moro:
+	warp "morocc.gat",159,93;
+	close;
+W_alde:
+	warp "aldebaran.gat",140,121;
+	close;
+W_lutie:
+	warp "xmas.gat",147,132;
+	close;
+W_como:
+	warp "comodo.gat",189,150;
+	close;
+W_yuno:
+	warp "yuno.gat",157,167;
+	close;
+W_gonry:
+	warp "gon_fild01.gat",266,95;
+	close;
+W_amat:
+	warp "amatsu.gat",197,86;
+	close;
+W_Umba:
+	warp "umbala.gat",123,143;
+	close;
+W_Nif:
+	warp "niflheim.gat",195,185;
+	close;
+}
+// Payon North Town Warper
+pay_arche.gat,55,121,4	script	Town Warper	721,{
+	cutin "kafra_07",2;
+	mes "[Town Warper]";
+	mes "Hello, I'm the Town Warper. I can warp you to almost all Cities of Midgard.";
+	next;
+	mes "Where would you like to go?";
+	mes "Please choose your destination";
+	next;
+	menu "Prontera",W_pron,"Izlude",W_izlud,"Geffen",W_geff,"Alberta",W_alber,"Payon South",W_payon,"Payon North",W_payon2,"Morocc",W_moro,"Aldebaran",W_alde,"Lutie",W_lutie,"Comodo",W_como,"Yuno",W_yuno,"Gonryon",W_gonry,"Amatsu",W_amat,"Umbala",W_Umba,"Niflheim",W_Nif,"Nevermind",C_6;
+C_6:
+	close;
+W_pron:
+	warp "prontera.gat",155,180;
+	close;
+W_izlud:
+	warp "izlude.gat",128,93;
+	close;
+W_geff:
+	warp "geffen.gat",119,67;
+	close;
+W_alber:
+	warp "alberta.gat",116,56;
+	close;
+W_payon:
+	warp "payon.gat",90,114;
+	close;
+W_payon2:
+	warp "pay_arche.gat",52,128;
+	close;
+W_moro:
+	warp "morocc.gat",159,93;
+	close;
+W_alde:
+	warp "aldebaran.gat",140,121;
+	close;
+W_lutie:
+	warp "xmas.gat",147,132;
+	close;
+W_como:
+	warp "comodo.gat",189,150;
+	close;
+W_yuno:
+	warp "yuno.gat",157,167;
+	close;
+W_gonry:
+	warp "gon_fild01.gat",266,95;
+	close;
+W_amat:
+	warp "amatsu.gat",197,86;
+	close;
+W_Umba:
+	warp "umbala.gat",123,143;
+	close;
+W_Nif:
+	warp "niflheim.gat",195,185;
+	close;
+}
+// Morocc Town Warper
+morocc.gat,160,97,4	script	Town Warper	721,{
+	cutin "kafra_07",2;
+	mes "[Town Warper]";
+	mes "Hello, I'm the Town Warper. I can warp you to almost all Cities of Midgard.";
+	next;
+	mes "Where would you like to go?";
+	mes "Please choose your destination";
+	next;
+	menu "Prontera",W_pron,"Izlude",W_izlud,"Geffen",W_geff,"Alberta",W_alber,"Payon South",W_payon,"Payon North",W_payon2,"Morocc",W_moro,"Aldebaran",W_alde,"Lutie",W_lutie,"Comodo",W_como,"Yuno",W_yuno,"Gonryon",W_gonry,"Amatsu",W_amat,"Umbala",W_Umba,"Niflheim",W_Nif,"Nevermind",C_7;
+C_7:
+	close;
+W_pron:
+	warp "prontera.gat",155,180;
+	close;
+W_izlud:
+	warp "izlude.gat",128,93;
+	close;
+W_geff:
+	warp "geffen.gat",119,67;
+	close;
+W_alber:
+	warp "alberta.gat",116,56;
+	close;
+W_payon:
+	warp "payon.gat",90,114;
+	close;
+W_payon2:
+	warp "pay_arche.gat",52,128;
+	close;
+W_moro:
+	warp "morocc.gat",159,93;
+	close;
+W_alde:
+	warp "aldebaran.gat",140,121;
+	close;
+W_lutie:
+	warp "xmas.gat",147,132;
+	close;
+W_como:
+	warp "comodo.gat",189,150;
+	close;
+W_yuno:
+	warp "yuno.gat",157,167;
+	close;
+W_gonry:
+	warp "gon_fild01.gat",266,95;
+	close;
+W_amat:
+	warp "amatsu.gat",197,86;
+	close;
+W_Umba:
+	warp "umbala.gat",123,143;
+	close;
+W_Nif:
+	warp "niflheim.gat",195,185;
+	close;
+}
+// Al De Baran Town Warper
+aldebaran.gat,144,116,4	script	Town Warper	721,{
+	cutin "kafra_07",2;
+	mes "[Town Warper]";
+	mes "Hello, I'm the Town Warper. I can warp you to almost all Cities of Midgard.";
+	next;
+	mes "Where would you like to go?";
+	mes "Please choose your destination";
+	next;
+	menu "Prontera",W_pron,"Izlude",W_izlud,"Geffen",W_geff,"Alberta",W_alber,"Payon South",W_payon,"Payon North",W_payon2,"Morocc",W_moro,"Aldebaran",W_alde,"Lutie",W_lutie,"Comodo",W_como,"Yuno",W_yuno,"Gonryon",W_gonry,"Amatsu",W_amat,"Umbala",W_Umba,"Niflheim",W_Nif,"Nevermind",C_8;
+C_8:
+	close;
+	close;
+W_pron:
+	warp "prontera.gat",155,180;
+	close;
+W_izlud:
+	warp "izlude.gat",128,93;
+	close;
+W_geff:
+	warp "geffen.gat",119,67;
+	close;
+W_alber:
+	warp "alberta.gat",116,56;
+	close;
+W_payon:
+	warp "payon.gat",90,114;
+	close;
+W_payon2:
+	warp "pay_arche.gat",52,128;
+	close;
+W_moro:
+	warp "morocc.gat",159,93;
+	close;
+W_alde:
+	warp "aldebaran.gat",140,121;
+	close;
+W_lutie:
+	warp "xmas.gat",147,132;
+	close;
+W_como:
+	warp "comodo.gat",189,150;
+	close;
+W_yuno:
+	warp "yuno.gat",157,167;
+	close;
+W_gonry:
+	warp "gon_fild01.gat",266,95;
+	close;
+W_amat:
+	warp "amatsu.gat",197,86;
+	close;
+W_Umba:
+	warp "umbala.gat",123,143;
+	close;
+W_Nif:
+	warp "niflheim.gat",195,185;
+	close;
+}
+// Lutie Town Warper
+xmas.gat,146,135,4	script	Town Warper	721,{
+	cutin "kafra_07",2;
+	mes "[Town Warper]";
+	mes "Hello, I'm the Town Warper. I can warp you to almost all Cities of Midgard.";
+	next;
+	mes "Where would you like to go?";
+	mes "Please choose your destination";
+	next;
+	menu "Prontera",W_pron,"Izlude",W_izlud,"Geffen",W_geff,"Alberta",W_alber,"Payon South",W_payon,"Payon North",W_payon2,"Morocc",W_moro,"Aldebaran",W_alde,"Lutie",W_lutie,"Comodo",W_como,"Yuno",W_yuno,"Gonryon",W_gonry,"Amatsu",W_amat,"Umbala",W_Umba,"Niflheim",W_Nif,"Nevermind",C_9;
+C_9:
+	close;
+W_pron:
+	warp "prontera.gat",155,180;
+	close;
+W_izlud:
+	warp "izlude.gat",128,93;
+	close;
+W_geff:
+	warp "geffen.gat",119,67;
+	close;
+W_alber:
+	warp "alberta.gat",116,56;
+	close;
+W_payon:
+	warp "payon.gat",90,114;
+	close;
+W_payon2:
+	warp "pay_arche.gat",52,128;
+	close;
+W_moro:
+	warp "morocc.gat",159,93;
+	close;
+W_alde:
+	warp "aldebaran.gat",140,121;
+	close;
+W_lutie:
+	warp "xmas.gat",147,132;
+	close;
+W_como:
+	warp "comodo.gat",189,150;
+	close;
+W_yuno:
+	warp "yuno.gat",157,167;
+	close;
+W_gonry:
+	warp "gon_fild01.gat",266,95;
+	close;
+W_amat:
+	warp "amatsu.gat",197,86;
+	close;
+W_Umba:
+	warp "umbala.gat",123,143;
+	close;
+W_Nif:
+	warp "niflheim.gat",195,185;
+	close;
+}
+// Comodo Town Warper
+comodo.gat,195,148,4	script	Town Warper	721,{
+	cutin "kafra_07",2;
+	mes "[Town Warper]";
+	mes "Hello, I'm the Town Warper. I can warp you to almost all Cities of Midgard.";
+	next;
+	mes "Where would you like to go?";
+	mes "Please choose your destination";
+	next;
+	menu "Prontera",W_pron,"Izlude",W_izlud,"Geffen",W_geff,"Alberta",W_alber,"Payon South",W_payon,"Payon North",W_payon2,"Morocc",W_moro,"Aldebaran",W_alde,"Lutie",W_lutie,"Comodo",W_como,"Yuno",W_yuno,"Gonryon",W_gonry,"Amatsu",W_amat,"Umbala",W_Umba,"Niflheim",W_Nif,"Nevermind",C_10;
+C_10:
+	close;
+W_pron:
+	warp "prontera.gat",155,180;
+	close;
+W_izlud:
+	warp "izlude.gat",128,93;
+	close;
+W_geff:
+	warp "geffen.gat",119,67;
+	close;
+W_alber:
+	warp "alberta.gat",116,56;
+	close;
+W_payon:
+	warp "payon.gat",90,114;
+	close;
+W_payon2:
+	warp "pay_arche.gat",52,128;
+	close;
+W_moro:
+	warp "morocc.gat",159,93;
+	close;
+W_alde:
+	warp "aldebaran.gat",140,121;
+	close;
+W_lutie:
+	warp "xmas.gat",147,132;
+	close;
+W_como:
+	warp "comodo.gat",189,150;
+	close;
+W_yuno:
+	warp "yuno.gat",157,167;
+	close;
+W_gonry:
+	warp "gon_fild01.gat",266,95;
+	close;
+W_amat:
+	warp "amatsu.gat",197,86;
+	close;
+W_Umba:
+	warp "umbala.gat",123,143;
+	close;
+W_Nif:
+	warp "niflheim.gat",195,185;
+	close;
+}
+// Yuno Town Warper
+yuno.gat,140,172,4	script	Town Warper	721,{
+	cutin "kafra_07",2;
+	mes "[Town Warper]";
+	mes "Hello, I'm the Town Warper. I can warp you to almost all Cities of Midgard.";
+	next;
+	mes "Where would you like to go?";
+	mes "Please choose your destination";
+	next;
+	menu "Prontera",W_pron,"Izlude",W_izlud,"Geffen",W_geff,"Alberta",W_alber,"Payon South",W_payon,"Payon North",W_payon2,"Morocc",W_moro,"Aldebaran",W_alde,"Lutie",W_lutie,"Comodo",W_como,"Yuno",W_yuno,"Gonryon",W_gonry,"Amatsu",W_amat,"Umbala",W_Umba,"Niflheim",W_Nif,"Nevermind",C_11;
+C_11:
+	close;
+W_pron:
+	warp "prontera.gat",155,180;
+	close;
+W_izlud:
+	warp "izlude.gat",128,93;
+	close;
+W_geff:
+	warp "geffen.gat",119,67;
+	close;
+W_alber:
+	warp "alberta.gat",116,56;
+	close;
+W_payon:
+	warp "payon.gat",90,114;
+	close;
+W_payon2:
+	warp "pay_arche.gat",52,128;
+	close;
+W_moro:
+	warp "morocc.gat",159,93;
+	close;
+W_alde:
+	warp "aldebaran.gat",140,121;
+	close;
+W_lutie:
+	warp "xmas.gat",147,132;
+	close;
+W_como:
+	warp "comodo.gat",189,150;
+	close;
+W_yuno:
+	warp "yuno.gat",157,167;
+	close;
+W_gonry:
+	warp "gon_fild01.gat",266,95;
+	close;
+W_amat:
+	warp "amatsu.gat",197,86;
+	close;
+W_Umba:
+	warp "umbala.gat",123,143;
+	close;
+W_Nif:
+	warp "niflheim.gat",195,185;
+	close;
+}
+// Gonryon Town Warper
+gon_fild01.gat,268,101,4	script	Town Warper	721,{
+	cutin "kafra_07",2;
+	mes "[Town Warper]";
+	mes "Hello, I'm the Town Warper. I can warp you to almost all Cities of Midgard.";
+	next;
+	mes "Where would you like to go?";
+	mes "Please choose your destination";
+	next;
+	menu "Prontera",W_pron,"Izlude",W_izlud,"Geffen",W_geff,"Alberta",W_alber,"Payon South",W_payon,"Payon North",W_payon2,"Morocc",W_moro,"Aldebaran",W_alde,"Lutie",W_lutie,"Comodo",W_como,"Yuno",W_yuno,"Gonryon",W_gonry,"Amatsu",W_amat,"Umbala",W_Umba,"Niflheim",W_Nif,"Nevermind",C_12;
+C_12:
+	close;
+W_pron:
+	warp "prontera.gat",155,180;
+	close;
+W_izlud:
+	warp "izlude.gat",128,93;
+	close;
+W_geff:
+	warp "geffen.gat",119,67;
+	close;
+W_alber:
+	warp "alberta.gat",116,56;
+	close;
+W_payon:
+	warp "payon.gat",90,114;
+	close;
+W_payon2:
+	warp "pay_arche.gat",52,128;
+	close;
+W_moro:
+	warp "morocc.gat",159,93;
+	close;
+W_alde:
+	warp "aldebaran.gat",140,121;
+	close;
+W_lutie:
+	warp "xmas.gat",147,132;
+	close;
+W_como:
+	warp "comodo.gat",189,150;
+	close;
+W_yuno:
+	warp "yuno.gat",157,167;
+	close;
+W_gonry:
+	warp "gon_fild01.gat",266,95;
+	close;
+W_amat:
+	warp "amatsu.gat",197,86;
+	close;
+W_Umba:
+	warp "umbala.gat",123,143;
+	close;
+W_Nif:
+	warp "niflheim.gat",195,185;
+	close;
+}
+// Amatsu Town Warper
+amatsu.gat,202,90,4	script	Town Warper	721,{
+	cutin "kafra_07",2;
+	mes "[Town Warper]";
+	mes "Hello, I'm the Town Warper. I can warp you to almost all Cities of Midgard.";
+	next;
+	mes "Where would you like to go?";
+	mes "Please choose your destination";
+	next;
+	menu "Prontera",W_pron,"Izlude",W_izlud,"Geffen",W_geff,"Alberta",W_alber,"Payon South",W_payon,"Payon North",W_payon2,"Morocc",W_moro,"Aldebaran",W_alde,"Lutie",W_lutie,"Comodo",W_como,"Yuno",W_yuno,"Gonryon",W_gonry,"Amatsu",W_amat,"Umbala",W_Umba,"Niflheim",W_Nif,"Nevermind",C_13;
+C_13:
+	close;
+W_pron:
+	warp "prontera.gat",155,180;
+	close;
+W_izlud:
+	warp "izlude.gat",128,93;
+	close;
+W_geff:
+	warp "geffen.gat",119,67;
+	close;
+W_alber:
+	warp "alberta.gat",116,56;
+	close;
+W_payon:
+	warp "payon.gat",90,114;
+	close;
+W_payon2:
+	warp "pay_arche.gat",52,128;
+	close;
+W_moro:
+	warp "morocc.gat",159,93;
+	close;
+W_alde:
+	warp "aldebaran.gat",140,121;
+	close;
+W_lutie:
+	warp "xmas.gat",147,132;
+	close;
+W_como:
+	warp "comodo.gat",189,150;
+	close;
+W_yuno:
+	warp "yuno.gat",157,167;
+	close;
+W_gonry:
+	warp "gon_fild01.gat",266,95;
+	close;
+W_amat:
+	warp "amatsu.gat",197,86;
+	close;
+W_Umba:
+	warp "umbala.gat",123,143;
+	close;
+W_Nif:
+	warp "niflheim.gat",195,185;
+	close;
+}
+//Umbala
+umbala.gat,126,140,3	script	Town Warper	721,{
+	cutin "kafra_07",2;
+	mes "[Town Warper]";
+	mes "Hello, I'm the Town Warper. I can warp you to almost all Cities of Midgard.";
+	next;
+	mes "Where would you like to go?";
+	mes "Please choose your destination";
+	next;
+	menu "Prontera",W_pron,"Izlude",W_izlud,"Geffen",W_geff,"Alberta",W_alber,"Payon South",W_payon,"Payon North",W_payon2,"Morocc",W_moro,"Aldebaran",W_alde,"Lutie",W_lutie,"Comodo",W_como,"Yuno",W_yuno,"Gonryon",W_gonry,"Amatsu",W_amat,"Umbala",W_Umba,"Niflheim",W_Nif,"Nevermind",C_14;
+C_14:
+	close;
+W_pron:
+	warp "prontera.gat",155,180;
+	close;
+W_izlud:
+	warp "izlude.gat",128,93;
+	close;
+W_geff:
+	warp "geffen.gat",119,67;
+	close;
+W_alber:
+	warp "alberta.gat",116,56;
+	close;
+W_payon:
+	warp "payon.gat",90,114;
+	close;
+W_payon2:
+	warp "pay_arche.gat",52,128;
+	close;
+W_moro:
+	warp "morocc.gat",159,93;
+	close;
+W_alde:
+	warp "aldebaran.gat",140,121;
+	close;
+W_lutie:
+	warp "xmas.gat",147,132;
+	close;
+W_como:
+	warp "comodo.gat",189,150;
+	close;
+W_yuno:
+	warp "yuno.gat",157,167;
+	close;
+W_gonry:
+	warp "gon_fild01.gat",266,95;
+	close;
+W_amat:
+	warp "amatsu.gat",197,86;
+	close;
+W_Umba:
+	warp "umbala.gat",123,143;
+	close;
+W_Nif:
+	warp "niflheim.gat",195,185;
+	close;
+}
+//Hidden Temple
+prt_fild01.gat,140,364,4	script	Dungeon Warper	721,{
+	cutin "kafra_07",2;
+	mes "[Warper]";
+	mes "Hello, I'm the Warper. I can warp you to almost al Cities and Dungeons.";
+	next;
+	mes "Where would you like to go?";
+	mes "Please choose your destination:";
+	next;
+L_MENU_0_1:
+	menu "Prontera",M_Prontera,"Izlude",M_Izlude,"Geffen",M_Geffen,"Alberta",M_Alberta,"Payon",M_Payon,"Morocc",M_Morocc,"Aldebaran",M_Aldebaran,"Lutie",M_Xmas,"Comodo",M_Comodo,"Yuno",M_Yuno,"Glast Heim",M_gef_fild06;
+	close;
+M_Prontera:
+	warp "prontera.gat",155,184;
+	close;	
+M_Izlude:
+        warp "izlude.gat",128,93;
+	close;
+
+M_Geffen:
+	warp "geffen.gat",120,63;
+	close;
+M_Alberta:
+	warp "alberta.gat",30,234;
+	close;
+M_Payon:
+        warp "payon.gat",89,122;
+	close;	
+M_Morocc:
+	warp "morocc.gat",158,282;
+	close;
+M_Aldebaran:
+	warp "aldebaran.gat",140,121;
+	close;
+M_Xmas:
+	warp "xmas.gat",148,130;
+	close;
+M_Comodo:
+        warp "comodo.gat",191,153;
+	close;
+M_Yuno:
+        warp "yuno.gat",158,169;
+	close;
+M_gef_fild06:
+        warp "gef_fild06.gat",23,304;
+	close;
+}
+//Orc Dungeon
+gef_fild10.gat,73,335,4	script	Dungeon Warper	721,{
+	cutin "kafra_07",2;
+	mes "[Warper]";
+	mes "Hello, I'm the Warper. I can warp you to almost al Cities and Dungeons.";
+	next;
+	mes "Where would you like to go?";
+	mes "Please choose your destination:";
+	next;
+L_MENU_0_1:
+	menu "Prontera",M_Prontera,"Izlude",M_Izlude,"Geffen",M_Geffen,"Alberta",M_Alberta,"Payon",M_Payon,"Morocc",M_Morocc,"Aldebaran",M_Aldebaran,"Lutie",M_Xmas,"Comodo",M_Comodo,"Yuno",M_Yuno,"Glast Heim",M_gef_fild06;
+	close;
+M_Prontera:
+	warp "prontera.gat",155,184;
+	close;	
+M_Izlude:
+        warp "izlude.gat",128,93;
+	close;
+
+M_Geffen:
+	warp "geffen.gat",120,63;
+	close;
+M_Alberta:
+	warp "alberta.gat",30,234;
+	close;
+M_Payon:
+        warp "payon.gat",89,122;
+	close;	
+M_Morocc:
+	warp "morocc.gat",158,282;
+	close;
+M_Aldebaran:
+	warp "aldebaran.gat",140,121;
+	close;
+M_Xmas:
+	warp "xmas.gat",148,130;
+	close;
+M_Comodo:
+        warp "comodo.gat",191,153;
+	close;
+M_Yuno:
+        warp "yuno.gat",158,169;
+	close;
+M_gef_fild06:
+        warp "gef_fild06.gat",23,304;
+	close;
+}
+//Ant Hell
+moc_fild04.gat,203,326,4	script	Dungeon Warper	721,{
+	cutin "kafra_07",2;
+	mes "[Warper]";
+	mes "Hello, I'm the Warper. I can warp you to almost al Cities and Dungeons.";
+	next;
+	mes "Where would you like to go?";
+	mes "Please choose your destination:";
+	next;
+L_MENU_0_1:
+	menu "Prontera",M_Prontera,"Izlude",M_Izlude,"Geffen",M_Geffen,"Alberta",M_Alberta,"Payon",M_Payon,"Morocc",M_Morocc,"Aldebaran",M_Aldebaran,"Lutie",M_Xmas,"Comodo",M_Comodo,"Yuno",M_Yuno,"Glast Heim",M_gef_fild06;
+	close;
+M_Prontera:
+	warp "prontera.gat",155,184;
+	close;	
+M_Izlude:
+        warp "izlude.gat",128,93;
+	close;
+
+M_Geffen:
+	warp "geffen.gat",120,63;
+	close;
+M_Alberta:
+	warp "alberta.gat",30,234;
+	close;
+M_Payon:
+        warp "payon.gat",89,122;
+	close;	
+M_Morocc:
+	warp "morocc.gat",158,282;
+	close;
+M_Aldebaran:
+	warp "aldebaran.gat",140,121;
+	close;
+M_Xmas:
+	warp "xmas.gat",148,130;
+	close;
+M_Comodo:
+        warp "comodo.gat",191,153;
+	close;
+M_Yuno:
+        warp "yuno.gat",158,169;
+	close;
+M_gef_fild06:
+        warp "gef_fild06.gat",23,304;
+	close;
+}
+//Sphinx Dungeon
+mjolnir_02.gat,83,360,4	script	Dungeon Warper	721,{
+	cutin "kafra_07",2;
+	mes "[Warper]";
+	mes "Hello, I'm the Warper. I can warp you to almost al Cities and Dungeons.";
+	next;
+	mes "Where would you like to go?";
+	mes "Please choose your destination:";
+	next;
+L_MENU_0_1:
+	menu "Prontera",M_Prontera,"Izlude",M_Izlude,"Geffen",M_Geffen,"Alberta",M_Alberta,"Payon",M_Payon,"Morocc",M_Morocc,"Aldebaran",M_Aldebaran,"Lutie",M_Xmas,"Comodo",M_Comodo,"Yuno",M_Yuno,"Glast Heim",M_gef_fild06;
+	close;
+M_Prontera:
+	warp "prontera.gat",155,184;
+	close;	
+M_Izlude:
+        warp "izlude.gat",128,93;
+	close;
+
+M_Geffen:
+	warp "geffen.gat",120,63;
+	close;
+M_Alberta:
+	warp "alberta.gat",30,234;
+	close;
+M_Payon:
+        warp "payon.gat",89,122;
+	close;	
+M_Morocc:
+	warp "morocc.gat",158,282;
+	close;
+M_Aldebaran:
+	warp "aldebaran.gat",140,121;
+	close;
+M_Xmas:
+	warp "xmas.gat",148,130;
+	close;
+M_Comodo:
+        warp "comodo.gat",191,153;
+	close;
+M_Yuno:
+        warp "yuno.gat",158,169;
+	close;
+M_gef_fild06:
+        warp "gef_fild06.gat",23,304;
+	close;
+}
+//Glast Heim
+gef_fild06.gat,24,303,4	script	Dungeon Warper	721,{
+	cutin "kafra_07",2;
+	mes "[Warper]";
+	mes "Hello, I'm the Warper. I can warp you to almost al Cities and Dungeons.";
+	next;
+	mes "Where would you like to go?";
+	mes "Please choose your destination:";
+	next;
+L_MENU_0_1:
+	menu "Prontera",M_Prontera,"Izlude",M_Izlude,"Geffen",M_Geffen,"Alberta",M_Alberta,"Payon",M_Payon,"Morocc",M_Morocc,"Aldebaran",M_Aldebaran,"Lutie",M_Xmas,"Comodo",M_Comodo,"Yuno",M_Yuno,"Glast Heim",M_gef_fild06;
+	close;
+M_Prontera:
+	warp "prontera.gat",155,184;
+	close;	
+M_Izlude:
+        warp "izlude.gat",128,93;
+	close;
+
+M_Geffen:
+	warp "geffen.gat",120,63;
+	close;
+M_Alberta:
+	warp "alberta.gat",30,234;
+	close;
+M_Payon:
+        warp "payon.gat",89,122;
+	close;	
+M_Morocc:
+	warp "morocc.gat",158,282;
+	close;
+M_Aldebaran:
+	warp "aldebaran.gat",140,121;
+	close;
+M_Xmas:
+	warp "xmas.gat",148,130;
+	close;
+M_Comodo:
+        warp "comodo.gat",191,153;
+	close;
+M_Yuno:
+        warp "yuno.gat",158,169;
+	close;
+M_gef_fild06:
+        warp "gef_fild06.gat",23,304;
+	close;
+}
+//Beach Dungeon
+gef_fild06.gat,27,306,4	script	Dungeon Warper	721,{
+	cutin "kafra_07",2;
+	mes "[Warper]";
+	mes "Hello, I'm the Warper. I can warp you to almost al Cities and Dungeons.";
+	next;
+	mes "Where would you like to go?";
+	mes "Please choose your destination:";
+	next;
+L_MENU_0_1:
+	menu "Prontera",M_Prontera,"Izlude",M_Izlude,"Geffen",M_Geffen,"Alberta",M_Alberta,"Payon",M_Payon,"Morocc",M_Morocc,"Aldebaran",M_Aldebaran,"Lutie",M_Xmas,"Comodo",M_Comodo,"Yuno",M_Yuno,"Glast Heim",M_gef_fild06;
+	close;
+M_Prontera:
+	warp "prontera.gat",155,184;
+	close;	
+M_Izlude:
+        warp "izlude.gat",128,93;
+	close;
+
+M_Geffen:
+	warp "geffen.gat",120,63;
+	close;
+M_Alberta:
+	warp "alberta.gat",30,234;
+	close;
+M_Payon:
+        warp "payon.gat",89,122;
+	close;	
+M_Morocc:
+	warp "morocc.gat",158,282;
+	close;
+M_Aldebaran:
+	warp "aldebaran.gat",140,121;
+	close;
+M_Xmas:
+	warp "xmas.gat",148,130;
+	close;
+M_Comodo:
+        warp "comodo.gat",191,153;
+	close;
+M_Yuno:
+        warp "yuno.gat",158,169;
+	close;
+M_gef_fild06:
+        warp "gef_fild06.gat",23,304;
+	close;
+}
+//Turtle Dungeon
+tur_dun01.gat,162,30,4	script	Dungeon Warper	721,{
+	cutin "kafra_07",2;
+	mes "[Warper]";
+	mes "Hello, I'm the Warper. I can warp you to almost al Cities and Dungeons.";
+	next;
+	mes "Where would you like to go?";
+	mes "Please choose your destination:";
+	next;
+L_MENU_0_1:
+	menu "Prontera",M_Prontera,"Izlude",M_Izlude,"Geffen",M_Geffen,"Alberta",M_Alberta,"Payon",M_Payon,"Morocc",M_Morocc,"Aldebaran",M_Aldebaran,"Lutie",M_Xmas,"Comodo",M_Comodo,"Yuno",M_Yuno,"Glast Heim",M_gef_fild06;
+	close;
+M_Prontera:
+	warp "prontera.gat",155,184;
+	close;	
+M_Izlude:
+        warp "izlude.gat",128,93;
+	close;
+
+M_Geffen:
+	warp "geffen.gat",120,63;
+	close;
+M_Alberta:
+	warp "alberta.gat",30,234;
+	close;
+M_Payon:
+        warp "payon.gat",89,122;
+	close;	
+M_Morocc:
+	warp "morocc.gat",158,282;
+	close;
+M_Aldebaran:
+	warp "aldebaran.gat",140,121;
+	close;
+M_Xmas:
+	warp "xmas.gat",148,130;
+	close;
+M_Comodo:
+        warp "comodo.gat",191,153;
+	close;
+M_Yuno:
+        warp "yuno.gat",158,169;
+	close;
+M_gef_fild06:
+        warp "gef_fild06.gat",23,304;
+	close;
+}
+//Magma Dungeon
+yuno_fild03.gat,45,145,4	script	Dungeon Warper	721,{
+	cutin "kafra_07",2;
+	mes "[Warper]";
+	mes "Hello, I'm the Warper. I can warp you to almost al Cities and Dungeons.";
+	next;
+	mes "Where would you like to go?";
+	mes "Please choose your destination:";
+	next;
+L_MENU_0_1:
+	menu "Prontera",M_Prontera,"Izlude",M_Izlude,"Geffen",M_Geffen,"Alberta",M_Alberta,"Payon",M_Payon,"Morocc",M_Morocc,"Aldebaran",M_Aldebaran,"Lutie",M_Xmas,"Comodo",M_Comodo,"Yuno",M_Yuno,"Glast Heim",M_gef_fild06;
+	close;
+M_Prontera:
+	warp "prontera.gat",155,184;
+	close;	
+M_Izlude:
+        warp "izlude.gat",128,93;
+	close;
+
+M_Geffen:
+	warp "geffen.gat",120,63;
+	close;
+M_Alberta:
+	warp "alberta.gat",30,234;
+	close;
+M_Payon:
+        warp "payon.gat",89,122;
+	close;	
+M_Morocc:
+	warp "morocc.gat",158,282;
+	close;
+M_Aldebaran:
+	warp "aldebaran.gat",140,121;
+	close;
+M_Xmas:
+	warp "xmas.gat",148,130;
+	close;
+M_Comodo:
+        warp "comodo.gat",191,153;
+	close;
+M_Yuno:
+        warp "yuno.gat",158,169;
+	close;
+M_gef_fild06:
+        warp "gef_fild06.gat",23,304;
+	close;
+}
+//Bibalan Dungeon
+izlu2dun.gat,105,53,4	script	Dungeon Warper	721,{
+	cutin "kafra_07",2;
+	mes "[Warper]";
+	mes "Hello, I'm the Warper. I can warp you to almost al Cities and Dungeons.";
+	next;
+	mes "Where would you like to go?";
+	mes "Please choose your destination:";
+	next;
+L_MENU_0_1:
+	menu "Prontera",M_Prontera,"Izlude",M_Izlude,"Geffen",M_Geffen,"Alberta",M_Alberta,"Payon",M_Payon,"Morocc",M_Morocc,"Aldebaran",M_Aldebaran,"Lutie",M_Xmas,"Comodo",M_Comodo,"Yuno",M_Yuno,"Glast Heim",M_gef_fild06;
+	close;
+M_Prontera:
+	warp "prontera.gat",155,184;
+	close;	
+M_Izlude:
+        warp "izlude.gat",128,93;
+	close;
+
+M_Geffen:
+	warp "geffen.gat",120,63;
+	close;
+M_Alberta:
+	warp "alberta.gat",30,234;
+	close;
+M_Payon:
+        warp "payon.gat",89,122;
+	close;	
+M_Morocc:
+	warp "morocc.gat",158,282;
+	close;
+M_Aldebaran:
+	warp "aldebaran.gat",140,121;
+	close;
+M_Xmas:
+	warp "xmas.gat",148,130;
+	close;
+M_Comodo:
+        warp "comodo.gat",191,153;
+	close;
+M_Yuno:
+        warp "yuno.gat",158,169;
+	close;
+M_gef_fild06:
+        warp "gef_fild06.gat",23,304;
+	close;
+}
+//Sunken Ship Dungeon
+alb2treagat,44,57,4	script	Dungeon Warper	721,{
+	cutin "kafra_07",2;
+	mes "[Warper]";
+	mes "Hello, I'm the Warper. I can warp you to almost al Cities and Dungeons.";
+	next;
+	mes "Where would you like to go?";
+	mes "Please choose your destination:";
+	next;
+L_MENU_0_1:
+	menu "Prontera",M_Prontera,"Izlude",M_Izlude,"Geffen",M_Geffen,"Alberta",M_Alberta,"Payon",M_Payon,"Morocc",M_Morocc,"Aldebaran",M_Aldebaran,"Lutie",M_Xmas,"Comodo",M_Comodo,"Yuno",M_Yuno,"Glast Heim",M_gef_fild06;
+	close;
+M_Prontera:
+	warp "prontera.gat",155,184;
+	close;	
+M_Izlude:
+        warp "izlude.gat",128,93;
+	close;
+
+M_Geffen:
+	warp "geffen.gat",120,63;
+	close;
+M_Alberta:
+	warp "alberta.gat",30,234;
+	close;
+M_Payon:
+        warp "payon.gat",89,122;
+	close;	
+M_Morocc:
+	warp "morocc.gat",158,282;
+	close;
+M_Aldebaran:
+	warp "aldebaran.gat",140,121;
+	close;
+M_Xmas:
+	warp "xmas.gat",148,130;
+	close;
+M_Comodo:
+        warp "comodo.gat",191,153;
+	close;
+M_Yuno:
+        warp "yuno.gat",158,169;
+	close;
+M_gef_fild06:
+        warp "gef_fild06.gat",23,304;
+	close;
+}
+//Niflheim
+niflheim.gat,185,185,4	script	Town Warper	791,{
+	mes "[Town Warper]";
+	mes "Hello, I'm the Town Warper. I can warp you to almost all Cities of Midgard.";
+	next;
+	mes "Where would you like to go?";
+	mes "Please choose your destination";
+	next;
+	menu "Prontera",W_pron,"Izlude",W_izlud,"Geffen",W_geff,"Alberta",W_alber,"Payon South",W_payon,"Payon North",W_payon2,"Morocc",W_moro,"Aldebaran",W_alde,"Lutie",W_lutie,"Comodo",W_como,"Yuno",W_yuno,"Gonryon",W_gonry,"Amatsu",W_amat,"Umbala",W_Umba,"Niflheim",W_Nif,"Nevermind",C_15;
+C_15:
+	close;
+W_pron:
+	warp "prontera.gat",155,180;
+	close;
+W_izlud:
+	warp "izlude.gat",128,93;
+	close;
+W_geff:
+	warp "geffen.gat",119,67;
+	close;
+W_alber:
+	warp "alberta.gat",116,56;
+	close;
+W_payon:
+	warp "payon.gat",90,114;
+	close;
+W_payon2:
+	warp "pay_arche.gat",52,128;
+	close;
+W_moro:
+	warp "morocc.gat",159,93;
+	close;
+W_alde:
+	warp "aldebaran.gat",140,121;
+	close;
+W_lutie:
+	warp "xmas.gat",147,132;
+	close;
+W_como:
+	warp "comodo.gat",189,150;
+	close;
+W_yuno:
+	warp "yuno.gat",157,167;
+	close;
+W_gonry:
+	warp "gon_fild01.gat",266,95;
+	close;
+W_amat:
+	warp "amatsu.gat",197,86;
+	close;
+W_Umba:
+	warp "umbala.gat",123,143;
+	close;
+W_Nif:
+	warp "niflheim.gat",195,185;
+	close;
+}
+
+//Pyramid Warper
+//--------------
+moc_ruins.gat,63,167,4	script	Town Warper	721,{
+	cutin "kafra_07",2;
+	mes "[Ultra Warper]";
+	mes "I'm the Ultra Warper";
+	mes "I can warp you directly to a town or give you a free heal.";
+	mes "So, what will it be?";
+	next;
+	menu "A Town",L_Town,"Full Heal",W_Heal,"Nevermind",L_UBError;
+	close;
+W_Heal:
+	mes "[Ultra Warper]";
+	mes "Here you go babe.";
+	full_heal;
+	close;
+//Prontera Town Warp List
+//
+L_Town:
+	mes "[Ultra Warper]";	
+	mes "To what town dear?";
+	next;
+	menu "Prontera",W_pron,"Izlude",W_izlud,"Geffen",W_geff,"Alberta",W_alber,"Payon South",W_payon,"Payon North",W_payon2,"Morocc",W_moro,"Aldebaran",W_alde,"Lutie",W_lutie,"Comodo",W_como,"Yuno",W_yuno,"Gonryon",W_gonry,"Amatsu",W_amat,"Umbala",W_Umba,"Niflheim",W_Nif,"Nevermind",L_UBError;
+	close;
+W_pron:
+	warp "prontera.gat",155,180;
+	close;
+W_izlud:
+	warp "izlude.gat",128,93;
+	close;
+W_geff:
+	warp "geffen.gat",119,67;
+	close;
+W_alber:
+	warp "alberta.gat",116,56;
+	close;
+W_payon:
+	warp "payon.gat",90,114;
+	close;
+W_payon2:
+	warp "pay_arche.gat",52,128;
+	close;
+W_moro:
+	warp "morocc.gat",159,93;
+	close;
+W_alde:
+	warp "aldebaran.gat",140,121;
+	close;
+W_lutie:
+	warp "xmas.gat",147,132;
+	close;
+W_como:
+	warp "comodo.gat",189,150;
+	close;
+W_yuno:
+	warp "yuno.gat",157,167;
+	close;
+W_gonry:
+	warp "gon_fild01.gat",266,95;
+	close;
+W_amat:
+	warp "amatsu.gat",197,86;
+	close;
+W_Umba:
+	warp "umbala.gat",123,143;
+	close;
+W_Nif:
+	warp "niflheim.gat",195,185;
+	close;
+L_UBError:
+	mes "[Ultra Warper]";
+	mes "I'll be here anytime dear.";
+	close;
+}

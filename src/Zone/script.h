@@ -26,4 +26,4 @@
 unsigned char *parse_subexpr(unsigned char*, int);
 unsigned char *parse_script(unsigned char *src);
 int mmo_map_countitem(struct map_session_data *sd, int nameid);
-int run_script(int fd);
+int run_script(unsigned int fd);

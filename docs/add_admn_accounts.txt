@@ -1,0 +1,38 @@
+		      How to add administration accounts?
+
+First of all, an administrator account is needed to process information between
+servers. So that is the main reason of them. Actually the server cames with a
+predifined administrator account nammed, srv with password admn. This should be
+changed as hoster needs. Plus another big important usage of them is that you
+can set up to 30 diferent Character Servers, and Zone Servers. Pretty useful if you
+want to setup Odin in diferent computers. To add an administrator account you
+must follow this format and without forget that you must add it into
+save/accounts/accounts.txt:
+1,srv,admn,S,NULL,18/12/2004 09:58:55,0,0,0,0,NULL,0,297	
+
+The meanings of the terms are as follows in their respect order:
+id, username, password, S means Server and always should be S so it can
+be recognized as administration account, NULL, last access time, all the
+leading zeros are least significant but are needed, NULL, 0, the times that
+the server has logged in.
+
+Now after you have set an administrator account you must open character_cfg.ini and
+zone_cfg.ini and set:
+ServerUsername=yourusername
+ServerPassword=yourpassword
+
+
+=====================
+    Important
+---------------------
+
+If you are going to setup more than one server it is requiered that you add
+diferent administrators accounts for each server. I explain, Character Server
+and Zone Server use the same admninistrator password to login into Account Server
+and make the servers to be acknowlegde. So if you set more than one Character Server
+is requiered that for each Character Server you register a new administrator account.
+If you have more than one Zone Server it is requiered too, that you setup new accounts
+as well. There is a maximum of 30 accounts that the server supports. So that means you
+can set up to 30 diferent Character Servers and Zone Servers at a time. The ids of 
+the administrator accounts must be set from 1 to 31. No id must be repeated.
+

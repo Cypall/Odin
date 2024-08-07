@@ -1,8 +1,0 @@
-//NPC Storage made by : HaVoC
-prontera.gat,140,178,4	script	Storage	796,{
-
-L_STORAGE:
-	open_storage;
-close;
-
-}

@@ -12,20 +12,14 @@
  * You should have received a copy of the GNU General Public License
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
-------------------------------------------------------------------------*/
+ ------------------------------------------------------------------------*/
 
-/*------------------------------------------------------------------------
- Module:        Version 1.7.1 - Angel Ex
- Author:        Odin Developer Team Copyrights (c) 2004
- Project:       Project Odin Zone Server
- Creation Date: Dicember 6, 2003
- Modified Date: October 31, 2004
- Description:   Ragnarok Online Server Emulator
-------------------------------------------------------------------------*/
+#ifndef _ELEMENTAL_DAMAGE_H_
+#define _ELEMENTAL_DAMAGE_H_
 
 #define NB_ELEMENTS 10
 #define NB_LEVELS 4
 
-int element_db[NB_LEVELS][NB_ELEMENTS][NB_ELEMENTS];
 double get_ele_attack_factor(int attack_ele, int target_ele);
 void ele_init();
+#endif

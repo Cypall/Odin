@@ -1,7 +1,7 @@
 all z: Odin-Zone 
 
-COMMON_OBJ = ../core/core.o
-COMMON_H = ../core/core.h
+COMMON_OBJ = ../Core/core.o ../Core/socket.o ../Core/timer.o
+COMMON_H = ../Core/core.h ../Core/socket.h ../Core/timer.h ../Core/common.h
 
 Odin-Zone: map_core.o save.o grfio.o npc.o item.o itemdb.o skill_db.o script.o party.o guild.o pet.o skill.o element_damage.o chat.o card.o equip.o trade.o storage.o monster_skills.o $(COMMON_OBJ)
 	$(CC) -o ../$@ $^ -lz -ggdb

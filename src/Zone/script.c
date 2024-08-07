@@ -12,18 +12,8 @@
  * You should have received a copy of the GNU General Public License
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
-------------------------------------------------------------------------*/
+ ------------------------------------------------------------------------*/
 
-/*------------------------------------------------------------------------
- Module:        Version 1.7.0 SP3 - Angel Ex
- Author:        Odin Developer Team Copyrights (c) 2004
- Project:       Project Odin Zone Server
- Creation Date: Dicember 6, 2003
- Modified Date: October 24, 2004
- Description:   Ragnarok Online Server Emulator
-------------------------------------------------------------------------*/
-
-#include "core.h"
 #include "mmo.h"
 #include "map_core.h"
 #include "npc.h"
@@ -59,7 +49,7 @@ enum {
 	C_SET, C_SETLOOK, C_SETZENY, C_WARP, C_GETITEM, C_DELITEM, C_CUTIN, C_VIEWPOINT,
 	C_MONSTER, C_SAVE, C_STORAGE, C_GIVESPECIAL, C_FULLHEAL, C_RANDOM, C_RESETSKILL,
 	C_RESETSTATUS, C_RELEASE, C_RELEASEALL, C_REFINE, C_FAILURE, C_HEALHP, C_HEALSP,
-	C_EMOTION
+	C_EMOTION, C_SETSKILL, C_HAIR, C_CLOTHES, C_GLOBAL1
 };
 
 struct {
@@ -98,6 +88,10 @@ struct {
 	{"healhp", C_HEALHP, "i"},
 	{"healsp", C_HEALSP, "i"},
 	{"emotion", C_EMOTION, "i"},
+	{"setskill", C_SETSKILL, "i"},
+	{"sethair", C_HAIR, "i"},
+	{"setclothes", C_CLOTHES, "i"},
+	{"global", C_GLOBAL1, "i"},
 	{NULL, 0, NULL}
 };
 
@@ -146,6 +140,22 @@ struct {
 	{"HasCart", C_PARAM, SP_HASCART},
 	{"getwlvl", C_PARAM, SP_GETWLVL},
 	{"randRef", C_PARAM, SP_RANDOM},
+	{"CheckSkillEmergencyCare", C_PARAM, SK_EMERGENCYCARE},
+	{"CheckSkillActDead", C_PARAM, SK_ACTDEAD},
+	{"CheckSkillMovingRecover", C_PARAM, SK_MOVINGRECOVER},
+	{"CheckSkillFatalBlow", C_PARAM, SK_FATALBLOW},
+	{"CheckSkillAutoBerserk", C_PARAM, SK_AUTOBERSERK},
+	{"CheckSkillMakingArrow", C_PARAM,  SK_MAKINGARROW},
+	{"CheckSkillChargeArrow", C_PARAM, SK_CHARGEARROW},
+	{"CheckSkillThrowSand", C_PARAM, SK_THROWSAND},
+	{"CheckSkillBackSliding", C_PARAM, SK_BACKSLIDING},
+	{"CheckSkillPickStone", C_PARAM, SK_PICKSTONE},
+	{"CheckSkillThrowStone", C_PARAM, SK_THROWSTONE},
+	{"CheckSkillCartRevolution", C_PARAM, SK_CARTREVOLOTION},
+	{"CheckSkillChangeCart", C_PARAM, SK_CHANGECART},
+	{"CheckSkillLordExclamation", C_PARAM, SK_LORDEXCLAMATION},
+	{"CheckSkillHolyLight", C_PARAM, SK_HOLYLIGHT},
+	{"CheckSkillEnergyCoat", C_PARAM, SK_ENERGYCOAT},
 	{NULL, 0, 0}
 }, *alias_ext_tbl = NULL;
 
@@ -356,11 +366,11 @@ unsigned char *skip_space(unsigned char *p)
 unsigned char *skip_word(unsigned char *p)
 {
 	while (isalnum(*p) || *p == '_' || *p >= 0x81)
-	if (*p >= 0x81 && p[1])
-		p += 2;
+		if (*p >= 0x81 && p[1])
+			p += 2;
 
-	else
-		p++;
+		else
+			p++;
 
 	return p;
 }
@@ -455,9 +465,9 @@ unsigned char *parse_simpleexpr(unsigned char *p)
 		}
 	}
 	else if ((func = C_COUNTITEM, comcmp(p, "countitem") == 0) ||
-	           (func = C_REFINELVL, comcmp(p, "refinelvl") == 0) ||
-	           (func = C_CHECKEQUIP, comcmp(p, "checkequip") == 0) ||
-	           (func = C_READPARAM, comcmp(p, "readparam") == 0)) {
+		 (func = C_REFINELVL, comcmp(p, "refinelvl") == 0) ||
+		 (func = C_CHECKEQUIP, comcmp(p, "checkequip") == 0) ||
+		 (func = C_READPARAM, comcmp(p, "readparam") == 0)) {
 		p = skip_word(p);
 		p = skip_space(p);
 		if (*p != '(') {
@@ -636,7 +646,7 @@ unsigned char* parse_script(unsigned char *src)
 
 	str_num = 1;
 	for (i = 0; i < 16; i++)
-	str_hash[i] = 0;
+		str_hash[i] = 0;
 
 	script_buf = malloc(SCRIPT_BLOCK_SIZE);
 	script_pos = 0;
@@ -834,7 +844,7 @@ int mmo_map_readparam(struct map_session_data *sd, int i)
 	case SP_ACCOUNTID:
 		return sd->account_id;
 	case SP_HASCART:
-		if (sd->status.option_z & 0x000008) {
+		if (sd->status.special & 0x000008) {
 			return 1;
 		}
 		else {
@@ -842,13 +852,142 @@ int mmo_map_readparam(struct map_session_data *sd, int i)
 		}
 	case SP_GETWLVL:
 		for (i = 0; i < MAX_INVENTORY; i++) {
-			if (sd->status.inventory[i].equip == 2 || sd->status.inventory[i].equip == 34) {
+			if (sd->status.inventory[i].equip == 2 
+			    || sd->status.inventory[i].equip == 34) {
 				return item_database(sd->status.inventory[i].nameid).wlv;
 			}
 		}
 		return 0;
 	case SP_RANDOM:
 		return (1 + rand() % 100);
+	case SK_EMERGENCYCARE:
+		if (sd->status.skill[i-1].lv > 0)
+			return 1;
+
+		else
+			return 0;
+
+		break;
+	case SK_ACTDEAD:
+		if (sd->status.skill[i-1].lv > 0)
+			return 1;
+
+		else
+			return 0;
+
+		break;
+	case SK_MOVINGRECOVER:
+		if (sd->status.skill[i-1].lv > 0)
+			return 1;
+
+		else
+			return 0;
+
+		break;
+	case SK_FATALBLOW:
+		if (sd->status.skill[i-1].lv > 0)
+			return 1;
+
+		else
+			return 0;
+
+		break;
+	case SK_AUTOBERSERK:
+		if (sd->status.skill[i-1].lv > 0)
+			return 1;
+
+		else
+			return 0;
+
+		break;
+	case SK_MAKINGARROW:
+		if (sd->status.skill[i-1].lv > 0)
+			return 1;
+
+		else
+			return 0;
+
+		break;
+	case SK_CHARGEARROW:
+		if (sd->status.skill[i-1].lv > 0)
+			return 1;
+
+		else
+			return 0;
+
+		break;
+	case SK_THROWSAND:
+		if (sd->status.skill[i-1].lv > 0)
+			return 1;
+
+		else
+			return 0;
+
+		break;
+	case SK_BACKSLIDING:
+		if (sd->status.skill[i-1].lv > 0)
+			return 1;
+
+		else
+			return 0;
+
+		break;
+	case SK_PICKSTONE:
+		if (sd->status.skill[i-1].lv > 0)
+			return 1;
+
+		else
+			return 0;
+
+		break;
+	case SK_THROWSTONE:
+		if (sd->status.skill[i-1].lv > 0)
+			return 1;
+
+		else
+			return 0;
+
+		break;
+	case SK_CARTREVOLOTION:
+		if (sd->status.skill[i-1].lv > 0)
+			return 1;
+
+		else
+			return 0;
+
+		break;
+	case SK_CHANGECART:
+		if (sd->status.skill[i-1].lv > 0)
+			return 1;
+
+		else
+			return 0;
+
+		break;
+	case SK_LORDEXCLAMATION:
+		if (sd->status.skill[i-1].lv > 0)
+			return 1;
+
+		else
+			return 0;
+
+		break;
+	case SK_HOLYLIGHT:
+		if (sd->status.skill[i-1].lv > 0)
+			return 1;
+
+		else
+			return 0;
+
+		break;
+	case SK_ENERGYCOAT:
+		if (sd->status.skill[i-1].lv > 0)
+			return 1;
+
+		else
+			return 0;
+
+		break;
 	default:
 		return 0;
 	}
@@ -1028,7 +1167,7 @@ int get_expr(struct map_session_data *sd, unsigned char *script, int *pos)
 	return stack[sp - 1];
 }
 
-int run_script(int fd)
+int run_script(unsigned int fd)
 {
 	int stop, end, len;
 	int j;
@@ -1053,306 +1192,307 @@ int run_script(int fd)
 	for (stop = end = 0; !stop && !end;) {
 		s = get_com(script, &pos);
 		switch(s) {
-			case C_MES:
-				{
-					char *charname="$CharName";
-					char *replace_pos=script+pos;
-					int match=0;
-					while((replace_pos=strstr(replace_pos,charname))!=NULL) {
-						match++;
-						replace_pos+=10;
-					}
-					if(match) {
-						static char *mes=NULL;
-						static int mes_max;
-						int new_len=strlen(sd->status.name);
-						int str_len=strlen(script+pos);
-						if(mes==NULL) {
-							mes_max=str_len+1+(new_len-10)*match;
-							mes=realloc(mes,mes_max);
-						} else if(mes_max<str_len+1+(new_len-10)*match) {
-							mes_max=str_len+1+(new_len-10)*match;
-							mes=malloc(mes_max);
-						}
-						strcpy(mes,script+pos);
-						while((replace_pos=strstr(mes,charname))!=NULL) {
-							memmove(replace_pos+new_len,replace_pos+10,strlen(replace_pos)+1-10);
-							memmove(replace_pos,sd->status.name,new_len);
-							if(10>new_len) {
-								*(mes+str_len-10+new_len)='\0';
-								str_len=strlen(mes);
-							}
-						}
-						len=mmo_map_npc_say(WFIFOP(fd,0),sd->npc_id,mes);
-					}
-					else {
-						len=mmo_map_npc_say(WFIFOP(fd,0),sd->npc_id,script+pos);
+		case C_MES:
+		{
+			char *charname="$CharName";
+			char *replace_pos=script+pos;
+			int match=0;
+			int users_on_map = map_data[sd->mapno].users;
+			while((replace_pos=strstr(replace_pos,charname))!=NULL) {
+				match++;
+				replace_pos+=10;
+			}
+			if(match) {
+				static char *mes=NULL;
+				static int mes_max;
+				int new_len=strlen(sd->status.name);
+				int str_len=strlen(script+pos);
+				if(mes==NULL) {
+					mes_max=str_len+1+(new_len-10)*match;
+					mes=realloc(mes,mes_max);
+				} else if(mes_max<str_len+1+(new_len-10)*match) {
+					mes_max=str_len+1+(new_len-10)*match;
+					mes=malloc(mes_max);
+				}
+				strcpy(mes,script+pos);
+				while((replace_pos=strstr(mes,charname))!=NULL) {
+					memmove(replace_pos+new_len,replace_pos+10,strlen(replace_pos)+1-10);
+					memmove(replace_pos,sd->status.name,new_len);
+					if(10>new_len) {
+						*(mes+str_len-10+new_len)='\0';
+						str_len=strlen(mes);
 					}
 				}
-				if(len>0) WFIFOSET(fd,len);
-				pos+=strlen(script+pos)+1;
-				break;
-			case C_NEXT:
-				len=mmo_map_npc_next(WFIFOP(fd,0),sd->npc_id);
-				if(len>0) WFIFOSET(fd,len);
-				stop=1;
-				break;
-			case C_CLOSE:
-				len=mmo_map_npc_close(WFIFOP(fd,0),sd->npc_id);
-				if(len>0) WFIFOSET(fd,len);
+				len=mmo_map_npc_say(WFIFOP(fd,0),sd->npc_id,mes);
+			}
+			else {
+				len=mmo_map_npc_say(WFIFOP(fd,0),sd->npc_id,script+pos);
+			}
+		}
+		if(len>0) WFIFOSET(fd,len);
+		pos+=strlen(script+pos)+1;
+		break;
+		case C_NEXT:
+			len=mmo_map_npc_next(WFIFOP(fd,0),sd->npc_id);
+			if(len>0) WFIFOSET(fd,len);
+			stop=1;
+			break;
+		case C_CLOSE:
+			len=mmo_map_npc_close(WFIFOP(fd,0),sd->npc_id);
+			if(len>0) WFIFOSET(fd,len);
+			end=1;
+			break;
+		case C_MENU:
+			len=mmo_map_npc_select(WFIFOP(fd,0),sd->npc_id,script+pos);
+			if(len>0) WFIFOSET(fd,len);
+			pos+=strlen(script+pos)+1;
+			stop=1;
+			break;
+		case C_MENU_GOTO:
+			for(i=1,c=C_POS;i<sd->local_reg[15] && (c=get_com(script,&pos))==C_POS;i++)
+				pos+=4;
+			if(c!=C_POS || (c=get_com(script,&pos))!=C_POS) {
 				end=1;
 				break;
-			case C_MENU:
-				len=mmo_map_npc_select(WFIFOP(fd,0),sd->npc_id,script+pos);
-				if(len>0) WFIFOSET(fd,len);
-				pos+=strlen(script+pos)+1;
-				stop=1;
-				break;
-			case C_MENU_GOTO:
-				for(i=1,c=C_POS;i<sd->local_reg[15] && (c=get_com(script,&pos))==C_POS;i++)
-				pos+=4;
-				if(c!=C_POS || (c=get_com(script,&pos))!=C_POS) {
-					end=1;
-					break;
+			}
+			pos=*(int*)(script+pos);
+			break;
+		case C_JOBCHANGE:
+			mmo_map_jobchange(fd, get_num(sd,script,&pos));
+			break;
+		case C_RESETSKILL:
+			j=0;
+			for(i=0;i<=MAX_SKILL;i++) {
+				if(sd->status.skill[i].lv > 0 ) {
+					j+=sd->status.skill[i].lv;
+					sd->status.skill[i].lv=0;
 				}
-				pos=*(int*)(script+pos);
-				break;
-			case C_JOBCHANGE:
-				mmo_map_jobchange(fd, get_num(sd,script,&pos));
-				break;
-			case C_RESETSKILL:
-				j=0;
-				for(i=0;i<=MAX_SKILL;i++) {
-					if(sd->status.skill[i].lv > 0 ) {
-						j+=sd->status.skill[i].lv;
-						sd->status.skill[i].lv=0;
-					}
+			}
+			mmo_map_send_skills(fd, 1);
+			mmo_map_update_param(fd,SP_SKILLPOINT,j);
+			break;
+		case C_RESETSTATUS:
+			if(sd->status.int_>1) {
+				while(sd->status.int_>1) {
+					sd->status.int_--;
+					j=calc_need_status_point(sd,SP_INT);
+					mmo_map_update_param(fd,SP_STATUSPOINT,j);
 				}
-				mmo_map_send_skills(fd, 1);
-				mmo_map_update_param(fd,SP_SKILLPOINT,j);
+			}
+			if(sd->status.agi>1) {
+				while(sd->status.agi>1) {
+					sd->status.agi--;
+					j=calc_need_status_point(sd,SP_AGI);
+					mmo_map_update_param(fd,SP_STATUSPOINT,j);
+				}
+			}
+			if(sd->status.str>1) {
+				while(sd->status.str>1) {
+					sd->status.str--;
+					j=calc_need_status_point(sd,SP_STR);
+					mmo_map_update_param(fd,SP_STATUSPOINT,j);
+				}
+			}
+			if(sd->status.vit>1) {
+				while(sd->status.vit>1) {
+					sd->status.vit--;
+					j=calc_need_status_point(sd,SP_VIT);
+					mmo_map_update_param(fd,SP_STATUSPOINT,j);
+				}
+			}
+			if(sd->status.dex>1) {
+				while(sd->status.dex>1) {
+					sd->status.dex--;
+					j=calc_need_status_point(sd,SP_DEX);
+					mmo_map_update_param(fd,SP_STATUSPOINT,j);
+				}
+			}
+			if(sd->status.luk>1) {
+				while(sd->status.luk>1) {
+					sd->status.luk--;
+					j=calc_need_status_point(sd,SP_LUK);
+					mmo_map_update_param(fd,SP_STATUSPOINT,j);
+				}
+			}
+			mmo_send_selfdata(sd);
+			break;
+		case C_GOTO:
+			if(get_com(script,&pos)!=C_POS) {
+				end=1;
 				break;
-			case C_RESETSTATUS:
-				if(sd->status.int_>1) {
-					while(sd->status.int_>1) {
-						sd->status.int_--;
-						j=calc_need_status_point(sd,SP_INT);
-						mmo_map_update_param(fd,SP_STATUSPOINT,j);
-					}
-				}
-				if(sd->status.agi>1) {
-					while(sd->status.agi>1) {
-						sd->status.agi--;
-						j=calc_need_status_point(sd,SP_AGI);
-						mmo_map_update_param(fd,SP_STATUSPOINT,j);
-					}
-				}
-				if(sd->status.str>1) {
-					while(sd->status.str>1) {
-						sd->status.str--;
-						j=calc_need_status_point(sd,SP_STR);
-						mmo_map_update_param(fd,SP_STATUSPOINT,j);
-					}
-				}
-				if(sd->status.vit>1) {
-					while(sd->status.vit>1) {
-						sd->status.vit--;
-						j=calc_need_status_point(sd,SP_VIT);
-						mmo_map_update_param(fd,SP_STATUSPOINT,j);
-					}
-				}
-				if(sd->status.dex>1) {
-					while(sd->status.dex>1) {
-						sd->status.dex--;
-						j=calc_need_status_point(sd,SP_DEX);
-						mmo_map_update_param(fd,SP_STATUSPOINT,j);
-					}
-				}
-				if(sd->status.luk>1) {
-					while(sd->status.luk>1) {
-						sd->status.luk--;
-						j=calc_need_status_point(sd,SP_LUK);
-						mmo_map_update_param(fd,SP_STATUSPOINT,j);
-					}
-				}
-				mmo_send_selfdata(sd);
+			}
+			pos=*(int*)(script+pos);
+			break;
+		case C_INPUT:
+			len=mmo_map_npc_amount_request(WFIFOP(fd,0),sd->npc_id);
+			if(len>0) WFIFOSET(fd,len);
+			stop=1;
+			break;
+		case C_SETLOOK:
+			//アイテムナンバー
+			i1=get_num(sd,script,&pos);
+			i2=get_num(sd,script,&pos);
+			len=mmo_map_set_look(WFIFOP(fd,0),sd->account_id,itemdb_stype(i1),itemdb_view_point(i1));
+			if(len>0) mmo_map_sendarea(fd,WFIFOP(fd,0),len,0);
+			break;
+		case C_WARP:
+			s1=script+pos;
+			pos+=strlen(script+pos)+1;
+			i1=get_num(sd,script,&pos);
+			i2=get_num(sd,script,&pos);
+			sd->status.talking_to_npc=0;
+			mmo_map_changemap(sd,s1,i1,i2,2);
+			break;
+		case C_SETZENY:
+			c=get_com(script,&pos);
+			i1=get_num(sd,script,&pos);
+			i2=get_expr(sd,script,&pos);
+			switch(c) {
+			case C_PARAM:
+				mmo_map_update_param(fd,i1,i2);
 				break;
-			case C_GOTO:
-				if(get_com(script,&pos)!=C_POS) {
-					end=1;
-					break;
-				}
-				pos=*(int*)(script+pos);
+			case C_LOCAL:
+				sd->local_reg[i1]=i2;
 				break;
-			case C_INPUT:
-				len=mmo_map_npc_amount_request(WFIFOP(fd,0),sd->npc_id);
-				if(len>0) WFIFOSET(fd,len);
-				stop=1;
-				break;
-			case C_SETLOOK:
-				//アイテムナンバー
-				i1=get_num(sd,script,&pos);
-				i2=get_num(sd,script,&pos);
-				len=mmo_map_set_look(WFIFOP(fd,0),sd->account_id,itemdb_stype(i1),itemdb_view_point(i1));
-				if(len>0) mmo_map_sendarea(fd,WFIFOP(fd,0),len,0);
-				break;
-			case C_WARP:
-				s1=script+pos;
-				pos+=strlen(script+pos)+1;
-				i1=get_num(sd,script,&pos);
-				i2=get_num(sd,script,&pos);
-				sd->status.talking_to_npc=0;
-				mmo_map_changemap(sd,s1,i1,i2,2);
-				break;
-			case C_SETZENY:
-				c=get_com(script,&pos);
-				i1=get_num(sd,script,&pos);
-				i2=get_expr(sd,script,&pos);
-				switch(c) {
-					case C_PARAM:
-						mmo_map_update_param(fd,i1,i2);
-						break;
-					case C_LOCAL:
-						sd->local_reg[i1]=i2;
-						break;
-					case C_GLOBAL:
+			case C_GLOBAL:
 //						sd->status.global_reg[i1]=i2;
-						break;
-				}
 				break;
-			case C_SET:
-			case C_RANDOM:
-				c=get_com(script,&pos);
-				i1=get_num(sd,script,&pos);
-				if(s==C_SET) {
-					i2=get_expr(sd,script,&pos);
+			}
+			break;
+		case C_SET:
+		case C_RANDOM:
+			c=get_com(script,&pos);
+			i1=get_num(sd,script,&pos);
+			if(s==C_SET) {
+				i2=get_expr(sd,script,&pos);
+			}
+			else {
+				i2=randN(get_num(sd,script,&pos));
+			}
+			switch(c) {
+			case C_PARAM:
+				mmo_map_update_param(fd,i1,i2);
+				break;
+			case C_LOCAL:
+				sd->local_reg[i1]=i2;
+				break;
+			case C_GLOBAL:
+				if(i2==0) {
+					int j=-1;
+					for(i=0;i<GLOBAL_REG_NUM;i++) {
+						if(!sd->status.global_reg[i].str[0])
+							break;
+						if(comcmp(sd->status.global_reg[i].str,alias_ext_tbl[i1].str)==0)
+							j=i;
+					}
+					if(0<=j && 0<i) {
+						sd->status.global_reg[j]=sd->status.global_reg[i-1];
+						sd->status.global_reg[i-1].str[0]='\0';
+					}
 				}
 				else {
-					i2=randN(get_num(sd,script,&pos));
-				}
-				switch(c) {
-					case C_PARAM:
-						mmo_map_update_param(fd,i1,i2);
-						break;
-					case C_LOCAL:
-						sd->local_reg[i1]=i2;
-						break;
-					case C_GLOBAL:
-						if(i2==0) {
-							int j=-1;
-							for(i=0;i<GLOBAL_REG_NUM;i++) {
-								if(!sd->status.global_reg[i].str[0])
-								break;
-								if(comcmp(sd->status.global_reg[i].str,alias_ext_tbl[i1].str)==0)
-								j=i;
-							}
-							if(0<=j && 0<i) {
-								sd->status.global_reg[j]=sd->status.global_reg[i-1];
-								sd->status.global_reg[i-1].str[0]='\0';
-							}
-						}
-						else {
-    						for(i=0;i<GLOBAL_REG_NUM;i++) {
-								if(!sd->status.global_reg[i].str[0])
-								break;
-								if(comcmp(sd->status.global_reg[i].str,alias_ext_tbl[i1].str)==0)
-    							break;
-							}
-							if(i<GLOBAL_REG_NUM) {
-								if(sd->status.global_reg[i].str[0]==0)
-								strcpy(sd->status.global_reg[i].str,alias_ext_tbl[i1].str);
-								sd->status.global_reg[i].value=i2;
-							} else {
-								printf("too many global variables used by %s.\n", sd->status.name);
-							}
-						}
-    					break;
-					case C_TEMPORAL: {
-						struct temporal_reg *temporal_reg=temporal_r(sd->char_id);
-						for(i=0;temporal_reg[i].tbl_val!=-1;i++) {
-							if(temporal_reg[i].tbl_val==i1)
+					for(i=0;i<GLOBAL_REG_NUM;i++) {
+						if(!sd->status.global_reg[i].str[0])
 							break;
-						}
-						if(temporal_reg[i].tbl_val==-1)
-						temporal_reg[i].tbl_val=i1;
-						temporal_reg[i].value=i2;
+						if(comcmp(sd->status.global_reg[i].str,alias_ext_tbl[i1].str)==0)
+    							break;
 					}
-					break;
+					if(i<GLOBAL_REG_NUM) {
+						if(sd->status.global_reg[i].str[0]==0)
+							strcpy(sd->status.global_reg[i].str,alias_ext_tbl[i1].str);
+						sd->status.global_reg[i].value=i2;
+					} else {
+						printf("too many global variables used by %s.\n", sd->status.name);
+					}
 				}
 				break;
-			case C_IF:
-				i1=get_expr(sd,script,&pos);
-				if(get_com(script,&pos)!=C_POS) {
-					end=1;
-					break;
-				}
-				if(i1)
-					pos=*(int*)(script+pos);
-				else
-					pos+=4;
-				break;
-			case C_GETITEM:
-				i1=get_num(sd,script,&pos);
-				i2=get_expr(sd,script,&pos);
-				memset(&tmp_item,0,sizeof(tmp_item));
-				tmp_item.nameid=i1;
-				tmp_item.amount=i2;
-				tmp_item.identify=1;
-				mmo_map_get_item(fd, &tmp_item);
-				break;
-			case C_DELITEM:
-				i1=get_num(sd,script,&pos);
-				i2=get_expr(sd,script,&pos);
-				for(i=0;i<100;i++) {
-					if(sd->status.inventory[i].nameid==i1) {
-						if(sd->status.inventory[i].amount>=i2) {
-							if(mmo_map_lose_item(fd,0,i+2,i2)) i2 = 0;
-						} else {
-							if(mmo_map_lose_item(fd,0,i+2,sd->status.inventory[i].amount)) i2-=sd->status.inventory[i].amount;
-						}
+			case C_TEMPORAL: {
+				struct temporal_reg *temporal_reg=temporal_r(sd->char_id);
+				for(i=0;temporal_reg[i].tbl_val!=-1;i++) {
+					if(temporal_reg[i].tbl_val==i1)
 						break;
-					}
 				}
-				if(i2>0)
+				if(temporal_reg[i].tbl_val==-1)
+					temporal_reg[i].tbl_val=i1;
+				temporal_reg[i].value=i2;
+			}
+				break;
+			}
+			break;
+		case C_IF:
+			i1=get_expr(sd,script,&pos);
+			if(get_com(script,&pos)!=C_POS) {
+				end=1;
+				break;
+			}
+			if(i1)
+				pos=*(int*)(script+pos);
+			else
+				pos+=4;
+			break;
+		case C_GETITEM:
+			i1=get_num(sd,script,&pos);
+			i2=get_expr(sd,script,&pos);
+			memset(&tmp_item,0,sizeof(tmp_item));
+			tmp_item.nameid=i1;
+			tmp_item.amount=i2;
+			tmp_item.identify=1;
+			mmo_map_get_item(fd, &tmp_item);
+			break;
+		case C_DELITEM:
+			i1=get_num(sd,script,&pos);
+			i2=get_expr(sd,script,&pos);
+			for(i=0;i<100;i++) {
+				if(sd->status.inventory[i].nameid==i1) {
+					if(sd->status.inventory[i].amount>=i2) {
+						if(mmo_map_lose_item(fd,0,i+2,i2)) i2 = 0;
+					} else {
+						if(mmo_map_lose_item(fd,0,i+2,sd->status.inventory[i].amount)) i2-=sd->status.inventory[i].amount;
+					}
+					break;
+				}
+			}
+			if(i2>0)
 				sd->local_reg[13]++;
-				break;
-			case C_CUTIN:
-				s1=script+pos;
-				pos+=strlen(script+pos)+1;
-				i1=get_num(sd,script,&pos);
-				len=mmo_map_cutin(WFIFOP(fd,0),s1,i1);
-				if(len>0) WFIFOSET(fd,len);
-				break;
-			case C_MONSTER:
-				temp_map = sd->mapno;
-				s1=script+pos;
-				pos+=strlen(script+pos)+1;
-				i1=get_num(sd,script,&pos);
-				i2=get_num(sd,script,&pos);
-				i3=get_num(sd,script,&pos);
-				i4=get_num(sd,script,&pos);
-				for(j=0;j <i2;j++) spawn_to_pos(sd,i1,s1,i3,i4,temp_map,fd);
-				break;
-			case C_VIEWPOINT:
-				WFIFOW(fd,0)=0x144;
-				WFIFOL(fd,2)=sd->npc_id;
-				WFIFOL(fd,6)=get_num(sd,script,&pos);	// type
-				WFIFOL(fd,10)=get_num(sd,script,&pos);	// x
-				WFIFOL(fd,14)=get_num(sd,script,&pos);	// y
-				WFIFOB(fd,18)=get_num(sd,script,&pos);	// point id
-				WFIFOL(fd,19)=get_num(sd,script,&pos);	// color
-				WFIFOSET(fd,23);
-				break;
-			case C_SAVE:
-				s1=script+pos;
-				pos+=strlen(script+pos)+1;
-				i1=get_num(sd,script,&pos);
-				i2=get_num(sd,script,&pos);
-				strcpy(sd->status.save_point.map,s1);
-				sd->status.save_point.x = i1;
-				sd->status.save_point.y = i2;
-				mmo_char_save(sd);
-				break;
-			case C_GIVESPECIAL:
+			break;
+		case C_CUTIN:
+			s1=script+pos;
+			pos+=strlen(script+pos)+1;
+			i1=get_num(sd,script,&pos);
+			len=mmo_map_cutin(WFIFOP(fd,0),s1,i1);
+			if(len>0) WFIFOSET(fd,len);
+			break;
+		case C_MONSTER:
+			temp_map = sd->mapno;
+			s1=script+pos;
+			pos+=strlen(script+pos)+1;
+			i1=get_num(sd,script,&pos);
+			i2=get_num(sd,script,&pos);
+			i3=get_num(sd,script,&pos);
+			i4=get_num(sd,script,&pos);
+			for(j=0;j <i2;j++) spawn_to_pos(sd,i1,s1,i3,i4,temp_map,fd);
+			break;
+		case C_VIEWPOINT:
+			WFIFOW(fd,0)=0x144;
+			WFIFOL(fd,2)=sd->npc_id;
+			WFIFOL(fd,6)=get_num(sd,script,&pos);	// type
+			WFIFOL(fd,10)=get_num(sd,script,&pos);	// x
+			WFIFOL(fd,14)=get_num(sd,script,&pos);	// y
+			WFIFOB(fd,18)=get_num(sd,script,&pos);	// point id
+			WFIFOL(fd,19)=get_num(sd,script,&pos);	// color
+			WFIFOSET(fd,23);
+			break;
+		case C_SAVE:
+			s1=script+pos;
+			pos+=strlen(script+pos)+1;
+			i1=get_num(sd,script,&pos);
+			i2=get_num(sd,script,&pos);
+			strcpy(sd->status.save_point.map,s1);
+			sd->status.save_point.x = i1;
+			sd->status.save_point.y = i2;
+			mmo_char_save(sd);
+			break;
+		case C_GIVESPECIAL:
 			i1 = get_num(sd, script, &pos);
 			if (i1 == 1) { // if give_special 1 -- give target a cart
 				sd->status.special = 0x08;
@@ -1387,73 +1527,73 @@ int run_script(int fd)
 				mmo_map_calc_status(fd, 0);
 			}
 			break;
-			case C_FULLHEAL:
-				p->hp = p->max_hp;
-				p->sp = p->max_sp;
-				WFIFOW(fd,0) = 0xb0;
-			    WFIFOW(fd,2) = 0005;
-			    WFIFOL(fd,4) = p->hp;
-			    WFIFOSET(fd,8);
+		case C_FULLHEAL:
+			p->hp = p->max_hp;
+			p->sp = p->max_sp;
+			WFIFOW(fd,0) = 0xb0;
+			WFIFOW(fd,2) = 0005;
+			WFIFOL(fd,4) = p->hp;
+			WFIFOSET(fd,8);
 
-			    WFIFOW(fd,0) = 0xb0;
-			    WFIFOW(fd,2) = 0007;
-			    WFIFOL(fd,4) = p->sp;
-			    WFIFOSET(fd,8);
-			    break;
-			case C_RELEASE:
-				i1=get_num(sd,script,&pos);
-				for(i=0;i<100;i++) {
-					if(sd->status.inventory[i].amount>=1) {
-						int item_num;
-						item_num = itemdb_stype(sd->status.inventory[i].nameid);
-						if ((sd->status.inventory[i].equip) && (item_num == i1)) {
-							WFIFOW(fd,0)=0xac;
-							WFIFOW(fd,2)=i+2;
-							WFIFOW(fd,4)=sd->status.inventory[i].equip;
-							WFIFOW(fd,6)=1;
-							WFIFOSET(fd,7);
-							sd->status.inventory[i].equip=0;
-						} else {
-							WFIFOW(fd,0)=0xac;
-							WFIFOW(fd,2)=i+2;
-							WFIFOW(fd,6)=0;
-							WFIFOSET(fd,7);
-						}
-						len=mmo_map_set_look(WFIFOP(fd,0),sd->account_id,item_num,0);
-						if(len>0) mmo_map_sendall(fd,WFIFOP(fd,0),len,0);
-						mmo_map_calc_status(fd,0);
-						set_equip(sd, item_num, 0);
+			WFIFOW(fd,0) = 0xb0;
+			WFIFOW(fd,2) = 0007;
+			WFIFOL(fd,4) = p->sp;
+			WFIFOSET(fd,8);
+			break;
+		case C_RELEASE:
+			i1=get_num(sd,script,&pos);
+			for(i=0;i<100;i++) {
+				if(sd->status.inventory[i].amount>=1) {
+					int item_num;
+					item_num = itemdb_stype(sd->status.inventory[i].nameid);
+					if ((sd->status.inventory[i].equip) && (item_num == i1)) {
+						WFIFOW(fd,0)=0xac;
+						WFIFOW(fd,2)=i+2;
+						WFIFOW(fd,4)=sd->status.inventory[i].equip;
+						WFIFOW(fd,6)=1;
+						WFIFOSET(fd,7);
+						sd->status.inventory[i].equip=0;
+					} else {
+						WFIFOW(fd,0)=0xac;
+						WFIFOW(fd,2)=i+2;
+						WFIFOW(fd,6)=0;
+						WFIFOSET(fd,7);
 					}
+					len=mmo_map_set_look(WFIFOP(fd,0),sd->account_id,item_num,0);
+					if(len>0) mmo_map_sendall(fd,WFIFOP(fd,0),len,0);
+					mmo_map_calc_status(fd,0);
+					set_equip(sd, item_num, 0);
 				}
-				break;
-			case C_RELEASEALL:
-				for(i=0;i<100;i++) {
-					if(sd->status.inventory[i].amount>=1) {
-						int item_num;
-						item_num = itemdb_stype(sd->status.inventory[i].nameid);
-						if(sd->status.inventory[i].equip) {
-							WFIFOW(fd,0)=0xac;
-							WFIFOW(fd,2)=i+2;
-							WFIFOW(fd,4)=sd->status.inventory[i].equip;
-							WFIFOW(fd,6)=1;
-							WFIFOSET(fd,7);
-							sd->status.inventory[i].equip=0;
-						} else {
-							WFIFOW(fd,0)=0xac;
-							WFIFOW(fd,2)=i+2;
-							WFIFOW(fd,6)=0;
-							WFIFOSET(fd,7);
-						}
-						len=mmo_map_set_look(WFIFOP(fd,0),sd->account_id,item_num,0);
-						if(len>0) mmo_map_sendall(fd,WFIFOP(fd,0),len,0);
-						mmo_map_calc_status(fd,0);
-						set_equip(sd,item_num,0);
+			}
+			break;
+		case C_RELEASEALL:
+			for(i=0;i<100;i++) {
+				if(sd->status.inventory[i].amount>=1) {
+					int item_num;
+					item_num = itemdb_stype(sd->status.inventory[i].nameid);
+					if(sd->status.inventory[i].equip) {
+						WFIFOW(fd,0)=0xac;
+						WFIFOW(fd,2)=i+2;
+						WFIFOW(fd,4)=sd->status.inventory[i].equip;
+						WFIFOW(fd,6)=1;
+						WFIFOSET(fd,7);
+						sd->status.inventory[i].equip=0;
+					} else {
+						WFIFOW(fd,0)=0xac;
+						WFIFOW(fd,2)=i+2;
+						WFIFOW(fd,6)=0;
+						WFIFOSET(fd,7);
 					}
+					len=mmo_map_set_look(WFIFOP(fd,0),sd->account_id,item_num,0);
+					if(len>0) mmo_map_sendall(fd,WFIFOP(fd,0),len,0);
+					mmo_map_calc_status(fd,0);
+					set_equip(sd,item_num,0);
 				}
-				break;
-			case C_REFINE:
-				i1=get_num(sd,script,&pos);
-				for(i=0;i<MAX_INVENTORY;i++)
+			}
+			break;
+		case C_REFINE:
+			i1=get_num(sd,script,&pos);
+			for(i=0;i<MAX_INVENTORY;i++)
 				if(p->inventory[i].equip == i1) {
 					WFIFOW(fd,0) = 0x188;
 					WFIFOW(fd,2) = 0;
@@ -1466,10 +1606,10 @@ int run_script(int fd)
 					mmo_send_selfdata(sd);
 					mmo_map_calc_status(fd,0);
 				}
-				break;
-			case C_FAILURE:
-				i1=get_num(sd,script,&pos);
-				for(i=0;i<MAX_INVENTORY;i++)
+			break;
+		case C_FAILURE:
+			i1=get_num(sd,script,&pos);
+			for(i=0;i<MAX_INVENTORY;i++)
 				if(p->inventory[i].equip == i1) {
 					WFIFOW(fd,0) = 0x188;
 					WFIFOW(fd,2) = 1;
@@ -1482,42 +1622,64 @@ int run_script(int fd)
 					mmo_send_selfdata(sd);
 					mmo_map_calc_status(fd,0);
 				}
-				break;
-			case C_HEALHP:
-				i1 = get_num(sd, script, &pos);
-				p->hp += i1;
-				WFIFOW(fd, 0) = 0xb0;
-			   	WFIFOW(fd, 2) = 0005;
-			   	WFIFOL(fd, 4) = p->hp;
-			    	WFIFOSET(fd, packet_len_table[0xb0]);
-			   	break;
-			case C_HEALSP:
-				i1 = get_num(sd, script, &pos);
-				p->sp += i1;
-				WFIFOW(fd, 0) = 0xb0;
-			   	WFIFOW(fd, 2) = 0007;
-			    	WFIFOL(fd, 4) = p->sp;
-			    	WFIFOSET(fd, packet_len_table[0xb0]);
-			   	break;
-			case C_STORAGE:
-				mmo_open_storage(fd);
-				break;
-			case C_EMOTION:
-				i1=get_num(sd,script,&pos);
-				WBUFW(buf, 0) = 0x1aa;
-				WBUFL(buf, 2) = map_data[sd->mapno].npc[sd->npc_n]->id;
-				WBUFL(buf, 6) = i1;
-				mmo_map_sendarea(fd, buf, packet_len_table[0x1aa], 0);
-				break;
-			default:
-			{
-				int i;
-				fprintf(stderr, "run_script error %04x : ", pos);
-				for (i = -5; i <= 5; i++)
+			break;
+		case C_HEALHP:
+			i1 = get_num(sd, script, &pos);
+			p->hp += i1;
+			WFIFOW(fd, 0) = 0xb0;
+			WFIFOW(fd, 2) = 0005;
+			WFIFOL(fd, 4) = p->hp;
+			WFIFOSET(fd, packet_len_table[0xb0]);
+			break;
+		case C_HEALSP:
+			i1 = get_num(sd, script, &pos);
+			p->sp += i1;
+			WFIFOW(fd, 0) = 0xb0;
+			WFIFOW(fd, 2) = 0007;
+			WFIFOL(fd, 4) = p->sp;
+			WFIFOSET(fd, packet_len_table[0xb0]);
+			break;
+		case C_STORAGE:
+			mmo_open_storage(fd);
+			break;
+		case C_EMOTION:
+			i1=get_num(sd,script,&pos);
+			WBUFW(buf, 0) = 0x1aa;
+			WBUFL(buf, 2) = map_data[sd->mapno].npc[sd->npc_n]->id;
+			WBUFL(buf, 6) = i1;
+			mmo_map_sendarea(fd, buf, packet_len_table[0x1aa], 0);
+			break;
+		case C_SETSKILL:
+			i1=get_num(sd,script,&pos);
+			sd->status.skill[i1-1].id = i1;
+			sd->status.skill[i1-1].lv = 1;
+			mmo_map_send_skills(fd, 0);
+			break;
+		case C_HAIR:
+			sd->status.hair_color = i1 = get_num(sd,script,&pos);
+			WBUFW(buf, 0) = 0xc3;
+			WBUFL(buf, 2) = sd->account_id;
+			WBUFB(buf, 6) = LOOK_HAIR_COLOR;
+			WBUFB(buf, 7) = sd->status.hair_color;
+			mmo_map_sendarea(fd, buf, packet_len_table[0xc3], 0);
+			break;
+		case C_CLOTHES:
+			sd->status.clothes_color = i1 = get_num(sd,script,&pos);
+			WBUFW(buf, 0) = 0xc3;
+			WBUFL(buf, 2) = sd->account_id;
+			WBUFB(buf, 6) = LOOK_CLOTHES_COLOR;
+			WBUFB(buf, 7) = sd->status.clothes_color;
+			mmo_map_sendarea(fd, buf, packet_len_table[0xc3], 0);
+			break;
+		default:
+		{
+			int i;
+			fprintf(stderr, "run_script error %04x : ", pos);
+			for (i = -5; i <= 5; i++)
 				fprintf(stderr, "%02x%c\n", script[pos+i],(i==-1) ? '[':((i==0) ? ']':' '));
-				end = 1;
-				break;
-			}
+			end = 1;
+			break;
+		}
 		}
 	}
 	if (end) {

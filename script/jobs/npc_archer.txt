@@ -1,4 +1,4 @@
-// $Id: npc_archer.txt,v 1.1 2003/12/01 22:51:04 MivaBe Exp $
+// $Id: npc_archer.txt,v 1.1 2004/11/17 04:15:22 dennisjoel Exp $
 //<--------------- Archer Job Quest [Update: Oct. 06, 2003] --------------->\\
 payon_in02.gat,64,71,4	script	Archer Guildsman	85,{
 	mes "[Archer Guildsman]";

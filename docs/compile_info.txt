@@ -1,0 +1,17 @@
+		             How to compile Odin?
+
+To compile Odin you need to have GCC C Compiler. There are three diferent
+types of compilation commands. The first one is 'make' this command should
+make all 3 servers compile at a time. The other options are 'make a' to compile
+Account Server only, 'make c' to compile Character Server only, and 'make z'
+to compile Zone Server only. After you have tested the servers is with new
+additions is recommendable that you do a 'make clean' command to remove old *.o
+garbage and load new link object data to the compiler. By telling this I assume
+that the GCC C Compiler is pointing to the folder where the source code is.
+That is where the Makefile is in.
+
+Special Note: There is a problem loading Zone Server if the variable located
+at sys/types.h is not set to 5000. I'm talking of FD_SETSIZE; the default
+value is 64 but the server wont work if this is not changed. So it should be
+set to 5000 and not 64.
+

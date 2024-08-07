@@ -12,16 +12,16 @@
  * You should have received a copy of the GNU General Public License
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
-------------------------------------------------------------------------*/
+ ------------------------------------------------------------------------*/
 
 /*------------------------------------------------------------------------
- Module:        Version 1.7.0 SP1
- Author:        Odin Developer Team Copyrights (c) 2004
- Project:       Project Odin Zone Server
- Creation Date: Dicember 6, 2003
- Modified Date: October 30, 2004
- Description:   Ragnarok Online Server Emulator
-------------------------------------------------------------------------*/
+  Module:        Version 1.7.1 - Angel Ex
+  Author:        Odin Developer Team Copyrights (c) 2004
+  Project:       Project Odin Zone Server
+  Creation Date: Dicember 6, 2003
+  Modified Date: November 22, 2004
+  Description:   Ragnarok Online Server Emulator
+  ------------------------------------------------------------------------*/
 
 #include "core.h"
 #include "mmo.h"
@@ -71,9 +71,9 @@ int pet_init(struct map_session_data *sd)
 				sd->status.pet.activity = pet_dat[i].activity;
 			}
 			sd->status.pet.pet_id_as_npc = current_id;
-			for (i = 0; i < MAX_MAP_PER_SERVER; i++) {
+			for (i = 0; i < MAX_MAP_PER_SERVER; i++)
 				sd->status.pet.pet_npc_id_on_map[i] = 0;
-			}
+
 			if (sd->feed_pet_timer == 0) {
 				i = search_pet_id(sd->status.pet.pet_class);
 				sd->feed_pet_timer = add_timer(gettick() + pet_db[i].hungry_delay * 60000, feed_the_pet, sd->fd, pet_db[i].hungry_delay);
@@ -90,6 +90,7 @@ int pet_init(struct map_session_data *sd)
 int mmo_map_resetpet_stat(struct map_session_data *sd)
 {
 	sd->status.pet.pet_class = 0;
+	strcpy(sd->status.pet.pet_name, "");
 	sd->status.pet.pet_level = 0;
 	sd->status.pet.mons_id = 0;
 	sd->status.pet.pet_accessory = 0;
@@ -97,8 +98,8 @@ int mmo_map_resetpet_stat(struct map_session_data *sd)
 	sd->status.pet.pet_hungry = 0;
 	sd->status.pet.pet_name_flag = 0;
 	sd->status.pet.activity = 0;
-	del_block(&map_data[sd->mapno].npc[sd->status.pet.pet_npc_id_on_map[sd->mapno]]->block);
 	set_monster_no_point(sd->mapno, sd->status.pet.pet_npc_id_on_map[sd->mapno]);
+	del_block(&map_data[sd->mapno].npc[sd->status.pet.pet_npc_id_on_map[sd->mapno]]->block);
 	WBUFW(buf, 0) = 0x80;
 	WBUFL(buf, 2) = sd->status.pet.pet_id_as_npc;
 	WBUFB(buf, 6) = 0;
@@ -139,10 +140,11 @@ int mmo_map_pet_catch(int fd, struct map_session_data *sd, int index)
 	WFIFOSET(fd, packet_len_table[0x1a0]);
 
 	if (flag) {
-		delete_timer(map_data[sd->mapno].npc[j]->u.mons.timer, mons_walk);
-		map_data[sd->mapno].npc[j]->u.mons.timer = 0;
+		delete_timer(map_data[sd->mapno].npc[j]->u.mons.walktimer, mons_walk);
+		map_data[sd->mapno].npc[j]->u.mons.walktimer = 0;
 		map_data[sd->mapno].npc[j]->u.mons.speed = 0;
 		set_monster_no_point(sd->mapno, j);
+		del_block(&map_data[sd->mapno].npc[j]->block);
 		WBUFW(buf, 0) = 0x80;
 		WBUFL(buf, 2) = map_data[sd->mapno].npc[j]->id;
 		WBUFB(buf, 6) = 2;
@@ -152,100 +154,100 @@ int mmo_map_pet_catch(int fd, struct map_session_data *sd, int index)
 }
 
 enum { PSTAT, PFEED, PPER, PREGG, PREQUIP };
-
 int mmp_map_pet_stat_select(int fd, struct map_session_data *sd, int type)
 {
-	int i;
-	int itemid = 0, index = 0, hungry_delay = 0;
+	int i, itemid = 0, index = 0, hungry_delay = 0;
 
 	switch (type) {
-		case PSTAT:
-			WFIFOW(fd, 0) = 0x1a2;
-			memcpy(WFIFOP(fd, 2), sd->status.pet.pet_name, 24);
-			WFIFOB(fd, 26) = sd->status.pet.pet_name_flag;
-			WFIFOW(fd, 27) = sd->status.pet.pet_level;
-			WFIFOW(fd, 29) = sd->status.pet.pet_hungry;
-			WFIFOW(fd, 31) = sd->status.pet.pet_friendly;
-			WFIFOW(fd, 33) = sd->status.pet.pet_accessory;
-			WFIFOSET(fd, packet_len_table[0x1a2]);
-			break;
+	case PSTAT:
+		WFIFOW(fd, 0) = 0x1a2;
+		memcpy(WFIFOP(fd, 2), sd->status.pet.pet_name, 24);
+		WFIFOB(fd, 26) = sd->status.pet.pet_name_flag;
+		WFIFOW(fd, 27) = sd->status.pet.pet_level;
+		WFIFOW(fd, 29) = sd->status.pet.pet_hungry;
+		WFIFOW(fd, 31) = sd->status.pet.pet_friendly;
+		WFIFOW(fd, 33) = sd->status.pet.pet_accessory;
+		WFIFOSET(fd, packet_len_table[0x1a2]);
+		break;
 
-		case PFEED:
-			i = search_pet_id(sd->status.pet.pet_class);
-			itemid = pet_db[i].food_id;
-			hungry_delay = pet_db[i].hungry_delay;
+	case PFEED:
+		i = search_pet_id(sd->status.pet.pet_class);
+		itemid = pet_db[i].food_id;
+		hungry_delay = pet_db[i].hungry_delay;
 
-			if (itemid > 0)
-				index = search_item2(sd, itemid);
+		if (itemid > 0)
+			index = search_item2(sd, itemid);
 
-			else
-				index = 0;
+		else
+			index = 0;
 
-			if (index) {
-				mmo_map_lose_item(fd, 0, index, 1);
-				sd->status.pet.pet_hungry += 80;
-				if (sd->status.pet.pet_hungry > 100)
-					sd->status.pet.pet_hungry = 100;
+		if (index) {
+			mmo_map_lose_item(fd, 0, index, 1);
+			sd->status.pet.pet_hungry += 80;
+			if (sd->status.pet.pet_hungry > 100)
+				sd->status.pet.pet_hungry = 100;
 
-				WFIFOW(fd, 0) = 0x1a4;
-				WFIFOB(fd, 2) = 2;
-				WFIFOL(fd, 3) = sd->status.pet.pet_id_as_npc;
-				WFIFOL(fd, 7) = sd->status.pet.pet_hungry;
-				WFIFOSET(fd, packet_len_table[0x1a4]);
+			WFIFOW(fd, 0) = 0x1a4;
+			WFIFOB(fd, 2) = 2;
+			WFIFOL(fd, 3) = sd->status.pet.pet_id_as_npc;
+			WFIFOL(fd, 7) = sd->status.pet.pet_hungry;
+			WFIFOSET(fd, packet_len_table[0x1a4]);
 
-				sd->status.pet.pet_friendly += 20;
-				if (sd->status.pet.pet_friendly > 1000)
-					sd->status.pet.pet_friendly = 1000;
+			sd->status.pet.pet_friendly += 20;
+			if (sd->status.pet.pet_friendly > 1000)
+				sd->status.pet.pet_friendly = 1000;
 
-				WFIFOW(fd, 0) = 0x1a4;
-				WFIFOB(fd, 2) = 1;
-				WFIFOL(fd, 3) = sd->status.pet.pet_id_as_npc;
-				WFIFOL(fd, 7) = sd->status.pet.pet_friendly;
-				WFIFOSET(fd, packet_len_table[0x1a4]);
+			WFIFOW(fd, 0) = 0x1a4;
+			WFIFOB(fd, 2) = 1;
+			WFIFOL(fd, 3) = sd->status.pet.pet_id_as_npc;
+			WFIFOL(fd, 7) = sd->status.pet.pet_friendly;
+			WFIFOSET(fd, packet_len_table[0x1a4]);
 
-				WFIFOW(fd, 0) = 0x1a3;
-				WFIFOB(fd, 2) = 1;
-				WFIFOW(fd, 3) = pet_db[i].food_id;
-				WFIFOSET(fd, packet_len_table[0x1a3]);
-			}
-			else {
-				WFIFOW(fd, 0) = 0x1a3;
-				WFIFOB(fd, 2) = 0;
-				WFIFOW(fd, 3) = pet_db[i].food_id;
-				WFIFOSET(fd, packet_len_table[0x1a3]);
-			}
-			break;
+			WFIFOW(fd, 0) = 0x1a3;
+			WFIFOB(fd, 2) = 1;
+			WFIFOW(fd, 3) = pet_db[i].food_id;
+			WFIFOSET(fd, packet_len_table[0x1a3]);
 
-		case PPER:
-			memset(buf, 0, packet_len_table[0x1a4]);
-			WBUFW(buf, 0) = 0x1a4;
-			WBUFB(buf, 2) = 4;
-			WBUFL(buf, 3) = sd->status.pet.pet_id_as_npc;
-			WBUFL(buf, 7) = 2;
-			mmo_map_sendarea(fd, buf, packet_len_table[0x1a4], 0);
-			break;
+			sd->feed_pet_timer = add_timer(gettick() + hungry_delay * 60000, feed_the_pet, fd, hungry_delay);
+		}
+		else {
+			WFIFOW(fd, 0) = 0x1a3;
+			WFIFOB(fd, 2) = 0;
+			WFIFOW(fd, 3) = pet_db[i].food_id;
+			WFIFOSET(fd, packet_len_table[0x1a3]);
+		}
+		break;
 
-		case PREGG:
-			del_block(&map_data[sd->mapno].npc[sd->status.pet.pet_npc_id_on_map[sd->mapno]]->block);
-			set_monster_no_point(sd->mapno, sd->status.pet.pet_npc_id_on_map[sd->mapno]);
-			WBUFW(buf, 0) = 0x80;
-			WBUFL(buf, 2) = sd->status.pet.pet_id_as_npc;
-			WBUFB(buf, 6) = 0;
-			mmo_map_sendarea(fd, buf, packet_len_table[0x80], 0);
-			sd->status.pet.pet_hungry = 0;
-			sd->status.pet.activity = 0;
-			mmo_pet_save(sd);
-			break;
+	case PPER:
+		memset(buf, 0, packet_len_table[0x1a4]);
+		WBUFW(buf, 0) = 0x1a4;
+		WBUFB(buf, 2) = 4;
+		WBUFL(buf, 3) = sd->status.pet.pet_id_as_npc;
+		WBUFL(buf, 7) = 2;
+		mmo_map_sendarea(fd, buf, packet_len_table[0x1a4], 0);
+		break;
 
-		case PREQUIP:
-			memset(buf, 0, packet_len_table[0x1a4]);
-			WBUFW(buf, 0) = 0x1a4;
-			WBUFB(buf, 2) = 3;
-			WBUFL(buf, 3) = sd->status.pet.pet_id_as_npc;
-			WBUFL(buf, 7) = 0;
-			mmo_map_sendarea(fd, buf, packet_len_table[0x1a4], 0);
-			sd->status.pet.pet_accessory = 0;
-			break;
+	case PREGG:
+		set_monster_no_point(sd->mapno, sd->status.pet.pet_npc_id_on_map[sd->mapno]);
+		del_block(&map_data[sd->mapno].npc[sd->status.pet.pet_npc_id_on_map[sd->mapno]]->block);
+		WBUFW(buf, 0) = 0x80;
+		WBUFL(buf, 2) = sd->status.pet.pet_id_as_npc;
+		WBUFB(buf, 6) = 0;
+		mmo_map_sendarea(fd, buf, packet_len_table[0x80], 0);
+		sd->status.pet.pet_hungry = 0;
+		sd->status.pet.activity = 0;
+		mmo_pet_save(sd);
+		break;
+
+	case PREQUIP:
+		memset(buf, 0, packet_len_table[0x1a4]);
+		WBUFW(buf, 0) = 0x1a4;
+		WBUFB(buf, 2) = 3;
+		WBUFL(buf, 3) = sd->status.pet.pet_id_as_npc;
+		WBUFL(buf, 7) = 0;
+		mmo_map_sendarea(fd, buf, packet_len_table[0x1a4], 0);
+		sd->status.pet.pet_accessory = 0;
+		break;
 	}
 	return 0;
 }
@@ -276,8 +278,8 @@ int mmo_map_pet_act(int fd, struct map_session_data *sd, int index)
 
 		for (i = 0; i < MAX_MONS; i++) {
 			if (pet_dat[i].account_id == sd->account_id
-			&& pet_dat[i].char_id == sd->char_id
-			&& pet_dat[i].pet_id == sd->status.pet_id) {
+			    && pet_dat[i].char_id == sd->char_id
+			    && pet_dat[i].pet_id == sd->status.pet_id) {
 				name_id = sd->status.inventory[index].nameid;
 				j = search_mons_id(name_id);
 				if (sd->status.pet.pet_class == pet_db[j].class)
@@ -292,6 +294,7 @@ int mmo_map_pet_act(int fd, struct map_session_data *sd, int index)
 			sd->status.pet.pet_accessory = pet_dat[i].pet_accessory;
 			sd->status.pet.activity = 1;
 			sd->status.pet.pet_class = pet_dat[i].pet_class;
+			sd->feed_pet_timer = add_timer(gettick() + pet_db[i].hungry_delay * 60000, feed_the_pet, fd, pet_db[i].hungry_delay);
 		}
 		else {
 			name_id = sd->status.inventory[index].nameid;
@@ -304,45 +307,41 @@ int mmo_map_pet_act(int fd, struct map_session_data *sd, int index)
 			sd->status.pet.pet_accessory = 0;
 			sd->status.pet.activity = 1;
 			sd->status.pet.pet_class = pet_db[j].class;
+			sd->feed_pet_timer = add_timer(gettick() + pet_db[j].hungry_delay * 60000, feed_the_pet, fd, pet_db[j].hungry_delay);
 		}
 		if (sd->status.pet.pet_npc_id_on_map[sd->mapno] == 0) {
 			sd->status.pet.pet_npc_id_on_map[sd->mapno] = map_data[sd->mapno].npc_num;
 			map_data[sd->mapno].npc_num++;
 		}
 		map_data[sd->mapno].npc[sd->status.pet.pet_npc_id_on_map[sd->mapno]] = malloc(sizeof(struct npc_data));
-		map_data[sd->mapno].npc[sd->status.pet.pet_npc_id_on_map[sd->mapno]]->m = sd->mapno;
-		map_data[sd->mapno].npc[sd->status.pet.pet_npc_id_on_map[sd->mapno]]->x = sd->x;
-		map_data[sd->mapno].npc[sd->status.pet.pet_npc_id_on_map[sd->mapno]]->y = sd->y;
-		map_data[sd->mapno].npc[sd->status.pet.pet_npc_id_on_map[sd->mapno]]->u.mons.speed = 200;
-		map_data[sd->mapno].npc[sd->status.pet.pet_npc_id_on_map[sd->mapno]]->dir = 0;
-		map_data[sd->mapno].npc[sd->status.pet.pet_npc_id_on_map[sd->mapno]]->class = sd->status.pet.pet_class;
-		map_data[sd->mapno].npc[sd->status.pet.pet_npc_id_on_map[sd->mapno]]->id = sd->status.pet.pet_id_as_npc;
-		memcpy(map_data[sd->mapno].npc[sd->status.pet.pet_npc_id_on_map[sd->mapno]]->name, sd->status.pet.pet_name, 24);
+		struct npc_data *pet = map_data[sd->mapno].npc[sd->status.pet.pet_npc_id_on_map[sd->mapno]];
+		pet->m = sd->mapno;
+		pet->x = sd->x;
+		pet->y = sd->y;
+		pet->u.mons.speed = sd->speed;
+		pet->u.mons.equip = sd->status.pet.pet_accessory;
+		pet->dir = sd->dir;
+		pet->class = sd->status.pet.pet_class;
+		pet->id = sd->status.pet.pet_id_as_npc;
+		memcpy(pet->name, sd->status.pet.pet_name, 24);
 
-		mmo_map_set_npc(buf, map_data[sd->mapno].npc[sd->status.pet.pet_npc_id_on_map[sd->mapno]]->id, map_data[sd->mapno].npc[sd->status.pet.pet_npc_id_on_map[sd->mapno]]->class,
-		map_data[sd->mapno].npc[sd->status.pet.pet_npc_id_on_map[sd->mapno]]->x, map_data[sd->mapno].npc[sd->status.pet.pet_npc_id_on_map[sd->mapno]]->y, 0,
-		map_data[sd->mapno].npc[sd->status.pet.pet_npc_id_on_map[sd->mapno]]->u.mons.speed, 0);
+		mmo_map_set_npc(pet, buf);
+		mmo_map_sendarea_mxy(sd->mapno, pet->x, pet->y, buf, packet_len_table[0x78]);
 
-		mmo_map_sendarea_mxy(sd->mapno, map_data[sd->mapno].npc[sd->status.pet.pet_npc_id_on_map[sd->mapno]]->x, map_data[sd->mapno].npc[sd->status.pet.pet_npc_id_on_map[sd->mapno]]->y, buf, packet_len_table[0x78]);
+		WFIFOW(fd, 0) = 0x1a4;
+		WFIFOB(fd, 2) = 0;
+		WFIFOL(fd, 3) = sd->status.pet.pet_id_as_npc;
+		WFIFOL(fd, 7) = 0;
+		WFIFOSET(fd, packet_len_table[0x1a4]);
 
-		WBUFW(buf, 0) = 0x1a4;
-		WBUFB(buf, 2) = 0;
-		WBUFL(buf, 3) = sd->status.pet.pet_id_as_npc;
-		if (sd->status.pet.pet_accessory > 0)
-			WBUFL(buf, 7) = sd->status.pet.pet_accessory;
-		else 
-			WBUFL(buf, 7) = 0;
-
-		mmo_map_sendarea(sd->fd, buf, packet_len_table[0x1a4], 0);
-
-		WBUFW(buf, 0) = 0x1a4;
-		WBUFB(buf, 2) = 5;
-		WBUFL(buf, 3) = sd->status.pet.pet_id_as_npc;
-		WBUFL(buf, 7) = 14;
-		mmo_map_sendarea(sd->fd, buf, packet_len_table[0x1a4], 0);
+		WFIFOW(fd, 0) = 0x1a4;
+		WFIFOB(fd, 2) = 5;
+		WFIFOL(fd, 3) = sd->status.pet.pet_id_as_npc;
+		WFIFOL(fd, 7) = 14;
+		WFIFOSET(fd, packet_len_table[0x1a4]);
 
 		WFIFOW(fd, 0) = 0x1a2;
-		memcpy(WFIFOP(fd, 2), sd->status.pet.pet_name, 24);
+		memcpy(WFIFOP(fd, 2),sd->status.pet.pet_name,24);
 		WFIFOB(fd, 26) = sd->status.pet.pet_name_flag;
 		WFIFOW(fd, 27) = sd->status.pet.pet_level;
 		WFIFOW(fd, 29) = sd->status.pet.pet_hungry;;
@@ -350,10 +349,9 @@ int mmo_map_pet_act(int fd, struct map_session_data *sd, int index)
 		WFIFOW(fd, 33) = sd->status.pet.pet_accessory;
 		WFIFOSET(fd, packet_len_table[0x1a2]);
 
-		map_data[sd->mapno].npc[sd->status.pet.pet_npc_id_on_map[sd->mapno]]->block.next = NULL;
-		map_data[sd->mapno].npc[sd->status.pet.pet_npc_id_on_map[sd->mapno]]->block.prev = NULL;
-		map_data[sd->mapno].npc[sd->status.pet.pet_npc_id_on_map[sd->mapno]]->block.type = BL_NPC;
-		map_data[sd->mapno].npc[sd->status.pet.pet_npc_id_on_map[sd->mapno]]->block.subtype = BL_PET;
+		pet->block.next = NULL;
+		pet->block.prev = NULL;
+		pet->block.subtype = BL_PET;
 		add_block_npc(sd->mapno, sd->status.pet.pet_npc_id_on_map[sd->mapno]);
 	}
 	return 0;
@@ -378,7 +376,7 @@ int mmo_pet_equip(struct map_session_data *sd, int item_id)
 		if (sd->status.inventory[item_id - 2].nameid == pet_db[index].accesory_id)
 			equip_able = 1;
 
-		if (equip_able == 1) {
+		if (equip_able) {
 			WBUFW(buf, 0) = 0x1a4;
 			WBUFB(buf, 2) = 3;
 			WBUFL(buf, 3) = sd->status.pet.pet_id_as_npc;
@@ -441,23 +439,23 @@ int search_pet_class_item(int item)
 
 int feed_the_pet(int tid, unsigned int tick, int fd, int data)
 {
-	struct map_session_data *sd = NULL;
+	struct map_session_data *sd;
 
 	tid = 0;
 	tick = 0;
-	if (session[fd] != NULL && (sd = session[fd]->session_data) != NULL) {
+	if (session[fd] && (sd = session[fd]->session_data)) {
 		if (sd->feed_pet_timer > 0) {
 			delete_timer(sd->feed_pet_timer, feed_the_pet);
 			sd->feed_pet_timer = 0;
 		}
-		if (sd->status.pet.activity == 1 && sd->status.pet.pet_hungry != 0) {
+		if (sd->status.pet.activity) {
 			if (sd->status.pet.pet_hungry > 60) {
-				sd->status.pet.pet_hungry  = sd->status.pet.pet_hungry / 2;
-				sd->status.pet.pet_friendly = (sd->status.pet.pet_friendly - 40);
+				sd->status.pet.pet_hungry /= 2;
+				sd->status.pet.pet_friendly -= 40;
 			}
 			else {
-				sd->status.pet.pet_hungry = (sd->status.pet.pet_hungry - 10);
-				sd->status.pet.pet_friendly = (sd->status.pet.pet_friendly - 40);
+				sd->status.pet.pet_hungry -= 10;
+				sd->status.pet.pet_friendly -= 40;
 			}
 			if (sd->status.pet.pet_hungry < 0)
 				sd->status.pet.pet_hungry = 0;
@@ -508,10 +506,10 @@ void mmo_pet_db_init(void)
 				continue;
 
 			if ((x = sscanf(line,"%d,%[^,],%d,%d,%d,%d,%d,%d,%d,%d,%d,%d,%d,%d",
-			       &tmp[0], name, &tmp[1], &tmp[2], &tmp[3], &tmp[4], &tmp[5],
-			       &tmp[6], &tmp[7], &tmp[8], &tmp[9], &tmp[10], &tmp[11], &tmp[12])) != 14) {
-					printf("**Error: pet_db.txt is corrupted!**\n");
-					return;
+					&tmp[0], name, &tmp[1], &tmp[2], &tmp[3], &tmp[4], &tmp[5],
+					&tmp[6], &tmp[7], &tmp[8], &tmp[9], &tmp[10], &tmp[11], &tmp[12])) != 14) {
+				printf("**Error: pet_db.txt is corrupted!**\n");
+				return;
 			}
 			pet_db[i].class = tmp[0];
 			strncpy(pet_db[i].name, name, 24);

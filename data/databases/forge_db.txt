@@ -1,3 +1,9 @@
+// name_id, item_lv, requiered_skill,
+// mat_id1, mat_amount1,
+// mat_id2, mat_amount2,
+// mat_id3, mat_amount3,
+// mat_id4, mat_amount4, 
+// mat_id5, mat_amount5
 998,1,94,1002,1,0,0,0,0,0,0,0,0
 999,1,95,998,5,1003,1,0,0,0,0,0,0
 1000,1,96,1001,10,0,0,0,0,0,0,0,0

@@ -1,0 +1,52 @@
+**Todo File Log**
+==============		=============									   =================
+Assigned/Doing:		    ToDo										Progress
+==============		=============									   =================
+
+AngelEx			* if(Skill == 1) goto N_name; For Npcs =P						Done
+			* Add packet to display current banned users. Packet 0xd3 missing body.
+			* Finnish implimentation of blocking wisper from individual users.
+			* Update, clean and revise script folder. Fix the script error that is missing
+	  		{} stuff.
+Nate			* Update database.									40%
+			* Fix, revise, and code item_db.c to allow new items << --- Need priority.
+			* Add guilds.
+			* Fix equip case on parse_map, map_core.c
+			* Add more skills.
+			* Add pet skills
+			* Complete guild code.
+			* Complete monster skills
+			* Impliment new packet stuff to reflect changes while using new clients.
+			* Fix the script problem in script folder. I haven't find the missing {} stuff
+			  warning script error that Zone Server report.
+			* Fix the warnings regarding timer functions. The functions have been converted
+	  		to void and no longer are int, all functions declared as timers must be void.
+	  		This change in timer code do not reflect changes in the zone source code and must
+	  		be changed to fix the warnings. The server runs ok with this warnings but must be
+	  		fixed.
+			* Add this to the map flag db
+	  		towns where you cannot use flywing or butterfly wing
+
+			if (strcmp(sd->mapname,"prt_in.gat")==0||strcmp(sd->mapname,"alberta_in.gat")==0
+			    ||strcmp(sd->mapname,"geffen_in.gat")==0||strcmp(sd->mapname,"izlude_in.gat")==0
+			    ||strcmp(sd->mapname,"morocc_in.gat")==0||strcmp(sd->mapname,"payon_in01.gat")==0
+			    ||strcmp(sd->mapname,"payon_in02.gat")==0||strcmp(sd->mapname,"aldeba_in.gat")==0
+			    ||strcmp(sd->mapname,"cmd_in01.gat")==0||strcmp(sd->mapname,"cmd_in02.gat")==0
+			    ||strcmp(sd->mapname,"yuno_in01.gat")==0||strcmp(sd->mapname,"yuno_in02.gat")==0
+			    ||strcmp(sd->mapname,"yuno_in03.gat")==0||strcmp(sd->mapname,"yuno_in04.gat")==0
+			    ||strcmp(sd->mapname,"yuno_in05.gat")==0) {
+				you cannot fly;
+			}
+			* Add this to the map flag db
+	  		towns where you cannot use Dead Branch
+
+			if (strcmp(sd->mapname,"prt_in.gat")==0||strcmp(sd->mapname,"alberta_in.gat")==0
+			    ||strcmp(sd->mapname,"geffen_in.gat")==0||strcmp(sd->mapname,"izlude_in.gat")==0
+			    ||strcmp(sd->mapname,"morocc_in.gat")==0||strcmp(sd->mapname,"payon_in01.gat")==0
+			    ||strcmp(sd->mapname,"payon_in02.gat")==0||strcmp(sd->mapname,"aldeba_in.gat")==0
+			    ||strcmp(sd->mapname,"cmd_in01.gat")==0||strcmp(sd->mapname,"cmd_in02.gat")==0
+			    ||strcmp(sd->mapname,"yuno_in01.gat")==0||strcmp(sd->mapname,"yuno_in02.gat")==0
+			    ||strcmp(sd->mapname,"yuno_in03.gat")==0||strcmp(sd->mapname,"yuno_in04.gat")==0
+			    ||strcmp(sd->mapname,"yuno_in05.gat")==0) {
+				you cannot branch;
+			}

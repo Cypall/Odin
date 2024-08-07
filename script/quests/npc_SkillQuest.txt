@@ -1,0 +1,58 @@
+// skill quest odin implimentation 0.4v by Angel Ex
+prontera.gat,162,188,4	script	SkillsMaster	60,{
+	mes "[Skills Master]";
+	mes "Hello there I'm here to show you the new script command implimentation.";
+	next;
+	mes "[Skills Master]";
+	mes "It's called the setskill command. I will teach you all new extra skills that you can learn with your class";
+	next;
+	mes "[Skills Master]";
+	mes "So what you say? Try it out?";
+	next;
+	menu "Sure",yes,"I will try later, Thank You",no;
+	yes:
+		mes "[Skills Master]";
+		mes "Ok lets check job class, first.";
+		next;
+		if (GetJob == Job_Novice) goto novice_;
+		if (GetJob == Job_Thief) goto thief_;
+		close;
+		novice_:
+			mes "[Skills Master]";
+			mes "Now I will teach you the bonus novice skills";
+			next;
+
+			// New implimentation setskill command.
+			setskill 142; // 142 first aid
+			setskill 143; // 143 ack dead
+
+			mes "[Skills Master]";
+			mes "Now look at your inventory, skill list. You should now have the new bonus skills.";
+			close;
+		thief_:
+			mes "[Skills Master]";
+			mes "Now I will teach you the bonus thief skills";
+			next;
+
+			// New implimentation setskill command.
+			setskill 149;
+			setskill 150;
+			setskill 151;
+			setskill 152;
+
+			mes "[Skills Master]";
+			mes "Now look at your inventory, skill list. You should now have the new bonus skills.";
+			close;
+	no:
+		mes "[Skills Master]";
+		mes "You whimp get lost! Guys like you don't appresiate the art or learning.";
+		close;
+			fail:
+
+			// New implimentation emotion command.
+			emotion 1; // Show emotions on npc 1 = ? emotion
+
+			mes "[Skills Master]";
+			mes "Don't mock me, I'm more inteligent than you!";
+			close;
+}

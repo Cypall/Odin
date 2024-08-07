@@ -12,18 +12,22 @@
  * You should have received a copy of the GNU General Public License
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
-------------------------------------------------------------------------*/
+ ------------------------------------------------------------------------*/
 
 /*------------------------------------------------------------------------
- Module:        Version 1.7.1 - Angel Ex
- Author:        Odin Developer Team Copyrights (c) 2004
- Project:       Project Odin Zone Server
- Creation Date: Dicember 6, 2003
- Modified Date: October 31, 2004
- Description:   Ragnarok Online Server Emulator
-------------------------------------------------------------------------*/
+  Module:        Version 1.7.1 - Angel Ex
+  Author:        Odin Developer Team Copyrights (c) 2004
+  Project:       Project Odin Zone Server
+  Creation Date: Dicember 6, 2003
+  Modified Date: October 31, 2004
+  Description:   Ragnarok Online Server Emulator
+  ------------------------------------------------------------------------*/
 
+#include <sys/types.h>
 #include <sys/stat.h>
+#include <sys/mman.h>
+#include <string.h>
+#include <fcntl.h>
 #include <zlib.h>
 
 #include "core.h"
@@ -96,7 +100,7 @@ static char	BitSwapTable2[64] = {
 };
 static char	BitSwapTable3[32] = {
 	16,  7, 20, 21, 29, 12, 28, 17,  1, 15, 23, 26,  5, 18, 31, 10,
-     2,  8, 24, 14, 32, 27,  3,  9, 19, 13, 30,  6, 22, 11,  4, 25
+	2,  8, 24, 14, 32, 27,  3,  9, 19, 13, 30,  6, 22, 11,  4, 25
 };
 
 static unsigned char NibbleData[4][64]={
@@ -128,7 +132,11 @@ static unsigned char NibbleData[4][64]={
  */
 static unsigned int getlong(unsigned char *p)
 {
-	return *p+p[1]*256+(p[2]+p[3]*256)*65536;
+	/* return *p+p[1]*256+(p[2]+p[3]*256)*65536; */
+        return	p[0]
+		| p[1] << 0x08
+		| p[2] << 0x10
+		| p[3] << 0x18;
 }
 
 /*==========================================
@@ -146,15 +154,17 @@ static void BitConvert(BYTE *Src,char *BitSwapTable)
 {
 	int lop,prm;
 	BYTE tmp[8];
-	*(DWORD*)tmp=*(DWORD*)(tmp+4)=0;
+	/* *(DWORD*)tmp=*(DWORD*)(tmp+4)=0; */
+	memset(tmp,0,8);
 	for(lop=0;lop!=64;lop++) {
 		prm = BitSwapTable[lop]-1;
 		if (Src[(prm >> 3) & 7] & BitMaskTable[prm & 7]) {
 			tmp[(lop >> 3) & 7] |= BitMaskTable[lop & 7];
 		}
 	}
-	*(DWORD*)Src     = *(DWORD*)tmp;
-	*(DWORD*)(Src+4) = *(DWORD*)(tmp+4);
+	/* *(DWORD*)Src     = *(DWORD*)tmp;
+	*(DWORD*)(Src+4) = *(DWORD*)(tmp+4); */
+	memcpy(Src,tmp,8);
 }
 
 static void BitConvert4(BYTE *Src)
@@ -172,7 +182,7 @@ static void BitConvert4(BYTE *Src)
 
 	for(lop=0;lop!=4;lop++) {
 		tmp[lop] = (NibbleData[lop][tmp[lop*2]] & 0xf0)
-		         | (NibbleData[lop][tmp[lop*2+1]] & 0x0f);
+			| (NibbleData[lop][tmp[lop*2+1]] & 0x0f);
 	}
 
 	*(DWORD*)(tmp+4)=0;
@@ -182,7 +192,11 @@ static void BitConvert4(BYTE *Src)
 			tmp[(lop >> 3) + 4] |= BitMaskTable[lop & 7];
 		}
 	}
-	*(DWORD*)Src ^= *(DWORD*)(tmp+4);
+	/* *(DWORD*)Src ^= *(DWORD*)(tmp+4); */
+	Src[0] ^= tmp[4];
+	Src[1] ^= tmp[5];
+	Src[2] ^= tmp[6];
+	Src[3] ^= tmp[7];
 }
 
 static void decode_des_etc(BYTE *buf,int len,int type,int cycle)
@@ -418,6 +432,62 @@ int grfio_size(char *fname)
 		}
 	}
 	return entry->declen;
+}
+
+/* Just like grfio_reads(), but this function loads the file from the harddisk,
+   if possible. In that case, it will use mmap() to load the file.
+   The return value is either NULL (if file is not found on disk or in the GRF),
+   or a GrfMappedFile structure, which must be freed with grfio_freem().
+*/
+GrfMappedFile *grfio_readm(char *name)
+{
+	GrfMappedFile *file;
+	char *unixName, *tmp;
+	struct stat buf;
+	void *data;
+	int f, size;
+
+	unixName = strdup(name);
+	for (tmp = unixName; *tmp; tmp++)
+		if (*tmp == '\\')
+			*tmp = '/';
+
+	if (stat(unixName, &buf) == 0 && (f = open(unixName, O_RDONLY)) != -1) {
+		data = mmap(NULL, buf.st_size, PROT_READ | PROT_WRITE, MAP_PRIVATE, f, 0);
+		if (data != MAP_FAILED) {
+			file = calloc(sizeof(GrfMappedFile), 1);
+			file->data = data;
+			file->size = buf.st_size;
+			file->fd = f;
+			free(unixName);
+			return file;
+		}
+	}
+
+	free(unixName);
+	data = grfio_reads(name, &size);
+	if (!data)
+		return NULL;
+	file = calloc(sizeof(GrfMappedFile), 1);
+	file->fd = -1;
+	file->data = data;
+	file->size = size;
+	return file;
+}
+
+void grfio_freem(GrfMappedFile *file)
+{
+	if (!file)
+		return;
+
+	if (file->fd != -1) {
+		munmap(file->data, file->size);
+		close(file->fd);
+	} else {
+		free(file->data);
+	}
+	free(file);
+	
 }
 
 /*==========================================
@@ -836,7 +906,7 @@ void grfio_init(void)
 	char line[1024],w1[1024],w2[1024];
 	int result,result2,result3;
 
-	data_conf = fopen("config.ini", "r");
+	data_conf = fopen("cfg/grf_files.ini", "rt");
 
 	if( data_conf!=NULL ) {
 		while(fgets(line,1020,data_conf)) {
@@ -850,7 +920,7 @@ void grfio_init(void)
 			}
 		}
 		fclose(data_conf);
-		}
+	}
 	hashinit();
 
 	filelist = NULL;     filelist_entrys = filelist_maxentry = 0;

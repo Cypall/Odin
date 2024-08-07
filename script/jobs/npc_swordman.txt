@@ -1,4 +1,4 @@
-// $Id: npc_swordman.txt,v 1.1 2003/12/01 22:51:04 MivaBe Exp $
+// $Id: npc_swordman.txt,v 1.1 2004/11/17 04:15:23 dennisjoel Exp $
 //<--------------- Swordman Job Quest [Update: Oct. 06, 2003] --------------->\\
 izlude_in.gat,30,163,8	script	Test Hall Staff	105,{
 	mes "[Test Hall Staff]";

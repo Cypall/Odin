@@ -12,16 +12,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
-------------------------------------------------------------------------*/
-
-/*------------------------------------------------------------------------
- Module:        Version 1.7.1 - Alkie
- Author:        Odin Developer Team Copyrights (c) 2004
- Project:       Project Odin Zone Server
- Creation Date: Dicember 6, 2003
- Modified Date: October 31, 2004
- Description:   Ragnarok Online Server Emulator
-------------------------------------------------------------------------*/
+ ------------------------------------------------------------------------*/
 
 #include "core.h"
 #include "mmo.h"
@@ -34,7 +25,7 @@
 #include "pet.h"
 
 extern int drop_mult;
-extern char map[][16];
+extern char map[][];
 
 int search_item(int object)
 {
@@ -42,7 +33,7 @@ int search_item(int object)
 	char strgat[80];
 	char gomi[40];
 	int scount = 0,fcount = 0,nameid = 0;
-	FILE *fp= NULL;
+	FILE *fp = NULL;
 
 	if (object == 1) {
 		strcpy(file_name,"data/lists/item_all.lst");
@@ -60,53 +51,71 @@ int search_item(int object)
 		strcpy(file_name,"data/lists/item_present.lst");
 		scount = (int)(((double)rand()/(double)RAND_MAX)*77.0);
 	}
-	if ((fp = fopen(file_name,"r"))) {
-		for (fcount = 0; fcount < scount; fcount++) {
+	else if (object == 5) {
+		strcpy(file_name,"data/lists/item_misc.lst");
+		scount = (int)(((double)rand()/(double)RAND_MAX)*1061.0);
+	}
+	else if (object == 6) {
+		strcpy(file_name,"data/lists/mob_branch.lst");
+		scount = (int)(((double)rand()/(double)RAND_MAX)*77.0);
+	}
+	if ((fp = fopen(file_name,"rt"))) {
+		for (fcount = 0; fcount < scount; fcount++)
 			fgets(strgat, 80, fp);
-		}
+
 	}
 	fclose(fp);
 	sscanf(strgat, "%d%s", &nameid, gomi);
 	return nameid;
 }
 
-int mmo_map_lose_item(int fd, int silent, int index, int amount)
+int mmo_map_lose_item(unsigned int fd, int silent, int index, int amount)
 {
-	struct map_session_data *sd = session[fd]->session_data;
-	struct item *ditem = &sd->status.inventory[index - 2];
+	int len;
+	struct map_session_data *sd;
+	struct item *ditem;
 
+	if (!session[fd] || !(sd = session[fd]->session_data)) return -1;
+	if (!(ditem = &sd->status.inventory[index - 2])) return -1;
 	if ((index >= MAX_INVENTORY +2) || (index < 2)) return -1;
 	if (ditem->nameid == 0 || ditem->amount < amount || amount < 1) return -1;
 
 	ditem->amount -= amount;
 	sd->weight -= itemdb[search_itemdb_index(ditem->nameid)].weight * amount;
-	if (ditem->amount == 0) memset(ditem, 0, sizeof(*ditem));
+	if (ditem->amount == 0) {
+		if (ditem->equip == 0x8000) {
+			WFIFOW(fd, 0) = 0x13c;
+			WFIFOW(fd, 2) = 0;
+			WFIFOSET(fd, packet_len_table[0x13c]);
 
-	if(!silent) {
+			ditem->equip = 0;
+		}
+		memset(ditem, 0, sizeof(*ditem));
+	}
+	if (!silent) {
 		WFIFOW(fd, 0) = 0xaf;
 		WFIFOW(fd, 2) = index;
 		WFIFOW(fd, 4) = amount;
-		WFIFOSET(fd, 6);
+		WFIFOSET(fd, packet_len_table[0xaf]);
 	}
 	mmo_map_calc_overweight(sd);
+	len = mmo_map_set_param(fd, WFIFOP(fd, 0), SP_WEIGHT);
+	if (len > 0)
+		WFIFOSET(fd, len);
 
-	WFIFOW(fd, 0) = 0xb0;
-	WFIFOW(fd, 2) = 0x18;
-	WFIFOL(fd, 4) = sd->weight;
-	WFIFOSET(fd, 8);
 	return 1;
 }
 
-int mmo_map_get_item(int fd, struct item* item)
+int mmo_map_get_item(unsigned int fd, struct item *item)
 {
-	struct map_session_data *sd = session[fd]->session_data;
+	struct map_session_data *sd;
 	struct item *n_item;
 	int dataid = search_itemdb_index(item->nameid);
-	int n_id;
-	int i = -1;
-	int newi = -1;
+	int n_id = 0;
+	int i = -1, newi = -1, len;
 
-	if(sd->max_weight < sd->weight + itemdb[dataid].weight * item->amount) {
+	if (!session[fd] || !(sd = session[fd]->session_data)) return -1;
+	if (sd->max_weight < sd->weight + itemdb[dataid].weight * item->amount) {
 		n_item = &sd->status.inventory[i];
 		n_id = search_itemdb_index(n_item->nameid);
 		WFIFOW(fd, 0) = 0xa0;
@@ -177,40 +186,31 @@ int mmo_map_get_item(int fd, struct item* item)
 	WFIFOSET(fd, 23);
 
 	mmo_map_calc_overweight(sd);
-
-	WFIFOW(fd, 0) = 0xb0;
-	WFIFOW(fd, 2) = 0x18;
-	WFIFOL(fd, 4) = sd->weight;
-	WFIFOSET(fd, 8);
+	len = mmo_map_set_param(fd, WFIFOP(fd, 0), SP_WEIGHT);
+	if (len > 0)
+		WFIFOSET(fd, len);
 
 	return 1;
 }
 
 void mmo_map_make_flooritem(struct item *item_data, int amount, short m, short x, short y)
 {
-	int i, j, c, free_cell, r, id;
-	unsigned char buf[256];
+	int i, j, c = 0, free_cell = 0, r = 0, id = 0;
+	unsigned char buf[64];
 	struct flooritem_data *fitem;
 
-	if (!(id = search_free_object_id()))
+	if ((id = search_free_object_id()) == 0)
 		return;
 
-	free_cell = 0;
-	for (i = y - 1; i <= y + 1; i++) {
-		if (i < 0)
+	for (free_cell = 0,i = -1; i <= 1; i++) {
+		if (i + y < 0 || i + y >= map_data[m].ys)
 			continue;
 
-		else if (i >= map_data[m].ys)
-			break;
-
-		for (j = x - 1; j <= x + 1; j++) {
-			if (j < 0)
+		for (j = -1; j <= 1; j++) {
+			if (j + x < 0 || j + x >= map_data[m].xs)
 				continue;
 
-			else if (j >= map_data[m].xs)
-				break;
-
-			if ((c = map_data[m].gat[j + i * map_data[m].xs]) == 1 || c == 5 || (c & 0x80) == 0x80)
+			if ((c = map_data[m].gat[j + x + (i + y) * map_data[m].xs]) == 1 || c == 5)
 				continue;
 
 			free_cell++;
@@ -230,7 +230,7 @@ void mmo_map_make_flooritem(struct item *item_data, int amount, short m, short x
 			if (j + x < 0 || j + x >= map_data[m].xs)
 				continue;
 
-			if ((c = map_data[m].gat[j + x + (i + y) * map_data[m].xs]) == 1 || c == 5 || (c & 0x80) == 0x80)
+			if ((c = map_data[m].gat[j + x + (i + y) * map_data[m].xs]) == 1 || c == 5)
 				continue;
 
 			if (free_cell == 0) {
@@ -242,7 +242,7 @@ void mmo_map_make_flooritem(struct item *item_data, int amount, short m, short x
 			free_cell--;
 		}
 	}
-	fitem = malloc(sizeof(*fitem));
+	fitem = calloc(sizeof(*fitem), 1);
 	fitem->id = id;
 	fitem->m = m;
 	fitem->x = x;
@@ -253,38 +253,31 @@ void mmo_map_make_flooritem(struct item *item_data, int amount, short m, short x
 	fitem->item_data.amount = amount;
 	fitem->drop_tick = gettick();
 
+	mmo_map_set_dropitem(buf, fitem);
+	mmo_map_sendarea_mxy(m, x, y, buf, packet_len_table[0x9e]);
+
 	object[id] = &fitem->block;
 	fitem->block.prev = NULL;
 	fitem->block.next = NULL;
 	fitem->block.type = BL_ITEM;
 	add_block(&fitem->block, fitem->m, fitem->x, fitem->y);
-
-	mmo_map_set_dropitem(buf, fitem);
-	mmo_map_sendarea_mxy(m, x, y, buf, packet_len_table[0x9e]);
 }
 
 int mmo_map_dropitem(struct map_session_data *sd, int index, int amount)
 {
 	struct item tmp_item;
 
-	if (index < 2 || index >= MAX_INVENTORY + 2)
-		return -1;
-
 	memcpy(&tmp_item, &sd->status.inventory[index - 2], sizeof(tmp_item));
-	if (mmo_map_lose_item(sd->fd, 0, index, amount) == -1)
-		return -1;
+	if (mmo_map_lose_item(sd->fd, 0, index, amount))
+		mmo_map_make_flooritem(&tmp_item, amount, sd->mapno, sd->x, sd->y);
 
-	mmo_map_make_flooritem(&tmp_item, amount, sd->mapno, sd->x, sd->y);
 	return 0;
 }
 
 void mmo_map_take_item(struct map_session_data *sd, int item_id)
 {
-	unsigned char buf[256];
+	unsigned char buf[64];
 	struct flooritem_data *fitem;
-
-	if (item_id < 2 || item_id >= MAX_OBJECTS || !object[item_id] || object[item_id]->type != BL_ITEM)
-		return;
 
 	fitem = (struct flooritem_data*)object[item_id];
 	if (mmo_map_get_item(sd->fd, &fitem->item_data)) {
@@ -293,12 +286,7 @@ void mmo_map_take_item(struct map_session_data *sd, int item_id)
 		WBUFL(buf, 2) = sd->account_id;
 		WBUFL(buf, 6) = item_id;
 		WBUFL(buf, 10) = gettick();
-		WBUFL(buf, 14) = 0;
-		WBUFL(buf, 18) = 0;
-		WBUFW(buf, 22) = 0;
-		WBUFW(buf, 24) = 0;
 		WBUFB(buf, 26) = 1;
-		WBUFW(buf, 27) = 0;
 		mmo_map_sendarea(sd->fd, buf, packet_len_table[0x8a], 0);
 
 		delete_object(item_id);
@@ -309,14 +297,11 @@ void mmo_map_take_item(struct map_session_data *sd, int item_id)
 	}
 }
 
-int mmo_map_delay_item_drop(int tid, unsigned int tick, int id, int data)
+void mmo_map_delay_item_drop(int tid, unsigned int tick, int id, int data)
 {
 	struct delay_item_drop *ditem;
 	struct item temp_item;
 
-	tid = 0;
-	tick = 0;
-	data = 0;
 	ditem = (struct delay_item_drop *)id;
 	memset(&temp_item, 0, sizeof(temp_item));
 	temp_item.nameid = ditem->nameid;
@@ -327,53 +312,59 @@ int mmo_map_delay_item_drop(int tid, unsigned int tick, int id, int data)
 	else
 		temp_item.identify = 1;
 
-	mmo_map_make_flooritem(&temp_item, 1, ditem->m,ditem->x, ditem->y);
+	mmo_map_make_flooritem(&temp_item, 1, ditem->m, ditem->x, ditem->y);
 	free(ditem);
-	return 0;
+	ditem = NULL;
 }
 
 void mmo_map_item_drop(short m, int n)
 {
 	int i;
 	struct delay_item_drop *ditem;
+	struct npc_data *monster;
+
+	if (!(monster = map_data[m].npc[n]))
+		return;
 
 	for (i = 0; i < 16; i++) {
-		if (mons_data[map_data[m].npc[n]->class].dropitem[i].nameid != 0) {
-			if (rand() % 10000 < mons_data[map_data[m].npc[n]->class].dropitem[i].p * drop_mult) {
+		if (mons_data[monster->class].dropitem[i].nameid != 0) {
+			if (rand() % 10000 < mons_data[monster->class].dropitem[i].p * drop_mult) {
 				ditem = malloc(sizeof(*ditem));
-				ditem->nameid = mons_data[map_data[m].npc[n]->class].dropitem[i].nameid;
+				ditem->nameid = mons_data[monster->class].dropitem[i].nameid;
 				ditem->m = m;
-				ditem->x = map_data[m].npc[n]->x;
-				ditem->y = map_data[m].npc[n]->y;
+				ditem->x = monster->x;
+				ditem->y = monster->y;
 				add_timer(gettick() + 300, mmo_map_delay_item_drop, (int)ditem, 0);
 			}
 		}
 	}
-	if (mons_data[map_data[m].npc[n]->class].looter == 1 && map_data[m].npc[n]->u.mons.lootdata.loot_count > 0) {
-		for (i = 0; i < map_data[m].npc[n]->u.mons.lootdata.loot_count; i++) {
-			mmo_map_make_flooritem(&map_data[m].npc[n]->u.mons.lootdata.looted_items[i], map_data[m].npc[n]->u.mons.lootdata.looted_items[i].amount, m, map_data[m].npc[n]->x, map_data[m].npc[n]->y);
-		}
+	if (mons_data[monster->class].looter == 1 && monster->u.mons.lootdata.loot_count > 0) {
+		for (i = 0; i < monster->u.mons.lootdata.loot_count; i++)
+			mmo_map_make_flooritem(&monster->u.mons.lootdata.looted_items[i], 
+			monster->u.mons.lootdata.looted_items[i].amount, 
+			m, monster->x, monster->y);
 	}
-	map_data[m].npc[n]->u.mons.lootdata.loot_count = 0;
+	monster->u.mons.lootdata.loot_count = 0;
 }
 
-int mmo_map_item_steal(int fd, short m, int n)
+int mmo_map_item_steal(unsigned int fd, short m, int n)
 {
 	int i;
 	struct item tmp_item;
+	struct npc_data *monster;
 
-	if (!session[fd] )
+	if (!session[fd])
 		return 0;
 
-	if (!map[m][0])
+	if (!(monster = map_data[m].npc[n]))
 		return 0;
 
 	for (i = 0; i < 16; i++) {
-		if (!mons_data[map_data[m].npc[n]->class].dropitem[i].nameid)
+		if (!mons_data[monster->class].dropitem[i].nameid)
 			continue;
 
-		if (rand() % 10000 < mons_data[map_data[m].npc[n]->class].dropitem[i].p) {
-			map_data[m].npc[n]->u.mons.steal = 1;
+		if (rand() % 10000 < mons_data[monster->class].dropitem[i].p) {
+			monster->u.mons.steal = 1;
 			memset(&tmp_item, 0, sizeof(tmp_item));
 			tmp_item.nameid = mons_data[map_data[m].npc[n]->class].dropitem[i].nameid;
 			tmp_item.amount = 1;
@@ -384,359 +375,321 @@ int mmo_map_item_steal(int fd, short m, int n)
 	return 0;
 }
 
+void item_apraisal(struct map_session_data *sd, int indexid)
+{
+	int i = 0, flag = 1;
+	unsigned int fd = sd->fd;
+
+	if (indexid > 0) {
+		i = indexid - 2;
+		if (i < MAX_INVENTORY && sd->status.inventory[i].identify != 1) {
+			sd->status.inventory[i].identify = 1;
+			flag = 0;
+		}
+	}
+	WFIFOW(fd, 0) = 0x179;
+	WFIFOW(fd, 2) = indexid;
+	WFIFOB(fd, 4) = flag;
+	WFIFOSET(fd, packet_len_table[0x179]);
+}
+
 void use_item(struct map_session_data *sd, int indexid)
 {
-	int i,j, len, fd = sd->fd;
-	int hpheal = 0, spheal = 0;
-	int nameid, dataid;
-	int item_type;
-	double bonus = 0;
-//	short option;
-	int fail = 0;
-	FILE *fp;
+	int i, c, len, hpheal = 0, spheal = 0, fail = 0;
+	int nameid =sd->status.inventory[indexid-2].nameid;
+	int dataid = search_itemdb_index(nameid);
+	int item_type = itemdb[dataid].type;
+	int hp_min = itemdb[dataid].hp1;
+	int sp_min = itemdb[dataid].sp1;
+	double bonus = 0.0;
+	unsigned int fd = sd->fd;
+	unsigned char buf[64];
 	struct mmo_charstatus *p = &sd->status;
 	struct item tmp_item;
 
-	nameid = sd->status.inventory[indexid-2].nameid; //An Identifier that server and client both agree on.
-	dataid = search_itemdb_index(nameid); //The id that the datebase refers to
-	item_type = itemdb[dataid].type; 
-
 	switch(item_type) {
-	case 0: //Recovery Item
-		//Calculate bonus
-		//Recovery calculation (new +2% per vit information from www.rodatazone.com)
-		//Recovery amount =(hp recover of item)*(1+(VIT/50)+(Hp recovery skill/10))
-		if(p->skill[3].lv > 0) bonus = ((double)p->skill[3].lv)/10.0;
-		bonus += ((double)(p->vit+50)/(double)50);
+	case 0: // Recovery Item
+		if (p->skill[3].lv > 0)
+			bonus = (float)p->skill[3].lv / (float)10.0;
 
-		//Calculate heal amount
-		hpheal = (double)((((double)rand()/(double)RAND_MAX) * itemdb[dataid].hp2)+itemdb[dataid].hp1) * bonus;
-		spheal = (double)((((double)rand()/(double)RAND_MAX) * itemdb[dataid].sp2)+itemdb[dataid].sp1);
+		bonus += (double)1 + ((float)(p->vit + p->vit2) / (float)50.0);
+		hpheal = floor(((itemdb[dataid].hp2 - hp_min + 1) * ((float)rand() / (float)RAND_MAX) + hp_min) * bonus);
+		spheal = floor(((itemdb[dataid].sp2 - sp_min + 1) * ((double)rand() / (double)RAND_MAX) + sp_min));
 
-		//Calculate new weight
-		sd->weight -= itemdb[dataid].weight;
-
-		//Send max weight, I don't know why but aegis does it so i'm going to too
-		WFIFOW(fd, 0) = 0xb0;
-		WFIFOW(fd, 2) = 0x19; //Max Weight
-		WFIFOL(fd, 4) = sd->max_weight;
-		WFIFOSET(fd, 8);
-
-		//Send new weight
-		WFIFOW(fd, 0) = 0xb0;
-		WFIFOW(fd, 2) = 0x18; //Weight
-		WFIFOL(fd, 4) = sd->weight;
-		WFIFOSET(fd, 8);
-
-		//Send hp and/or sp
-		if(hpheal > 0) {
-			if ((p->hp + hpheal) > p->max_hp) {
+		if (hpheal > 0) {
+			if ((p->hp + hpheal) > p->max_hp)
 				p->hp = p->max_hp;
-			}else{ 
+
+			else
 				p->hp += hpheal;
-			}
-			WFIFOW(fd, 0) = 0xb0;
-			WFIFOW(fd, 2) = 0x5;  //HP
-			WFIFOL(fd, 4) = p->hp;
-			WFIFOSET(fd, 8);
+
+			len = mmo_map_set_param(fd, WFIFOP(fd, 0), SP_HP);
+			if (len > 0)
+				WFIFOSET(fd, len);
 		}
-		if(spheal > 0) {
-			if ((p->sp + spheal) > p->max_sp) {
+		if (spheal > 0) {
+			if ((p->sp + spheal) > p->max_sp)
 				p->sp = p->max_sp;
-			}else{ 
+
+			else
 				p->sp += spheal;
-			}
-			WFIFOW(fd, 0) = 0xb0;
-			WFIFOW(fd, 2) = 0x7;  //SP
-			WFIFOL(fd, 4) = p->sp;
-			WFIFOSET(fd, 8);
+
+			len = mmo_map_set_param(fd, WFIFOP(fd, 0), SP_SP);
+			if (len > 0)
+				WFIFOSET(fd, len);
 		}
-/*		if (itemdb[dataid].eff > 0) { // recovers a status effect
-			// needs to be fixed later, currently, any item that heals one status effect will heal them all
-			option = 0x0038;
-			p->option_z = p->option_z & option;//turn off flag unless peco or cart
-			WFIFOW(fd,0)=0x0119;
-			WFIFOL(fd,2)=sd->account_id;
-			WFIFOW(fd,6)=0;
-			WFIFOW(fd,8)=0;
-			WFIFOW(fd,10)=p->option_z;
-			mmo_map_sendarea(fd,WFIFOP(fd,0),12,0);
-		}*/
-		//New item packet, it has the cool effects :D
-		WFIFOW(fd, 0) = 0x1c8;
-		WFIFOW(fd, 2) = indexid; //Index
-		WFIFOW(fd, 4) = nameid; //Item id
-		WFIFOL(fd, 6) = sd->account_id;
-		WFIFOW(fd, 10) = --p->inventory[indexid-2].amount;
-		WFIFOB(fd, 12) = 1; //Success... i donno when it would ever be failure
-		mmo_map_sendarea(fd,WFIFOP(fd,0),13,0);
+		if (itemdb[dataid].eff > 0) {
+			switch(nameid) {
+			case 506: // Green Potion
+				if (sd->status.option_y == 1 || sd->status.option_y == 4)
+					sd->status.option_y = 0;
 
-		if (p->inventory[indexid-2].amount <= 0) p->inventory[indexid-2].nameid = 0;
+				if (sd->status.option_x == 6)
+					sd->status.option_x = 0;
 
+				mmo_map_setoption(sd, buf, 0);
+				mmo_map_sendarea(fd, buf, packet_len_table[0x119], 0);
+				break;
+			case 511: // Green Herb
+				if (sd->status.option_y == 1)
+					sd->status.option_y = 0;
+
+				mmo_map_setoption(sd, buf, 0);
+				mmo_map_sendarea(fd, buf, packet_len_table[0x119], 0);
+				break;
+			case 523: // Holy Water
+				if (sd->status.option_y == 6)
+					sd->status.option_y = 0;
+
+				mmo_map_setoption(sd, buf, 0);
+				mmo_map_sendarea(fd, buf, packet_len_table[0x119], 0);
+				break;
+			case 525: // Panacea
+				sd->status.option_x = 0;
+				sd->status.option_y = 0;
+				mmo_map_setoption(sd, buf, 0);
+				mmo_map_sendarea(sd->fd, buf, packet_len_table[0x119], 0);
+				break;
+			}
+		}
+		sd->weight -= itemdb[dataid].weight;
+		mmo_map_calc_overweight(sd);
+		len = mmo_map_set_param(fd, WFIFOP(fd, 0), SP_WEIGHT);
+		if (len > 0)
+			WFIFOSET(fd, len);
+
+		p->inventory[indexid-2].amount--;
+		if (p->inventory[indexid-2].amount <= 0)
+			p->inventory[indexid-2].nameid = 0;
+
+		WBUFW(buf, 0) = 0x1c8;
+		WBUFW(buf, 2) = indexid;
+		WBUFW(buf, 4) = nameid;
+		WBUFL(buf, 6) = sd->account_id;
+		WBUFW(buf, 10) = p->inventory[indexid-2].amount;
+		WBUFB(buf, 12) = 1;
+		mmo_map_sendarea(fd, buf, 13, 0);
 		break;
 	case 2: // Special Effect Items
-/*		// Most items use skills:
-		//Aloevera - Use Provoke level 1 on a target (once)
-		//Anodyne - Use level 1 endure on yourself (once)
-		//Yggdrasil Leaf - Use Ressurection level 1 on a target (once)
-		//Magnifier - Use merchant's identify. (once)
-		//Butterfly wing - use Teleport level 3? (once) i got the level 3 from packet sniffing.... even though max is 2...weird
-		//Fly wing - use Teleport level 1. (once)
-		// Not yet implemented:
-		if (itemdb[dataid].skill > 0 && !fail) {
-			--p->inventory[indexid-2].amount;
-			if (p->inventory[indexid-2].amount <= 0) p->inventory[indexid-2].nameid = 0;
-
-			sd->used_item_skill = itemdb[dataid].skill;
-
-			WFIFOW(fd, 0) = 0x147;
-			WFIFOW(fd, 2) = itemdb[dataid].skill; //skill id
-			WFIFOW(fd, 4) = skill_db[itemdb[dataid].skill].type; //target type. Butterflywing & flywing = 4;
-			WFIFOW(fd, 6) = 0; //??
-			WFIFOW(fd, 8) = itemdb[dataid].skill_lv; //skill level.
-			WFIFOW(fd, 10) = skill_sp_cost(itemdb[dataid].skill, itemdb[dataid].skill_lv); // sp cost?
-			WFIFOW(fd, 12) = 0; //range?
-			memcpy(WFIFOP(fd, 14), skill_db[itemdb[dataid].skill].name, 24); // skill name. example: AL_TELEPORT
-			WFIFOB(fd, 38) = 1; //up?
-			WFIFOSET(fd, 39);
-		}
-*/
 		switch(nameid) {
 		case 601: // Fly Wing
-			if (strcmp(sd->mapname,"prt_in.gat")==0||strcmp(sd->mapname,"alberta_in.gat")==0
-				||strcmp(sd->mapname,"geffen_in.gat")==0||strcmp(sd->mapname,"izlude_in.gat")==0
-				||strcmp(sd->mapname,"morocc_in.gat")==0||strcmp(sd->mapname,"payon_in01.gat")==0
-				||strcmp(sd->mapname,"payon_in02.gat")==0||strcmp(sd->mapname,"aldeba_in.gat")==0
-				||strcmp(sd->mapname,"cmd_in01.gat")==0||strcmp(sd->mapname,"cmd_in02.gat")==0
-				||strcmp(sd->mapname,"yuno_in01.gat")==0||strcmp(sd->mapname,"yuno_in02.gat")==0
-				||strcmp(sd->mapname,"yuno_in03.gat")==0||strcmp(sd->mapname,"yuno_in04.gat")==0
-				||strcmp(sd->mapname,"yuno_in05.gat")==0) {
+			if (!mmo_map_flagload(sd->mapname, TELEPORT)) {
 				WFIFOW(fd, 0) = 0x189;
 				WFIFOW(fd, 2) = 0;
 				WFIFOSET(fd, 4);
 				fail = 1;
+				break;
 			}
-			else {
-				WFIFOW(fd,0) = 0x80;
-				WFIFOL(fd,2) = sd->account_id;
-				WFIFOB(fd,6) = 2;
-				mmo_map_sendarea( fd, WFIFOP(fd,0),packet_len_table[0x80], 0 );
-				do {
-					sd->x=rand()%(map_data[sd->mapno].xs-2)+1;
-					sd->y=rand()%(map_data[sd->mapno].ys-2)+1;
-				} 
-				while(map_data[sd->mapno].gat[sd->x+sd->y*map_data[sd->mapno].xs]==1 || map_data[sd->mapno].gat[sd->x+sd->y*map_data[sd->mapno].xs]==5);
-				mmo_map_changemap(sd,sd->mapname,sd->x,sd->y,2);
-			}
+			do {
+				sd->x = rand() % (map_data[sd->mapno].xs - 2) + 1;
+				sd->y = rand() % (map_data[sd->mapno].ys - 2) + 1;
+			} 
+			while(map_data[sd->mapno].gat[sd->x + sd->y * map_data[sd->mapno].xs] == 1 
+			|| map_data[sd->mapno].gat[sd->x + sd->y * map_data[sd->mapno].xs] == 5);
+			mmo_map_changemap(sd, sd->mapname, sd->x, sd->y, 2);
 			break;
 		case 602: // Butterfly Wing
-			if (strcmp(sd->mapname,"prt_in.gat")==0||strcmp(sd->mapname,"alberta_in.gat")==0
-				||strcmp(sd->mapname,"geffen_in.gat")==0||strcmp(sd->mapname,"izlude_in.gat")==0
-				||strcmp(sd->mapname,"morocc_in.gat")==0||strcmp(sd->mapname,"payon_in01.gat")==0
-				||strcmp(sd->mapname,"payon_in02.gat")==0||strcmp(sd->mapname,"aldeba_in.gat")==0
-				||strcmp(sd->mapname,"cmd_in01.gat")==0||strcmp(sd->mapname,"cmd_in02.gat")==0
-				||strcmp(sd->mapname,"yuno_in01.gat")==0||strcmp(sd->mapname,"yuno_in02.gat")==0
-				||strcmp(sd->mapname,"yuno_in03.gat")==0||strcmp(sd->mapname,"yuno_in04.gat")==0
-				||strcmp(sd->mapname,"yuno_in05.gat")==0) {
+			if (!mmo_map_flagload(sd->mapname, TELEPORT)) {
 				WFIFOW(fd, 0) = 0x189;
 				WFIFOW(fd, 2) = 0;
 				WFIFOSET(fd, 4);
 				fail = 1;
+				break;
 			}
-			else {
-				WFIFOW(fd,0) = 0x80;
-				WFIFOL(fd,2) = sd->account_id;
-				WFIFOB(fd,6) = 2;
-				mmo_map_sendarea( fd, WFIFOP(fd,0),7, 0 );
-				mmo_map_changemap(sd,p->save_point.map,p->save_point.x,p->save_point.y,2);
-			}
+			mmo_map_changemap(sd, p->save_point.map, p->save_point.x, p->save_point.y, 2);
 			break;
 		case 603: // Old Blue Box
 			i = search_item(1);
-			memset(&tmp_item,0,sizeof(tmp_item));
-			tmp_item.nameid=i;
-			tmp_item.amount=1;
-			tmp_item.identify=1;
+			memset(&tmp_item, 0, sizeof(tmp_item));
+			tmp_item.nameid = i;
+			tmp_item.amount = 1;
+			tmp_item.identify = 1;
 			mmo_map_get_item(fd, &tmp_item);
 			break;
 		case 604: // Dead Branch
-			if (strcmp(sd->mapname,"prt_in.gat")==0||strcmp(sd->mapname,"alberta_in.gat")==0
-			||strcmp(sd->mapname,"geffen_in.gat")==0||strcmp(sd->mapname,"izlude_in.gat")==0
-			||strcmp(sd->mapname,"morocc_in.gat")==0||strcmp(sd->mapname,"payon_in01.gat")==0
-			||strcmp(sd->mapname,"payon_in02.gat")==0||strcmp(sd->mapname,"aldeba_in.gat")==0
-			||strcmp(sd->mapname,"cmd_in01.gat")==0||strcmp(sd->mapname,"cmd_in02.gat")==0
-			||strcmp(sd->mapname,"yuno_in01.gat")==0||strcmp(sd->mapname,"yuno_in02.gat")==0
-			||strcmp(sd->mapname,"yuno_in03.gat")==0||strcmp(sd->mapname,"yuno_in04.gat")==0
-			||strcmp(sd->mapname,"yuno_in05.gat")==0) {
+			if (!mmo_map_flagload(sd->mapname, BRANCH)) {
 				fail = 1;
+				break;
 			}
-			else {
-				i = 1000 + rand()%300;
-				while (!((i >=1001 && i <= 1005) || (i>=1007 && i<=1016) || (i>=1018 && i<=1020) ||
-				(i>=1023 && i<=1026) || (i>=1029 && i<=1037) || (i>=1040 && i<=1042) ||
-				(i>=1044 && i<=1045) || (i>=1047 && i<=1058) || (i>=1060 && i<=1061) ||
-				(i>=1063 && i<=1064) || (i>=1066 && i<=1068) || (i>=1070 && i<=1071) ||
-				(i>=1076 && i<=1077) || (i>=1088 && i<=1091) || (i>=1093 && i<=1097) ||
-				(i>=1099 && i<=1107) || (i>=1109 && i<=1111) || (i>=1113 && i<=1114) ||
-				(i>=1116 && i<=1126) || (i>=1128 && i<=1131) || (i>=1133 && i<=1135) ||
-				(i>=1138 && i<=1141) || (i>=1143 && i<=1146) || (i>=1151 && i<=1153) ||
-				(i>=1155 && i<=1156) || (i>=1160 && i<=1161) || (i>=1163 && i<=1164) ||
-				(i>=1166 && i<=1170) || (i>=1174 && i<=1180)))
-					i = 1000 + rand()%300;
-					spawn_monster(i, sd->x, sd->y, sd->mapno, fd);
-			}
+			i = search_item(6);
+			spawn_to_pos(sd, mons_data[i].class, mons_data[i].name, sd->x, sd->y, sd->mapno, fd);
 			break;
 		case 605: // Anodyne
-			WFIFOW(fd,0) = 0x147;
-			WFIFOW(fd,2) = 8;
-			WFIFOW(fd,4) = skill_db[8].type_inf;
-			WFIFOW(fd,6) = 0;
-			WFIFOW(fd,8) = 1;
-			WFIFOW(fd,10) = skill_db[8].sp;
-			WFIFOW(fd,12) = skill_db[8].range;
-			memcpy(WFIFOP(fd,14),"Anodyne",24);
-			WFIFOB(fd,38) = 0;
-			mmo_map_sendarea(fd,WFIFOP(fd,0),39,0);
+			WBUFW(buf, 0) = 0x147;
+			WBUFW(buf, 2) = 8;
+			WBUFW(buf, 4) = skill_db[8].type_inf;
+			WBUFW(buf, 6) = 0;
+			WBUFW(buf, 8) = 1;
+			WBUFW(buf, 10) = skill_db[8].sp;
+			WBUFW(buf, 12) = skill_db[8].range;
+			memcpy(WBUFP(buf, 14), "Anodyne", 24);
+			WBUFB(buf, 38) = 0;
+			mmo_map_sendarea(fd, buf, packet_len_table[0x147], 0);
+			sd->no_cost_sp = 1;
 			break;
 		case 606: // Aloevera
 			p->sp = p->max_sp;
-			WFIFOW(fd,0) = 0xb0;
-			WFIFOW(fd,2) = 0007;
-			WFIFOL(fd,4) = p->sp;
-			WFIFOSET(fd,8);
+			len = mmo_map_set_param(fd, WFIFOP(fd, 0), SP_SP);
+			if (len > 0)
+				WFIFOSET(fd, len);
+
 			break;
 		case 607: // Yggdrasil Berry
 			p->hp = p->max_hp;
 			p->sp = p->max_sp;
-			WFIFOW(fd,0) = 0xb0;
-			WFIFOW(fd,2) = 0005;
-			WFIFOL(fd,4) = p->hp;
-			WFIFOSET(fd,8);
-			WFIFOW(fd,0) = 0xb0;
-			WFIFOW(fd,2) = 0007;
-			WFIFOL(fd,4) = p->sp;
-			WFIFOSET(fd,8);
+			len = mmo_map_set_param(fd, WFIFOP(fd, 0), SP_HP);
+			if (len > 0)
+				WFIFOSET(fd, len);
+
+			len = mmo_map_set_param(fd, WFIFOP(fd, 0), SP_SP);
+			if (len > 0)
+				WFIFOSET(fd, len);
+
 			break;
 		case 608: // Yggdrasil Seed
 			p->hp += p->max_hp/2;
 			p->sp += p->max_sp/2;
-			if(p->hp > p->max_hp)p->hp = p->max_hp;
-			if(p->sp > p->max_sp)p->sp = p->max_sp;
-			WFIFOW(fd,0) = 0xb0;
-			WFIFOW(fd,2) = 0005;
-			WFIFOL(fd,4) = p->hp;
-			WFIFOSET(fd,8);
-			WFIFOW(fd,0) = 0xb0;
-			WFIFOW(fd,2) = 0007;
-			WFIFOL(fd,4) = p->sp;
-			WFIFOSET(fd,8);
+			if (p->hp > p->max_hp)
+				p->hp = p->max_hp;
+
+			if (p->sp > p->max_sp)
+				p->sp = p->max_sp;
+
+			len = mmo_map_set_param(fd, WFIFOP(fd, 0), SP_HP);
+			if (len > 0)
+				WFIFOSET(fd, len);
+
+			len = mmo_map_set_param(fd, WFIFOP(fd, 0), SP_SP);
+			if (len > 0)
+				WFIFOSET(fd, len);
+
 			break;
 		case 609: // Amulet
-			WFIFOW(fd, 0)= 0x19e;
+			WFIFOW(fd, 0) = 0x19e;
 			WFIFOSET(fd, packet_len_table[0x19e]);
 			break;
 		case 610: // Yggdrasil Leaf
-			WFIFOW(fd,0) = 0x147;
-			WFIFOW(fd,2) = 54;
-			WFIFOW(fd,4) = skill_db[54].type_inf;
-			WFIFOW(fd,6) = 0;
-			WFIFOW(fd,8) = 1;
-			WFIFOW(fd,10) = skill_db[54].sp;
-			WFIFOW(fd,12) = skill_db[54].range;
-			memcpy(WFIFOP(fd,14),"Leaf of Yggdrasil",24);
-			WFIFOB(fd,38) = 0;
-			mmo_map_sendarea(fd,WFIFOP(fd,0),39,0);
+			WBUFW(buf, 0) = 0x147;
+			WBUFW(buf, 2) = 54;
+			WBUFW(buf, 4) = skill_db[54].type_inf;
+			WBUFW(buf, 6) = 0;
+			WBUFW(buf, 8) = 1;
+			WBUFW(buf, 10) = skill_db[54].sp;
+			WBUFW(buf, 12) = skill_db[54].range;
+			memcpy(WBUFP(buf, 14), "Leaf of Yggdrasil", 24);
+			WBUFB(buf, 38) = 0;
+			mmo_map_sendarea(fd, buf, packet_len_table[0x147], 0);
+			sd->no_cost_sp = 1;
 			break;
 		case 611: // Magnifier
-			WFIFOW(fd,0) = 0x177;
-			for (i = j = 0; i < MAX_INVENTORY; i++) {
-				if (p->inventory[i].identify != 1) {
-					WFIFOW(fd,4 + j * 2) = i + 2;
-					j++;
+			WFIFOW(fd, 0) = 0x177;
+			for (i = c = 0; i < MAX_INVENTORY; i++) {
+				if (sd->status.inventory[i].identify != 1) {
+					WFIFOW(fd, 4 + c * 2) = i + 2;
+					c++;
 				}
-
 			}
-			WFIFOW(fd,2) = 4 + j * 2;
-			WFIFOSET(fd,4 + j * 2);
+			WFIFOW(fd, 2) = 4 + c * 2;
+			WFIFOSET(fd, 4 + c * 2);
 			break;
 		case 612: // Mini Furnace
 			p->forge_lvl = 0;
-			WFIFOW(fd, 0)=0x18d;
-			for(i=0,j=0;i<MAX_SKILL_REFINE;i++){
-				if(skill_can_forge(sd,forge_db[i].nameid,p->forge_lvl)>0){
-					WFIFOW(fd,j*8+ 4) = forge_db[i].nameid;
-					WFIFOW(fd,j*8+ 6) = 0012;
-					WFIFOL(fd,j*8+ 8) = sd->status.char_id;
-					j++;
+			WFIFOW(fd, 0) = 0x18d;
+			for (i = 0, c = 0; i < MAX_SKILL_REFINE; i++) {
+				if (skill_can_forge(sd, forge_db[i].nameid, sd->status.forge_lvl) > 0) {
+					WFIFOW(fd, c * 8 + 4) = forge_db[i].nameid;
+					WFIFOW(fd, c * 8 + 6) = 0012;
+					WFIFOL(fd, c * 8 + 8) = sd->status.char_id;
+					c++;
 				}
 			}
-			WFIFOW(fd, 2)=j*8+8;
-			WFIFOSET(fd,WFIFOW(fd,2));
+			WFIFOW(fd, 2) = c * 8 + 8;
+			WFIFOSET(fd, WFIFOW(fd, 2));
 			break;
 		case 613: // Iron Hammer
 			p->forge_lvl = 1;
-			WFIFOW(fd, 0)=0x18d;
-			for(i=0,j=0;i<MAX_SKILL_REFINE;i++){
-				if(skill_can_forge(sd,forge_db[i].nameid,sd->status.forge_lvl)>0){
-					WFIFOW(fd,j*8+ 4) = forge_db[i].nameid;
-					WFIFOW(fd,j*8+ 6) = 0012;
-					WFIFOL(fd,j*8+ 8) = sd->status.char_id;
-					j++;
+			WFIFOW(fd, 0) = 0x18d;
+			for (i = 0, c = 0; i < MAX_SKILL_REFINE; i++) {
+				if (skill_can_forge(sd, forge_db[i].nameid, sd->status.forge_lvl) > 0) {
+					WFIFOW(fd, c * 8 + 4) = forge_db[i].nameid;
+					WFIFOW(fd, c * 8 + 6) = 0012;
+					WFIFOL(fd, c * 8 + 8) = sd->status.char_id;
+					c++;
 				}
 			}
-			WFIFOW(fd, 2)=j*8+8;
-			WFIFOSET(fd,WFIFOW(fd,2));
+			WFIFOW(fd, 2) = c * 8 + 8;
+			WFIFOSET(fd, WFIFOW(fd, 2));
 			break;
 		case 614: // Golden Hammer
 			p->forge_lvl = 2;
-			WFIFOW(fd, 0)=0x18d;
-			for(i=0,j=0;i<MAX_SKILL_REFINE;i++){
-				if(skill_can_forge(sd,forge_db[i].nameid,sd->status.forge_lvl)>0){
-					WFIFOW(fd,j*8+ 4) = forge_db[i].nameid;
-					WFIFOW(fd,j*8+ 6) = 0012;
-					WFIFOL(fd,j*8+ 8) = sd->status.char_id;
-					j++;
+			WFIFOW(fd, 0) = 0x18d;
+			for (i = 0, c = 0; i < MAX_SKILL_REFINE; i++) {
+				if (skill_can_forge(sd, forge_db[i].nameid, sd->status.forge_lvl) > 0) {
+					WFIFOW(fd, c * 8 + 4) = forge_db[i].nameid;
+					WFIFOW(fd, c * 8 + 6) = 0012;
+					WFIFOL(fd, c * 8 + 8) = sd->status.char_id;
+					c++;
 				}
 			}
-			WFIFOW(fd, 2)=j*8+8;
-			WFIFOSET(fd,WFIFOW(fd,2));
+			WFIFOW(fd, 2) = c * 8 + 8;
+			WFIFOSET(fd, WFIFOW(fd, 2));
 			break;
 		case 615: // Oridecon Hammer
 			p->forge_lvl = 3;
-			WFIFOW(fd, 0)=0x18d;
-			for(i=0,j=0;i<MAX_SKILL_REFINE;i++){
-				if(skill_can_forge(sd,forge_db[i].nameid,sd->status.forge_lvl)>0){
-					WFIFOW(fd,j*8+ 4) = forge_db[i].nameid;
-					WFIFOW(fd,j*8+ 6) = 0012;
-					WFIFOL(fd,j*8+ 8) = sd->status.char_id;
-					j++;
+			WFIFOW(fd, 0) = 0x18d;
+			for (i = 0, c = 0; i < MAX_SKILL_REFINE; i++) {
+				if (skill_can_forge(sd, forge_db[i].nameid, sd->status.forge_lvl) > 0) {
+					WFIFOW(fd, c * 8 + 4) = forge_db[i].nameid;
+					WFIFOW(fd, c * 8 + 6) = 0012;
+					WFIFOL(fd, c * 8 + 8) = sd->status.char_id;
+					c++;
 				}
 			}
-			WFIFOW(fd, 2)=j*8+8;
-			WFIFOSET(fd,WFIFOW(fd,2));
+			WFIFOW(fd, 2) = c * 8 + 8;
+			WFIFOSET(fd, WFIFOW(fd, 2));
 			break;
 		case 616: // Old Card Album
 			i = search_item(3);
-			memset(&tmp_item,0,sizeof(tmp_item));
-			tmp_item.nameid=i;
-			tmp_item.amount=1;
-			tmp_item.identify=1;
+			memset(&tmp_item, 0, sizeof(tmp_item));
+			tmp_item.nameid = i;
+			tmp_item.amount = 1;
+			tmp_item.identify = 1;
 			mmo_map_get_item(fd, &tmp_item);
 			break;
 		case 617: // Old Purple Box
 			i = search_item(2);
-			memset(&tmp_item,0,sizeof(tmp_item));
-			tmp_item.nameid=i;
-			tmp_item.amount=1;
-			tmp_item.identify=1;
+			memset(&tmp_item, 0, sizeof(tmp_item));
+			tmp_item.nameid = i;
+			tmp_item.amount = 1;
+			tmp_item.identify = 1;
 			mmo_map_get_item(fd, &tmp_item);
 			break;
 		case 618: // Worn Out Scroll
 			i = search_item(3);
-			memset(&tmp_item,0,sizeof(tmp_item));
-			tmp_item.nameid=i;
-			tmp_item.amount=1;
-			tmp_item.identify=1;
+			memset(&tmp_item, 0, sizeof(tmp_item));
+			tmp_item.nameid = i;
+			tmp_item.amount = 1;
+			tmp_item.identify = 1;
 			mmo_map_get_item(fd, &tmp_item);
 			break;
 		case 619: // Unripe Apple
@@ -763,80 +716,123 @@ void use_item(struct map_session_data *sd, int indexid)
 		case 640: // Shining Stone
 		case 641: // Contracts in Shadow
 		case 642: // Book of Devil
+		case 659: // Her Heart
+		case 660: // Fobidden Red Candle
+		case 661: // Flapping Apron
 			sd->status.pet.mons_id = search_pet_class_item(nameid);
 			WFIFOW(fd, 0)= 0x19e;
 			WFIFOSET(fd, packet_len_table[0x19e]);
 			break;
-
 		case 643: // Pet Incubator
 			if (sd->status.pet.activity == 1) {
 				fail = 1;
 				break;
 			}
-			WFIFOW(fd,0) = 0x1a6;
-			for(i=j=0;i<100;i++) { //if egg
-				if((sd->status.inventory[i].nameid >= 9001)&&(sd->status.inventory[i].nameid <=9024)) {
-					WFIFOW(fd,4+j*2) = i+2;//sd->status.inventory[i].nameid;
-					j++;
+			for (i = c = 0; i < MAX_INVENTORY; i++)
+				if ((sd->status.inventory[i].nameid >= 9001) && (sd->status.inventory[i].nameid <= 9024))
+					c++;
+
+
+			if (c == 0) {
+				fail = 1;
+				break;
+			}
+			WFIFOW(fd, 0) = 0x1a6;
+			for (i = c = 0; i < MAX_INVENTORY; i++) {
+				if ((sd->status.inventory[i].nameid >= 9001) && (sd->status.inventory[i].nameid <= 9024)) {
+					WFIFOW(fd, 4 + c * 2) = i + 2;
+					c++;
 				}
 			}
-			WFIFOW(fd,2) = 4+j*2;
-			WFIFOSET(fd,4+j*2);
+			WFIFOW(fd, 2) = 4 + c * 2;
+			WFIFOSET(fd, 4 + c * 2);
 			break;
-
 		case 644: // X-Mas Present
 			i = search_item(4);
-			memset(&tmp_item,0,sizeof(tmp_item));
-			tmp_item.nameid=i;
-			tmp_item.amount=1;
-			tmp_item.identify=1;
+			memset(&tmp_item, 0, sizeof(tmp_item));
+			tmp_item.nameid = i;
+			tmp_item.amount = 1;
+			tmp_item.identify = 1;
 			mmo_map_get_item(fd, &tmp_item);
 			break;
 		case 645: // Concentration Potion
+			sd->skill_timeamount[1-1][0] = add_timer(gettick() + 1800000, skill_reset_stats, fd, 1);
+			sd->skill_timeamount[1-1][1] = 110;
+			skill_icon_effect(sd, 37, 1);
+			mmo_map_calc_status(fd, 0);
 			break;
 		case 656: // Awakening Potion
+			if (p->base_level < 40
+			|| sd->status.class == ACOLYTE
+			|| sd->status.class == PRIEST
+			|| sd->status.class == MONK) {
+				fail = 1;
+				break;
+			}
+			sd->skill_timeamount[1-1][0] = add_timer(gettick() + 1800000, skill_reset_stats, fd, 1);
+			sd->skill_timeamount[1-1][1] = 120;
+			skill_icon_effect(sd, 37, 1);
+			mmo_map_calc_status(fd, 0);
 			break;
 		case 657: // Berserk Potion
+			if (p->base_level < 85
+			|| sd->status.class == ACOLYTE
+			|| sd->status.class == PRIEST
+			|| sd->status.class == MONK
+			|| sd->status.class == THIEF
+			|| sd->status.class == ASSASSIN
+			|| sd->status.class == ROGUE
+			|| sd->status.class == ARCHER
+			|| sd->status.class == HUNTER
+			|| sd->status.class == BARD
+			|| sd->status.class == DANCER) {
+				fail = 1;
+				break;
+			}
+			sd->skill_timeamount[1-1][0] = add_timer(gettick() + 1800000, skill_reset_stats, fd, 1);
+			sd->skill_timeamount[1-1][1] = 130;
+			skill_icon_effect(sd, 37, 1);
+			mmo_map_calc_status(fd, 0);
 			break;
 		case 658: // Tribal Solidarity
 			break;
-		case 659: // Her Heart
-			break;
-		case 660: // Fobidden Red Candle
-			break;
-		case 661: // Flapping Apron
-			break;
-		default:
+		case 664: // Gift_Box
+		case 665: // Gift_Box
+		case 666: // Gift_Box
+		case 667: // Gift_Box
+			i = search_item(5);
+			memset(&tmp_item, 0, sizeof(tmp_item));
+			tmp_item.nameid = i;
+			tmp_item.amount = 1;
+			tmp_item.identify = 1;
+			mmo_map_get_item(fd, &tmp_item);
 			break;
 		}
-		if (fail == 0) {
+		if (!fail) {
 			sd->weight -= itemdb[dataid].weight;
-			len=mmo_map_set_param(fd,WFIFOP(fd,0),SP_WEIGHT);
-			if (len>0) {
-				WFIFOSET(fd,len);
-			}
-			WFIFOW(fd,0) = 0xa8;
-			WFIFOW(fd,2) = RFIFOW(fd,2);
-			WFIFOW(fd,4) = --p->inventory[indexid-2].amount;
-			WFIFOB(fd,6) = 1;
-			WFIFOSET(fd,7);
-			if (p->inventory[indexid-2].amount <= 0) {
+			mmo_map_calc_overweight(sd);
+			len = mmo_map_set_param(fd, WFIFOP(fd, 0), SP_WEIGHT);
+			if (len > 0)
+				WFIFOSET(fd, len);
+
+			p->inventory[indexid-2].amount--;
+			if (p->inventory[indexid-2].amount <= 0)
 				p->inventory[indexid-2].nameid = 0;
-			}
+
+			WBUFW(buf, 0) = 0x1c8;
+			WBUFW(buf, 2) = indexid;
+			WBUFW(buf, 4) = nameid;
+			WBUFL(buf, 6) = sd->account_id;
+			WBUFW(buf, 10) = p->inventory[indexid-2].amount;
+			WBUFB(buf, 12) = 1;
+			mmo_map_sendarea(fd, buf, 13, 0);
 		}
 		else {
-			WFIFOW(fd,0) = 0xa8;
-			WFIFOW(fd,2) = RFIFOW(fd,2);
-			WFIFOW(fd,4) = p->inventory[indexid-2].amount;
-			WFIFOB(fd,6) = 0;
-			WFIFOSET(fd,7);
-		}
-		break;
-	default:
-		fp = fopen("Item.log", "a");
-		if (fp) {
-			fprintf(fp,"USE ITEM: Unknown item type: %d. nameid: %d. dataid: %d.\n",item_type, nameid, dataid);
-			fclose(fp);
+			WFIFOW(fd, 0) = 0xa8;
+			WFIFOW(fd, 2) = nameid;
+			WFIFOW(fd, 4) = p->inventory[indexid-2].amount;
+			WFIFOB(fd, 6) = 0;
+			WFIFOSET(fd, 7);
 		}
 		break;
 	}

@@ -1,9 +1,8 @@
-// ID,Skill1,Option1,Option2,Skill2,Option3,Option4,...,Skill5,Option9,Option10
-// Skill : 1 - Summon, 2 - Heal, 3 - PolyMorph, 4 - Effect,
-// 48 - DoubleAttack, 95 - Suicide, 96 - CriticalAttack, 97 - TripleAttack, 98 - SelfDestuction, 99 - DrainLife
+// ID, Skill1, Option1, Option2, Skill2, Option3, Option4, ..., Skill6, Option11, Option12
+// Skill: 1 - Summon, 2 - Heal, 3 - PolyMorph, 4 - Effect, 48 - DoubleAttack, 
+// 95 - Suicide, 96 - CriticalAttack, 97 - TripleAttack, 98 - SelfDestuction, 99 - DrainLife
 // 100 - Attack(4), 101 - Attack(5), 102 - MentalBreaker(Drain SP)
-// Effects : 1 - Stone, 2 - Freeze, 3 - Stun, 4 - Sleep, 5 - Slient, 6 - Poison
-//           7 - Confuse, 8 - Curse, 9 - Dark
+// Effects : 1 - Stone, 2 - Freeze, 3 - Stun, 4 - Sleep, 5 - Slient, 6 - Poison, 7 - Confuse, 8 - Curse, 9 - Dark
 1063,2,0,0,2,0,0,2,0,0,2,0,0,2,0,0,2,0,0
 1090,1,1002,1113,1,1002,1113,1,1002,1113,1,1002,1113,1,1002,1113,1,1002,1113
 1010,11,0,0,11,0,0,11,0,0,11,0,0,11,0,0,11,0,0

@@ -1,448 +1,448 @@
-//map, pvp, memo, branch, teleport
-alb_ship.gat	0	1	0	1
-alb2trea.gat	0	1	0	1
-alberta.gat	0	1	0	1
-alberta_in.gat	0	1	0	1
-alde_dun01.gat	0	1	0	1
-alde_dun02.gat	0	1	0	1
-alde_dun03.gat	0	1	0	1
-alde_dun04.gat	0	1	0	1
-aldeba_in.gat	0	1	0	1
-aldebaran.gat	0	1	0	1
-anthell01.gat	0	1	0	1
-anthell02.gat	0	1	0	1
-arena_room.gat	0	1	0	1
-c_tower1.gat	0	1	0	1
-c_tower2.gat	0	1	0	1
-c_tower3.gat	0	1	0	1
-c_tower4.gat	0	1	0	1
-force_1-1.gat	0	1	0	1
-force_1-2.gat	0	1	0	1
-force_1-3.gat	0	1	0	1
-force_2-1.gat	0	1	0	1
-force_2-2.gat	0	1	0	1
-force_2-3.gat	0	1	0	1
-force_3-1.gat	0	1	0	1
-force_3-2.gat	0	1	0	1
-force_3-3.gat	0	1	0	1
-gef_dun00.gat	0	1	0	1
-gef_dun01.gat	0	1	0	1
-gef_dun02.gat	0	1	0	1
-gef_dun03.gat	0	1	0	1
-gef_fild00.gat	0	1	0	1
-gef_fild01.gat	0	1	0	1
-gef_fild02.gat	0	1	0	1
-gef_fild03.gat	0	1	0	1
-gef_fild04.gat	0	1	0	1
-gef_fild05.gat	0	1	0	1
-gef_fild06.gat	0	1	0	1
-gef_fild07.gat	0	1	0	1
-gef_fild08.gat	0	1	0	1
-gef_fild09.gat	0	1	0	1
-gef_fild10.gat	0	1	0	1
-gef_fild11.gat	0	1	0	1
-gef_tower.gat	0	1	0	1
-geffen.gat	0	1	0	1
-geffen_in.gat	0	1	0	1
-gl_cas01.gat	0	1	0	1
-gl_cas02.gat	0	1	0	1
-gl_church.gat	0	1	0	1
-gl_chyard.gat	0	1	0	1
-gl_dun01.gat	0	1	0	1
-gl_dun02.gat	0	1	0	1
-gl_in01.gat	0	1	0	1
-gl_knt01.gat	0	1	0	1
-gl_knt02.gat	0	1	0	1
-gl_prison.gat	0	1	0	1
-gl_prison1.gat	0	1	0	1
-gl_sew01.gat	0	1	0	1
-gl_sew02.gat	0	1	0	1
-gl_sew03.gat	0	1	0	1
-gl_sew04.gat	0	1	0	1
-gl_step.gat	0	1	0	1
-glast_01.gat	0	1	0	1
-hunter_1-1.gat	0	1	0	1
-hunter_2-1.gat	0	1	0	1
-hunter_3-1.gat	0	1	0	1
-in_hunter.gat	0	1	0	1
-in_moc_16.gat	0	1	0	1
-in_orcs01.gat	0	1	0	1
-in_sphinx1.gat	0	1	0	1
-in_sphinx2.gat	0	1	0	1
-in_sphinx3.gat	0	1	0	1
-in_sphinx4.gat	0	1	0	1
-in_sphinx5.gat	0	1	0	1
-iz_dun00.gat	0	1	0	1
-iz_dun01.gat	0	1	0	1
-iz_dun02.gat	0	1	0	1
-iz_dun03.gat	0	1	0	1
-iz_dun04.gat	0	1	0	1
-//map: iz_dun05.gat	0	1	0	1
-izlu2dun.gat	0	1	0	1
-izlude.gat	0	1	0	1
-izlude_in.gat	0	1	0	1
-job_thief1.gat	0	1	0	1
-knight_1-1.gat	0	1	0	1
-knight_2-1.gat	0	1	0	1
-knight_3-1.gat	0	1	0	1
-mjo_dun01.gat	0	1	0	1
-mjo_dun02.gat	0	1	0	1
-mjo_dun03.gat	0	1	0	1
-mjolnir_01.gat	0	1	0	1
-mjolnir_02.gat	0	1	0	1
-mjolnir_03.gat	0	1	0	1
-mjolnir_04.gat	0	1	0	1
-mjolnir_05.gat	0	1	0	1
-mjolnir_06.gat	0	1	0	1
-mjolnir_07.gat	0	1	0	1
-mjolnir_08.gat	0	1	0	1
-mjolnir_09.gat	0	1	0	1
-mjolnir_10.gat	0	1	0	1
-mjolnir_11.gat	0	1	0	1
-mjolnir_12.gat	0	1	0	1
-moc_castle.gat	0	1	0	1
-moc_fild01.gat	0	1	0	1
-moc_fild02.gat	0	1	0	1
-moc_fild03.gat	0	1	0	1
-moc_fild04.gat	0	1	0	1
-moc_fild05.gat	0	1	0	1
-moc_fild06.gat	0	1	0	1
-moc_fild07.gat	0	1	0	1
-moc_fild08.gat	0	1	0	1
-moc_fild09.gat	0	1	0	1
-moc_fild10.gat	0	1	0	1
-moc_fild11.gat	0	1	0	1
-moc_fild12.gat	0	1	0	1
-moc_fild13.gat	0	1	0	1
-moc_fild14.gat	0	1	0	1
-moc_fild15.gat	0	1	0	1
-moc_fild16.gat	0	1	0	1
-moc_fild17.gat	0	1	0	1
-moc_fild18.gat	0	1	0	1
-moc_fild19.gat	0	1	0	1
-moc_pryd01.gat	0	1	0	1
-moc_pryd02.gat	0	1	0	1
-moc_pryd03.gat	0	1	0	1
-moc_pryd04.gat	0	1	0	1
-moc_pryd05.gat	0	1	0	1
-moc_pryd06.gat	0	1	0	1
-moc_prydb1.gat	0	1	0	1
-moc_ruins.gat	0	1	0	1
-monk_in.gat	0	1	0	1
-morocc.gat	1	1	0	1
-morocc_in.gat	0	1	0	1
-new_1-1.gat	0	1	0	1
-new_1-2.gat	0	1	0	1
-new_1-3.gat	0	1	0	1
-new_1-4.gat	0	1	0	1
-new_2-1.gat	0	1	0	1
-new_2-2.gat	0	1	0	1
-new_2-3.gat	0	1	0	1
-new_2-4.gat	0	1	0	1
-new_3-1.gat	0	1	0	1
-new_3-2.gat	0	1	0	1
-new_3-3.gat	0	1	0	1
-new_3-4.gat	0	1	0	1
-new_4-1.gat	0	1	0	1
-new_4-2.gat	0	1	0	1
-new_4-3.gat	0	1	0	1
-new_4-4.gat	0	1	0	1
-new_5-1.gat	0	1	0	1
-new_5-2.gat	0	1	0	1
-new_5-3.gat	0	1	0	1
-new_5-4.gat	0	1	0	1
-orcsdun01.gat	0	1	0	1
-orcsdun02.gat	0	1	0	1
-ordeal_1-1.gat	0	1	0	1
-ordeal_1-2.gat	0	1	0	1
-//ordeal_1-3.gat	0	1	0	1
-//ordeal_1-4.gat	0	1	0	1
-ordeal_2-1.gat	0	1	0	1
-ordeal_2-2.gat	0	1	0	1
-//ordeal_2-3.gat	0	1	0	1
-//ordeal_2-4.gat	0	1	0	1
-ordeal_3-1.gat	0	1	0	1
-ordeal_3-2.gat	0	1	0	1
-//ordeal_3-3.gat	0	1	0	1
-//ordeal_3-4.gat	0	1	0	1
-pay_arche.gat	0	1	0	1
-pay_dun00.gat	0	1	0	1
-pay_dun01.gat	0	1	0	1
-pay_dun02.gat	0	1	0	1
-pay_dun03.gat	0	1	0	1
-pay_dun04.gat	0	1	0	1
-pay_fild01.gat	0	1	0	1
-pay_fild02.gat	0	1	0	1
-pay_fild03.gat	0	1	0	1
-pay_fild04.gat	0	1	0	1
-pay_fild05.gat	0	1	0	1
-pay_fild06.gat	0	1	0	1
-pay_fild07.gat	0	1	0	1
-pay_fild08.gat	0	1	0	1
-pay_fild09.gat	0	1	0	1
-pay_fild10.gat	0	1	0	1
-pay_fild11.gat	0	1	0	1
-payon.gat	0	1	0	1
-payon_in01.gat	0	1	0	1
-payon_in02.gat	0	1	0	1
-priest_1-1.gat	0	1	0	1
-priest_2-1.gat	0	1	0	1
-priest_3-1.gat	0	1	0	1
-prontera.gat	0	1	0	1
-prt_are_in.gat	0	1	0	1
-prt_are01.gat	0	1	0	1
-//prt_arena01.gat	0	1	0	1
-prt_castle.gat	0	1	0	1
-prt_church.gat	0	1	0	1
-prt_fild00.gat	0	1	0	1
-prt_fild01.gat	0	1	0	1
-prt_fild02.gat	0	1	0	1
-prt_fild03.gat	0	1	0	1
-prt_fild04.gat	0	1	0	1
-prt_fild05.gat	0	1	0	1
-prt_fild06.gat	0	1	0	1
-prt_fild07.gat	0	1	0	1
-prt_fild08.gat	0	1	0	1
-prt_fild09.gat	0	1	0	1
-prt_fild10.gat	0	1	0	1
-prt_fild11.gat	0	1	0	1
-prt_in.gat	0	1	0	1
-prt_maze01.gat	0	1	0	1
-prt_maze02.gat	0	1	0	1
-prt_maze03.gat	0	1	0	1
-prt_monk.gat	0	1	0	1
-prt_sewb1.gat	0	1	0	1
-prt_sewb2.gat	0	1	0	1
-prt_sewb3.gat	0	1	0	1
-prt_sewb4.gat	0	1	0	1
-pvp_2vs2.gat	0	1	0	1
-//pvp_c_room.gat	0	1	0	1
-pvp_n_1-1.gat	0	1	0	1
-pvp_n_1-2.gat	0	1	0	1
-pvp_n_1-3.gat	0	1	0	1
-pvp_n_1-4.gat	0	1	0	1
-pvp_n_1-5.gat	0	1	0	1
-pvp_n_2-1.gat	0	1	0	1
-pvp_n_2-2.gat	0	1	0	1
-pvp_n_2-3.gat	0	1	0	1
-pvp_n_2-4.gat	0	1	0	1
-pvp_n_2-5.gat	0	1	0	1
-pvp_n_3-1.gat	0	1	0	1
-pvp_n_3-2.gat	0	1	0	1
-pvp_n_3-3.gat	0	1	0	1
-pvp_n_3-4.gat	0	1	0	1
-pvp_n_3-5.gat	0	1	0	1
-pvp_n_4-1.gat	0	1	0	1
-pvp_n_4-2.gat	0	1	0	1
-pvp_n_4-3.gat	0	1	0	1
-pvp_n_4-4.gat	0	1	0	1
-pvp_n_4-5.gat	0	1	0	1
-pvp_n_5-1.gat	0	1	0	1
-pvp_n_5-2.gat	0	1	0	1
-pvp_n_5-3.gat	0	1	0	1
-pvp_n_5-4.gat	0	1	0	1
-pvp_n_5-5.gat	0	1	0	1
-pvp_n_6-1.gat	0	1	0	1
-pvp_n_6-2.gat	0	1	0	1
-pvp_n_6-3.gat	0	1	0	1
-pvp_n_6-4.gat	0	1	0	1
-pvp_n_6-5.gat	0	1	0	1
-pvp_n_7-1.gat	0	1	0	1
-pvp_n_7-2.gat	0	1	0	1
-pvp_n_7-3.gat	0	1	0	1
-pvp_n_7-4.gat	0	1	0	1
-pvp_n_7-5.gat	0	1	0	1
-pvp_n_8-1.gat	0	1	0	1
-pvp_n_8-2.gat	0	1	0	1
-pvp_n_8-3.gat	0	1	0	1
-pvp_n_8-4.gat	0	1	0	1
-pvp_n_8-5.gat	0	1	0	1
-pvp_n_room.gat	0	1	0	1
-pvp_y_1-1.gat	0	1	0	1
-pvp_y_1-2.gat	0	1	0	1
-pvp_y_1-3.gat	0	1	0	1
-pvp_y_1-4.gat	0	1	0	1
-pvp_y_1-5.gat	0	1	0	1
-pvp_y_2-1.gat	0	1	0	1
-pvp_y_2-2.gat	0	1	0	1
-pvp_y_2-3.gat	0	1	0	1
-pvp_y_2-4.gat	0	1	0	1
-pvp_y_2-5.gat	0	1	0	1
-pvp_y_3-1.gat	0	1	0	1
-pvp_y_3-2.gat	0	1	0	1
-pvp_y_3-3.gat	0	1	0	1
-pvp_y_3-4.gat	0	1	0	1
-pvp_y_3-5.gat	0	1	0	1
-pvp_y_4-1.gat	0	1	0	1
-pvp_y_4-2.gat	0	1	0	1
-pvp_y_4-3.gat	0	1	0	1
-pvp_y_4-4.gat	0	1	0	1
-pvp_y_4-5.gat	0	1	0	1
-pvp_y_5-1.gat	0	1	0	1
-pvp_y_5-2.gat	0	1	0	1
-pvp_y_5-3.gat	0	1	0	1
-pvp_y_5-4.gat	0	1	0	1
-pvp_y_5-5.gat	0	1	0	1
-pvp_y_6-1.gat	0	1	0	1
-pvp_y_6-2.gat	0	1	0	1
-pvp_y_6-3.gat	0	1	0	1
-pvp_y_6-4.gat	0	1	0	1
-pvp_y_6-5.gat	0	1	0	1
-pvp_y_7-1.gat	0	1	0	1
-pvp_y_7-2.gat	0	1	0	1
-pvp_y_7-3.gat	0	1	0	1
-pvp_y_7-4.gat	0	1	0	1
-pvp_y_7-5.gat	0	1	0	1
-pvp_y_8-1.gat	0	1	0	1
-pvp_y_8-2.gat	0	1	0	1
-pvp_y_8-3.gat	0	1	0	1
-pvp_y_8-4.gat	0	1	0	1
-pvp_y_8-5.gat	0	1	0	1
-pvp_y_room.gat	0	1	0	1
-sword_1-1.gat	0	1	0	1
-sword_2-1.gat	0	1	0	1
-sword_3-1.gat	0	1	0	1
-treasure01.gat	0	1	0	1
-treasure02.gat	0	1	0	1
-wizard_1-1.gat	0	1	0	1
-wizard_2-1.gat	0	1	0	1
-wizard_3-1.gat	0	1	0	1
-xmas.gat	0	1	0	1
-xmas_dun01.gat	0	1	0	1
-xmas_dun02.gat	0	1	0	1
-xmas_fild01.gat	0	1	0	1
-xmas_in.gat	0	1	0	1
+//map	pvp	memo	branch	teleport	water	canlose
+alb_ship.gat	0	1	0	1	0	0
+alb2trea.gat	0	1	0	1	0	1
+alberta.gat	0	1	0	1	0	0
+alberta_in.gat	0	0	0	0	0	0
+alde_dun01.gat	0	1	1	1	0	1
+alde_dun02.gat	0	1	1	1	0	1
+alde_dun03.gat	0	1	1	1	0	1
+alde_dun04.gat	0	1	1	1	0	1
+aldeba_in.gat	0	0	0	0	0	0
+aldebaran.gat	0	1	0	1	0	0
+anthell01.gat	0	1	1	1	0	1
+anthell02.gat	0	1	1	1	0	1
+arena_room.gat	0	1	1	1	0	1
+c_tower1.gat	0	1	1	1	0	1
+c_tower2.gat	0	1	1	1	0	1
+c_tower3.gat	0	1	1	1	0	1
+c_tower4.gat	0	1	1	1	0	1
+force_1-1.gat	0	1	1	1	0	1
+force_1-2.gat	0	1	1	1	0	1
+force_1-3.gat	0	1	1	1	0	1
+force_2-1.gat	0	1	1	1	0	1
+force_2-2.gat	0	1	1	1	0	1
+force_2-3.gat	0	1	1	1	0	1
+force_3-1.gat	0	1	1	1	0	1
+force_3-2.gat	0	1	1	1	0	1
+force_3-3.gat	0	1	1	1	0	1
+gef_dun00.gat	0	1	1	1	0	1
+gef_dun01.gat	0	1	1	1	0	1
+gef_dun02.gat	0	1	1	1	0	1
+gef_dun03.gat	0	1	1	1	0	1
+gef_fild00.gat	0	1	1	1	0	1
+gef_fild01.gat	0	1	1	1	0	1
+gef_fild02.gat	0	1	1	1	0	1
+gef_fild03.gat	0	1	1	1	0	1
+gef_fild04.gat	0	1	1	1	0	1
+gef_fild05.gat	0	1	1	1	0	1
+gef_fild06.gat	0	1	1	1	0	1
+gef_fild07.gat	0	1	1	1	0	1
+gef_fild08.gat	0	1	1	1	0	1
+gef_fild09.gat	0	1	1	1	0	1
+gef_fild10.gat	0	1	1	1	0	1
+gef_fild11.gat	0	1	1	1	0	1
+gef_tower.gat	0	1	0	1	0	0
+geffen.gat	0	1	0	1	0	0
+geffen_in.gat	0	0	0	0	0	0
+gl_cas01.gat	0	1	1	1	0	1
+gl_cas02.gat	0	1	1	1	0	1
+gl_church.gat	0	1	1	1	0	1
+gl_chyard.gat	0	1	1	1	0	1
+gl_dun01.gat	0	1	1	1	0	1
+gl_dun02.gat	0	1	1	1	0	1
+gl_in01.gat	0	1	1	1	0	1
+gl_knt01.gat	0	1	1	1	0	1
+gl_knt02.gat	0	1	1	1	0	1
+gl_prison.gat	0	1	1	1	0	1
+gl_prison1.gat	0	1	1	1	0	1
+gl_sew01.gat	0	1	1	1	0	1
+gl_sew02.gat	0	1	1	1	0	1
+gl_sew03.gat	0	1	1	1	0	1
+gl_sew04.gat	0	1	1	1	0	1
+gl_step.gat	0	1	1	1	0	1
+glast_01.gat	0	1	1	1	0	1
+hunter_1-1.gat	0	1	0	1	0	1
+hunter_2-1.gat	0	1	0	1	0	1
+hunter_3-1.gat	0	1	0	1	0	1
+in_hunter.gat	0	0	0	0	0	0
+in_moc_16.gat	0	0	0	0	0	0
+in_orcs01.gat	0	0	0	0	0	0
+in_sphinx1.gat	0	1	1	1	0	1
+in_sphinx2.gat	0	1	1	1	0	1
+in_sphinx3.gat	0	1	1	1	0	1
+in_sphinx4.gat	0	1	1	1	0	1
+in_sphinx5.gat	0	1	1	1	0	1
+iz_dun00.gat	0	1	1	1	0	1
+iz_dun01.gat	0	1	1	1	0	1
+iz_dun02.gat	0	1	1	1	0	1
+iz_dun03.gat	0	1	1	1	0	1
+iz_dun04.gat	0	1	1	1	0	1
+//map: iz_dun05.gat	0	1	0	1	0	1
+izlu2dun.gat	0	1	1	1	0	0
+izlude.gat	0	1	0	1	0	1
+izlude_in.gat	0	0	0	0	0	0
+job_thief1.gat	0	1	0	1	0	1
+knight_1-1.gat	0	1	0	1	0	1
+knight_2-1.gat	0	1	0	1	0	1
+knight_3-1.gat	0	1	0	1	0	1
+mjo_dun01.gat	0	1	1	1	0	1
+mjo_dun02.gat	0	1	1	1	0	1
+mjo_dun03.gat	0	1	1	1	0	1
+mjolnir_01.gat	0	1	1	1	0	1
+mjolnir_02.gat	0	1	1	1	0	1
+mjolnir_03.gat	0	1	1	1	0	1
+mjolnir_04.gat	0	1	1	1	0	1
+mjolnir_05.gat	0	1	1	1	0	1
+mjolnir_06.gat	0	1	1	1	0	1
+mjolnir_07.gat	0	1	1	1	0	1
+mjolnir_08.gat	0	1	1	1	0	1
+mjolnir_09.gat	0	1	1	1	0	1
+mjolnir_10.gat	0	1	1	1	0	1
+mjolnir_11.gat	0	1	1	1	0	1
+mjolnir_12.gat	0	1	1	1	0	1
+moc_castle.gat	0	1	1	1	0	1
+moc_fild01.gat	0	1	1	1	0	1
+moc_fild02.gat	0	1	1	1	0	1
+moc_fild03.gat	0	1	1	1	0	1
+moc_fild04.gat	0	1	1	1	0	1
+moc_fild05.gat	0	1	1	1	0	1
+moc_fild06.gat	0	1	1	1	0	1
+moc_fild07.gat	0	1	1	1	0	1
+moc_fild08.gat	0	1	1	1	0	1
+moc_fild09.gat	0	1	1	1	0	1
+moc_fild10.gat	0	1	1	1	0	1
+moc_fild11.gat	0	1	1	1	0	1
+moc_fild12.gat	0	1	1	1	0	1
+moc_fild13.gat	0	1	1	1	0	1
+moc_fild14.gat	0	1	1	1	0	1
+moc_fild15.gat	0	1	1	1	0	1
+moc_fild16.gat	0	1	1	1	0	1
+moc_fild17.gat	0	1	1	1	0	1
+moc_fild18.gat	0	1	1	1	0	1
+moc_fild19.gat	0	1	1	1	0	1
+moc_pryd01.gat	0	1	1	1	0	1
+moc_pryd02.gat	0	1	1	1	0	1
+moc_pryd03.gat	0	1	1	1	0	1
+moc_pryd04.gat	0	1	1	1	0	1
+moc_pryd05.gat	0	1	1	1	0	1
+moc_pryd06.gat	0	1	1	1	0	1
+moc_prydb1.gat	0	1	1	1	0	1
+moc_ruins.gat	0	1	0	1	0	0
+monk_in.gat	0	0	0	0	0	0
+morocc.gat	0	1	0	1	0	0
+morocc_in.gat	0	0	0	0	0	0
+new_1-1.gat	0	1	0	1	0	1
+new_1-2.gat	0	1	0	1	0	1
+new_1-3.gat	0	1	0	1	0	1
+new_1-4.gat	0	1	0	1	0	1
+new_2-1.gat	0	1	0	1	0	1
+new_2-2.gat	0	1	0	1	0	1
+new_2-3.gat	0	1	0	1	0	1
+new_2-4.gat	0	1	0	1	0	1
+new_3-1.gat	0	1	0	1	0	1
+new_3-2.gat	0	1	0	1	0	1
+new_3-3.gat	0	1	0	1	0	1
+new_3-4.gat	0	1	0	1	0	1
+new_4-1.gat	0	1	0	1	0	1
+new_4-2.gat	0	1	0	1	0	1
+new_4-3.gat	0	1	0	1	0	1
+new_4-4.gat	0	1	0	1	0	1
+new_5-1.gat	0	1	0	1	0	1
+new_5-2.gat	0	1	0	1	0	1
+new_5-3.gat	0	1	0	1	0	1
+new_5-4.gat	0	1	0	1	0	1
+orcsdun01.gat	0	1	1	1	0	1
+orcsdun02.gat	0	1	1	1	0	1
+ordeal_1-1.gat	0	1	1	1	0	1
+ordeal_1-2.gat	0	1	1	1	0	1
+//ordeal_1-3.gat	0	1	1	1	0	1
+//ordeal_1-4.gat	0	1	1	1	0	1
+ordeal_2-1.gat	0	1	1	1	0	1
+ordeal_2-2.gat	0	1	1	1	0	1
+//ordeal_2-3.gat	0	1	1	1	0	1
+//ordeal_2-4.gat	0	1	1	1	0	1
+ordeal_3-1.gat	0	1	1	1	0	1
+ordeal_3-2.gat	0	1	1	1	0	1
+//ordeal_3-3.gat	0	1	1	1	0	1
+//ordeal_3-4.gat	0	1	1	1	0	1
+pay_arche.gat	0	1	1	1	0	1
+pay_dun00.gat	0	1	1	1	0	1
+pay_dun01.gat	0	1	1	1	0	1
+pay_dun02.gat	0	1	1	1	0	1
+pay_dun03.gat	0	1	1	1	0	1
+pay_dun04.gat	0	1	1	1	0	1
+pay_fild01.gat	0	1	1	1	0	1
+pay_fild02.gat	0	1	1	1	0	1
+pay_fild03.gat	0	1	1	1	0	1
+pay_fild04.gat	0	1	1	1	0	1
+pay_fild05.gat	0	1	1	1	0	1
+pay_fild06.gat	0	1	1	1	0	1
+pay_fild07.gat	0	1	1	1	0	1
+pay_fild08.gat	0	1	1	1	0	1
+pay_fild09.gat	0	1	1	1	0	1
+pay_fild10.gat	0	1	1	1	0	1
+pay_fild11.gat	0	1	1	1	0	1
+payon.gat	0	1	0	1	0	0
+payon_in01.gat	0	0	0	0	0	0
+payon_in02.gat	0	0	0	0	0	0
+priest_1-1.gat	0	1	0	1	0	1
+priest_2-1.gat	0	1	0	1	0	1
+priest_3-1.gat	0	1	0	1	0	1
+prontera.gat	0	1	0	1	0	0
+prt_are_in.gat	0	0	0	0	0	0
+prt_are01.gat	0	1	0	1	0	1
+//prt_arena01.gat	0	1	0	1	0	1
+prt_castle.gat	0	1	0	1	0	1
+prt_church.gat	0	0	0	0	0	0
+prt_fild00.gat	0	1	1	1	0	1
+prt_fild01.gat	0	1	1	1	0	1
+prt_fild02.gat	0	1	1	1	0	1
+prt_fild03.gat	0	1	1	1	0	1
+prt_fild04.gat	0	1	1	1	0	1
+prt_fild05.gat	0	1	1	1	0	1
+prt_fild06.gat	0	1	1	1	0	1
+prt_fild07.gat	0	1	1	1	0	1
+prt_fild08.gat	0	1	1	1	0	1
+prt_fild09.gat	0	1	1	1	0	1
+prt_fild10.gat	0	1	1	1	0	1
+prt_fild11.gat	0	1	1	1	0	1
+prt_in.gat	0	0	0	0	0	0
+prt_maze01.gat	0	1	0	1	0	1
+prt_maze02.gat	0	1	0	1	0	1
+prt_maze03.gat	0	1	0	1	0	1
+prt_monk.gat	0	1	0	1	0	1
+prt_sewb1.gat	0	1	0	1	0	1
+prt_sewb2.gat	0	1	0	1	0	1
+prt_sewb3.gat	0	1	0	1	0	1
+prt_sewb4.gat	0	1	0	1	0	1
+pvp_2vs2.gat	1	1	0	1	0	1
+//pvp_c_room.gat	0	1	0	1	0	1
+pvp_n_1-1.gat	1	1	0	1	0	1
+pvp_n_1-2.gat	1	1	0	1	0	1
+pvp_n_1-3.gat	1	1	0	1	0	1
+pvp_n_1-4.gat	1	1	0	1	0	1
+pvp_n_1-5.gat	1	1	0	1	0	1
+pvp_n_2-1.gat	1	1	0	1	0	1
+pvp_n_2-2.gat	1	1	0	1	0	1
+pvp_n_2-3.gat	1	1	0	1	0	1
+pvp_n_2-4.gat	1	1	0	1	0	1
+pvp_n_2-5.gat	1	1	0	1	0	1
+pvp_n_3-1.gat	1	1	0	1	0	1
+pvp_n_3-2.gat	1	1	0	1	0	1
+pvp_n_3-3.gat	1	1	0	1	0	1
+pvp_n_3-4.gat	1	1	0	1	0	1
+pvp_n_3-5.gat	1	1	0	1	0	1
+pvp_n_4-1.gat	1	1	0	1	0	1
+pvp_n_4-2.gat	1	1	0	1	0	1
+pvp_n_4-3.gat	1	1	0	1	0	1
+pvp_n_4-4.gat	1	1	0	1	0	1
+pvp_n_4-5.gat	1	1	0	1	0	1
+pvp_n_5-1.gat	1	1	0	1	0	1
+pvp_n_5-2.gat	1	1	0	1	0	1
+pvp_n_5-3.gat	1	1	0	1	0	1
+pvp_n_5-4.gat	1	1	0	1	0	1
+pvp_n_5-5.gat	1	1	0	1	0	1
+pvp_n_6-1.gat	1	1	0	1	0	1
+pvp_n_6-2.gat	1	1	0	1	0	1
+pvp_n_6-3.gat	1	1	0	1	0	1
+pvp_n_6-4.gat	1	1	0	1	0	1
+pvp_n_6-5.gat	1	1	0	1	0	1
+pvp_n_7-1.gat	1	1	0	1	0	1
+pvp_n_7-2.gat	1	1	0	1	0	1
+pvp_n_7-3.gat	1	1	0	1	0	1
+pvp_n_7-4.gat	1	1	0	1	0	1
+pvp_n_7-5.gat	1	1	0	1	0	1
+pvp_n_8-1.gat	1	1	0	1	0	1
+pvp_n_8-2.gat	1	1	0	1	0	1
+pvp_n_8-3.gat	1	1	0	1	0	1
+pvp_n_8-4.gat	1	1	0	1	0	1
+pvp_n_8-5.gat	1	1	0	1	0	1
+pvp_n_room.gat	1	1	0	1	0	1
+pvp_y_1-1.gat	1	1	0	1	0	1
+pvp_y_1-2.gat	1	1	0	1	0	1
+pvp_y_1-3.gat	1	1	0	1	0	1
+pvp_y_1-4.gat	1	1	0	1	0	1
+pvp_y_1-5.gat	1	1	0	1	0	1
+pvp_y_2-1.gat	1	1	0	1	0	1
+pvp_y_2-2.gat	1	1	0	1	0	1
+pvp_y_2-3.gat	1	1	0	1	0	1
+pvp_y_2-4.gat	1	1	0	1	0	1
+pvp_y_2-5.gat	1	1	0	1	0	1
+pvp_y_3-1.gat	1	1	0	1	0	1
+pvp_y_3-2.gat	1	1	0	1	0	1
+pvp_y_3-3.gat	1	1	0	1	0	1
+pvp_y_3-4.gat	1	1	0	1	0	1
+pvp_y_3-5.gat	1	1	0	1	0	1
+pvp_y_4-1.gat	1	1	0	1	0	1
+pvp_y_4-2.gat	1	1	0	1	0	1
+pvp_y_4-3.gat	1	1	0	1	0	1
+pvp_y_4-4.gat	1	1	0	1	0	1
+pvp_y_4-5.gat	1	1	0	1	0	1
+pvp_y_5-1.gat	1	1	0	1	0	1
+pvp_y_5-2.gat	1	1	0	1	0	1
+pvp_y_5-3.gat	1	1	0	1	0	1
+pvp_y_5-4.gat	1	1	0	1	0	1
+pvp_y_5-5.gat	1	1	0	1	0	1
+pvp_y_6-1.gat	1	1	0	1	0	1
+pvp_y_6-2.gat	1	1	0	1	0	1
+pvp_y_6-3.gat	1	1	0	1	0	1
+pvp_y_6-4.gat	1	1	0	1	0	1
+pvp_y_6-5.gat	1	1	0	1	0	1
+pvp_y_7-1.gat	1	1	0	1	0	1
+pvp_y_7-2.gat	1	1	0	1	0	1
+pvp_y_7-3.gat	1	1	0	1	0	1
+pvp_y_7-4.gat	1	1	0	1	0	1
+pvp_y_7-5.gat	1	1	0	1	0	1
+pvp_y_8-1.gat	1	1	0	1	0	1
+pvp_y_8-2.gat	1	1	0	1	0	1
+pvp_y_8-3.gat	1	1	0	1	0	1
+pvp_y_8-4.gat	1	1	0	1	0	1
+pvp_y_8-5.gat	1	1	0	1	0	1
+pvp_y_room.gat	1	1	0	1	0	1
+sword_1-1.gat	0	1	0	1	0	1
+sword_2-1.gat	0	1	0	1	0	1
+sword_3-1.gat	0	1	0	1	0	1
+treasure01.gat	0	1	0	1	0	1
+treasure02.gat	0	1	0	1	0	1
+wizard_1-1.gat	0	1	0	1	0	1
+wizard_2-1.gat	0	1	0	1	0	1
+wizard_3-1.gat	0	1	0	1	0	1
+xmas.gat	0	1	0	1	0	0
+xmas_dun01.gat	0	1	0	1	0	1
+xmas_dun02.gat	0	1	0	1	0	1
+xmas_fild01.gat	0	1	0	1	0	1
+xmas_in.gat	0	0	0	0	0	0
 
 //---Ep3.0 Comodo ---
-beach_dun.gat	0	1	0	1
-beach_dun2.gat	0	1	0	1
-beach_dun3.gat	0	1	0	1
-cmd_fild01.gat	0	1	0	1
-cmd_fild02.gat	0	1	0	1
-cmd_fild03.gat	0	1	0	1
-cmd_fild04.gat	0	1	0	1
-cmd_fild05.gat	0	1	0	1
-cmd_fild06.gat	0	1	0	1
-cmd_fild07.gat	0	1	0	1
-cmd_fild08.gat	0	1	0	1
-cmd_fild09.gat	0	1	0	1
-cmd_in01.gat	0	1	0	1
-cmd_in02.gat	0	1	0	1
-comodo.gat	0	1	0	1
-gef_fild12.gat	0	1	0	1
-gef_fild13.gat	0	1	0	1
-gef_fild14.gat	0	1	0	1
+beach_dun.gat	0	1	0	1	0	1
+beach_dun2.gat	0	1	0	1	0	1
+beach_dun3.gat	0	1	0	1	0	1
+cmd_fild01.gat	0	1	0	1	0	1
+cmd_fild02.gat	0	1	0	1	0	1
+cmd_fild03.gat	0	1	0	1	0	1
+cmd_fild04.gat	0	1	0	1	0	1
+cmd_fild05.gat	0	1	0	1	0	1
+cmd_fild06.gat	0	1	0	1	0	1
+cmd_fild07.gat	0	1	0	1	0	1
+cmd_fild08.gat	0	1	0	1	0	1
+cmd_fild09.gat	0	1	0	1	0	1
+cmd_in01.gat	0	0	0	0	0	0
+cmd_in02.gat	0	0	0	0	0	0
+comodo.gat	0	1	0	1	0	0
+gef_fild12.gat	0	1	0	1	0	1
+gef_fild13.gat	0	1	0	1	0	1
+gef_fild14.gat	0	1	0	1	0	1
 
 //---EP3.1 Quiz Revolution ---
-quiz_00.gat	0	1	0	1
-quiz_01.gat	0	1	0	1
+quiz_00.gat	0	1	0	1	0	1
+quiz_01.gat	0	1	0	1	0	1
 
 //--- Ep4.0 Turtle Island ---
-tur_dun01.gat	0	1	0	1
-tur_dun02.gat	0	1	0	1
-tur_dun03.gat	0	1	0	1
-tur_dun04.gat	0	1	0	1
-tur_dun05.gat	0	1	0	1
-tur_dun06.gat	0	1	0	1
+tur_dun01.gat	0	1	0	1	0	1
+tur_dun02.gat	0	1	0	1	0	1
+tur_dun03.gat	0	1	0	1	0	1
+tur_dun04.gat	0	1	0	1	0	1
+tur_dun05.gat	0	1	0	1	0	1
+tur_dun06.gat	0	1	0	1	0	1
 
 //--- Ep4.1 The War of Emperium ---
-alde_gld.gat	0	1	0	1
-aldeg_cas01.gat	0	1	0	1
-aldeg_cas02.gat	0	1	0	1
-aldeg_cas03.gat	0	1	0	1
-aldeg_cas04.gat	0	1	0	1
-aldeg_cas05.gat	0	1	0	1
-gefg_cas01.gat	0	1	0	1
-gefg_cas02.gat	0	1	0	1
-gefg_cas03.gat	0	1	0	1
-gefg_cas04.gat	0	1	0	1
-gefg_cas05.gat	0	1	0	1
-gld_dun01.gat	0	1	0	1
-gld_dun02.gat	0	1	0	1
-gld_dun03.gat	0	1	0	1
-gld_dun04.gat	0	1	0	1
-//guild_room.gat	0	1	0	1
-guild_vs1.gat	0	1	0	1
-guild_vs2.gat	0	1	0	1
-guild_vs3.gat	0	1	0	1
-guild_vs4.gat	0	1	0	1
-guild_vs5.gat	0	1	0	1
-job_hunte.gat	0	1	0	1
-job_knt.gat	0	1	0	1
-job_prist.gat	0	1	0	1
-job_wiz.gat	0	1	0	1
-pay_gld.gat	0	1	0	1
-payg_cas01.gat	0	1	0	1
-payg_cas02.gat	0	1	0	1
-payg_cas03.gat	0	1	0	1
-payg_cas04.gat	0	1	0	1
-payg_cas05.gat	0	1	0	1
-prt_gld.gat	0	1	0	1
-prtg_cas01.gat	0	1	0	1
-prtg_cas02.gat	0	1	0	1
-prtg_cas03.gat	0	1	0	1
-prtg_cas04.gat	0	1	0	1
-prtg_cas05.gat	0	1	0	1
+alde_gld.gat	0	1	0	1	0	1
+aldeg_cas01.gat	0	1	0	1	0	1
+aldeg_cas02.gat	0	1	0	1	0	1
+aldeg_cas03.gat	0	1	0	1	0	1
+aldeg_cas04.gat	0	1	0	1	0	1
+aldeg_cas05.gat	0	1	0	1	0	1
+gefg_cas01.gat	0	1	0	1	0	1
+gefg_cas02.gat	0	1	0	1	0	1
+gefg_cas03.gat	0	1	0	1	0	1
+gefg_cas04.gat	0	1	0	1	0	1
+gefg_cas05.gat	0	1	0	1	0	1
+gld_dun01.gat	0	1	0	1	0	1
+gld_dun02.gat	0	1	0	1	0	1
+gld_dun03.gat	0	1	0	1	0	1
+gld_dun04.gat	0	1	0	1	0	1
+//guild_room.gat	0	1	0	1	0	1
+guild_vs1.gat	0	1	0	1	0	1
+guild_vs2.gat	0	1	0	1	0	1
+guild_vs3.gat	0	1	0	1	0	1
+guild_vs4.gat	0	1	0	1	0	1
+guild_vs5.gat	0	1	0	1	0	1
+job_hunte.gat	0	1	0	1	0	1
+job_knt.gat	0	1	0	1	0	1
+job_prist.gat	0	1	0	1	0	1
+job_wiz.gat	0	1	0	1	0	1
+pay_gld.gat	0	1	0	1	0	1
+payg_cas01.gat	0	1	0	1	0	1
+payg_cas02.gat	0	1	0	1	0	1
+payg_cas03.gat	0	1	0	1	0	1
+payg_cas04.gat	0	1	0	1	0	1
+payg_cas05.gat	0	1	0	1	0	1
+prt_gld.gat	0	1	0	1	0	1
+prtg_cas01.gat	0	1	0	1	0	1
+prtg_cas02.gat	0	1	0	1	0	1
+prtg_cas03.gat	0	1	0	1	0	1
+prtg_cas04.gat	0	1	0	1	0	1
+prtg_cas05.gat	0	1	0	1	0	1
 
 //--- Ep5.0 Yuno ---
-alde_alche.gat	0	1	0	1
-in_rogue.gat	0	1	0	1
-job_cru.gat	0	1	0	1
-job_duncer.gat	0	1	0	1
-job_monk.gat	0	1	0	1
-job_sage.gat	0	1	0	1
-mag_dun01.gat	0	1	0	1
-mag_dun02.gat	0	1	0	1
-monk_test.gat	0	1	0	1
-yuno.gat	0	1	0	1
-yuno_fild01.gat	0	1	0	1
-yuno_fild02.gat	0	1	0	1
-yuno_fild03.gat	0	1	0	1
-yuno_fild04.gat	0	1	0	1
-yuno_in01.gat	0	1	0	1
-yuno_in02.gat	0	1	0	1
-yuno_in03.gat	0	1	0	1
-yuno_in04.gat	0	1	0	1
-yuno_in05.gat	0	1	0	1
+alde_alche.gat	0	1	0	1	0	1
+in_rogue.gat	0	0	0	0	0	0
+job_cru.gat	0	1	0	1	0	1
+job_duncer.gat	0	1	0	1	0	1
+job_monk.gat	0	1	0	1	0	1
+job_sage.gat	0	1	0	1	0	1
+mag_dun01.gat	0	1	0	1	0	1
+mag_dun02.gat	0	1	0	1	0	1
+monk_test.gat	0	1	0	1	0	1
+yuno.gat	0	1	0	1	0	0
+yuno_fild01.gat	0	1	0	1	0	1
+yuno_fild02.gat	0	1	0	1	0	1
+yuno_fild03.gat	0	1	0	1	0	1
+yuno_fild04.gat	0	1	0	1	0	1
+yuno_in01.gat	0	0	0	0	0	0
+yuno_in02.gat	0	0	0	0	0	0
+yuno_in03.gat	0	0	0	0	0	0
+yuno_in04.gat	0	0	0	0	0	0
+yuno_in05.gat	0	0	0	0	0	0
 
 //--- Ep6.0 - Amatsu  ---
-ama_dun01.gat	0	1	0	1
-ama_dun02.gat	0	1	0	1
-ama_dun03.gat	0	1	0	1
-ama_fild01.gat	0	1	0	1
-ama_in01.gat	0	1	0	1
-ama_in02.gat	0	1	0	1
-ama_test.gat	0	1	0	1
-amatsu.gat	0	1	0	1
+ama_dun01.gat	0	1	0	1	0	1
+ama_dun02.gat	0	1	0	1	0	1
+ama_dun03.gat	0	1	0	1	0	1
+ama_fild01.gat	0	1	0	1	0	1
+ama_in01.gat	0	0	0	0	0	0
+ama_in02.gat	0	0	0	0	0	0
+ama_test.gat	0	1	0	1	0	1
+amatsu.gat	0	1	0	1	0	0
 
 //--- Ep6.x - GonRyun ---
-gon_dun01.gat	0	1	0	1
-gon_dun02.gat	0	1	0	1
-gon_dun03.gat	0	1	0	1
-gon_fild01.gat	0	1	0	1
-gon_in.gat	0	1	0	1
-gon_test.gat	0	1	0	1
-gonryun.gat	0	1	0	1
-sec_in01.gat	0	1	0	1
-sec_in02.gat	0	1	0	1
-sec_pri.gat	0	1	0	1
+gon_dun01.gat	0	1	0	1	0	1
+gon_dun02.gat	0	1	0	1	0	1
+gon_dun03.gat	0	1	0	1	0	1
+gon_fild01.gat	0	1	0	1	0	1
+gon_in.gat	0	0	0	0	0	0
+gon_test.gat	0	1	0	1	0	1
+gonryun.gat	0	1	0	1	0	0
+sec_in01.gat	0	0	0	0	0	0
+sec_in02.gat	0	0	0	0	0	0
+sec_pri.gat	0	1	0	1	0	1
 
 //--- Ep6.x - Umbala ---
-umbala.gat	0	1	0	1
-um_dun01.gat	0	1	0	1
-um_dun02.gat	0	1	0	1
-um_fild01.gat	0	1	0	1
-um_fild02.gat	0	1	0	1
-um_fild03.gat	0	1	0	1
-um_fild04.gat	0	1	0	1
-um_in.gat	0	1	0	1
+umbala.gat	0	1	0	1	0	0
+um_dun01.gat	0	1	0	1	0	1
+um_dun02.gat	0	1	0	1	0	1
+um_fild01.gat	0	1	0	1	0	1
+um_fild02.gat	0	1	0	1	0	1
+um_fild03.gat	0	1	0	1	0	1
+um_fild04.gat	0	1	0	1	0	1
+um_in.gat	0	0	0	0	0	0
 
 //--- Ep6.x - Niflheim ---
-niflheim.gat	0	1	0	1
-nif_fild01.gat	0	1	0	1
-nif_fild02.gat	0	1	0	1
-nif_in.gat	0	1	0	1
-yggdrasil01.gat	0	1	0	1
+niflheim.gat	0	1	0	1	0	1
+nif_fild01.gat	0	1	0	1	0	1
+nif_fild02.gat	0	1	0	1	0	1
+nif_in.gat	0	0	0	0	0	0
+yggdrasil01.gat	0	1	0	1	0	1
 
 //--- Ep6.x - Valkyrie ---
-valkyrie.gat	0	1	0	1
+valkyrie.gat	0	1	0	1	0	1

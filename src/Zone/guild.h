@@ -12,15 +12,18 @@
  * You should have received a copy of the GNU General Public License
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
-------------------------------------------------------------------------*/
+ ------------------------------------------------------------------------*/
 
 /*------------------------------------------------------------------------
- Module:        Version 1.7.0 SP1
- Author:        Odin Developer Team Copyrights (c) 2004
- Project:       Project Odin Zone Server
- Creation Date: Dicember 6, 2003
- Modified Date: Semtember 3, 2004
- Description:   Ragnarok Online Server Emulator
-------------------------------------------------------------------------*/
+  Module:        Version 1.7.0 SP1
+  Author:        Odin Developer Team Copyrights (c) 2004
+  Project:       Project Odin Zone Server
+  Creation Date: Dicember 6, 2003
+  Modified Date: Semtember 3, 2004
+  Description:   Ragnarok Online Server Emulator
+  ------------------------------------------------------------------------*/
 
-int create_guild(int fd, unsigned char *dat);
+void mmo_guild_do_init(void);
+int create_guild(struct map_session_data *sd, char *guildname);
+int check_guild_exists(int guild_id);
+int connected_members(int guild_id);

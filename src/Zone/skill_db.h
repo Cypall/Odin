@@ -12,10 +12,23 @@
  * You should have received a copy of the GNU General Public License
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
-------------------------------------------------------------------------*/
+ ------------------------------------------------------------------------*/
 
-struct skill_db {
+#ifndef _SKILL_DB_H_
+#define _SKILL_DB_H_
+
+struct skill_tree_db
+{
 	unsigned int id;
+	struct {
+		unsigned short id;
+		unsigned short lv;
+	} need[5];
+} skill_tree_db[MAX_CLASSES][60];
+
+struct skill_db
+{
+	int id;
 	int type_num;
 	int type_hit;
 	int type_inf;
@@ -29,6 +42,7 @@ struct skill_db {
 void skilldb_init(void);
 void skilldb_read_db(void);
 void skilldb_read_tree(void);
-void mmo_map_send_skills(int fd, int do_check);
+void mmo_map_send_skills(unsigned int fd, int do_check);
 void skilldb_job_check(struct map_session_data *sd);
 unsigned long search_placeskill(int skill_id);
+#endif

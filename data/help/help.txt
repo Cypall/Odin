@@ -1,5 +1,4 @@
-Commands.
-!unstuck
+Commands:
 !help
 !save
 !exp

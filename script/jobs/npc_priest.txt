@@ -1,48 +1,1073 @@
-// $Id: npc_priest.txt,v 1.1 2003/12/01 22:51:04 MivaBe Exp $
-//<--------------- Priest Job Quest [Update: Oct. 06, 2003] --------------->\\
-prt_church.gat,16,41,4	script	Cleric	60,{
-	mes "[Cleric]";
-	mes "May God bless your Soul. This is the Prontera Parish.";
-	next;
-	menu "Change a Job into a Priest.",M0,"The Requirements.",M1,"Quit.",MEnd;
+prt_church.gat,16,41,4	script	Father Thomas	60,{
+	mes "[Father Thomas]";
+	if (GetJob == Job_Novice) goto L_Novice;
+	if (GetJob == Job_Priest) goto L_Priest;
+	if (GetJob == Job_Acolyte) goto L_Start;
 
-	M0:
-		mes "[Cleric]";
-		if(GetJob == Job_Priest) goto JobPri;
-		if(GetJob != Job_Acolyte) goto NotAco;
-		if(JobLevel < 40) goto NotLvl;
-		mes "Now you become a Priest.";
-		if(SkillPoint != 0) goto SPN0;
-		Release_All;
-		JobChange Job_Priest;
-		SPN0:
-		close;
-
-		NotLvl:
-			mes "You must be at least Job Level 40 before everything.";
-			close;
-		NotAco:
-			if(GetJob == Job_Novice) goto JobNov;
-			mes "Other jobs except 'Acolyte' are not permitted to be Priests.";
-			close;
-			
-			JobNov:
-				mes "Be an 'Acolyte' first.";
-				close;
-		JobPri:
-			mes "Dear you are already a Priest,the Servant of God.";
-			close;
-	M1:
-		mes "[Cleric]";
-		mes "You will realise the Truth while you devote on the Acolyte Job helping the Poor. We are the Priests, the Name of truth.";
-		mes "Also you will be able to join us if you reach at Job Level 40 or above as an Acolyte.";
+	L_Other:
+		mes "May God bless you my child.";
 		next;
-		mes "[Cleric]";
-		mes "For now The souls in People are very pure,you can be their Salvation without difficulty.";
-		mes "But we, Priests are so afraid of the Evil Force getting powerful, it will try to conquer the world someday. Then you must show your deep faith on God if you wish to be a Priest later.";
-		mes "I am sorry to say, you won't be able to become a Priest without a Test in Future.";
-		mes "Please choose your way of devotion as soon as possible.";
+		mes "[Father Thomas]";
+		mes "Please feel free to rest, the church is the safest place in this world.";
+		next;
+		mes "[Father Thomas]";
+		mes "I hope god will bless you.";
 		close;
-	MEnd:
+
+	L_Novice:
+		mes "May God bless you, child.  This is the Prontera Church.  What are you here for?";
+		next;
+		menu "I want to become an acolyote.",M_0a, "I want to become a ^5533FFPriest^000000.",M_0b, "Iam just walking around.",M_0End;
+
+		M_0a:
+			mes "[Father Thomas]";
+			mes "Haha.. so you want to become an Acolyote eh? To apply to become an Acolyote, please go to the room opposite of here.";
+			close;
+
+		M_0b:
+			mes "[Father Thomas]";
+			mes "Haha...in order to become a priest you must first become an Acolyote.  To become an Acolyote, go to the room opposite of here.";
+			close;
+
+		M_0End:
+			mes "[Father Thomas]";
+			mes "Please feel free to rest here.  The church is a sanctuary for all those, who seek to escape the outside world.";
+			next;
+			mes "[Father Thomas]";
+			mes "May God be with you in your thoughts and prayers.";
+			close;
+
+	L_Priest:
+		mes "God bless you, child.  You are here again because you listened to god's orders.";
+		next;
+		mes "[Father Thomas]";
+		mes "I don't know if God's sons and daughters are going on the path of light or the path of darkness... I can only pray for the best.";
+		next;
+		mes "[Father Thomas]";
+		mes "So why are you here today?";
+		next;
+		menu "I just wanted to see how you were.",M_1a, "I am here to help the Acolytes.",M_1b, "Life is really hard... I was wondering if you could help.",M_1End;
+
+		M_1a:
+			mes "[Father Thomas]";
+			mes "Oh, well I am fine thank you.  Please send my regards to all of the other Priests, and Priestess.";
+			next;
+			mes "[Father Thomas]";
+			mes "We, the ones who follow the devine path, are here for one reason.... to obey Gods orders.";
+			mes "If you come across anyone who needs help, please remember to assist them in any way you can...";
+			close;
+		
+		M_1b:
+			mes "[Father Thomas]";
+			mes "Oh...thats a great idea! Since you're a priest, you can't forget that you have to help the Acolytes when they need it.";
+			emotion 5;
+			next;
+			mes "[Father Thomas]";
+			mes "Even so, you must be carefull not to do everyting for them.  It is important that they gain their own experiences through training ";
+			next;
+			mes "[Father Thomas]";
+			mes "In order to go in and help you'll need a ^5533FFROSARY^000000.";
+			mes "There will be 3 trials for the Acolyte to face, but in only 2 of them will your assistance be needed.";
+			next;
+			mes "[Father Thomas]";
+			mes "Are you prepared to help?";
+			next;
+			menu "Yes, i will help them with all my might.",sM_1a, "I will come back later.",sM_1End;
+
+			sM_1a:
+				if (countitem(2608) < 1) goto sL_NoRosary;
+					mes "[Father Thomas]";
+					mes "Very well then.  I will send you to an Acolyte in just a moment.";
+					next;
+					mes "[Father Thomas]";
+					mes "I hope you will also take this opportunity to teach them what it means to be a good Priest.";
+					next;
+						//if((getareausers("job_prist.gat", 8, 34, 39,109)) == 1) warp "job_prist.gat", 24, 44;
+						//if((getareausers("job_prist.gat", 160, 14, 175, 178)) == 1) warp "job_prist.gat", 98, 40;
+						//if((getareausers("job_prist.gat", 90, 34, 105,105)) == 1) warp "job_prist.gat", 168, 17;
+					mes "[Father Thomas]";
+					mes "Hmm........ wait a minute..... let me check my list.... Either no one is taking the test right now, or another Priest is already helping out.";
+					mes "In any case please check with me again later.";
+					close;
+
+				sL_NoRosary:
+					mes "[Father Thomas]";
+					mes "Hmm... it doesn't look like you have a ^5533FFROSARY^000000 with you.";
+					next;
+					mes "[Father Thomas]";
+					mes "If you want to help the Acolytes, you must first get a ^5533FFROSARY^000000.";
+					mes "Please come back when you have one.";
+					close;
+			sM_1End:
+				mes "[Father Thomas]";
+				mes "Oh, alright.  Just remember to bring a ^5533FFFROSARY^000000 when you come back.";
+				close;
+
+		M_1End:
+			mes "[Father Thomas]";
+			mes "Keep up the good work.  I will ask God to ease your pain.";
+			next;
+			mes "[Father Thomas]";
+			mes "God, one of your children is suffering.  Please use your powers, to heal the wounds on this battered body.....";
+			next;
+			mes "[Father Thomas]";
+			mes "Please look after us, so that under any condition we will be able to think clearly and maintain our faith";
+			healhp 100;
+			healsp 100;
+			next;
+			mes "[Father Thomas]";
+			mes "You should be feeling better now.  Please stay on the path to rightousness and may God bless you.";
+			close;
+
+
+	L_Start:
+		if (PRIEST_Q == 1) goto L_Test1;
+		if (PRIEST_Q == 2) goto L_Test2;
+		if (PRIEST_Q == 3) goto L_Test3;
+		if (PRIEST_Q == 4) goto L_Change;
+		mes "God bless you, child.  What brings you here?";
+		next;
+		menu "I want to become a priest.",M_2a, "Can you please tell me about Priests.",M_2b, "I just wanted to see how you were doing.",M_2End;
+
+		M_2a:
+			mes "[Father Thomas]";
+			mes "Oh... so you want to become a priest?  God bless you for your determination.";
+			next;
+			mes "[Father Thomas]";
+			mes "I am Father Thomas.  I am in charge of protecting Prontera from the evil spirits that plague the lands of Rune Midgard.";
+			next;
+			mes "[Father Thomas]";
+			mes "Please fill out this application form so that I can review your qualifications for becoming a Preist.";
+			next;
+			mes "(you fill out the form and hand it back)";
+			next;
+			mes "[Father Thomas]";
+			if (JobLevel < 40) goto sL_LowLvl;
+			if (JobLevel == 50) goto sL_HighLvl;
+			mes "Ah, very good $CharName.  Let me now tell you about the tasks you will have to fullfill in order to become a Priest.";
+			next;
+			mes "[Father Thomas]";
+			mes "The first task will be to find and speak with 3 very wise Clerics.  They are located in various parts of Rune Midgard.";
+			next;
+			mes "[Father Thomas]";
+			mes "The second task will consist of 3 trials.  In the first trial you must face the undead.";
+			mes "The second trial will test your ability to resist temptation and avoid corruption.  The third trial you will have to figure out for yourself.";
+			next;
+			mes "[Father Thomas]";
+			mes "After you finish the 2 tasks, there will be a final test with Sister Cecile.  Pass it and you can become a Priest.";
+			next;
+			mes "[Father Thomas]";
+			set JBLVL, 40;
+			goto L_Test1;
+
+			sL_LowLvl:
+				mes "I am sorry but you cannot become a Priest at this moment.  You need to have a job level of at least 40.";
+				next;
+				mes "[Father Thomas]";
+				mes "Please strengthen your faith in God by performing more good deeds.";
+				mes "I hope when the time is right, you'll be back... I will be waiting for you here.";
+				close;
+
+			sL_HighLvl:
+				mes "Wow, your already at job lvl 50.  I am amazed at your dedication and hard work!";
+				emotion 0;
+				next;
+				mes "[Father Thomas]";
+				mes "Because of this I will allow you to skip the first task.  How about we start the second task instead?";
+				next;
+				mes "[Father Thomas]";
+				mes "I believe with your power, you can overcome this task easily...";
+				mes "But if you work with a Priest, i think you will learn more and do a lot better.";
+				next;
+				mes "[Father Thomas]";
+				set PRIEST_Q, 2;
+				set JBLVL, 50;
+				goto L_Test2;
+
+		M_2b:
+			mes "[Father Thomas]";
+			mes "Priests are also followers of God.  They are highly trained and are much more powerful than Acolytes.";
+			next;
+			mes "[Father Thomas]";
+			mes "To become a priest, you must have at least a job lvl 40.  You will then have to pass a series of tests in order to prove yourself.";
+			next;
+			mes "[Father Thomas]";
+			mes "If you become a Priest, you will become very important to evey other job class.";
+			next;
+			mes "[Father Thomas]";
+			mes "You must NEVER help someone for any sort of profit or self gain.  To be a Priest is to be selfless.";
+			next;
+			mes "[Father Thomas]";
+			mes "We Priest have only one objective, and that is to help others...";
+			close;
+
+		M_2End:
+			mes "[Father Thomas]";
+			mes "Oh is that the case?... Well I am fine thank you.";
+			mes "Please don't forget your duties as an Acolyte, and be carefull not to stray off the path to salvation.";
+			next;
+			mes "[Father Thomas]";
+			mes "I hope you will visit again soon, and please tell me how the other Acolytes are doing.  May god be by your side...";
+			close;
+
+
+
+	L_Test1:
+		if (PRIEST_Q2 == 1) goto L_NotDone1a;
+		if (PRIEST_Q2 == 2) goto L_NotDone1b;
+		if (PRIEST_Q2 == 3) goto L_NotDone1c;
+		if (PRIEST_Q2 == 4) goto L_Done1;
+		mes "Okay, let me tell you what you have to do for the first task.";
+		next;
+		mes "[Father Thomas]";
+		mes "First you will have to find ^5533FFFather Rubalkubara^000000, he is located 1 map North and 2 maps East of Prontera, near St. Capitolina Abbey.";
+		next;
+		mes "[Father Thomas]";
+		mes "Next you will have to find ^5533FFMother Matilda^000000.  She is located somewhere 1 map North of Morroc.";
+		next;
+		mes "[Father Thomas]";
+		mes "Last but not least, you will have to find ^5533FFFather Yosuke^000000.";
+		mes "I heard that Father Yosuke is often seen on an tiny island 2 maps West and 1 map North of Prontera.";
+		next;
+		mes "[Father Thomas]";
+		mes "Please becareful on your journey. If you have any questions you may speak with me again.";
+		mes "Remeber to check back with me when you have completed the first task.";
+		next;
+		mes "[Father Thomas]";
+		mes "May God Be with you...";
+		set PRIEST_Q, 1;
+		set PRIEST_Q2, 1;
+		close;
+
+		L_NotDone1a:
+			mes "What? Why are you still here? Did you forget the first task?";
+			next;
+			menu "Yes, can you please tell me about the first task again?",sM_3a, "NO! how can I forget.",sM_3End;
+
+			sM_3a:
+				mes "[Father Thomas]";
+				mes "Hmm... if you're having trouble with this task, I fear that you will have an even harder time with the others....";
+				next;
+				mes "[Father Thomas]";
+				mes "Please visit ^5533FFFather Rubalkubara^000000.  He is located 1 map North and 2 maps East of Prontera near St. Capitolina Abbey.";
+				close;
+
+			sM_3End:
+				mes "[Father Thomas]";
+				mes "Oh if you have any questions, please speak with Sister Cecila near the entrance.";
+				next;
+				mes "[Father Thomas]";
+				mes "Please hurry and becareful on your journey.  May the lord look down and smile upon you....";
+				close;
+		L_NotDone1b:
+			mes "Hmmm??";
+			emotion 1;
+			next;
+			mes "[Father Thomas]";
+			mes "Have you gone to see ^5533FFMother Marthilda^000000 yet?  She can be found near Morroc in the Sogart Desert.";
+			mes "Even though Morroc is far away, I know you will be able to find her.";
+			close;
+		
+		L_NotDone1c:
+			mes "Have you seen Mother Marthilda in Morroc? In that case you must now go see ^5533FFFather Yosuke^000000.";
+			mes "He is located on tiny island 2 maps West and 1 map North of Prontera.  You must go and speak with him!.";
+			close;
+		
+		L_Done1:
+			mes "So you spoken with all of the Clerics? Good job, you just completed the first task.";
+			next;
+			mes "[Father Thomas]";
+			mes "Now lets start the second task.  Be prepared to face great evils.. If you want, you can ask a Priest to assist you with this test.";
+			set PRIEST_Q, 2;
+			set PRIEST_Q2, 0;
+			next;
+			mes "[Father Thomas]";
+
+	L_Test2:
+		if(PRIEST_Q2 == 1) goto L_ReTest2;
+		if(PRIEST_Q2 == 2) goto L_Done2;
+		mes "So are you ready to start the second task?";
+		M_Menu:
+		next;
+		menu "Yes, lets start.",M_4a, "Let me get ready, i'll be back later.",M_4End;
+                                             	            
+		M_4a:
+			mes "[Father Thomas]";
+			mes "Very well.  Let me send you to ^5544FFFather Peter^000000. Once there speak to him about the second task.";
+			next;
+			set PRIEST_Q2, 1;
+			save "prt_church.gat",16,37;
+			warp "job_prist.gat",24,180;
+			//end;
+		
+		M_4End:
+			mes "[Father Thomas]";
+			mes "Okay, please get ready and come back soon.  I hope you will be able to make it through the trials without many problems.";
+			close;
+
+		L_ReTest2:
+			mes "You look really tired... but guess what, you'll be even more tired when you've become a Priest.";
+			mes "Please don't give up.  Do you want to try the task again?";
+			goto M_Menu;
+		
+		L_Done2:
+			mes "Great job.  If have endured all of the trials and have passed the second test.";
+			mes "If you can pass the last test, I trully belive that you will be one of the best Priests ever!";
+			next;
+			mes "[Father Thomas]";
+			mes "Now, for the final test, please go speak with ^5533FFSister Cecile^000000.  Once you have passed it come see me.";
+			next;
+			mes "[Father Thomas]";
+			mes "I'll be waiting here.  Good luck my child.";
+			set PRIEST_Q, 3;
+			set PRIEST_Q2, 0;
+			close;
+
+	L_Test3:
+		mes "Go speak with ^5533FFSister Cecile^000000 and complete the last test.";
+		next;
+		mes "[Father Thomas]";
+		mes "Good luck.  I'll be waiting to hear the good news..";
+		close;
+
+
+	L_Change:
+		if (SkillPoint > 0) goto L_SkillPoint;
+			mes "Congratulations! You have just completed all of the tests.  I can now turn you into a Priest.";
+			emotion 21;
+			next;
+			mes "[Father Thomas]";
+			mes "God, please endow $CharName with the strength and courage to fight evil and help mankind.";
+			next;
+			jobchange Job_Priest;
+			mes "[Father Thomas]";
+			mes "You are now a Priest.  As a Priest, you can now help a lot of people in the name of God.";
+			next;
+			if (JBLVL == 40) goto JBLVL_40;
+			if (JBLVL == 50) goto JBLVL_50;
+
+			JBLVL_40:
+				getitem 1550, 1;
+				goto L_Change_;
+				
+			JBLVL_50:
+				getitem 1551, 1;
+
+				L_Change_:
+					//callfunc "F_ClearJobVar";		// clears all job variables for the current player
+					mes "[Father Thomas]";
+					mes "Here, take this book as a reward for successfully completing the tests.  This book will help you understand more about god.";
+					next;
+					mes "[Father Thomas]";
+					mes "I hope you can help serve as a role model for young Acolytes all over Rune Midgard.";
+					mes "Please be a good Priest and help bring peace to this world!";
+					close;
+		L_SkillPoint:
+			mes "Wait.  You must use up your skill points in order to become a Priest.";
+       			close;
+}
+
+job_prist.gat,24,186,4	script	Father Peter	110,{
+
+	L_Start:
+		mes "[Father Peter]";
+		mes "God bless you!! Welcome back!";
+		mes "First i want to congratulated you for passing the first level.";
+		next;
+		mes "[Father Peter]";
+		mes "My name is Peter.";
+		mes "Hows, Thomas these days?";
+		next;
+		mes "[Father Peter]";
+		mes "Oh, so he's a father now eh? hahah...";
+		mes "I think i should call him Father Thomas!";
+		next;
+		mes "[Father Peter]";
+		mes "So you know why your here right?  Your next test will be to overcome a series of trials involving the darkest of evils.";
+		mes "Do you understand what this means?";
+		next;
+		menu "Yes, I do.",M_1a, "No, i don't quiet know it..?",M_1b;
+	
+		M_1a:
+			mes "[Father Peter]";
+			mes "Wow, your' pretty smart, but i think its better for you to listen to the things i got to say.";
+			mes "heheh!";
+			goto L_Cont;
+		M_1b:
+			mes "[Father Peter]";
+			mes "Oh, is that so, i think i'll need to explain it to you.";
+			mes "After listening to what i have to say, i think you'll understand.";
+			next;
+	
+		L_Cont:
+		mes "[Father Peter]";
+		mes "What is overcoming evil? its basically destroying it.";
+		mes "What is evil? its basically devil, ghosts etc...";
+		next;
+		mes "[Father Peter]";
+		mes "There's a lot of evil in this world.";
+		mes "The evil usually tease people that prey to god.";
+		next;
+		mes "[Father Peter]";
+		mes "We priests are supposed to get rid of all the evil!";
+		mes "thats the only way we can bring peace to this world!";
+		next;
+		mes "[Father Peter]";
+		mes "If you are trully dedicated, then these trials should not pose that great of a challenge.";
+		mes "Even so, I you feel it necessary you may ask a Priest to assist you in this test.";
+		next;
+		mes "[Father Peter]";
+		mes "Well, can we start now?";
+		M_Menu:
+		next;
+		menu "Yes.",M_2a, "Wait a minute.",M_2b, "I want to go back to town.",M_2c;
+	
+		M_2a:
+			mes "[Father Peter]";
+			mes "Okay, just enter the waiting room.";
+			close;
+	
+		M_2b:
+			mes "[Father Peter]";
+			mes "Oh you need to get ready eh?";
+			mes "No problem you can start the quest when your ready.";
+			close;
+		M_2c:
+			mes "[Father Peter]";
+			mes "What? you want to go back? but you just arrived?";
+			mes ".....";
+			next;
+			mes "[Father Peter]";
+			mes "Maybe because its your first time thats why your scared.";
+			mes "You can come back when you get more courage.";
+			next;
+				set PRIEST_Q, 3; //temporary
+			warp "prt_church.gat",16,37;
+			close;
+	
+//	OnInit:
+//		waitingroom "Priest Test Waiting Room",8,"Father Peter::OnStart",1;
+//		end;
+//	OnStart:
+//		set $@PrstUsers, getareausers("job_prist.gat", 8, 34, 39,109);
+//		set $@PrstUsers, $@PrstUsers + getareausers("job_prist.gat", 160, 14, 175, 178);
+//		set $@PrstUsers, $@PrstUsers + getareausers("job_prist.gat", 90, 34, 105,105);
+//		if($@PrstUsers > 0) end;				// stops the rest of the script from running if there is already another player taking the test
+	
+//		if((getwaitingroomstate(33)) == 0) end;			// stops the rest of the script from running if there is no one in the waiting room
+//		disablenpc "prst1_1";	//disables the exit warp
+//		disablenpc "prst2_1";
+//		warpwaitingpc "job_prist.gat", 24, 44;
+//		killmonsterall "job_prist.gat";
+//		donpcevent "PrstTest2_1";
+//		end;
+}
+
+job_prist.gat,168,45,4	script	Deviruchi	738,{
+
+	OnStart:
+		if(GetJob == Job_Acolyte) goto L_Aco;
+	
+	L_Priest:
+		mes "[Deviruchi]";
+		mes "Hey, whats priest like you doing in a place like this? go back to town. You like wasting you time here eh?";
+		next;
+		mes "[Deviruchi]";
+		mes "I feel happy today, so i'll spare you, now go.  Next time you come, iam gonna take to you down.";
+		close;
+	
+	L_Aco:
+		mes "[Deviruchi]";
+		mes "Hey, isn't that a acolyte? i haven't seen one in ages.  Looks like you're going to become a priest soon...";
+		next;
+		mes "[Deviruchi]";
+		mes "I can tell how sad it is to become a servant of god.  I think its weird that you're here.";
+		next;
+		mes "[Deviruchi]";
+		mes "The path your walking is going to be difficult.  Isn't there better jobs you can be?";
+		next;
+		mes "[Deviruchi]";
+		mes "Doesn't matter if its in a town, in a cave, all the people always asks you to help them.  Itsn't funny that they never helped you?";
+		next;
+		mes "[Deviruchi]";
+		mes "I'll give you an advice, you should give up now.  The tests will be hard, and the path you're gonna walk will be difficult.";
+		next;
+		menu "Yea, Iam going to give up.",M_1a_, "Devil, Be gone NOW!.",M_1a;
+	
+		M_1a_:
+			mes "[Deviruchi]";
+			mes "Yeap thats a good choice, you don't have to come to this place again! Since you decided to give up, i'll give you a present.";
+			next;
+			mes "[Deviruchi]";
+			mes "I'll let you meet my friends...FOR FREE  HAHAHAHAH!";
+			next;
+			warp "c_tower2.gat",168,33;
+			//end;
+			
+		M_1a:
+			mes "[Deviruchi]";
+			mes "Oh.. Iam so scared..hahaha.  Don't be like this, listen to what i have to say.";
+			next;
+			mes "[Deviruchi]";
+			mes "If you give up now, i'll give you a nice gift.  This gift is so hard to find.";
+			next;
+			//showimage "미스트레스카드.bmp" 4;
+			mes "[Deviruchi]";
+			mes "Do you think you can find a card like that? Decide now, don't regret when you become a priest...";
+			next;
+			menu "I accept your card.",sM_1a_, "Devil, Be GONE!!",sM_1a;
+	
+			sM_1a_:
+				mes "[Deviruchi]";
+				mes "Hahaha all the human beings are like this, good choice! Okay, let me give you this card!";
+				next;
+				//showimage "미스트레스카드.bmp" 255
+				mes "[Deviruchi]";
+				mes "Well, too bad i can't give it to you.  Go look for it YOURSELF!";
+				next;
+				warp "mjolnir_05.gat",200,200;
+				//end;
+			sM_1a:
+				//showimage "미스트레스카드.bmp" 255
+				mes "[Deviruchi]";
+				mes "Wow, your one tough acolyte, if you keep denying you better becareful.";
+				mes "I will be watching, I'll see if you can become a good priest or not.";
+				next;
+				mes "[Deviruchi]";
+				mes "One day, you'll regret and want to come back to me!";
+				//disablenpc "Devi_Trig";	//disables the trigger npc so you don't accidentally activate it again
+				//disablenpc "Deviruchi";
+				//donpcevent "PrstTest2_2::OnCheck";
+				close;
+}
+
+job_prist.gat,168,80,4	script	Doppelganger	739,{
+
+	OnStart:
+		if(GetJob == Job_Acolyte) goto L_Aco;
+	
+	L_Priest:
+		mes "[Doppelganger]";
+		mes "What good is it to be here?.";
+		mes "Are you this bored? you're already a priest why are you here?.";
+		next;
+		mes "[Doppelganger]";
+		mes "You don't need to help these acolytes, go home.";
+		mes "You're doing something that is wasting your time, leave now.";
+		close;
+	L_Aco:
+		mes "[Doppelganger]";
+		mes "Hey, Acolyte wait, listen to what i have to say.";
+		next;
+		mes "[Doppelganger]";
+		mes "You came here because you want to become a priest eh?";
+		mes "I don't think you should become a priest.";
+		next;
+		mes "[Doppelganger]";
+		mes "If you want, i can use my powers to let you start over again.";
+		mes "You can become a novice again, and you can choose what job you want to be.";
+		next;
+		mes "[Doppelganger]";
+		mes "Well, the job you choose depends on your level hhehe.";
+		mes "Isn't this a good deal? if you want i can help you right now.";
+		next;
+		menu "I hope you can help me!",M_1b_, "Devil Be gone!",M_1b;
+	
+		M_1b_:
+			mes "[Doppelganger]";
+			mes "Yes thats a good choice.";
+			mes "Let me turn you into a novice now.";
+			next;
+			mes "[Doppelganger]";
+			mes "You know it takes a long time to ressurect when you DIE!!";
+			next;
+			warp "gef_dun02.gat", 210, 177;
+			//end;
+		M_1b:
+			mes "[Doppelganger]";
+			mes "I don't think you understand what i mean.";
+			mes "This is one of the best things that can happen to you.";
+			next;
+			mes "[Doppelganger]";
+			mes "You just need to tell me that you don't want to become a priest.";
+			mes "If you do that, i can turn you into any job you want, you want to become a swordman like me?";
+			next;
+			menu "I don't want to become a priest!",sM_1b_, "Devil, Be GONE!",sM_1b;
+	
+			sM_1b_:
+				mes "[Doppelganger]";
+				mes "good choice, you don't need to come back here anymore.";
+				mes "okay, let me turn you into a novice now...";
+				next;
+				mes "[Doppelganger]";
+				mes "You know its takes a long time to ressurect when you DIE??!!";
+				next;
+				warp "gef_dun02.gat", 210, 177;
+				//end;
+				
+			sM_1b:
+				mes "[Doppelganger]";
+				mes "okay fine, i'll spare you today.";
+				next;
+				mes "[Doppelganger]";
+				mes "If i see you next time, iam gonna make you die painfully.";
+				//disablenpc "Doppel_Trig";
+				//disablenpc "Doppel";
+				//donpcevent "PrstTest2_2::OnCheck";
+				close;
+}
+
+job_prist.gat,168,115,4	script	Dark Lord	737,{
+
+	OnStart:
+		if(GetJob == Job_Acolyte) goto L_Aco;
+	
+	L_Priest:
+		mes "[Dark Lord]";
+		mes "Let you feel hatred and anger!!";
+		mes "Let you feel how it feels when your friend betrays you!";
+		next;
+		mes "[Dark Lord]";
+		mes "Stay here, and train with us and next; until you are strong enough then you can go back!";
+		mes "Stay with us and learn to curse!";
+		close;
+	L_Aco:
+		mes "[Dark Lord]";
+		mes "Stop right there human!.";
+		mes "Whose permission do you have to pass through here!";
+		next;
+		mes "[Dark Lord]";
+		mes "If you want to become a priest, you can't pass through here,";
+		mes "Go now, before i kill you.";
+		next;
+		mes "[Dark Lord]";
+		mes "Even more annoying than ants you humans, leave and stop bothering me!";
+		next;
+		menu "Iam sorry, please spare me.",M_1c_, "Devil, Be GONE!.",M_1c;
+	
+		M_1c_:
+			mes "[Dark Lord]";
+			mes "Don't come here again!";
+			next;
+			warp "gl_church.gat", 145, 170;
+			//end;
+		M_1c:
+			mes "[Dark Lord]";
+			mes "Don't try to act like a tough guy.";
+			mes "I can cut u in many pieces with my pinky.";
+			next;
+			mes "[Dark Lord]";
+			mes "Before i use my dark powers on you, leave!";
+			next;
+			menu "Please, Spare me.",sM_1c_, "Devil, BE GONE!",sM_1c;
+	
+			sM_1c_:
+				mes "[Dark Lord]";
+				mes "Don't appear here again!";
+				next;
+				warp "gl_church.gat",145,170;
+				//end;
+			sM_1c:
+				mes "[Dark Lord]";
+				mes "So you decided to stay eh? you pesky human, killing you will dirty my hands.";
+				next;
+				mes "[Dark Lord]";
+				mes "If i see you again, iam gonna kill you.";
+				//disablenpc "Dark_Trig";
+				//disablenpc "Dark Lord";
+				//donpcevent "PrstTest2_2::OnCheck";
+				close;
+}
+
+job_prist.gat,168,150,4	script	Baphomet	736,{
+
+	OnStart:
+		if(GetJob == Job_Acolyte) goto L_Aco;
+	
+	L_Priest:
+		mes "[Baphomet]";
+		mes "Annoying Priests...";
+		next;
+		mes "[Baphomet]";
+		mes "I have nothing to talk to you about, leave now.";
+		close;
+	L_Aco:
+		mes "[Baphomet]";
+		mes "Hey, Human.";
+		next;
+		mes "[Baphomet]";
+		mes "You interested in a deal?";
+		next;
+		mes "[Baphomet]";
+		mes "I can get you all the rich and fame in this world.";
+		mes "Infinite money and weapons which no humans have...";
+		next;
+		mes "[Baphomet]";
+		mes "Also, if you want, you can always summon me.";
+		mes "If you did that, everyone will be afraid of you hahahaha.";
+		next;
+		mes "[Baphomet]";
+		mes "I think you should give up being a priest and just accept my deal.";
+		mes "If you accept my deal, the world is yours.";
+		next;
+		menu"I give up being a priest.",M_1d_, "Devil be GONE!",M_1d;
+	
+		M_1d_:
+			mes "[Baphomet]";
+			mes "Okay, let us sign the contract...";
+			mes "you will not forget this...";
+			next;	
+			mes "[Baphomet]";
+			mes "You go find where i live.";
+			mes "When your there, come and sign the contract.";
+			next;
+			warp "glast_01.gat",200,203;
+			//end;
+		M_1d:
+			mes "[Baphomet]";
+			mes "Okay fine, i'll leave.";
+			mes "But, you won't leave that easily.";
+			next;
+			mes "[Baphomet]";
+			mes "I already set up a lot of evil stuff for you...";
+			mes "I want to see how long you can last.";
+			next;
+			mes "[Baphomet]";
+			mes "OKay go now.";
+			//disablenpc "Bapho_Trig";
+			//disablenpc "Baphomet";
+			//donpcevent "PrstTest2_2::OnCheck";
+			close;
+}
+
+prt_church.gat,27,24,4	script	Sister Cecile	79,{
+	mes "[Sister Cecile]";
+	if(GetJob == Job_Priest) goto L_Prst;
+	if(GetJob == Job_Acolyte) goto L_Aco;
+	if(GetJob == Job_Novice) goto L_Nov;
+
+	L_Other:
+		mes "This is the Prontera Church, what can I help you with?";
+		next;
+		menu "Please tell me about priests.",M_Tell, "Iam just walking around.",M_End0;
+	
+		M_Tell:
+			mes "[Sister Cecile]";
+			mes "Priests are servants of God.  They have special powers that allow them to help anyone in need of assistance.";
+			next;
+			mes "[Sister Cecile]";
+			mes "Because they are followers of God, they cannot use swords and many other types of weapons.";
+			next;
+			mes "[Sister Cecile]";
+			mes "Of course, if you want to know more about priests, you should speak with one personally.";
+			next;
+			mes "[Sister Cecile]";
+			mes "Please stay here for as long as you wish.  The church is a sanctuary for all those who seek it.";
+			close;
+		M_End0:
+			mes "[Sister Cecile]";
+			mes "Please Relax, wondering around can be tiring.";
+			close;
+	
+	L_Nov:
+		mes "God bless you, my child. The Prontera Church welcomes you.";
+		next;
+		mes "[Sister Cecile]";
+		mes "Have you choose your job yet? Do you want to be one of god's helpers?";
+		mes "Becoming an Acolyte and helping people is very good thing.";
+		next;
+		mes "[Sister Cecile]";
+		mes "If you want to become an Acolyte, speak to ^5533FFFather Mareusis^000000 in the room across the hall.";
+		next;
+		mes "[Sister Cecile]";
+		mes "Once you've reached job level 40 as an Acolyte, you can come back here and become a Priest.";
+		next;
+		mes "[Sister Cecile]";
+		mes "Since you are still a novice, think carefully about what job you wish to take.";
+		close;
+	
+	L_Prst:
+		if(sex == 1) goto L_PriestM;
+		if(sex == 0) goto L_PriestF;
+		
+		L_PriestM:
+			mes "God bless you, brother priest.";
+			goto L_Prst_;
+			
+		L_PriestF:
+			mes "God bless you, sister priest.";
+
+	L_Prst_:
+		mes "I wish you all the best.  Keep your faith strong and remeber that God loves all, and so should you.";
+		close;
+	
+	L_Aco:
+		if(PRIEST_Q == 1) goto L_Test1;
+		if(PRIEST_Q == 2) goto L_Test2;
+		if(PRIEST_Q == 3) goto L_Start;
+		if(PRIEST_Q == 4) goto L_Done;
+		
+		if(sex == 1) goto L_AcoM;
+		if(sex == 0) goto L_AcoF;
+		
+		L_AcoM:
+			mes "God bless you, brother.";
+			goto L_Aco_;
+			
+		L_AcoF:
+			mes "God bless you, sister.";
+	
+	L_Aco_:	
+		mes "Why are you here?";
+		next;
+		menu "I want to become a priest.",M_End1_, "Iam just wondering around.",M_End1;
+	
+		M_End1_:
+			mes "[Sister Cecile]";
+			mes "Oh so you want to become a priest?";
+			mes "A lot of acolytes want to become priests.";
+			next;
+			mes "[Sister Cecile]";
+			mes "My name is Sister Cecile, Iam responsible for helping acolytes become priests.";
+			next;
+			mes "[Sister Cecile]";
+			mes "Because I was born and raised here, I've seen a lot of people become Priests over the years.";
+			mes "Thats why i like to help people become priests now.";
+			next;
+			mes "[Sister Cecile]";
+			mes "In order to become a priest, you will have to fullfill 3 tasks.  If you want to change your job now, you can go talk to Father Thomas,";
+			next;
+			mes "[Sister Cecile]";
+			mes "If you encounter any problems with any of the tasks, come talk to me and I might be able to help.";
+			close;
+		M_End1:
+			mes "[Sister Cecile]";
+			mes "Please relax and take a break.  The church should feel like your home.";
+			close;
+	
+	L_Start:
+		if(PRIEST_Q2 == 1) goto L_ReTest;
+		mes "Good job, you successfully completed the second quest...!";
+		mes "You are now really close to becoming a priest.";
+		next;
+		mes "[Sister Cecile]";
+		if(sex==1) goto L_StartM;
+		if(sex==0) goto L_StartF;
+		
+		L_StartM:
+			mes "If you want to become a priest, the last step is to answer my questions honestly.";
+			goto L_Start_;
+
+		L_StartF:
+			mes "If you want to become a priestess, the last step is to answer my questions honestly.";
+		
+	L_Start_:
+		mes "Please be honest and answer my question.";
+		next;
+		mes "[Sister Cecile]";
+		mes "Okay let me ask you some questions.";
+		set PRIEST_Q2, 1;
+		next;
+	L_Test3:
+		mes "[Sister Cecile]";
+		mes "From today on, do you wish to help the god for all eternity?";
+		next;
+		menu "Yes.",M_2a, "No.",M_2a_;
+	
+		M_2a_:
+			mes "[Sister Cecile]";
+			mes "Why..Why would you say that?...";
+			mes "I don't think your suitable to become a priest...";
+			next;
+			mes "[Sister Cecile]";
+			mes "please come back when you really want to become a priest.";
+			mes "You can't become a priest right now.";
+			close;
+	
+		M_2a:
+	
+		mes "[Sister Cecile]";
+		mes "Will you use god's power for your own profit?";
+		next;
+		menu "Yes",M_2b_, "No.",M_2b;
+	
+		M_2b_:
+			mes "[Sister Cecile]";
+			mes "No, that doesn't work, if you use god's power to do what you wish, you're just like a theif.";
+			mes "How can you become a good priest if you think like that?";
+			next;
+			mes "[Sister Cecile]";
+			mes "Please come back when you make up your mind.";
+			mes "Those thoughts are the things that corrupt people.";
+			close;
+	
+		M_2b:
+	
+	
+		mes "[Sister Cecile]";
+		mes "Will you help others in battle when they need help?";
+		next;
+		menu "Yes.",M_2c, "No.",M_2c_;
+	
+		M_2c_:
+			mes "[Sister Cecile]";
+			mes "Thats wrong, when someone needs help, we will do our best to help them.";
+			mes "It doesn't matter who that person is, our job is to help everyone.";
+			next;
+			mes "[Sister Cecile]";
+			mes "Go walk around.";
+			mes "and you should learn something.";
+			close;
+		M_2c:
+	
+		mes "[Sister Cecile]";
+		mes "Will you sacrafice yourself for others?";
+		next;
+		menu "Yes.",M_2d, "No.",M_2d_;
+	
+		M_2d_:
+			mes "[Sister Cecile]";
+			mes "No, thats not what god thinks.";
+			mes "If we can sacrafice ourselves for something that helps the world, its worth it.";
+			next;
+			mes "[Sister Cecile]";
+			mes "Go and think about sacraficing.";
+			mes "Sacraficing is thing thats easy to say, but hard to do.";
+			close;
+		M_2d:
+	
+		mes "[Sister Cecile]";
+		mes "Will you talk bad to people you meet?";
+		next;
+		menu "Yes.",M_2e_, "No.",M_2e;
+	
+		M_2e_:
+			mes "[Sister Cecile]";
+			mes "That is not right, priests are supposed to help people.";
+			mes "If you talk bad, you don't deserver to be a priest.";
+			next;
+			mes "[Sister Cecile]";
+			mes "even if your god's best servant.";
+			mes "You don't have the right to bad-talk.";
+			close;
+	
+		M_2e:
+	
+		mes "[Sister Cecile]";
+		mes "Will you bring any kind of devil to help others in battle?";
+		next;
+		menu "Yes.",M_2f_, "No.",M_2f;
+	
+		M_2f_:
+			mes "[Sister Cecile]";
+			mes "You can't do that.";
+			mes "It doesn't matter if the devil is good or bad, priests should never talk to a devil .";
+			next;
+			mes "[Sister Cecile]";
+			mes "Even though it looks like you did a good thing, but it was a really bad thing.";
+			mes "Please go think about it.";
+			close;
+	
+		M_2f:
+	
+		mes "[Sister Cecile]";
+		mes "If God wants to you to live or die, will you listen to him?";
+		next;
+		menu "Yes.",M_2g, "No.",M_2g_;
+	
+		M_2g_:
+			mes "[Sister Cecile]";
+			mes "If your like that you can't become a priest.";
+			mes "If God wants you to die, you have to listen to him.";
+			next;
+			mes "[Sister Cecile]";
+			mes "And we priest have the skill to Resurrect ourselves.";
+			mes "Please go and think about what death means to you.";
+			close;
+		M_2g:
+	
+		mes "[Sister Cecile]";
+		mes "I just witness what you said.";
+		mes "Lastly, please promise that you'll remember the things you said today.";
+		next;
+		menu "I promise.",M_2Yes, "No.",M_2No;
+	
+		M_2Yes:
+			mes "[Sister Cecile]";
+			mes "Now, you passed all the tests.";
+			mes "Please go talk to Father Thomas to become a priest.";
+			next;
+			mes "[Sister Cecile]";
+			mes "Please remember the things you said today.";
+			mes "God bless you...";
+			set PRIEST_Q, 4;
+			set PRIEST_Q2, 0;
+			close;
+	
+		M_2No:
+			mes "[Sister Cecile]";
+			mes "..............";
+			next;
+			mes "[Sister Cecile]";
+			mes "No not yet, your still wondering if you want to become a priest or not.";
+			mes "You can't become a priest right now.";
+			next;
+			mes "[Sister Cecile]";
+			mes "I think you should go do the self-disipline test again...";
+			mes "When you're ready, come back here.";
+			next;
+			mes "[Sister Cecile]";
+			mes "God bless you...";
+			close;
+	
+	L_ReTest:
+		mes ".............";
+		next;
+		mes "[Sister Cecile]";
+		mes "...Oh your back.";
+		mes "I hope you can be honest this time.";
+		next;
+		mes "[Sister Cecile]";
+		mes "I hope i can sense your sincere...";
+		mes "Please answer me honestly.";
+		next;
+		mes "[Sister Cecile]";
+		mes "Okay, lets start.";
+		next;
+		goto L_Test3;
+	
+	L_Test1:
+		mes "Oh, so you already started the self-disipline test, good job.";
+		close;
+	
+	L_Test2:
+		if(PRIEST_Q2 == 1) goto L_Test2a;
+		mes "You didn't start the second quest yet?.";
+		mes "Well, i can't give u any specific details about this task.";
+		next;
+		mes "[Sister Cecile]";
+		mes "I can only tell you to be well-prepared and to not get seduced by anything...";
+		mes "You must trust in yourself in order to complete the second quest.";
+		next;
+		mes "[Sister Cecile]";
+		mes "If you want more specific details go talk to the priest in the training ground.";
+		mes "Father Thomas is a very nice person, he'll help you too.";
+		close;
+	
+	L_Test2a:
+		mes "Training is hard, but don't give up.";
+		mes "You must overcome anything in order to be a good priest.";
+		next;
+		mes "[Sister Cecile]";
+		mes "If there's experienced priest, you can ask them to help you train.";
+		mes "They might be able to help you pass the first level of the second task.";
+		next;
+		mes "[Sister Cecile]";
+		mes "God bless you...";
+		mes "When you complete the second quest, come back here.";
+		close;
+	
+	L_Done:
+		mes "Congratulations on finishing the tests.  Please see Father Thomas so that he can make you a Priest.";
 		close;
 }

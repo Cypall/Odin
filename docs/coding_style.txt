@@ -1,0 +1,138 @@
+--------------------------------------------------------------------------------
+Odin Project Coding Style
+--------------------------------------------------------------------------------
+
+This is the Odin Project coding conventions document. This should assist anyone who 
+wants to modify the code or work on active development. Anyone who wishes to 
+contribute code must adhere to these guidelines. Code not following these 
+conventions will be modified or (in extreme cases) rejected. If you have 
+additional suggestions or a good argument for changing some of these guidelines 
+then send a message or post in the forums. 
+
+Above all, write code that is easy to read and maintain. Comment blocks of code 
+and functions at all times.
+
+Naming Variables 
+*  Use all lower case. 
+*  Use _ to separate words. eg. max_spawn.
+*  Use descriptive names (except loop variables).
+
+Naming Functions 
+*  Use all lower case. 
+*  Use _ to separate words. eg. mmo_init() 
+*  Keep functions to 5 words or less  
+*  Try to use prefixes to group functions (i.e., mmo_, char_, skill_, etc)
+
+Naming Files 
+*  Use all lower case. 
+*  Use _ to separate words. eg. map_core.c 
+*  Filenames must be less than 32 characters in length. 
+*  Include files should have the same name as the .c file.
+
+General Formatting 
+*  Use TABS with a size of 3 to make the code easily readable while not wasting too much space 
+*  Opening braces are given on the same lines as statements, or on the following line at the start of a function definition. 
+*  Closing braces are always on a separate line from surrounding code, and are indented to line up with the start of the text on the line containing the corresponding opening brace. 
+*  Functions are declared with ANSI-style arguments. 
+*  There is no space between the function name and the opening bracket of the arguments to the function. 
+*  There is a single space following commas in argument lists and the semi-colons in for statements. 
+*  Inside a switch() statement, the case keywords are indented to the same level as the switch line. 
+*  Operators in expressions should be surrounded by a single space before and after, except for unary increment (++), decrement (--), and negation (!) operators. 
+*  There is no whitespace between a cast and the item modified (e.g., "(int)j" and not "(int) j"). 
+*  If a cast is to a pointer type, there is a space between the type and the * character (e.g., "(char *)i" instead of "(char*)i") 
+*  Really long Contents of  if {...} or function(...) statements should be considered as descibed in Example 2.
+*  Functions without arguments should be declared as void.
+*  Avoid Break-throughs in Switches! They are nasty!
+
+Page Guidelines 
+*  The first item should be the copyright notice 
+*  The 2nd lines should hold the $id$ for the CVS Controll
+*  After these, a short description of the file should follow
+*  For .c files:
+*   Now #includes, after these statics and then all other declarations.
+*   Now the functions and if there is a main(), it should be at the end of the file.
+*  For .h files:
+*   After the commented stuff, add 
+    #ifndef THISFILE_H
+    #define THISFILE_H
+*   Then other #defines and #includes.
+*   After all the declarations, add:
+    #endif /* THISFILE_H */
+     
+   
+Comments
+*  Use // for line-wide comments.  
+*  Use /* */ for block commenting unless you nest /* */ comments. Generally, only use this during development. 
+*  Comments are indented to the same level as the surrounding code.
+
+Examples
+
+*1: Functions
+
+int main(int argc, char **argc) {
+	if (argc != 0) {
+		fprintf(stderr, "No arguments allowed\n");
+		exit(1);
+	}
+	exit(0);
+}
+
+*2: Long statements
+
+static const char *really_long_name(int i, int j,
+                                    const char *args, void *foo,
+                                    int k)
+
+if (cond1 && (item2 || item3) && (!item4)
+	 && (item5 || item6) && item7) {
+	do_a_thing();
+}
+
+*3: Function calls
+
+function(a, b);
+
+*4: Comments
+
+	code;
+	/* comment */
+	code;
+
+*5: Flow-control statements (if, while, for, etc.):
+
+if (something) {
+	code;
+} else {
+	code;
+}
+
+*6: Spaces after semi-colons:
+
+for (a; b; c++, d++;) {
+
+*7: Switches:
+
+switch (x) {
+case a:
+	code;
+	break;
+case b:
+	code;
+	break;
+default:
+	code;
+	break;
+}
+
+*8: Expressions:
+
+a = b
+a + b
+a < b
+a = -b
+a = !b
+a++
+if (a == b) {
+
+
+

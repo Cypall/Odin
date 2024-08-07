@@ -1,0 +1,41 @@
+		     How to Setup an Internet Connection on Odin?
+
+Fist of all you should know your WAN ip address, the ip address you 
+use to connect to the internet. You can find it by entering in web
+pages like www.whatismyip.com. Now after you know what is your ip address,
+you can procced to setup Odin for the internet.
+
+Take a look at Odin's config.ini. Look for:
+AccountIP=127.0.0.1
+CharacterIP=127.0.0.1
+ZoneIP=127.0.0.1
+InetIP=127.0.0.1
+InetIPS=127.0.0.1
+If you are hosting the servers on the same computer the only lines you have
+to change are the last two. InetIP, and InetIPS are filled with your WAN
+ip address. The rest can be leaved as default. But if in the other hand
+you are setting multimap or character servers, you have to fill in every
+line with your corresponding Internet addresses.
+
+
+		Example of runnin the servers in diferent computers
+
+Suppose we have 3 computers each with the corresponding ip addresses:
+65.56.77.6
+65.56.12.1
+65.56.65.2
+
+In the fist computer we set Account Server and we fill AccountIP with 65.56.77.6.
+In the second computer we set Character Server and we will fill the
+AccountIP with 65.56.77.6 and the CharacterIP with 65.56.12.1. Why? Because
+you will have diferent config.ini, and because you are running the servers on
+diferent computers and because Character Server must know the AccountIP to connect to it,
+and the only way to get it is by filling it. And for the last one Zone
+Server will be filled the same way Character Server do. CharacterIP must
+be filled with 65.56.12.1 and ZoneIP with 65.56.65.2. No need to set Account
+IP. Why? because of the same reason of above. Now to finnish setting the
+network in the config.ini of where Character Server is hosted you fill
+InetIP with the Character Server's ip, and InetIPS with the Zone Server ip.
+Then in where the Zone Server is hosted you do the same. No need to add
+it where Account Server is hosted. So it can be leaved as default.
+

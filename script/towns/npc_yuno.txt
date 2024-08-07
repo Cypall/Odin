@@ -91,34 +91,38 @@ yuno.gat,154,47,4	script	Entrance Girl	700,{
 		close;     
 } 
 
-yuno.gat,156,87,4	script	Man	47,{
-			mes "[Yigonglyukchichi]";
+yuno.gat,156,87,4	script	Hans	47,{
+			mes "[Hans]";
 			mes "If you go north from Aldebaran, you will encounter the Magma Plane named El Mas Plateau; a place where the heat makes it hard for you to breathe...";
 			next;
-			mes "[Yigonglyukchichi]";
+			mes "[Hans]";
 			mes "This city of Yuno has international famous places such as the Yufero Square, the Yuno Conference Court, Shubaicher's Magic School, and the Museum of Monsters";
 			next;
-			mes "[Yigonglyukchichi]";
+			mes "[Hans]";
 			mes "Am I missing something? *hmmm*";
 			next;
-			mes "[Yigonglyukchichi]";
+			mes "[Hans]";
 			mes "O yea, I almost forgot Sage Castle, the place where you can change to a 'Sage'";
 			next;
-			mes "[Yigonglyukchichi]";
+			mes "[Hans]";
 			mes "Please visit Sage Castle for information on Sage's some time during your visit.  Trust me, it will be worth it";
 			close;
 }
 
 yuno.gat,166,111,4	script	Remorpheous	120,{
-			mes "[Remorpheous]";
-			mes "'Apocalypse'....an artificial human being was the chief of the gatekeepers and in charge of the public order of the city of Yuno during Ancient times...";
-			next;
-			mes "[Remorpheous]";
-			mes "It was very....similar to a robot. After living for a long time, its' A.I. totally screwed up; it couldn't differ between a friend or foe.";
-			next;
-			mes "[Remorpheous]";
-			mes "....it became a monster that attacks everyone.";
-			close;
+	mes "[Remorpheous]";
+	mes "'Apocalypse'. he, an artificial human being,";
+	mes "was the chief of gatekeepers and in charge of public order of the city";
+	mes "of [Yuno] during the Ancient times civilization...";
+	close;
+	mes "[Remorpheus]";
+	mes "....similar to Robot. After living for a long time,";
+	mes "its A.I. totally screwed up,it couldn't recognize friend or foe anymore,";
+	mes "so without consideration of friends or foe......";
+	close;
+	mes "[Remorpheus]";
+	mes ".... it became a monster that attacks anyone regardless";
+	close;
 }
 
 yuno.gat,158,205,4	script	Keymaker	85,{
@@ -324,28 +328,35 @@ yuno.gat,150,283,4	script	Yuno Soldier	105,{
 		close;
 }
 
-yuno.gat,162,328,4	script	Escla	735,{
-		mes "[Escla]";
-		mes "I've seen it before. Ahhh, I remember... A floating paper was flying around in the air helplessly...as if it couldn't resist the wind...was what I thought.";
-		next;
-		mes "[Escla]";
-		mes "Puhat *laugh* It attacked me all of sudden! Me, the one of three scholars of Yuno.";
-		next;
-		mes "[Escla]";
-		mes "As a Sage, I wouldn't lose to such thing, I thought, so I attacked it with a sword, but that paper began attacking me with quite clever attacks.";
-		next;
-		mes "[Escla]";
-		mes "It was using its thin body to escape a swing of my sword. and even if I hit it, I couldn't tell 'cause there I had no feeling in my hands.";
-		next;
-		mes "[Escla]";
-		mes "So finally I used my magic to get rid of that monster.";
-		next;
-		mes "[Escla]";
-		mes "Later on, I asked other scholars of this, and his name is 'The Paper'.";
-		next;
-		mes "[Escla]";
-		mes "It's a paper from old books of Juno, containing Juno's ancient wisdom... I thought, such a thing could happen, eh...";
-		close;
+yuno.gat,162,328,4	script	Sage Eskla	735,{
+	mes "[Eskla]";
+	mes "I remember seeing it once........ Yeah... I remember now....... ";
+	mes "There was this piece of paper floating in the air.  I asked myself, 'Hmm... who lost a piece of paper out here?'.";
+	next;
+	mes "[Eskla]";
+	mes "Then... without warning.... the piece of paper attacked me!! ME! One of the GREATEST Sages in Yuno!!";
+	next;
+	mes "[Eskla]";
+	mes "I said to the piece of paper, 'How dare you attack me you little piece of paper!!' and struck it with my trusty sword.";
+	mes "But that piece of paper was persistant and annoying at that.";
+	next;
+	mes "[Eskla]";
+	mes "Using its paper thin body it dodged my sword simply by turning itself.  The way it was turned I couldn't even tell if it was still there.";
+	mes "Dammint it was thin!!!";
+	next;
+	mes "[Eskla]";
+	mes "I decided to finally put an end to things and used a powerful magic spell to destroy that little piece of paper.";
+	mes "Because I had so much difficulty in defeating it, I decided to ask my collegues if they knew anything about it.";
+	next;
+	mes "[Eskla]";
+	mes "I found out what I had fought was called ^FF3355'The Paper'^000000.";
+	mes "People say that it used to be part of an old book that contained a great deal of ancient knowledge about Yuno.";
+	next;
+	mes "[Eskla]";
+	mes "Somehow it became a monster....... isn't that weird?";
+	close;
+}
+
 }
 
 yuno_in01.gat,18,95,5	script	Stancle	99,{
@@ -506,4 +517,159 @@ yuno.gat,165,283,4	script	Yuno Soldier	105,{
 			mes "[Yuno Soldier]";
 			mes "It got such name 'cause the passing-by geography scholar was eaten away during his research.";
 			close;
+}
+
+yuno.gat,158,205,4	script	Artisan	54,{
+	mes "[Artisan]";
+	mes "~(mumbling to himself.......)~";
+	next;
+	mes "[Artisan]";
+	mes "Oh hello there.  Let me introduce myself.  I am an artisan who is trying to carry on the traditions and duties of the master craftsmen here in Yuno.";
+	M_Menu:
+	next;
+	menu "About powerful equipment.",M_1,"About special items",M_2,"About authentic foods",M_3,"End conversation",M_End;
+	
+	M_1: 
+		mes "[Artisan]";
+		mes "For Crusaders, I suggest looking into the ^5533FF'Holy Guard' and 'Holy Avenger'^000000.";
+		mes "They are both light weight pieces of equipment and they perform remarkably well.";
+		next;
+		mes "[Artisan]";
+		mes "They also posses the holy property so they are even more powerful against undead and ghost creatures,";
+		next;
+		mes "[Artisan]";
+		mes "I've heard that these pieces of equipment are quite rare, and that only a chosen few are able to obtain them.";
+		goto M_Menu;
+		
+	M_2:
+		mes "[Artisan]";
+		mes "One item that I know about is a magic scroll called the ^5533FF'Worn-Out Magic Scroll'^000000.";
+		mes "It is described to have a circle inside of another circle.... and a star...... ";
+		next; 
+		mes "[Artisan]";
+		mes "Although the scroll is very old and tattered, it very special to many Sages who use it for their research.";
+		mes "Apparently it can be used with very high level magic spells.";
+		goto M_Menu;
+	
+	M_3:
+		mes "[Artisan]";
+		mes "^5533FF'Rice Cake'^000000!! A traditional food that has been a favorite of many people over the years.";
+		mes "It has a way of reminding people of those old traditional markets and fairs.";
+		next;
+		mes "[Artisan]";
+		mes "Ah.... Rice Cake..... I sure wish I could eat some now..............";
+		//possible quest here .. not sure though
+		goto M_Menu;
+		
+	M_End:
+		mes "[Artisan]";
+		mes "Although Yuno is known as the city of Sages,..............";
+		mes "I hope you will understand that Yuno is also home to many kind and gentle people who live ordinary lives.";
+		next;
+		mes "[Artisan]";
+		mes "Please enjoy everything this unique city has to offer.";
+		close;
+}
+
+yuno.gat,336,227,4	script	Yuno Granny	103,{
+
+	mes "[Granny]";
+	mes "Here you are......... I am an elderly Sage who can forsee everything before it happens.";
+	next;
+	mes "[Granny]";
+	mes "Have you heard about the boss monster, who's name has been buzzing around Yuno for the longest time?";
+	mes "It's called ^FF3355'Lord of the Dead'^000000.  Rumor has it that it comes form the realm of the dead.";
+	next;
+	mes "[Granny]";
+	mes "It brings with it many undead monsters that are intent on leading the living to the cold and icy land of the dead.";
+	next;
+	mes "[Granny]";
+	mes "I know that you have already chosen whether or not you will fight the Lord of the Dead.";
+	mes "The only thing left for you to do is find out why you made that choice......";
+	close;
+}
+
+yuno.gat,329,239,4	script	Yuno Fighter	732,{
+	mes "[Sergiof]";
+	mes "My name is Sergiof and I am Granny's protector.";
+	next;
+	mes "[Sergiof]";
+	mes "Let me tell you about the ^5533FF'Grand Peco'^000000, which is a high level Peco Peco.";
+	mes "The Grand Peco is faster than regular Peco Pecos and has aggressive tendencies.";
+	next;
+	mes "[Sergiof]";
+	mes "It attacks its targets using its strong bill.  It is always surrounded by a large group of Peco Pecos.";
+	next;
+	mes "[Sergiof]";
+	mes ".... Unfortunately it is time for us to part...... farewell...........";
+	close;
+}
+
+yuno.gat,344,68,4	script	Yuno Tyrant	730,{
+	mes "[Ninno]";
+	mes "Have you ever heard of an Egyptian king who was once believed to be the son of a god?";
+	mes "His name was ^5533FF'Pharaoh'^000000";
+	next;
+	mes "[Ninno]";
+	mes "Rumor has it that he was a high sorcerer and that he used his abilities to curse innocent people.";
+	mes "There are people that say he is still around, and continues to place curses on people.";
+	next;
+	mes "[Ninno]";
+	mes "Have you ever seen him before?";
+	close;
+}
+
+yuno.gat,261,98,4	script	Ykla	735,{
+		mes "[Ykla]";
+		mes "^5533FFYuphero^000000......,";
+		mes "That was the name of the ancient city where the most intelligent and talented people used to live.";
+		next;
+		mes "[Ykla]";
+		mes "By finding a way to harness the power from the pieces of Ymir's heart, they became the most advanced city know to man.";
+		next;
+		mes "[Ykla]";
+		mes "However, over time they came to abuse that power and ended up destroying themselves.";
+		next;
+		mes "[Ykla]";
+		mes "If you ever find yourself in the position of acquiring this kind of power, make sure you remain humble to it.";
+		next;
+		mes "[Ykla]";
+		mes "Power without humility is nothing more than a fools path to destruction.";
+		close;
+}
+
+yuno.gat,306,207,6	script	Sage Sykla	735,{
+		mes "[Sykla]";
+		mes "There is talk about a suspicious man living somewhere here in Yuno.";
+		mes "Apparently he is a dangerous person who is immersed in some kind of wicked research.";
+		next;
+		mes "[Sykla]";
+		mes "This so called 'Mad Scientist' spends his time working on complex ideas that cannot be understood by normal people.";
+		next;
+		mes "[Sykla]";
+		mes "Just outside of town you will find a monster called ^FF3355'Blazer'^000000.";
+		mes "This ball of magic flame attacks any living creature it finds with horrible spells such as fire bolt and fire ball.";
+		next;
+		mes "[Sykla]";
+		mes "This hiddeous creature is feared my most, if not all, of the people here in Yuno.";
+		mes "But what's even more frightening than the monster itself, is the rumor that the mad scientist was the one who created it....";
+		next;
+		mes "[Sykla]";
+		mes "Imagine if this mad man were to create more of these creatures..... possibly create monsters even more powerfull than Blazer....";
+		close;
+}
+
+yuno.gat,80,150,4	script	Young Woman	746,{
+	mes "[Young Woman]";
+	mes "Have you ever seen such a beautiful city?";
+	mes "And Yuno at night time is so wonderful with its lights shiny through the clouds";
+	next;
+	mes "[Young Woman]";
+	mes "I'm sorry i got carried away , its my first time being here in the City of Sages";
+	mes "i sugest you go look around and enjoy your self";
+	next;
+	mes "[Young Woman]";
+	mes "I believe i shall wait around here till nightfall just so i can see the lights clearly";
+	mes "maybe i will see you here later";
+	close;
 }

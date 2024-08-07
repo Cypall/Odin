@@ -1,0 +1,96 @@
+		    Detailed Information of the configuration
+			         options commands
+
+=====================
+Important Notice:
+---------------------
+
+The configuration files that Odin use have been changed. The next releases
+of Odin will read the files stored at the folder cfg and no longer will
+read config.ini that was placed in the current servers directory. The
+information below can be found at this three files stored in cfg folder:
+account_cfg.ini
+character_cfg.ini
+zone_cfg.ini
+grf_files.ini
+
+[Server]
+
+Name of the server, always end with an *.
+ServerName=Odin*
+
+Server's IP adresses, find your IP at www.ipchicken.com.
+AccountIP=127.0.0.1
+CharacterIP=127.0.0.1
+ZoneIP=127.0.0.1
+InetIP=127.0.0.1
+InetIPS=127.0.0.1
+
+Server's ports, leave these as is.
+AccountPort=6900
+CharacterPort=6121
+ZonePort=5121
+
+Server's admin access, it's recommended to change these.
+ServerUsername=srv
+ServerPassword=admn
+
+
+[Options]
+
+Allow clients entering the server? Options: 0 Disable, 1 Enable
+CloseServer=0
+
+Is the character server under maintainence? Options: 0 Disable, 1 , 2, 3 Show Diferent status
+Maintenance=0
+
+Add 'New' to Server name? Options: 0 Disable, 1 Enable
+AddNew=0
+
+Maximum users able to connect to the server at one time. Options: 0 Unlimited
+MaxUsers=0
+
+Allow creation of backups? Options: 0 Disable, 1 Enable
+Backup=1
+
+After how long should the server save and backup? In minutes
+BackupTime=45
+SaveTime=15
+
+Allow the creation of new accounts? (_M/_F) Options: 0 Enable, 1 Disable
+SecureMode=1
+
+Show monsters' HP? Options: 0 Disable, 1 show all, 2 show player only
+ShowHP=2
+
+Show experience on a level up? Options: 0 Disable, 1 Enable
+ShowExperience=1
+
+Turn Super GM's on/off. Options: 0 Disable, 1 Enable
+SuperGM=0
+
+GM's able to equip anything? Options: 0 Disable, 1 Enable
+GMEquipAll=0
+
+Rates multiplyer compared to the original RO servers.
+BaseMultiplier=1
+JobMultiplier=1
+DropMultiplier=1
+
+Map and coordinates Novices start at.
+StartMap=new_5-1.gat,53,111
+
+Amount of Zeny Novices start with
+StartZeny=500
+
+Maximun atainable levels on the server.
+MaxBaseLevel=99
+MaxJobLevel=50
+
+
+[Directories]
+
+Set the directories to your .grf files. No spaces allowed.
+data=C:\progra~1\Gravity\RO\data.grf
+sdata=C:\progra~1\Gravity\RO\sdata.grf
+

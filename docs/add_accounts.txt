@@ -1,0 +1,42 @@
+		      How to add players account to Odin?
+
+=====================
+   Using _M or _F
+--------------------
+
+The easy way to add players account in Odin is by leaving them to register
+automatic by adding _M or _F at the end of their login name. But first you must
+set the option in account_cfg.ini. Search for the line 'SecureMode' and turn it off. How?
+By adding a zero after the =. If SecureMode is enable you cannot register by
+using this method.
+
+Example:
+
+In account_cfg.ini:
+SecureMode=0
+
+In game client:
+While in the login screen of the game client, write your username and then add _M for
+male and _F for Female. 'username_M' will create a male account, 'username_F' will
+create a female account. Then you setup your password normally by writting the one
+you must like. The next time you log in you can use only 'username' without the _M or _F.
+
+
+=====================
+ Using addplayer.txt
+---------------------
+
+Where to find addplayer.txt? It is in save/accounts/addplayer.txt. To add a
+player using this method is pretty easy, and the server will automatic add
+the new account without turning them off. Beware, by adding a redundant
+name, a name that already exits in the database, because it will delete
+anything that is on the addplayer.txt and will not add absolutly nothing.
+The format to add players using this method is as follows:
+username, password, sex, email, playermode
+
+Sex must be 0 or 1. 0 means female account, and 1 means male account.
+playermode decide wheneter to add a normal player, gm player or sub gm player.
+The values are 0 for normal account, 1 for sub gm account, 2 for gm accounts.
+Save your changes and close the file. Go into game and log in, the server will
+add the accounts in the exact time a player log in.
+

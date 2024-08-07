@@ -12,19 +12,14 @@
  * You should have received a copy of the GNU General Public License
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
-------------------------------------------------------------------------*/
+ ------------------------------------------------------------------------*/
 
-/*------------------------------------------------------------------------
- Module:        Version 1.7.0 SP1
- Author:        Odin Developer Team Copyrights (c) 2004
- Project:       Project Odin Zone Server
- Creation Date: Dicember 6, 2003
- Modified Date: Semtember 3, 2004
- Description:   Ragnarok Online Server Emulator
-------------------------------------------------------------------------*/
-
+#ifndef _SAVE_H_
+#define _SAVE_H_
 void mmo_char_save(struct map_session_data *sd);
 void mmo_map_delete_pet(int pet_id);
 void mmo_pet_save(struct map_session_data *sd);
+void mmo_map_delete_party(int index);
 void mmo_party_save(int party_num);
 void mmo_online_check();
+#endif

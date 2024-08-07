@@ -1,4 +1,4 @@
-Sub-GM Commands.
+Sub-GM Commands:
 !heal [hp] [sp]
 !jobchange <0-12/20>
 !shout <text>

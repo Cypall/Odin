@@ -1,4 +1,4 @@
-// $Id: npc_IceCream.txt,v 1.1 2003/12/01 22:51:04 MivaBe Exp $
+// $Id: npc_IceCream.txt,v 1.1 2004/11/17 04:15:21 dennisjoel Exp $
 //<--------------- Ice Cream Event [Update: Oct. 06, 2003] --------------->\\
 //ALBERTA
 alberta.gat,120,53,5	script	Ice Cream Maker	85,{

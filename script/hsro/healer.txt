@@ -1,8 +1,0 @@
-//Healing Dog by : HaVoC
-prontera.gat,147,175,5	script	Healing Dog	81,{
-L_HEAL:
-	setzeny Zeny, 00;
-	full_heal;
-	close;
-close;
-}

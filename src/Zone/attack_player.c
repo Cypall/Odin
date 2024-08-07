@@ -12,45 +12,111 @@
  * You should have received a copy of the GNU General Public License
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
-------------------------------------------------------------------------*/
+ ------------------------------------------------------------------------*/
 
-/*------------------------------------------------------------------------
- Module:        Version 1.7.1 - Angel Ex
- Author:        Odin Developer Team Copyrights (c) 2004
- Project:       Project Odin Zone Server
- Creation Date: Dicember 6, 2003
- Modified Date: October 24, 2004
- Description:   Ragnarok Online Server Emulator
-------------------------------------------------------------------------*/
+#define NOM_ATTACK(atk1, atk2, def) ((atk1 + rand() % (atk2)) - (def) - 3 + rand() % 8);
+#define BOW_ATTACK(atk1, atk2, dex, def) ((dex + atk1 + rand() % (atk2)) - (def) - 3 + rand() % 8);
+#define CRI_ATTACK(atk1, atk2, s_lv, s_type) (atk1 + atk2 + (s_lv) * (s_type) - 3 + rand() % 8);
+#define KAT_ATTACK(damage) (((damage) / 5) + 1);
+#define MD(min, max) ((min >= max) ? max : (min + rand() % (max - (min))));
 
-int mmo_map_attack_continue(int tid, unsigned int tick, int id, int data)
+void mmo_map_attack_continue(int tid, unsigned int tick, int id, int data)
 {
 	struct map_session_data *sd;
 
-	tid = 0;
 	if (!session[id] || !(sd = session[id]->session_data))
-		return 0;
+		return;
 
-	if (sd->hidden)
-		return 0;
+	if (sd->sitting == 1 || sd->hidden || sd->skill_timeamount[135-1][0] > 0 || sd->act_dead)
+		return;
 
-	if (sd->skill_timeamount[143-1][1] == 1)
-		return 0;
-
-	if (sd->attacktimer > 0 && data != 1) {
-		mmo_map_once_attack(id, sd->attacktarget, tick);
+	switch(data) {
+	case 0:
+		mmo_map_once_attack(id, sd->attacktarget, tick, 0);
 		sd->attacktimer = add_timer(tick + 1400 - (700 - sd->status.aspd) * 2, mmo_map_attack_continue, id, 0);
+		break;
+	case 1:
+		mmo_map_once_attack(id, sd->attacktarget, tick, 0);
+		break;
 	}
-	else if (sd->attacktimer > 0 && data == 1)
-		mmo_map_once_attack(id, sd->attacktarget, tick);
-
-	return 0;
 }
 
-int attack_player(int fd, int target_fd, int damage)
+void mmo_player_send_death(struct map_session_data *sd)
+{
+	int len;
+	unsigned int fd = sd->fd;
+	unsigned char buf[64];
+
+	WBUFW(buf, 0) = 0x80;
+	WBUFL(buf, 2) = sd->account_id;
+	WBUFB(buf, 6) = 1;
+	mmo_map_sendarea(fd, buf, packet_len_table[0x80], 0);
+
+	mmo_player_stop_skills_timer(sd);
+	mmo_player_attack_no(sd);
+	mmo_player_stop_walk(sd);
+	sd->sitting = 1;
+	sd->status.option_x = 0;
+	sd->status.option_y = 0;
+	sd->status.option_z = 0;
+	sd->status.effect = 00000000;
+
+	if (mmo_card_equiped(sd, 4144) > 0) {
+		sd->status.hp = sd->status.max_hp;
+		sd->status.sp = sd->status.max_sp;
+		len = mmo_map_set_param(fd, WFIFOP(fd, 0), SP_SP);
+		if (len > 0)
+			WFIFOSET(fd, len);
+
+	}
+	else if (sd->status.class == 0)
+		sd->status.hp = sd->status.max_hp / 2;
+
+	else
+		sd->status.hp = 1;
+
+	len = mmo_map_set_param(fd, WFIFOP(fd, 0), SP_HP);
+	if (len > 0)
+		WFIFOSET(fd, len);
+
+	mmo_map_setoption(sd, buf, 0);
+	mmo_map_sendarea(fd, buf, packet_len_table[0x119], 0);
+}
+
+void mmo_player_attack_no(struct map_session_data *sd)
+{
+	if (sd->attacktimer > 0) {
+		delete_timer(sd->attacktimer, mmo_map_attack_continue);
+		sd->attacktimer = 0;
+	}
+	sd->attacktarget = 0;
+}
+
+void mmo_player_stop_walk(struct map_session_data *sd)
+{
+	if (sd->walktimer > 0) {
+		delete_timer(sd->walktimer, walk_char);
+		sd->walktimer = 0;
+		sd->walkpath_len = 0;
+		sd->walkpath_pos = 0;
+	}
+}
+
+void mmo_player_stop_skills_timer(struct map_session_data *sd)
 {
 	int i;
-	unsigned char buf[256];
+
+	for (i = 1; i < MAX_SKILL; i++) {
+		if (sd->skill_timeamount[i-1][0] <= 0)
+			continue;
+
+		skill_reset_stats(0, 0, sd->fd, i);
+	}
+}
+
+void attack_player(unsigned int fd, unsigned int target_fd, int damage)
+{
+	int i, len;
 	struct map_session_data *sd, *target_sd, *csd;
 
 	if (session[fd] && session[target_fd] && (sd = session[fd]->session_data) && (target_sd = session[target_fd]->session_data)) {
@@ -58,59 +124,46 @@ int attack_player(int fd, int target_fd, int damage)
 		if (target_sd->status.hp <= 0)
 			target_sd->status.hp = 0;
 
-		WFIFOW(target_fd, 0) = 0xb0;
-		WFIFOW(target_fd, 2) = 0005;
-		WFIFOL(target_fd, 4) = target_sd->status.hp;
-		WFIFOSET(target_fd, packet_len_table[0xb0]);
+		len = mmo_map_set_param(target_fd, WFIFOP(target_fd, 0), SP_HP);
+		if (len > 0)
+			WFIFOSET(target_fd, len);
 
 		if (target_sd->status.hp <= 0) {
-			target_sd->status.hp = 0;
-			target_sd->sitting = 1;
-			WBUFW(buf, 0) = 0x80;
-			WBUFL(buf, 2) = target_sd->account_id;
-			WBUFB(buf, 6) = 1;
-			mmo_map_sendarea(fd, buf, packet_len_table[0x80], 0);
+			mmo_player_send_death(target_sd);
+			for (i = 5; i < FD_SETSIZE; i++)
+				if (session[i] && (csd = session[i]->session_data))
+					if (csd->attacktarget == target_sd->account_id)
+						mmo_player_attack_no(csd);
 
-			for (i = 5; i < FD_SETSIZE; i++) {
-				if (session[i] && (csd = session[i]->session_data)) {
-					if (csd->attacktarget == target_sd->account_id) {
-						delete_timer(csd->attacktimer, mmo_map_attack_continue);
-						csd->attacktimer = 0;
-						csd->attacktarget = 0;
-					}
-				}
-			}
-			if (target_sd->attacktimer > 0) {
-				delete_timer(target_sd->attacktimer, mmo_map_attack_continue);
-				target_sd->attacktimer = 0;
-				target_sd->attacktarget = 0;
-			}
+
+
+			target_sd->pvprank--;
+			if (target_sd->pvprank < 0)
+				target_sd->pvprank = 0;
+
+			mmo_map_checkpvpmap(target_sd);
+
 			sd->pvprank++;
 			mmo_map_checkpvpmap(sd);
 		}
 	}
-	return 0;
 }
 
-int attack_monster(int fd, short m, int n, int target_id, int damage)
+void attack_monster(unsigned int fd, short m, int n, long target_id, int damage)
 {
-	int x = 0, y = 0, z = 0;
+	int mvp_damage = 0, x = 0, y = 0, z = 0;
+	char msg[64];
 	unsigned int mvp_fd = 0, i;
-	int mvp_damage = 0;
-	char msg[256];
-	unsigned char buf[256];
 	struct map_session_data *sd, *csd;
+	struct npc_data *monster;
 
 	if (session[fd] && (sd = session[fd]->session_data)) {
-		if ((sd->skill_timeamount[114-1][0] == 0 || sd->skill_timeamount[114-1][1] != 1) && sd->skill_timeamount[61-1][0] == 0)
-			damage -= map_data[m].npc[n]->u.mons.def1;
-
-		if (damage < 0)
-			damage = 1;
+		if (!(monster = map_data[m].npc[n]))
+			return;
 
 		if (show_hp > 0 && damage > 10) {
-			x = map_data[m].npc[n]->u.mons.hp;
-			y = mons_data[map_data[m].npc[n]->class].max_hp;
+			x = monster->u.mons.hp;
+			y = mons_data[monster->class].max_hp;
 			z = show_hp;
 			if (x > 0 && y > 0  && x < y && x != y) {
 				sprintf(msg, "( %d / %d )", x, y);
@@ -120,91 +173,47 @@ int attack_monster(int fd, short m, int n, int target_id, int damage)
 				if (z == 2)
 					z = 1;
 
-				send_msg_mon(fd, map_data[m].npc[n]->id, msg, z);
+				send_msg_mon(fd, monster->id, msg, z);
 			}
 		}
-		map_data[m].npc[n]->u.mons.hp -= damage;
+		monster->u.mons.hp -= damage;
+		if (monster->u.mons.hp <= 0)
+			monster->u.mons.hp = 0;
+
 		if ((rand() % 90) == 10) {
-			if (map_data[m].npc[n]->u.mons.hp >= (mons_data[map_data[m].npc[n]->class].max_hp / 2))
-				monster_say(fd, target_id, map_data[m].npc[n]->class, "hp50");
+			if (monster->u.mons.hp >= (mons_data[monster->class].max_hp / 2))
+				monster_say(fd, target_id, monster->class, "hp50");
 
-			else if (map_data[m].npc[n]->u.mons.hp <= (mons_data[map_data[m].npc[n]->class].max_hp / 4))
-				monster_say(fd, target_id, map_data[m].npc[n]->class, "hp25");
+			else if (monster->u.mons.hp <= (mons_data[monster->class].max_hp / 4))
+				monster_say(fd, target_id, monster->class, "hp25");
 
-			else if (map_data[m].npc[n]->u.mons.hp <= 0)
-				monster_say(fd, target_id, map_data[m].npc[n]->class, "dead");
+			else if (monster->u.mons.hp <= 0)
+				monster_say(fd, target_id, monster->class, "dead");
 
 		}
-		if (map_data[m].npc[n]->u.mons.target_fd != fd && map_data[m].npc[n]->u.mons.hp > 0)
+		if (monster->u.mons.target_fd != fd && monster->u.mons.hp > 0)
 			check_new_target_monster(m, n, fd);
 
-		if (map_data[m].npc[n]->u.mons.hp <= 0) {
-			map_data[m].npc[n]->u.mons.hp = 0;
-			if (map_data[m].npc[n]->class > 20) {
-				WBUFW(buf, 0) = 0x80;
-				WBUFL(buf, 2) = target_id;
-				WBUFB(buf, 6) = 1;
-				mmo_map_sendarea(fd, buf, packet_len_table[0x80], 0);
-			}
-			else {
-				WBUFW(buf, 0) = 0x80;
-				WBUFL(buf, 2) = target_id;
-				WBUFB(buf, 6) = 2;
-				mmo_map_sendarea(fd, buf, packet_len_table[0x80], 0);
-			}
+		if (monster->u.mons.hp <= 0) {
+			mmo_mons_send_death(fd, m, n);
 			for (i = 5; i < FD_SETSIZE; i++) {
-				if (session[i] && (csd = session[i]->session_data) && csd->attacktarget == target_id) {
-					if (csd->status.damage_atk >= mvp_damage) {
-						mvp_damage = csd->status.damage_atk;
-						mvp_fd = i;
+				if (session[i] && (csd = session[i]->session_data)) {
+					if (csd->attacktarget == target_id) {
+						if (csd->status.damage_atk >= mvp_damage) {
+							mvp_damage = csd->status.damage_atk;
+							mvp_fd = i;
+						}
+						mmo_map_level_mons(csd, m, n);
+						mmo_player_attack_no(csd);
+						csd->status.damage_atk = 0;
 					}
-					mmo_map_level_mons(csd, m, n);
-					delete_timer(csd->attacktimer, mmo_map_attack_continue);
-					csd->attacktimer = 0;
-					csd->attacktarget = 0;
 				}
 			}
 			if (mvp_fd > 0)
 				mmo_map_mvp_do(mvp_fd, m, n);
 
-			mmo_map_item_drop(m, n);
-			if (map_data[m].npc[n]->u.mons.attacktimer > 0) {
-				delete_timer(map_data[m].npc[n]->u.mons.attacktimer, mmo_mons_attack_continue);
-				map_data[m].npc[n]->u.mons.attacktimer = 0;
-			}
-			map_data[m].npc[n]->u.mons.hp = 0;
-			map_data[m].npc[n]->u.mons.target_fd = 0;
-			map_data[m].npc[n]->u.mons.walkpath_len = 0;
-			map_data[m].npc[n]->u.mons.walkpath_pos = 0;
-			map_data[m].npc[n]->u.mons.speed = 0;
-			map_data[m].npc[n]->skilldata.fd = 0;
-			map_data[m].npc[n]->skilldata.skill_num = 0;
-			map_data[m].npc[n]->skilldata.effect = 00000000;
-			map_data[m].npc[n]->u.mons.lootdata.id = 0;
-			map_data[m].npc[n]->u.mons.lootdata.loot_count = 0;
-			set_monster_no_point(m, n);
-			if (strncmp(map_data[m].npc[n]->name, mons_data[map_data[m].npc[n]->class].name, 24) != 0) {
-				if (mons_data[map_data[m].npc[n]->class].boss == 1) {
-					add_timer(gettick() + 60 * 60000, spawn_delay, m, n);
-					timer_data[map_data[m].npc[n]->u.mons.timer]->tick = gettick() + 60 + 500;
-				}
-				else if (mons_data[map_data[m].npc[n]->class].boss == 2) {
-					add_timer(gettick() + 45 * 60000, spawn_delay, m, n);
-					timer_data[map_data[m].npc[n]->u.mons.timer]->tick = gettick() + 45 + 500;
-				}
-				else {
-					add_timer(gettick() + 60000, spawn_delay, m, n);
-					timer_data[map_data[m].npc[n]->u.mons.timer]->tick = gettick() + 1 + 500;
-				}
-			}
-			else {
-				delete_timer(map_data[m].npc[n]->u.mons.timer, mons_walk);
-				map_data[m].npc[n]->u.mons.timer = 0;
-				del_block(&map_data[m].npc[n]->block);
-			}
 		}
 	}
-	return 0;
 }
 
 int size_mod[18][3] = {
@@ -233,17 +242,20 @@ int d_atk_bonus[4][11] =  {
 	{0, 0, 0, 0, 0, 0, 8,16,24,32,40},
 	{0, 0, 0, 0, 0,14,28,42,56,70,84}
 };
+
 int peco_size_mod[3] = {75, 100, 100};
 
-int mmo_map_calc_damage(int fd, int atk1, int atk2, int atk2b, int atk_ele, short m, short n, int arrow_id, int critical)
+int mmo_map_calc_damage(unsigned int fd, int atk1, int atk2, int atk2b, int atk_ele, short m, short n, int arrow_id, int critical)
 {
-	int damage = 0;
+	int base_dmg = 0, wpn_atk = 0, def1 = 0, def2 = 0, damage = 0;
 	char s_lv = 0, s_type = 0;
-	int base_dmg, wpn_atk;
-	int def1, def2;
-	struct map_session_data *sd = NULL;
+	struct map_session_data *sd;
+	struct npc_data *monster;
 
 	if (!session[fd] || !(sd = session[fd]->session_data))
+		return 0;
+
+	if (!(monster = map_data[m].npc[n]))
 		return 0;
 
 	if (arrow_id)
@@ -253,14 +265,13 @@ int mmo_map_calc_damage(int fd, int atk1, int atk2, int atk2b, int atk_ele, shor
 		base_dmg = (sd->status.str + sd->status.str2) + ((sd->status.str + sd->status.str2) * (sd->status.str + sd->status.str2) / 100) + ((sd->status.dex + sd->status.dex2) / 5) + ((sd->status.luk + sd->status.luk2) / 5);
 
 	wpn_atk = atk1 - base_dmg;
-	def1 = mons_data[map_data[m].npc[n]->class].def1;
-	def2 = mons_data[map_data[m].npc[n]->class].def2;
-
-	if (map_data[m].npc[n]->skilldata.effect & 0x40) {
+	def1 = mons_data[monster->class].def1;
+	def2 = mons_data[monster->class].def2;
+	if ((monster->skilldata.effect & ST_POISON)) {
 		def1 = def1 * 75 / 100;
 		def2 = def2 * 75 / 100;
 	}
-	if (map_data[m].npc[n]->skilldata.effect & 0x80) {
+	if ((monster->skilldata.effect & ST_FROZEN)) {
 		def1 = def1 * 50 / 100;
 		def2 = def2 * 50 / 100;
 	}
@@ -272,7 +283,7 @@ int mmo_map_calc_damage(int fd, int atk1, int atk2, int atk2b, int atk_ele, shor
 		def1 = 0;
 		def2 = 0;
 	}
-	if (sd->status.race_def_pierce[mons_data[map_data[m].npc[n]->class].race] == 1) {
+	if (sd->status.race_def_pierce[mons_data[monster->class].race] == 1) {
 		def1 = 0;
 		def2 = 0;
 	}
@@ -280,9 +291,9 @@ int mmo_map_calc_damage(int fd, int atk1, int atk2, int atk2b, int atk_ele, shor
 		damage += wpn_atk;
 
 	else {
-		if (sd->skill_timeamount[114-1][0] > 0 || critical > 0) {
+		if (sd->skill_timeamount[114-1][0] > 0 || critical > 0)
 			damage += wpn_atk;
-		}
+
 		else {
 			if (arrow_id) {
 				damage += MD(sd->status.str + sd->status.str2, wpn_atk);
@@ -292,16 +303,15 @@ int mmo_map_calc_damage(int fd, int atk1, int atk2, int atk2b, int atk_ele, shor
 			}
 		}
 		if (sd->skill_timeamount[112-1][0] == 0) {
-			if ((sd->status.option_z == 32) && ((sd->status.weapon == 4) || (sd->status.weapon == 5))) {
-				damage = damage * peco_size_mod[mons_data[map_data[m].npc[n]->class].scale] / 100;
-			}
-			else {
-				damage = damage * size_mod[sd->status.weapon][mons_data[map_data[m].npc[n]->class].scale] / 100;
-			}
+			if ((sd->status.option_z == 32) && ((sd->status.weapon == 4) || (sd->status.weapon == 5)))
+				damage = damage * peco_size_mod[mons_data[monster->class].scale] / 100;
+
+			else
+				damage = damage * size_mod[sd->status.weapon][mons_data[monster->class].scale] / 100;
+
 		}
 	}
 	damage += base_dmg;
-
 	if (arrow_id)
 		damage += item_database(arrow_id).atk;
 
@@ -310,18 +320,16 @@ int mmo_map_calc_damage(int fd, int atk1, int atk2, int atk2b, int atk_ele, shor
 
 	damage -= damage * def2 / 100;
 	damage -= def1;
-
 	if (sd->skill_timeamount[66-1][0] > 0)
 		damage += sd->skill_timeamount[66-1][1];
 
-	if (sd->status.skill[23-1].lv > 0 && (mons_data[map_data[m].npc[n]->class].race == 1 || mons_data[map_data[m].npc[n]->class].race == 6))
+	if (sd->status.skill[23-1].lv > 0 && (mons_data[monster->class].race == 1 || mons_data[monster->class].race == 6))
 		damage += sd->status.skill[23-1].lv * 3;
 
-	if (sd->status.skill[126-1].lv > 0 && (mons_data[map_data[m].npc[n]->class].race == 2 || mons_data[map_data[m].npc[n]->class].race == 4))
+	if (sd->status.skill[126-1].lv > 0 && (mons_data[monster->class].race == 2 || mons_data[monster->class].race == 4))
 		damage += sd->status.skill[126-1].lv * 4;
 
 	damage += atk2;
-
 	if (atk2b > 0)
 		damage += MD(1, atk2b);
 
@@ -329,7 +337,7 @@ int mmo_map_calc_damage(int fd, int atk1, int atk2, int atk2b, int atk_ele, shor
 		damage = 0;
 
 	if (sd->status.weapon == 4 || sd->status.weapon == 5) {
-		s_type = (sd->status.option_z&0x20) ? 5 : 4;
+		s_type = (sd->status.option_z & 0x20) ? 5 : 4;
 		s_lv = sd->status.skill[55-1].lv;
 	}
 	else if (sd->status.weapon == 2 || sd->status.weapon == 3) {
@@ -344,23 +352,25 @@ int mmo_map_calc_damage(int fd, int atk1, int atk2, int atk2b, int atk_ele, shor
 		s_lv = s_type = 0;
 
 	damage += s_lv * s_type;
-
 	if (sd->status.skill[107-1].lv > 0)
 		damage += sd->status.skill[107-1].lv * 2;
 
 	if (critical == 0)
-		damage = (int)(damage * get_ele_attack_factor(atk_ele, mons_data[map_data[m].npc[n]->class].ele));
+		damage = (int)(damage * get_ele_attack_factor(atk_ele, mons_data[monster->class].ele));
 
 	else if ((critical % 10) == 1) {
-		if (get_ele_attack_factor(atk_ele, mons_data[map_data[m].npc[n]->class].ele) > 1)
-			damage = (int)(damage * get_ele_attack_factor(atk_ele, mons_data[map_data[m].npc[n]->class].ele));
-	}
-	damage += (damage * sd->status.size_atk_mod[mons_data[map_data[m].npc[n]->class].scale]) / 100;
-	damage += (damage * sd->status.race_atk_mod[mons_data[map_data[m].npc[n]->class].race]) / 100;
-	damage += (damage * sd->status.ele_atk_mod[(mons_data[map_data[m].npc[n]->class].ele % 10)]) / 100;
-	damage += (critical - 1) / 10;
+		if (get_ele_attack_factor(atk_ele, mons_data[monster->class].ele) > 1)
+			damage = (int)(damage * get_ele_attack_factor(atk_ele, mons_data[monster->class].ele));
 
-	if (sd->skill_timeamount[78-1][0] > 0)
+	}
+	damage += (damage * sd->status.size_atk_mod[mons_data[monster->class].scale]) / 100;
+	damage += (damage * sd->status.race_atk_mod[mons_data[monster->class].race]) / 100;
+	damage += (damage * sd->status.ele_atk_mod[(mons_data[monster->class].ele % 10)]) / 100;
+	damage += (critical - 1) / 10;
+	if ((sd->skill_timeamount[114-1][0] <= 0 || sd->skill_timeamount[114-1][1] != 1) && sd->skill_timeamount[61-1][0] == 0)
+		damage -= monster->u.mons.def1;
+
+	if (monster->u.mons.lexaeterna)
 		damage *= 2;
 
 	if (damage < 0)
@@ -369,31 +379,21 @@ int mmo_map_calc_damage(int fd, int atk1, int atk2, int atk2b, int atk_ele, shor
 	return damage;
 }
 
-int mmo_map_once_attack(int fd, int target_id, unsigned long tick)
+int mmo_map_once_attack(unsigned int fd, long target_id, unsigned long tick, int alt_damage)
 {
-	int m, n;
-	int critical;
-	int damage, hit;
-	int damage2 = 0;
-	int range = 0;
-	int double_luck;
-	int triple_luck;
-	static int double_attack[10] = {5, 10, 15, 20, 25, 30, 35, 40, 45, 50};
-	static int double_attack_damage[10] = {20, 40, 60, 80, 100, 120, 140, 160, 180, 200};
-	static int triple_attack[10] = {29, 28, 27, 26, 25, 24, 23, 22, 21, 20};
-	int i = 0, j = 0;
+	int i = 0, j = 0, n;
+	short m;
+	int critical = 0, damage = 0, hit = 0, damage2 = 0, range = 0, double_luck = 0, triple_luck = 0;
+	int dagger2_id = 0, dagger2_ele = 0, dagger2_atk1 = 0, dagger2_atk2 = 0, dagger2_atk2b = 0, dagger2_base = 0, dagger2_forged = 0;
+	static int double_attack[10] = { 5, 10, 15, 20, 25, 30, 35, 40, 45, 50 };
+	static int double_attack_damage[10] = { 20, 40, 60, 80, 100, 120, 140, 160, 180, 200 };
+	static int triple_attack[10] = { 29, 28, 27, 26, 25, 24, 23, 22, 21, 20 };
 	int found = 0;
 	short index = 0;
 	int arrow_id = 0;
-	int dagger2_id = 0;
-	int dagger2_ele = 0;
-	int dagger2_atk1 = 0;
-	int dagger2_atk2 = 0;
-	int dagger2_atk2b = 0;
-	int dagger2_base = 0;
-	int dagger2_forged = 0;
-	unsigned char buf[256];
+	unsigned char buf[64];
 	struct map_session_data *sd;
+	struct npc_data *monster;
 
 	if (session[fd] && (sd = session[fd]->session_data)) {
 		m = sd->mapno;
@@ -402,67 +402,68 @@ int mmo_map_once_attack(int fd, int target_id, unsigned long tick)
 			mmo_map_pvp_attack(fd, target_id, tick);
 			return 0;
 		}
-		if (map_data[m].npc[n]->hidden)
+		if (!(monster = map_data[m].npc[n])) {
+			mmo_player_attack_no(sd);
 			return 0;
-
-		if (sd->status.hp <= 0) {
-			delete_timer(sd->attacktimer, mmo_map_attack_continue);
-			sd->attacktimer = 0;
-			sd->attacktarget = 0;
+		}
+		if (sd->sitting == 1 || sd->hidden || sd->skill_timeamount[135-1][0] > 0 || sd->act_dead) {
+			mmo_player_attack_no(sd);
+			return 0;
+		}
+		if (monster->u.mons.hidden || monster->u.mons.hp <= 0) {
+			mmo_player_attack_no(sd);
 			return 0;
 		}
 		if (sd->status.skill[263-1].lv > 0) {
 			triple_luck = rand() % 100;
 			if (triple_luck <= triple_attack[sd->status.skill[263-1].lv-1]) {
-				skill_do_delayed_target(-1, tick, fd, 263);
-				delete_timer(sd->attacktimer, mmo_map_attack_continue);
-				sd->attacktimer = 0;
-				sd->attacktarget = 0;
+				skill_do_delayed_target(0, tick, fd, 263);
+				mmo_player_attack_no(sd);
 				return 0;
 			}
 		}
 		range = sd->status.range;
-		if (sd->status.weapon == 11)
-			range = sd->status.range + sd->status.skill[44-1].lv;
-
-		if (sd->skill_timeamount[61-1][0] && calc_dir3(sd->x, sd->y, map_data[m].npc[n]->x, map_data[m].npc[n]->y) != -1)
-			sd->dir = sd->head_dir = calc_dir3(sd->x, sd->y, map_data[m].npc[n]->x, map_data[m].npc[n]->y);
-
-		mmo_map_set007b(sd, buf);
-		mmo_map_sendarea(fd, buf, packet_len_table[0x7b], 1);
-
 		if (sd->status.weapon == 11) {
-			for (j = 1770; j >= 1750; j--) {
-				if (found == 1)
+			range = sd->status.range + sd->status.skill[44-1].lv;
+			for (i = 0; i < MAX_INVENTORY; i++) {
+				if (found == 1)	
 					break;
 
-				for (i = 0; i < MAX_INVENTORY; i++) {
-					if (sd->status.inventory[i].nameid == j) {
+				for (j = 1770; j >= 1750; j--) {
+					if (sd->status.inventory[i].nameid == j && sd->status.inventory[i].equip == 0x8000) {
 						found = 1;
 						index = i + 2;
-						arrow_id = j;
 						break;
 					}
 				}
 			}
 			if (found == 1) {
-				WFIFOW(fd, 0) = 0x13c;
-				WFIFOW(fd, 2) = j;
-				WFIFOSET(fd, packet_len_table[0x13c]);
-
-				WFIFOW(fd, 0) = 0x13c;
-				WFIFOW(fd, 2) = index - 2;
-				WFIFOSET(fd, packet_len_table[0x13c]);
-
+				arrow_id = j;
 				mmo_map_lose_item(fd, 0, index, 1);
 			}
 			else {
-				WFIFOW(fd, 0) = 0x13b;
+				WFIFOW(fd, 0) = 0x013b;
 				WFIFOW(fd, 2) = 0;
 				WFIFOSET(fd, packet_len_table[0x13b]);
+				mmo_player_attack_no(sd);
 				return 0;
 			}
 		}
+		if (!in_range(sd->x, sd->y, monster->x, monster->y, range + 2)) {
+			WFIFOW(fd, 0) = 0x139;
+			WFIFOL(fd, 2) = target_id;
+			WFIFOW(fd, 6) = monster->x;
+			WFIFOW(fd, 8) = monster->y;
+			WFIFOW(fd, 10) = sd->x;
+			WFIFOW(fd, 12) = sd->y;
+			WFIFOW(fd, 14) = range;
+			WFIFOSET(fd, packet_len_table[0x139]);
+			mmo_player_attack_no(sd);
+			return 0;
+		}
+		if ((sd->skill_timeamount[61-1][0] <= 0) && (calc_dir3(sd->x, sd->y, monster->x, monster->y) != -1))
+			sd->dir = sd->head_dir = calc_dir3(sd->x, sd->y, monster->x, monster->y);
+
 		for (i = 0; i < MAX_INVENTORY; i++) {
 			if (sd->status.inventory[i].nameid && (sd->status.inventory[i].equip == 32)) {
 				struct item_db2 weapon;
@@ -472,7 +473,6 @@ int mmo_map_once_attack(int fd, int target_id, unsigned long tick)
 					dagger2_ele = weapon.ele;
 					dagger2_base = (sd->status.str + sd->status.str2) + ((sd->status.str + sd->status.str2) * (sd->status.str + sd->status.str2) / 100) + ((sd->status.dex + sd->status.dex2) / 5) + ((sd->status.luk + sd->status.luk2) / 5);
 					dagger2_atk1 = weapon.atk;
-
 					if (sd->status.inventory[i].card[0] == 0x00ff) {
 						dagger2_ele = sd->status.inventory[i].card[1];
 						dagger2_forged = 1 + 10 * sd->status.inventory[i].card[3];
@@ -506,8 +506,26 @@ int mmo_map_once_attack(int fd, int target_id, unsigned long tick)
 				}
 			}
 		}
-		hit = (sd->status.hit - mons_data[map_data[m].npc[n]->class].flee) * 5 + 55;
-		if (map_data[m].npc[n]->skilldata.effect & 0x04)
+		if (alt_damage) {
+			if (in_range(sd->x, sd->y, monster->x, monster->y, range)) {
+				WBUFW(buf, 0) = 0x8a;
+				WBUFL(buf, 2) = sd->account_id;
+				WBUFL(buf, 6) = target_id;
+				WBUFL(buf, 10) = tick;
+				WBUFL(buf, 14) = sd->status.aspd;
+				WBUFL(buf, 18) = monster->u.mons.attackdelay;
+				WBUFW(buf, 22) = alt_damage;
+				WBUFW(buf, 24) = 0;
+				WBUFB(buf, 26) = 0;
+				WBUFW(buf, 27) = 0;
+				mmo_map_sendarea(fd, buf, packet_len_table[0x8a], 0);
+				attack_monster(fd, m, n, target_id, alt_damage);
+			}
+			mmo_player_attack_no(sd);
+			return 0;
+		}
+		hit = (sd->status.hit - mons_data[monster->class].flee) * 5 + 55;
+		if ((monster->skilldata.effect & ST_BLIND))
 			hit += 25;
 
 		if (sd->skill_timeamount[61-1][0] > 0)
@@ -519,7 +537,7 @@ int mmo_map_once_attack(int fd, int target_id, unsigned long tick)
 		if (hit < 50)
 			hit = 60;
 
-		if (sd->status.weapon == 16 || map_data[m].npc[n]->skilldata.effect & 0x20 || sd->skill_timeamount[61-1][0] > 0)
+		if (sd->status.weapon == 16 || (monster->skilldata.effect & ST_STUN) || sd->skill_timeamount[61-1][0] > 0)
 			critical = sd->status.critical * 2;
 
 		else
@@ -527,13 +545,13 @@ int mmo_map_once_attack(int fd, int target_id, unsigned long tick)
 
 		if (rand() % 100 >= critical) {
 			if (rand() % 100 >= hit) {
-				damage = -1;
+				damage = 0;
 				WBUFW(buf, 0) = 0x8a;
 				WBUFL(buf, 2) = sd->account_id;
 				WBUFL(buf, 6) = target_id;
 				WBUFL(buf, 10) = tick;
 				WBUFL(buf, 14) = sd->status.aspd;
-				WBUFL(buf, 18) = map_data[m].npc[n]->u.mons.attackdelay;
+				WBUFL(buf, 18) = monster->u.mons.attackdelay;
 				WBUFW(buf, 22) = 0;
 				WBUFW(buf, 24) = 0;
 				WBUFB(buf, 26) = 0;
@@ -555,7 +573,7 @@ int mmo_map_once_attack(int fd, int target_id, unsigned long tick)
 				WBUFL(buf, 6) = target_id;
 				WBUFL(buf, 10) = tick;
 				WBUFL(buf, 14) = sd->status.aspd;
-				WBUFL(buf, 18) = map_data[m].npc[n]->u.mons.attackdelay;
+				WBUFL(buf, 18) = monster->u.mons.attackdelay;
 				if (sd->status.weapon == 16) {
 					damage2 = KAT_ATTACK(damage);
 					WBUFW(buf, 22) = damage;
@@ -614,37 +632,36 @@ int mmo_map_once_attack(int fd, int target_id, unsigned long tick)
 
 				if (sd->skill_timeamount[138-1][0] > 0) {
 					if (rand() % 100 <= sd->skill_timeamount[138-1][1]) {
-						if (map_data[m].npc[n]->skilldata.skill_timer[52-1][0] > 0) {
-							delete_timer(map_data[m].npc[n]->skilldata.skill_timer[52-1][0], skill_reset_monster_stats);
-							map_data[m].npc[n]->skilldata.skill_timer[52-1][0] = -1;
+						if (monster->skilldata.skill_timer[52-1][0] > 0) {
+							monster->skilldata.skill_num = 52;
+							monster->skilldata.fd = fd;
+							skill_reset_monster_stats(0, 0, m, n);
 						}
+						monster->u.mons.option_y = 1;
 						WBUFW(buf, 0) = 0x119;
-						WBUFL(buf, 2) = map_data[m].npc[n]->id;
-						WBUFW(buf, 6) = 0;
-						WBUFW(buf, 8) = 1;
-						WBUFW(buf, 10) = 0;
+						WBUFL(buf, 2) = monster->id;
+						WBUFW(buf, 6) = monster->u.mons.option_x;
+						WBUFW(buf, 8) = monster->u.mons.option_y;
+						WBUFW(buf, 10) = monster->u.mons.option_z;
 						WBUFB(buf, 12) = 0;
 						mmo_map_sendarea(fd, buf, packet_len_table[0x119], 0);
-						map_data[m].npc[n]->skilldata.skill_num = 52;
-						map_data[m].npc[n]->option = 0|1|0;
-						map_data[m].npc[n]->skilldata.effect |= 0x40;
-						map_data[m].npc[n]->skilldata.skill_timer[52-1][0] = add_timer((unsigned int)(gettick() + 30000), skill_reset_monster_stats, m, n);
+
+						monster->skilldata.fd = fd;
+						monster->skilldata.skill_num = 52;
+						monster->skilldata.effect |= ST_POISON;
+						monster->skilldata.skill_timer[52-1][0] = add_timer(gettick() + 30000, skill_reset_monster_stats, m, n);
+						add_timer(gettick() + 30000, skill_drain_hp_monster, m, n);
 					}
 				}
-				if (map_data[m].npc[n]->skilldata.effect & 0x80) {
-					map_data[m].npc[n]->skilldata.skill_num = 15;
-					map_data[m].npc[n]->skilldata.fd = fd;
+				if ((monster->skilldata.effect & ST_FROZEN)) {
+					monster->skilldata.fd = fd;
+					monster->skilldata.skill_num = 15;
 					skill_reset_monster_stats(0, 0, m, n);
 				}
-				else if (map_data[m].npc[n]->skilldata.effect & 0x20) {
-					WBUFW(buf, 0) = 0x119;
-					WBUFL(buf, 2) = map_data[m].npc[n]->id;
-					WBUFW(buf, 6) = 0;
-					WBUFW(buf, 8) = 0;
-					WBUFW(buf, 10) = 0;
-					WBUFB(buf, 12) = 0;
-					mmo_map_sendarea(fd, buf, packet_len_table[0x119], 0);
-					map_data[m].npc[n]->skilldata.effect = 00000000;
+				else if ((monster->skilldata.effect & ST_STUN)) {
+					monster->skilldata.fd = fd;
+					monster->skilldata.skill_num = 15;
+					skill_reset_monster_stats(0, 0, m, n);
 				}
 			}
 		}
@@ -663,7 +680,7 @@ int mmo_map_once_attack(int fd, int target_id, unsigned long tick)
 			WBUFL(buf, 6) = target_id;
 			WBUFL(buf, 10) = tick;
 			WBUFL(buf, 14) = sd->status.aspd;
-			WBUFL(buf, 18) = map_data[m].npc[n]->u.mons.attackdelay;
+			WBUFL(buf, 18) = monster->u.mons.attackdelay;
 			WBUFW(buf, 22) = damage;
 			if (sd->status.weapon == 16) {
 				damage2 = KAT_ATTACK(damage);
@@ -685,72 +702,75 @@ int mmo_map_once_attack(int fd, int target_id, unsigned long tick)
 
 			if (sd->skill_timeamount[138-1][0] > 0) {
 				if (rand() % 100 <= sd->skill_timeamount[138-1][1]) {
-					if (map_data[m].npc[n]->skilldata.skill_timer[52-1][0] > 0) {
-						delete_timer(map_data[m].npc[n]->skilldata.skill_timer[52-1][0], skill_reset_monster_stats);
-						map_data[m].npc[n]->skilldata.skill_timer[52-1][0] = -1;
+					if (monster->skilldata.skill_timer[52-1][0] > 0) {
+						monster->skilldata.skill_num = 52;
+						monster->skilldata.fd = fd;
+						skill_reset_monster_stats(0, 0, m, n);
 					}
+					monster->u.mons.option_y = 1;
 					WBUFW(buf, 0) = 0x119;
-					WBUFL(buf, 2) = map_data[m].npc[n]->id;
-					WBUFW(buf, 6) = 0;
-					WBUFW(buf, 8) = 1;
-					WBUFW(buf, 10) = 0;
+					WBUFL(buf, 2) = monster->id;
+					WBUFW(buf, 6) = monster->u.mons.option_x;
+					WBUFW(buf, 8) = monster->u.mons.option_y;
+					WBUFW(buf, 10) = monster->u.mons.option_z;
 					WBUFB(buf, 12) = 0;
 					mmo_map_sendarea(fd, buf, packet_len_table[0x119], 0);
-					map_data[m].npc[n]->skilldata.skill_num = 52;
-					map_data[m].npc[n]->option = 0|1|0;
-					map_data[m].npc[n]->skilldata.effect |= 0x40;
-					map_data[m].npc[n]->skilldata.skill_timer[52-1][0] = add_timer((unsigned int)(gettick() + 30000), skill_reset_monster_stats, m, n);
+
+					monster->skilldata.fd = fd;
+					monster->skilldata.skill_num = 52;
+					monster->skilldata.effect |= ST_POISON;
+					monster->skilldata.skill_timer[52-1][0] = add_timer(gettick() + 30000, skill_reset_monster_stats, m, n);
+					add_timer(gettick() + 30000, skill_drain_hp_monster, m, n);
 				}
 			}
-			if (map_data[m].npc[n]->skilldata.effect & 0x80) {
-				map_data[m].npc[n]->skilldata.skill_num = 15;
-				map_data[m].npc[n]->skilldata.fd = fd;
+			if ((monster->skilldata.effect & ST_FROZEN)) {
+				monster->skilldata.fd = fd;
+				monster->skilldata.skill_num = 15;
 				skill_reset_monster_stats(0, 0, m, n);
 			}
-			else if (map_data[m].npc[n]->skilldata.effect & 0x20) {
-				WBUFW(buf, 0) = 0x119;
-				WBUFL(buf, 2) = map_data[m].npc[n]->id;
-				WBUFW(buf, 6) = 0;
-				WBUFW(buf, 8) = 0;
-				WBUFW(buf, 10) = 0;
-				WBUFB(buf, 12) = 0;
-				mmo_map_sendarea(fd, buf, packet_len_table[0x119], 0);
-				map_data[m].npc[n]->skilldata.effect = 00000000;
+			else if ((monster->skilldata.effect & ST_STUN)) {
+				monster->skilldata.fd = fd;
+				monster->skilldata.skill_num = 15;
+				skill_reset_monster_stats(0, 0, m, n);
 			}
 		}
-		for (i = 0; i < 10; i++) {
-			if (sd->status.status_atk_mod[i] > 0) {
+		for (i = 0; i < 10; i++)
+			if (sd->status.status_atk_mod[i] > 0)
 				if (rand() % 10000 <= sd->status.status_atk_mod[i])
 					break;
-			}
-		}
+
+
+
 		if (damage > 0) {
-			sd->status.damage_atk += (damage + damage2);
+			if ((damage + damage2) > monster->u.mons.hp)
+				sd->status.damage_atk += monster->u.mons.hp;
+
+			else
+				sd->status.damage_atk += (damage + damage2);
+
 			attack_monster(fd, m, n, target_id, damage + damage2);
 		}
 	}
 	return 0;
 }
 
-int mmo_map_pvp_attack(int fd, int target_id, unsigned long tick)
+int mmo_map_pvp_attack(unsigned int fd, long target_id, unsigned long tick)
 {
-	int range = 0;
-	int damage, hit, k = 0;
-	int damage2 = 0;
-	int target_fd = 0;
-	int critical;
-	char s_lv = 0, s_type = 0;
-	int double_luck;
 	int i = 0, j = 0;
-	int found = 0;
-	short index = 0;
+	char s_lv = 0, s_type = 0;
+	int range = 0, damage = 0, hit = 0, damage2 = 0, critical = 0, double_luck = 0;
 	static int double_attack[10] = { 5, 10, 15, 20, 25, 30, 35, 40, 45, 50 };
 	static int double_attack_damage[10] = { 20, 40, 60, 80, 100, 120, 140, 160, 180, 200 };
-	unsigned char buf[256];
-	struct map_session_data *sd, *target_sd = NULL;
+	int found = 0;
+	short index = 0;
+	unsigned int k = 0;
+	unsigned int target_fd = 0;
+	unsigned char buf[64];
+	struct map_session_data *sd, *target_sd;
 
-	if (session[fd]&& (sd = session[fd]->session_data)) {
+	if (session[fd] && (sd = session[fd]->session_data)) {
 		if (mmo_map_flagload(sd->mapname, PVP) || PVP_flag) {
+			target_sd = NULL;
 			for (k = 5; k < FD_SETSIZE; k++) {
 				if (session[k] && (target_sd = session[k]->session_data)) {
 					if (target_sd->account_id == target_id) {
@@ -762,82 +782,67 @@ int mmo_map_pvp_attack(int fd, int target_id, unsigned long tick)
 			if (k == FD_SETSIZE)
 				return 0;
 
+			if (sd->sitting == 1 || sd->hidden || sd->skill_timeamount[135-1][0] > 0 || sd->act_dead) {
+				mmo_player_attack_no(sd);
+				return 0;
+			}
+			if (target_sd->sitting == 1 || target_sd->hidden || sd->skill_timeamount[135-1][0] > 0 || target_sd->act_dead) {
+				mmo_player_attack_no(target_sd);
+				return 0;
+			}
 			sd->attacktarget = target_id;
 			range = sd->status.range;
-			if (sd->status.hp <= 0) {
-				if (sd->attacktimer > 0) {
-					delete_timer(sd->attacktimer, mmo_map_attack_continue);
-					sd->attacktimer = 0;
-				}
-				sd->attacktarget = 0;
-				return 0;
-			}
-			if (target_sd->status.hp <= 0) {
-				if (sd->attacktimer > 0) {
-					delete_timer(sd->attacktimer, mmo_map_attack_continue);
-					sd->attacktimer = 0;
-				}
-				sd->attacktarget = 0;
-				return 0;
-			}
-			if (target_sd->hidden == 1) {
-				if (sd->attacktimer > 0) {
-					delete_timer(sd->attacktimer, mmo_map_attack_continue);
-					sd->attacktimer = 0;
-				}
-				sd->attacktarget = 0;
-				return 0;
-			}
-			if (sd->status.weapon == 11)
-				range = sd->status.range + sd->status.skill[44-1].lv;
-
-			mmo_map_set007b(sd, buf);
-			mmo_map_sendarea(fd, buf, packet_len_table[0x7b], 1);
-
 			if (sd->status.weapon == 11) {
+				range = sd->status.range + sd->status.skill[44-1].lv;
 				for (i = 0; i < MAX_INVENTORY; i++) {
-					if (found == 1)
+					if (found == 1)	
 						break;
 
-					for (j = 1750; j <= 1760; j++) {
-						if (sd->status.inventory[i].nameid == j) {
+					for (j = 1770; j >= 1750; j--) {
+						if (sd->status.inventory[i].nameid == j && sd->status.inventory[i].equip == 0x8000) {
 							found = 1;
 							index = i + 2;
 							break;
 						}
 					}
 				}
-				if (found) {
-					WFIFOW(fd, 0) = 0x13c;
-					WFIFOW(fd, 2) = j;
-					WFIFOSET(fd, packet_len_table[0x13c]);
-
-					WFIFOW(fd, 0) = 0x13c;
-					WFIFOW(fd, 2) = index - 2;
-					WFIFOSET(fd, packet_len_table[0x13c]);
-
+				if (found == 1)
 					mmo_map_lose_item(fd, 0, index, 1);
-				}
+
 				else {
-					WFIFOW(fd, 0) = 0x13c;
+					WFIFOW(fd, 0) = 0x013b;
 					WFIFOW(fd, 2) = 0;
-					WFIFOSET(fd, packet_len_table[0x13c]);
+					WFIFOSET(fd, packet_len_table[0x13b]);
+					mmo_player_attack_no(sd);
 					return 0;
 				}
 			}
+			if (!in_range(sd->x, sd->y, target_sd->x, target_sd->y, range + 2)) {
+				WFIFOW(fd, 0) = 0x139;
+				WFIFOL(fd, 2) = target_id;
+				WFIFOW(fd, 6) = target_sd->x;
+				WFIFOW(fd, 8) = target_sd->y;
+				WFIFOW(fd, 10) = sd->x;
+				WFIFOW(fd, 12) = sd->y;
+				WFIFOW(fd, 14) = range;
+				WFIFOSET(fd, packet_len_table[0x139]);
+				return 0;
+			}
 			hit = (sd->status.hit - target_sd->status.flee1) * 5;
-			if (hit <= 0) {
+			if (hit <= 0)
 				hit = 20;
-			}
-			else if (hit >= 100) {
-				hit = 95;
-			}
-			if (sd->status.weapon == 16) {
-				critical = sd->status.critical * 2;
-			}
+
 			else {
-				critical = sd->status.critical;
+				if (hit >= 100)
+					hit = 95;
+
 			}
+			if (sd->status.weapon == 16)
+				critical = sd->status.critical * 2;
+
+			else
+				critical = sd->status.critical;
+
 			if (rand() % 100 >= critical) {
 				if (rand() % 100 >= hit) {
 					damage = 0;
@@ -866,21 +871,23 @@ int mmo_map_pvp_attack(int fd, int target_id, unsigned long tick)
 						s_type = 3;
 						s_lv = sd->status.weapon == 16 ? sd->status.skill[134-1].lv : sd->status.skill[65-1].lv;
 					}
-					else {
+					else
 						s_lv = s_type = 0;
-					}
+
 					if (sd->status.weapon == 11) {
 						damage = BOW_ATTACK(sd->status.atk1, sd->status.atk2, sd->status.dex, target_sd->status.def1);
 					}
 					else {
 						damage = NOM_ATTACK(sd->status.atk1, sd->status.atk2, target_sd->status.def1);
 					}
-					if (damage <= 0) {
+					if (damage <= 0)
 						damage = 1;
-					}
-					damage += s_lv * s_type;
-					s_lv = s_type = 0;
 
+					damage += s_lv * s_type;
+					if (target_sd->skill_timeamount[78-1][0] > 0)
+						damage *= 2;
+
+					s_lv = s_type = 0;
 					WBUFW(buf, 0) = 0x8a;
 					WBUFL(buf, 2) = sd->account_id;
 					WBUFL(buf, 6) = target_id;
@@ -918,9 +925,12 @@ int mmo_map_pvp_attack(int fd, int target_id, unsigned long tick)
 					}
 					mmo_map_sendarea(fd, buf, packet_len_table[0x8a], 0);
 
-					if (target_sd->status.effect & 0x80) {
+					if ((target_sd->status.effect & ST_STUN))
+						skill_reset_stats(0, 0, target_fd, 5);
+
+					if ((target_sd->status.effect & ST_FROZEN))
 						skill_reset_stats(0, 0, target_fd, 15);
-					}
+
 				}
 			}
 			else {
@@ -936,12 +946,14 @@ int mmo_map_pvp_attack(int fd, int target_id, unsigned long tick)
 					s_type = 3;
 					s_lv = sd->status.weapon == 16 ? sd->status.skill[134-1].lv : sd->status.skill[65-1].lv;
 				}
-				else {
+				else
 					s_lv = s_type = 0;
-				}
-				damage = CRI_ATTACK(sd->status.atk1, sd->status.atk2, s_lv, s_type);
-				s_lv = s_type = 0;
 
+				damage = CRI_ATTACK(sd->status.atk1, sd->status.atk2, s_lv, s_type);
+				if (target_sd->skill_timeamount[78-1][0] > 0)
+					damage *= 2;
+
+				s_lv = s_type = 0;
 				WBUFW(buf, 0) = 0x8a;
 				WBUFL(buf, 2) = sd->account_id;
 				WBUFL(buf, 6) = target_id;
@@ -962,12 +974,16 @@ int mmo_map_pvp_attack(int fd, int target_id, unsigned long tick)
 				}
 				mmo_map_sendarea(fd, buf, packet_len_table[0x8a], 0);
 
-				if (target_sd->status.effect & 0x80) {
+				if ((target_sd->status.effect & ST_STUN))
+					skill_reset_stats(0, 0, target_fd, 5);
+
+				if ((target_sd->status.effect & ST_FROZEN))
 					skill_reset_stats(0, 0, target_fd, 15);
-				}
+
 			}
 			if (damage > 0)
-				attack_player(fd, target_fd, damage + damage2);
+				attack_player(fd, target_fd, (damage + damage2));
+
 		}
 	}
 	return 0;

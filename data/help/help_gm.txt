@@ -1,4 +1,4 @@
-GM Commands.
+GM Commands:
 !goto <0-12>/<cityname>
 !summon <player>
 !baseup <lvl> [player]

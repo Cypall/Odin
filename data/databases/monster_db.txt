@@ -1,3 +1,14 @@
+// monster values
+// range value:
+// 0: no-attacking monster (atk1=0, atk2=0, adelay=0/1)
+// 1-15: max distance to hit a target
+// speed value are like www.ragnarokclub.com information (+/- 10% to have not all monsters at same speed):
+// Class 5 : Very Fast Monster (Most of them are MVP monster) -> (base speed msec x 0.5 = 100)
+// Class 4 : Fast Movement (players on increase AGI) -> (base speed msec x 0,75 = 150)
+// Class 3 : Normal player movement -> (base speed msec x 1 = 200)
+// Class 2 : Slow Monster (Player can run away) -> (base speed msec x 1,5 = 300)
+// Class 1 : Very Slow Monster (EX. Poring) -> (base speed msec x 2 = 400)
+// Class 0 : Staystill Monster (EX. plant type monster) -> (0) (amotion=0/1, dmotion=0/1)
 45,WARPNPC,WARPNPC,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,,,,,	,,
 46,1_ETC_01,1_ETC_01,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,,,,,	,,
 47,1_M_01,1_M_01,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,,,,,	,,

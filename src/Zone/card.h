@@ -12,17 +12,13 @@
  * You should have received a copy of the GNU General Public License
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
-------------------------------------------------------------------------*/
+ ------------------------------------------------------------------------*/
 
-void card_send_equip(int fd, int card_loc);
-void card_finish_equip(int fd, int srcid, int descid);
-void mmo_map_cardskills1(int fd, struct map_session_data *sd);
-void mmo_map_cardskills2(int fd, struct map_session_data *sd);
-int card_wait(struct map_session_data *sd, int wait);
-void card_skill_effect(struct map_session_data *sd, int fd, int m, int n);
-int card_add_damage(struct map_session_data *sd, int fd, int damage, int m, int n);
-int card_reduce_sp(struct map_session_data *sd, int sp);
-int card_element_immunity(struct map_session_data *sd, int avoid, int m, int n);
-int card_parmor_element(struct map_session_data *sd, int target_ele);
-int card_damage_reduce(struct map_session_data *sd, int damage, int m, int n);
-int mmo_map_calc_card(int fd, int item_id, int inv_num, int type);
+#ifndef _CARD_H_
+#define _CARD_H_
+
+void card_send_equip(unsigned int fd, int card_loc);
+void card_finish_equip(unsigned int fd, int srcid, int descid);
+int mmo_map_calc_card(unsigned int fd, int item_id, int inv_num, int type);
+int mmo_card_equiped(struct map_session_data *sd, int nameid);
+#endif

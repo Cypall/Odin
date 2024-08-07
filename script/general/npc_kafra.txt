@@ -1,4 +1,4 @@
-// $Id: npc_kafra.txt,v 1.3 2003/12/03 16:33:47 xelnag Exp $
+// $Id: npc_kafra.txt,v 1.1 2004/11/17 04:15:21 dennisjoel Exp $
 //<--------------- KAFRA's [Update: Nov. 27, 2003] --------------->\\
 //<=========== Kafra's on Fields - Begin ==========>\\
 //_Orc Dungeon_\\

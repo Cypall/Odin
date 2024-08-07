@@ -1,13 +1,14 @@
 // 01 ID
-// 02 Attack_Range 사정거리
-// 03 Cost_SP 소비 SP의 리스트
-// 04 Hit(Single:6, Combo:8) 연타 8　단발 6
-// 05 Inf(Passive:0, Target:1, Place:2, Instant:4, Ally:16) 0-패시브,1-적,2-장소,4-즉시 발동,16-아군
-// 06 Num(Number of Hit) 스킬당 볼트수(히트수)
-// 07 Pl(Element) 속성(0-무 1-수 2-지 3-화 4-풍 5-독 6-성 7-암 8-염 9-불사)
-// 08 Nk(NoEffect:0, Effect:1, Blow:2) 부가　1 효과　2날려 버려
-// 09 Lv_max(Maximum Skill Level) 최대스킬레벨
-
+// 02 Attack_Range
+// 03 Cost_SP
+// 04 Hit(Single:6, Combo:8)
+// 05 Inf(Passive:0, Target:1, Place:2, Instant:4, Ally:16)
+// 06 Num(Number of Hit)
+// 07 Pl(Element)
+// 08 Nk(NoEffect:0, Effect:1, Blow:2)
+// 09 Lv_max(Maximum Skill Level)
+// skill_id, attack_range, minimum_sp_cost, num_of_hits,
+// type_inf, type_num, type_pl, type_nk, lv_max
 1,0,0,0,0,0,0,0,9		//NV_BASIC#Basic_Skill#
 2,0,0,0,0,0,0,0,10		//SM_SWORD#Sword_Mastery#
 3,0,0,0,0,0,0,0,10		//SM_TWOHAND#Two-Handed_Sword_Mastery#
@@ -23,7 +24,7 @@
 13,8,15,8,1,1,8,0,10		//MG_SOULSTRIKE#Soul_Strike#
 14,8,12,8,1,1,1,0,10		//MG_COLDBOLT#Cold_Bolt#
 15,8,25,6,1,1,1,0,10		//MG_FROSTDIVER#Frost_Diver#
-16,8,25,6,1,0,2,0,10		//MG_STONECURSE#Stone_Curse#
+16,8,25,6,1,0,2,1,10		//MG_STONECURSE#Stone_Curse#
 17,8,25,6,2,1,3,0,10		//MG_FIREBALL#Fire_Ball#
 18,8,40,6,2,5,3,0,10		//MG_FIREWALL#Fire_Wall#
 19,8,12,8,1,1,3,0,10		//MG_FIREBOLT#Fire_Bolt#
@@ -63,7 +64,7 @@
 53,1,10,6,16,1,5,1,1		//TF_DETOXIFY#Detoxify#
 54,8,60,6,16,1,0,1,4		//ALL_RESURRECTION#Resurrection#
 55,0,0,0,0,0,0,0,10		//KN_SPEARMASTERY#Spear_Mastery#
-56,1,7,8,1,3,0,0,10		//KN_PIERCE#Pierce#
+56,1,7,8,1,1,0,0,10		//KN_PIERCE#Pierce#
 57,1,12,6,1,1,0,2,10		//KN_BRANDISHSPEAR#Brandish_Spear#
 58,4,9,6,1,1,0,0,10		//KN_SPEARSTAB#Spear_Stab#
 59,11,10,6,1,1,6,0,5		//KN_SPEARBOOMERANG#Spear_Boomerang#
@@ -76,7 +77,7 @@
 66,8,13,6,16,1,0,1,5		//PR_IMPOSITIO#Impositio_Manus#
 67,8,8,6,16,1,0,1,3		//PR_SUFFRAGIUM#Suffragium#
 68,8,12,6,16,1,0,1,5		//PR_ASPERSIO#Aspersio#
-69,1,20,6,2,1,0,1,5		//PR_BENEDICTIO#B.S_Sacramenti#
+69,1,20,6,2,0,0,1,5		//PR_BENEDICTIO#B.S_Sacramenti#
 70,1,15,6,2,1,0,1,10		//PR_SANCTUARY#Sanctuary#
 71,8,6,6,16,1,0,1,4		//PR_SLOWPOISON#Slow_Poison#
 72,8,5,6,16,1,0,1,1		//PR_STRECOVERY#Status_Recovery_#
@@ -84,7 +85,7 @@
 74,0,40,6,4,1,0,1,5		//PR_MAGNIFICAT#Magnificat#
 75,0,20,6,4,1,0,1,5		//PR_GLORIA#Gloria#
 76,8,20,6,1,0,0,1,10		//PR_LEXDIVINA#Lex_Divina#
-77,8,20,6,1,1,0,1,10		//PR_TURNUNDEAD#Turn_Undead#
+77,8,20,6,1,0,0,1,10		//PR_TURNUNDEAD#Turn_Undead#
 78,8,10,6,1,0,0,1,1		//PR_LEXAETERNA#Lex_Aeterna#
 79,3,40,8,2,1,0,1,10		//PR_MAGNUS#Magnus_Exorcismus#
 80,8,25,8,2,5,3,0,10		//WZ_FIREPILLAR#Fire_Pillar#
@@ -95,10 +96,10 @@
 85,8,45,8,2,10,4,0,10		//WZ_VERMILION#Lord_of_Vermilion#
 86,8,5,6,1,1,1,0,5		//WZ_WATERBALL#Water_Ball#
 87,8,20,6,2,1,1,0,10		//WZ_ICEWALL#Ice_Wall#
-88,0,45,6,4,1,1,1,10		//WZ_FROSTNOVA#Frost_Nova#
+88,8,45,6,4,1,1,1,10		//WZ_FROSTNOVA#Frost_Nova#
 89,8,78,8,2,8,1,0,10		//WZ_STORMGUST#Storm_Gust#
-90,8,12,8,1,5,2,0,5		//WZ_EARTHSPIKE#Earth_Spike#
-91,8,28,8,2,5,2,0,5		//WZ_HEAVENDRIVE#Heaven's_Drive#
+90,8,12,8,1,1,2,0,5		//WZ_EARTHSPIKE#Earth_Spike#
+91,8,28,8,2,1,2,0,5		//WZ_HEAVENDRIVE#Heaven's_Drive#
 92,8,15,6,2,1,2,1,5		//WZ_QUAGMIRE#Quagmire#
 93,8,10,6,1,0,0,1,1		//WZ_ESTIMATION#Sense#
 94,0,0,0,0,0,0,0,5		//BS_IRON#Iron_Tempering#
@@ -117,7 +118,7 @@
 107,0,0,0,0,0,0,0,10		//BS_WEAPONRESEARCH#Weaponry_Research#
 108,0,5,6,4,1,0,1,1		//BS_REPAIRWEAPON#Weapon_Repair#
 109,0,0,0,0,0,0,0,5		//BS_SKINTEMPER#Skin_Tempering#
-110,5,10,6,2,1,0,1,5		//BS_HAMMERFALL#Hammer_Fall#
+110,5,10,6,2,1,0,2,5		//BS_HAMMERFALL#Hammer_Fall#
 111,0,20,6,4,1,0,1,5		//BS_ADRENALINE#Adrenaline_Rush#
 112,0,18,6,4,1,0,1,5		//BS_WEAPONPERFECT#Weapon_Perfection#
 113,0,18,6,4,1,0,1,5		//BS_OVERTHRUST#Power_Thrust#
@@ -131,12 +132,12 @@
 121,1,10,6,2,1,1,1,5		//HT_FREEZINGTRAP#Freezing_Trap#
 122,1,10,6,2,1,3,1,5		//HT_BLASTMINE#Blast_Mine#
 123,1,15,6,2,1,3,1,5		//HT_CLAYMORETRAP#Claymore_Trap#
-124,3,5,6,2,1,0,1,1		//HT_REMOVETRAP#Remove_Trap#
+124,1,5,6,2,1,0,1,1		//HT_REMOVETRAP#Remove_Trap#
 125,1,1,6,2,1,0,1,1		//HT_TALKIEBOX#Talkie_Box#
 126,0,0,0,0,0,0,0,10		//HT_BEASTBANE#Beast_Bane#
 127,0,0,0,0,0,0,0,1		//HT_FALCON#Falconry_Mastery#
 128,0,0,0,0,0,0,0,10		//HT_STEELCROW#Steel_Crow#
-129,9,10,8,1,5,0,0,5		//HT_BLITZBEAT#Blitz_Beat#
+129,9,10,8,1,1,0,0,5		//HT_BLITZBEAT#Blitz_Beat#
 130,8,8,6,2,1,0,1,4		//HT_DETECTING#Detect#
 131,8,10,6,2,1,0,1,5		//HT_SPRINGTRAP#Spring_Trap#
 132,0,0,0,0,0,0,0,5		//AS_RIGHT#Righthand_Mastery#
@@ -147,8 +148,8 @@
 137,7,2,6,1,1,0,0,5		//AS_GRIMTOOTH#Grimtooth#
 138,0,20,6,4,1,5,1,10		//AS_ENCHANTPOISON#Enchant_Poison#
 139,0,30,6,4,1,5,1,10		//AS_POISONREACT#Poison_React#
-140,8,20,6,2,1,5,1,10		//AS_VENOMDUST#Venom_Dust#
-141,8,33,8,2,5,5,0,10		//AS_SPLASHER#Venom_Splasher#
+140,5,20,6,2,1,5,1,10		//AS_VENOMDUST#Venom_Dust#
+141,1,33,8,1,5,5,1,10		//AS_SPLASHER#Venom_Splasher#
 142,0,3,6,4,1,0,1,1		//NV_FIRSTAID#Emergeny_Care#
 143,0,1,6,4,1,0,1,1		//NV_TRICKDEAD#Act_Dead#
 144,0,0,0,0,0,0,0,1		//SM_MOVINGRECOVERY#Moving_HP_Recovery#
@@ -275,7 +276,7 @@
 260,0,0,0,0,0,0,0,5		//MO_SPIRITSRECOVERY
 261,0,8,0,4,0,0,1,5		//MO_CALLSPIRITS
 262,6,5,6,4,1,0,1,1		//MO_ABSORBSPIRITS
-263,0,0,8,0,3,0,0,10		//MO_TRIPLEATTACK
+263,0,0,8,1,3,0,0,10		//MO_TRIPLEATTACK
 264,6,10,6,2,0,0,1,1		//MO_BODYRELOCATION
 265,0,0,0,0,0,0,0,10		//MO_DODGE
 266,0,6,6,1,1,0,0,5		//MO_INVESTIGATE

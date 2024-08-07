@@ -181,9 +181,9 @@ map: pay_fild08.gat
 map: pay_fild09.gat
 map: pay_fild10.gat
 map: pay_fild11.gat
-map: payon.gat
-map: payon_in01.gat
-map: payon_in02.gat
+//map: payon.gat
+//map: payon_in01.gat
+//map: payon_in02.gat
 map: priest_1-1.gat
 map: priest_2-1.gat
 map: priest_3-1.gat
@@ -415,7 +415,7 @@ map: ama_test.gat
 map: amatsu.gat
 
 
-//--- Ep6.x - GonRyun ---
+//--- Ep6.1 - GonRyun ---
 map: gon_dun01.gat
 map: gon_dun02.gat
 map: gon_dun03.gat
@@ -427,7 +427,7 @@ map: sec_in01.gat
 map: sec_in02.gat
 map: sec_pri.gat
 
-//--- Ep6.x - Umbala ---
+//--- Ep6.2 - Umbala ---
 map: umbala.gat
 map: um_dun01.gat
 map: um_dun02.gat
@@ -437,12 +437,88 @@ map: um_fild03.gat
 map: um_fild04.gat
 map: um_in.gat
 
-//--- Ep6.x - Niflheim ---
+//--- Ep6.3 - Niflheim ---
 map: niflheim.gat
 map: nif_fild01.gat
 map: nif_fild02.gat
 map: nif_in.gat
 map: yggdrasil01.gat
 
-//--- Ep6.x - Valkyrie ---
+//--- Ep6.4 - Valkyrie ---
 map: valkyrie.gat
+
+//--- Ep6.5 - Lou Yang ---
+map: lou_in01.gat
+map: lou_in02.gat
+map: lou_dun03.gat
+map: lou_dun02.gat
+map: lou_dun01.gat
+map: lou_fild01.gat
+map: louyang.gat
+
+//--- Ep6.6 - Novice Guild Siege ---
+map: siege_test.gat
+map: n_castle.gat
+map: nguild_gef.gat
+map: nguild_prt.gat
+map: nguild_pay.gat
+map: nguild_alde.gat
+
+//--- Ep6.7 - Jawaii ---
+map: jawaii.gat
+map: jawaii_in.gat
+
+// --- Ep6.8 - Geffenia ---
+map: gefenia01.gat
+map: gefenia02.gat
+map: gefenia03.gat
+map: gefenia04.gat
+
+// --- Ep6.9 - New Payon ---
+map: payon.gat
+map: payon_in01.gat
+map: payon_in02.gat
+map: payon_in03.gat
+
+// Ragnarok World Championship 2004
+//map: rwc01.gat
+//map: rwc02.gat
+//map: rwc03.gat
+
+//Alpha Maps
+//map: fay_vilg00.gat
+//map: fay_vilg01.gat
+//map: gef_vilg00.gat
+//map: gef_vilg01.gat
+//map: moc_dugn01.gat
+//map: moc_dugn02.gat
+//map: moc_fild01.gat
+//map: moc_fild02.gat
+//map: moc_fild03.gat
+//map: moc_fild04.gat
+//map: moc_intr00.gat
+//map: moc_intr01.gat
+//map: moc_intr02.gat
+//map: moc_intr04.gat
+//map: moc_vilg00.gat
+//map: moc_vilg01.gat
+//map: moc_vilg02.gat
+//map: probemap.gat
+//map: probemap02.gat
+//map: prt_cstl01.gat
+//map: prt_dugn00.gat
+//map: prt_dugn01.gat
+//map: prt_fild00.gat
+//map: prt_fild01.gat
+//map: prt_fild03.gat
+//map: prt_fild04.gat
+//map: prt_fild05.gat
+//map: prt_intr01.gat
+//map: prt_intr01_a.gat
+//map: prt_intr02.gat
+//map: prt_vilg00.gat
+//map: prt_vilg01.gat
+//map: prt_vilg02.gat
+//map: tank_test.gat
+//map: tank_test2.gat
+//map: test.gat

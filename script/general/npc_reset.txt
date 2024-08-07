@@ -1,3 +1,5 @@
+// $Id: npc_reset.txt,v 1.1 2004/11/17 04:15:21 dennisjoel Exp $
+//<--------------- Reset Hypnotist [Update: Oct. 06, 2003] --------------->\\
 alberta.gat,124,54,5	script	Reset Hypnotist	124,{
 	mes "[Hypnotist]";
 	if((CheckWeight > 0) || (GetJob == Job_Novice)) goto EmpInv;

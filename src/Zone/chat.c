@@ -12,29 +12,16 @@
  * You should have received a copy of the GNU General Public License
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
-------------------------------------------------------------------------*/
-
-/*------------------------------------------------------------------------
- Module:        Version 1.7.1 - Angel Ex
- Author:        Odin Developer Team Copyrights (c) 2004
- Project:       Project Odin Zone Server
- Creation Date: Dicember 6, 2003
- Modified Date: October 31, 2004
- Description:   Ragnarok Online Server Emulator
-------------------------------------------------------------------------*/
+ ------------------------------------------------------------------------*/
 
 #include "core.h"
 #include "mmo.h"
 #include "map_core.h"
 #include "chat.h"
 
-/*======================================
- *	CHAT: General Chat Functions
- *--------------------------------------
- */
 extern int char_fd;
 
-void send_msg(int fd, char* msg)
+void send_msg(unsigned int fd, char* msg)
 {
 	char moji[200];
 	memset(moji, 0, 200);
@@ -45,7 +32,7 @@ void send_msg(int fd, char* msg)
 	WFIFOSET(fd, 4 + 200);
 }
 
-void send_msg_p(int fd, char* from, char* msg)
+void send_msg_p(unsigned int fd, char* from, char* msg)
 {
 	unsigned short msg_len = strlen(msg) + 1;
 	WFIFOW(fd, 0) = 0x97;
@@ -55,7 +42,7 @@ void send_msg_p(int fd, char* from, char* msg)
 	WFIFOSET(fd, WFIFOW(fd, 2));
 }
 
-void send_msg_mon(int fd, int monster_id, char* msg, int wisp_to)
+void send_msg_mon(unsigned int fd, int monster_id, char* msg, int wisp_to)
 {
 	unsigned short msg_len = strlen(msg) + 1;
 	unsigned char buf[256];
@@ -73,7 +60,7 @@ void send_msg_mon(int fd, int monster_id, char* msg, int wisp_to)
 		mmo_map_sendarea(fd, buf, msg_len + 8, 0);
 }
 
-void monster_say(int fd, int monster_id, int class, char *type)
+void monster_say(unsigned int fd, int monster_id, int class, char *type)
 {
 	int i = 0;
 	char msg[80];
@@ -152,13 +139,9 @@ void monster_say(int fd, int monster_id, int class, char *type)
 
 }
 
-/*======================================
- *	CHAT: Whisper Functions
- *--------------------------------------
- */
-
 int mmo_map_sendwis(unsigned int fd, int len, char *name, char *buf)
 {
+	int a;
 	unsigned int i;
 	struct map_session_data *srcsd, *dstsd;
 
@@ -169,6 +152,15 @@ int mmo_map_sendwis(unsigned int fd, int len, char *name, char *buf)
 		if (!session[i] || fd == i || !(dstsd = session[i]->session_data))
 			continue;
 
+		for (a = 0; a < dstsd->limit; a++) {
+			printf(dstsd->wisblock[a].name);
+			if (strncmp(dstsd->wisblock[a].name, srcsd->status.name, 24) == 0) {
+				WFIFOW(fd, 0) = 0x98;
+				WFIFOB(fd, 2) = 2;
+				WFIFOSET(fd, packet_len_table[0x98]);
+				return 0;
+			}
+		}
 		if (strncmp(dstsd->status.name, name, 24) == 0 && !dstsd->no_whispers) {
 			WFIFOW(i, 0) = 0x97;
 			WFIFOW(i, 2) = len;
@@ -204,17 +196,43 @@ int mmo_map_sendwis(unsigned int fd, int len, char *name, char *buf)
 
 int mmo_map_wisuserblock(struct map_session_data *sd, char *name, short type)
 {
-	if (!sd)
-		return 0;
+	int i;
+	unsigned int fd = sd->fd;
 
-	printf("Todo: Add User Block Packet\n");
-	printf("Recived->Player %s, Type %d\n", name, type);
+	for (i = 5; i < FD_SETSIZE; i++) {
+		if (strcmp(sd->wisblock[i].name, "") == 0 && strncmp(sd->wisblock[i].name, name, 24) != 0 && type == 0) {
+			if (sd->limit == sd->max) {
+				sd->max += 256;
+				sd->wisblock = realloc(sd->wisblock, sizeof(*sd->wisblock) * sd->max);
+			}
+			memcpy(sd->wisblock[i].name, name, 24);
+			sd->limit++;
+			WFIFOW(fd, 0) = 0xd1;
+			WFIFOB(fd, 2) = 0;
+			WFIFOB(fd, 3) = 0;
+			WFIFOSET(fd, packet_len_table[0xd1]);
+			return 1;
+		}
+		if (strncmp(sd->wisblock[i].name, name, 24) == 0 && type == 1) {
+			memcpy(&sd->wisblock[i], &sd->wisblock[sd->limit - 1], sizeof(*sd->wisblock));
+			sd->limit--;
+			WFIFOW(fd, 0) = 0xd1;
+			WFIFOB(fd, 2) = 1;
+			WFIFOB(fd, 3) = 0;
+			WFIFOSET(fd, packet_len_table[0xd1]);
+			return 1;
+		}
+	}
+	WFIFOW(fd, 0) = 0xd1;
+	WFIFOB(fd, 2) = 0;
+	WFIFOB(fd, 3) = 1;
+	WFIFOSET(fd, packet_len_table[0xd1]);
 	return 0;
 }
 
 int mmo_map_wisblock(struct map_session_data *sd)
 {
-	int fd = sd->fd;
+	unsigned int fd = sd->fd;
 
 	if (RFIFOB(fd, 2) == 0) {
 		sd->no_whispers = 1;
@@ -222,21 +240,22 @@ int mmo_map_wisblock(struct map_session_data *sd)
 		WFIFOB(fd, 2) = 0;
 		WFIFOB(fd, 3) = 0;
 		WFIFOSET(fd, packet_len_table[0xd2]);
+		return 1;
 	}
-	else {
+	if (RFIFOB(fd, 2) == 1) {
 		sd->no_whispers = 0;
 		WFIFOW(fd, 0) = 0xd2;
 		WFIFOB(fd, 2) = 1;
 		WFIFOB(fd, 3) = 0;
 		WFIFOSET(fd, packet_len_table[0xd2]);
+		return 1;
 	}
+	WFIFOW(fd, 0) = 0xd2;
+	WFIFOB(fd, 2) = 0;
+	WFIFOB(fd, 3) = 1;
+	WFIFOSET(fd, packet_len_table[0xd2]);
 	return 0;
 }
-
-/*======================================
- *	CHAT: Pub Creation Functions
- *--------------------------------------
- */
 
 int mmo_map_createchat(struct mmo_chat* chat)
 {
@@ -253,10 +272,8 @@ int mmo_map_createchat(struct mmo_chat* chat)
 
 int mmo_map_delchat(struct mmo_chat* chat)
 {
-	struct mmo_chat* temp_chat;
-
-	temp_chat = last_chat;
-	for ( ; ; ) {
+	struct mmo_chat* temp_chat = last_chat;
+	for (;;) {
 		if (0 == temp_chat)
 			break;
 
@@ -284,30 +301,30 @@ struct mmo_chat* mmo_map_getchat(unsigned long id)
 {
 	struct mmo_chat* temp_chat;
 	temp_chat = last_chat;
-	for ( ; ; ) {
+	for (;;) {
 		if (0 == temp_chat)
 			break;
 
-		if (1) {
+		if (1)
 			if (temp_chat->chatID == id)
 				return (temp_chat);
-		}
+
+
 		temp_chat = temp_chat->prev;
 	}
 	return (0);
 }
 #endif
 
-int mmo_map_addchat(int fd, struct mmo_chat* chat, char *pass)
+int mmo_map_addchat(unsigned int fd, struct mmo_chat* chat, char *pass)
 {
 	int i, len;
 	unsigned char buf[256];
 	struct map_session_data *sd;
 
-	if (session[fd] == NULL || session[fd]->session_data == NULL || chat == NULL)
+	if (!session[fd] || !(sd = session[fd]->session_data) || !chat)
 		return 0;
 
-	sd = session[fd]->session_data;
 	if (chat->limit == chat ->users || (chat->pub == 0 && strncmp(pass, chat->pass, 8))) {
 		WFIFOW(fd, 0) = 0xda;
 		WFIFOB(fd, 2) = 1;
@@ -318,7 +335,6 @@ int mmo_map_addchat(int fd, struct mmo_chat* chat, char *pass)
 	chat->usersID[chat->users] = sd->account_id;
 	memcpy(chat->usersName[chat->users], sd->status.name, 24);
 	chat->users++;
-
 	sd->chatID = chat->chatID;
 
 	WFIFOW(fd, 0) = 0xdb;
@@ -340,7 +356,7 @@ int mmo_map_addchat(int fd, struct mmo_chat* chat, char *pass)
 	return 0;
 }
 
-int mmo_map_leavechat(int fd, struct mmo_chat* chat, char* leavecharname)
+int mmo_map_leavechat(unsigned int fd, struct mmo_chat* chat, char* leavecharname)
 {
 	int i, leavechar, leavechar_fd;
 	int len;
@@ -360,10 +376,8 @@ int mmo_map_leavechat(int fd, struct mmo_chat* chat, char* leavecharname)
 		return -1;
 
 	leavechar_fd = chat->usersfd[leavechar];
-	if (session[leavechar_fd] == NULL || session[leavechar_fd]->session_data == NULL)
+	if (!session[leavechar_fd] || !(sd = session[leavechar_fd]->session_data))
 		return -1;
-
-	sd = session[leavechar_fd]->session_data;
 
 	if (leavechar == 0 && chat->users > 1) {
 		WBUFW(buf, 0) = 0xe1;
@@ -408,7 +422,7 @@ int mmo_map_leavechat(int fd, struct mmo_chat* chat, char* leavecharname)
 	return 0;
 }
 
-int mmo_map_changeowner(int fd, struct mmo_chat* chat, char *nextownername)
+int mmo_map_changeowner(unsigned int fd, struct mmo_chat* chat, char *nextownername)
 {
 	int i, nextowner, len;
 	unsigned char buf[256];

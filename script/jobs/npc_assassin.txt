@@ -1,4 +1,4 @@
-// $Id: npc_assassin.txt,v 1.1 2003/12/01 22:51:04 MivaBe Exp $
+// $Id: npc_assassin.txt,v 1.1 2004/11/17 04:15:22 dennisjoel Exp $
 //<--------------- Assassin Job Quest [Update: Oct. 06, 2003] --------------->\\
 in_moc_16.gat,71,88,4	script	Assassin Clan Member	99,{
 	mes "[Assassin Clan Member]";

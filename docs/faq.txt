@@ -1,0 +1,51 @@
+		            Odin Faq v0.1
+
+1. How to add GM accounts?
+Read 'add_accounts.txt' in docs folder.
+
+2. How to add accounts?
+Read 'add_accounts.txt' in docs folder.
+
+3. My Character Server doesn't start when I load Account Server.
+Your admninistrator account is wrong or invalid. Revise that in character_cfg.ini
+you have the username and password matching the one inside the database
+save/accounts/accounts.txt. Read 'add_admn_accounts.txt' to set up
+administration accounts.
+
+4. My servers close after I have open them.
+Verify you dont have any other program using the same ports that the servers
+use.
+
+5. How to setup my LAN for Odin?
+Read 'lan_setup.txt' in the docs folder.
+
+6. My Zone server doesn't start
+If your Zone server report you have not grf, or they are not found, server
+will turn off. To fix it open grf_files.ini and search directories, configure
+it so the address you are adding is the one where grf can be found.
+
+7. How do I know my servers are online?
+Wait till they load and check the last line that says Server is online, or
+Ready to accept connections.
+
+8. How I can turn servers on with one click?
+Open Odin-Launcher.bat for Windows or start-odin.sh for Linux.
+
+9. Where all my player or character info goes?
+They are stored in save folder.
+
+10. What computer is requiered to host Odin?
+At lease a 500 mhz processor is requiered with 128 mb of ram an internet
+connection.
+
+11. When I start the servers they report that a dll is missing
+Search your cygwin instalation and in the bin directory find cygwin1.dll
+and cygz.dll. Place this two dll in your server's folder.
+
+12. If there is a limit of how many player accounts are allowed?
+Yes, players account start at 2000001 and ends at 100000000 so you can add
+97999999 diferent accounts.
+
+13. If there is a limit of maximum servers supported?
+Yes, there is a limit of 30 Character Servers and 30 Zone Servers.
+

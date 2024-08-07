@@ -1,0 +1,9 @@
+			  What's New to Odin CVS Version 1.8.0
+
+
+There are a few changes that have been made. The first one and most important
+affects developers. Its not recommended to call values that print to the screen
+in the consoles. It is tested that it slow down other server process while doing
+this. So a function that writes to a file seems more efficient. The new function
+debug_output have one argument and a list of them. What it is mean is that works
+like a printf, but it will write directly to a file and not to screen buffer.

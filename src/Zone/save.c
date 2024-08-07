@@ -12,19 +12,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
-------------------------------------------------------------------------*/
-
-/*------------------------------------------------------------------------
- Module:        Version 1.7.0 SP1
- Author:        Odin Developer Team Copyrights (c) 2004
- Project:       Project Odin Zone Server
- Creation Date: Dicember 6, 2003
- Modified Date: Semtember 3, 2004
- Description:   Ragnarok Online Server Emulator
-------------------------------------------------------------------------*/
-
-#include <stdio.h>
-#include <string.h>
+ ------------------------------------------------------------------------*/
 
 #include "core.h"
 #include "mmo.h"
@@ -98,12 +86,22 @@ void mmo_party_save(int party_num)
 				WFIFOL(char_fd, 39 + j * 68 + 24) = party_dat[party_num].member[i].fd;
 				memcpy(WFIFOP(char_fd, 39 + j * 68 + 28), party_dat[party_num].member[i].map_name, 16);
 				memcpy(WFIFOP(char_fd, 39 + j * 68 + 44), party_dat[party_num].member[i].nick, 24);
-			j++;
+				j++;
 			}
 		}
 		WFIFOB(char_fd, 8) = j;
 		WFIFOW(char_fd, 2) = 39 + j * 68;
 		WFIFOSET(char_fd, 39 + j * 68);
+	}
+}
+
+void mmo_map_delete_party(int index)
+{
+	if (index >= 0 && index < MAX_PARTYS) {
+		WFIFOW(char_fd, 0) = 0x2b05;
+		WFIFOL(char_fd, 2) = party_dat[index].party_id;
+		WFIFOSET(char_fd, 6);
+		init_party_data(index);
 	}
 }
 
@@ -114,14 +112,13 @@ void mmo_online_check()
 
 	FILE *fp = fopen("save/online.txt", "w");
 	if (fp) {
-		for (x = 5; x < FD_SETSIZE; x++) {
-			if (session[x] != NULL && session[x]->session_data != NULL) {
-				sd = session[x]->session_data;
-				if (sd->status.name) {
+		for (x = 5; x < FD_SETSIZE; x++)
+			if (session[x] != NULL && (sd = session[x]->session_data) != NULL)
+				if (sd->status.name)
 					fprintf(fp, "%s\t%s,%d,%d\n", sd->status.name, sd->mapname, sd->x, sd->y);
-				}
-			}
-		}
+
+
+
 	}
 	fclose(fp);
 }
