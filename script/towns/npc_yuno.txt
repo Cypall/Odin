@@ -1,0 +1,509 @@
+yuno.gat,154,47,4	script	Entrance Girl	700,{
+		mes "[Miss YunoYun]"; 
+		mes "Understading the past, Reading through the present, and Predicting the future:"; 
+		mes "Welcome to the City of Wise Men."; 
+		mes "Welcome to Yuno."; 
+		next;
+	start: 
+		menu "View Buildings",show,"Wipe All Indications on Mini-Map",wipeall,"Cancel",cancel; 
+	show: 
+		menu "Weapon And Armour Shops",Lcase1,"Tool Dealer",Lcase2,"Sage Castle",Lcase3,"Street of Books",Lcase4,"Yufero Square",Lcase5,"Library of Republic",Lcase6,"Shubaicher Magic School",Lcase7,"Museum of Monsters",Lcase8,"Cancel",Lcase9; 
+	Lcase1: 
+		mes "[Miss YunoYun]"; 
+		mes "This is the Weapon and Armour Shop"; 
+		mes "Hope you'll have a good time"; 
+		viewpoint 1,117,135,1,0xFF000000; 
+		next; 
+		goto show; 
+    
+	Lcase2: 
+		mes "[Miss YunoYun]"; 
+		mes "This is the Tool Dealer"; 
+		mes "Enjoy your stay here. "; 
+		viewpoint 1,163,189,2,0xFFFF00; 
+		next; 
+		goto show; 
+    
+	Lcase3:    
+		mes "[Miss YunoYun]"; 
+		mes "Sage Castle"; 
+		mes "This is where Sages work their Magics"; 
+		mes "You can also change your job to that of a Sage here"; 
+		viewpoint 1,89,320,3,0xff00FF; 
+		next; 
+		goto show; 
+    
+	Lcase4: 
+		mes "[Miss YunoYun]"; 
+		mes "The Street of Books"; 
+		mes "This is where you will find the largest selection of books for sale"; 
+		viewpoint 1,196,138,4,0x00ff00; 
+		next; 
+		goto show; 
+
+	Lcase5:    
+		mes "[Miss YunoYun]"; 
+		mes "Yufero Square"; 
+		mes "This is the Main Square of Yuno."; 
+		viewpoint 1,157,327,5,0x00ffff; 
+		next; 
+		goto show; 
+      
+	Lcase6: 
+		mes "[Miss YunoYun]"; 
+		mes "Library of Republic"; 
+		viewpoint 1,335,204,6,0x0000ff; 
+		next; 
+		goto show; 
+
+	Lcase7: 
+		mes "[Miss YunoYun]"; 
+		mes "Shubaicher Magic School"; 
+		mes "One of the Main Magic Schools with in Yuno"; 
+		viewpoint 1,323,280,7,0xFFCCFF; 
+		next; 
+		goto show; 
+    
+	Lcase8: 
+		mes "[Miss YunoYun]"; 
+		mes "Museum of Monsters"; 
+		mes "A Museum containing exhibits of many of the Midgards monsters"; 
+		viewpoint 1,278,291,8,0xFFFFFF; 
+		next; 
+		goto show; 
+
+	Lcase9: 
+		goto start; 
+		wipeall: 
+		viewpoint 2,174,189,1,0xFF0000; 
+		viewpoint 2,30,176,2,0xFF00FF; 
+		viewpoint 2,174,189,3,0xFF00FF; 
+		viewpoint 2,172,134,4,0xFF00FF; 
+		viewpoint 2,89,166,5,0x00FF00; 
+		viewpoint 2,174,189,6,0xFF00FF; 
+		viewpoint 2,172,134,7,0xFF00FF; 
+		viewpoint 2,89,166,8,0x00FF00; 
+		goto start; 
+
+	cancel: 
+		mes "[Miss YunoYun]"; 
+		mes "Thank You come again."; 
+		close;     
+} 
+
+yuno.gat,156,87,4	script	Man	47,{
+			mes "[Yigonglyukchichi]";
+			mes "If you go north from Aldebaran, you will encounter the Magma Plane named El Mas Plateau; a place where the heat makes it hard for you to breathe...";
+			next;
+			mes "[Yigonglyukchichi]";
+			mes "This city of Yuno has international famous places such as the Yufero Square, the Yuno Conference Court, Shubaicher's Magic School, and the Museum of Monsters";
+			next;
+			mes "[Yigonglyukchichi]";
+			mes "Am I missing something? *hmmm*";
+			next;
+			mes "[Yigonglyukchichi]";
+			mes "O yea, I almost forgot Sage Castle, the place where you can change to a 'Sage'";
+			next;
+			mes "[Yigonglyukchichi]";
+			mes "Please visit Sage Castle for information on Sage's some time during your visit.  Trust me, it will be worth it";
+			close;
+}
+
+yuno.gat,166,111,4	script	Remorpheous	120,{
+			mes "[Remorpheous]";
+			mes "'Apocalypse'....an artificial human being was the chief of the gatekeepers and in charge of the public order of the city of Yuno during Ancient times...";
+			next;
+			mes "[Remorpheous]";
+			mes "It was very....similar to a robot. After living for a long time, its' A.I. totally screwed up; it couldn't differ between a friend or foe.";
+			next;
+			mes "[Remorpheous]";
+			mes "....it became a monster that attacks everyone.";
+			close;
+}
+
+yuno.gat,158,205,4	script	Keymaker	85,{
+	mes "[Keymaker]";
+	mes "Hello , I'm Yuno's maker of special items.  Basically, I am just following Yuno's old traditions and spirit of making various items.";
+    	next;
+	menu "About strong weapons",case1,"About special items",case2,"About traditional foods",case3,"Cancel",case4;
+	case1: 
+		mes "[Keymaker]";
+		mes "'Holy guard' and 'Holy avenger' are holy weapons only for Crusaders. Each weapon is very light and their attack power is unbelievable.";
+		next;
+		mes "[Keymaker]";
+		mes "Something you should focus on is that both of these weapons have holy power/property.";
+		next;
+		mes "[Keymaker]";
+		mes "Thus, these work very well against undead or ghost monsters, however, they are very rare and only a few chosen crusaders will be able to wear them...";
+		close;
+	case2:
+		mes "[Keymaker]";
+		mes "A Round circle inside another circle... and six stars on the circle...this 'magic formation' is very old looking, but also very detailed..";
+		next; 
+		mes "[Keymaker]";
+		mes "... as a kind of magic-formation, any scholars are researching it.";
+		next;
+		mes "[Keymaker]";
+		mes "...this is an item that looks like it'd be used for high level, difficult, and mysterious magic.";
+		close;
+	case3:
+		mes "[Keymaker]";
+		mes "'Popcorn'(Korean popcorn)!! in old markets - old time's romance! Traditional and original taste that many people loved for a long time!";
+		next;
+		mes "[Keymaker]";
+		mes "Ah ah.... 'popcorn'..... I wish I could eat it now.....";
+		close;
+	case4:
+		mes "[Keymaker]";
+		mes "'Yuno' is scholar's city, but also, it is a place where regular people live.";
+		next;
+		mes "[Keymaker]";
+		mes "I hope you will be attracted to live in Yuno as well.";
+		close;
+}
+
+yuno.gat,185,173,3	script	Impresser	729,{
+		mes "[Impressor]";
+		mes "Scholar's city, Yuno, is made of 3 big islands.";
+		next;
+		mes "[Impressor]";
+		mes "Those are:";
+		mes "The Island of Glory - Solomon";
+		mes "The Island of Prosperity - Minetta";
+		mes "The Island of Wisdom - Snottra";
+		next;
+		mes "[Impressor]";
+		mes "Each island can be found in the: ";
+		mes "Northwest: Solomon";
+		mes "Northeast: Snottra";
+		mes "south: Minetta";
+		close;
+}
+
+yuno.gat,261,98,4	script	Icla	742,{
+		mes "[Icla]";
+		mes "Yuferos. This is the ancient land, the city where men who could control Ymir's heart lived....";
+		next;
+		mes "[Icla]";
+		mes "However, they were over indulged in the strength of Ymir's heart; they overused it and were led to self-destruction.";
+		next;
+		mes "[Icla]";
+		mes "In order to achieve wisdom, you must first become a human being. Only when you empty your mind will you achieve true, inner strength.";
+		close;
+}
+
+yuno.gat,306,207,6	script	Sycla	68,{
+		mes "[Sycla]";
+		mes "A long time ago, a man who was into strange research had been living in Yuno and was always causing trouble...";
+		next;
+		mes "[Sycla]";
+		mes "People still refer to him as the 'Mad Scientist'.";
+		next;
+		mes "[Sycla]";
+		mes "Found near Yuno, there is a monster called 'Blazer', which is made of flames. Be careful for it uses firebolt and fireball, such dangerous magic's. It also attacks humans as soon as it spots one.";
+		next;
+		mes "[Sycla]";
+		mes "We can thank the 'Mad Scientist' for this life threatening monsters *sighs*";
+		close;
+}
+
+yuno_in03.gat,25,39,6	script	Meto	121,{
+		mes "[Meto]";
+		mes "Today, tomorrow, even the next day, I'll continue researching the history of Yuno....";
+		next;
+		mes "[Meto]";
+		mes "My whole life will be dedicated to making...a NEW YUNO, my own kingdom.";
+		next;
+		mes "[Meto]";
+		mes "To do so, first, I'll have to find out why this place is floating in the air.  That's where my research comes is.  there must be some secret.";
+		close;
+}
+
+yuno_in03.gat,31,102,4	script	Lucius Kelsus	121,{
+		mes "[Lucius Kelsus]";
+		mes "hmm? what's up. Came to see monsters?";
+		next;
+		mes "[Lucius Kelsus]";
+		mes "Looking at monsters is okay, but don't touch them or make too much noise here. There are a lot of dangerous objects here.";
+		next;
+		mes "[Lucius Kelsus]";
+		mes "And, if you find any rare monster, tell me. I'll pay you a lot for that information.";
+		close;
+}
+
+yuno_in03.gat,179,43,5	script	Shishi	55,{
+		mes "[Shishi]";
+		mes "My name is Shishi. I am one of 3 brains who live in this town.";
+		next;
+		mes "[Shishi]";
+		mes "well, there aren't many scientists in this town, but one of three brains is really a great thing! Ahem!";
+		close;
+}
+
+yuno_in03.gat,155,35,5	script	Meteous Silf	64,{
+		mes "[Meteous Silf]";
+		mes "welcome. This is the Shubaicher Magic Academy.";
+		next;
+		mes "[Meteous Silf]";
+		mes "We educate Sage's here along with research for monsters and magic's. Only mages with job level 40 or higher can enter the program.";
+		next;
+		mes "[Meteous Silf]";
+		mes "If you have any mage friends, let them know of this place.  Have a nice day. ";
+		close;
+}
+
+yuno_in03.gat,169,179,2	script	Hermes Tris	86,{
+		mes "[Hermes Tris]";
+		mes "Welcome.  This is Shubaicherville Magic academy";
+		next;
+		mes "[Hermes Tris]";
+		mes "We -Sages- are rather more like scholars than mages. Sages are great help for party setup as well.";
+		next;
+		mes "[Hermes Tris]";
+		mes "Next time you go traveling , take a Sage along with you. Just walking together will show you how they can handle situations well. ";
+		close;
+}
+
+yuno_in03.gat,62,175,3	script	Lailas Sapien	123,{
+		mes "[Lailas Sapien]";
+		mes "Welcome.  I'm a history professor.";
+		next;
+		mes "[Lailas Sapien]";
+		mes "This world is created upon a long history piled up for a long long time. Therefore, if you know the past, that means you know the present and even the future. ";
+ 	  	next;
+   		mes "[Lailas Sapien]";
+  	 	mes "You should look into your past as well.  Then you will see the way to your future";
+  	 	close;
+}
+
+yuno.gat,262,319,2	script	Yuno Soldier	105,{
+		mes "[Yuno Soldier]";
+		mes "Welcome to Yuno, the scholar's city where ancient wisdom exists.";
+		next;
+		mes "[Yuno Soldier]";
+		mes "There is a holy shield for Crusaders called 'The Messenger of the God'.";
+		next;
+		mes "[Yuno Soldier]";
+		mes "It looks like a long shield with a angel's wing image on its center. It is especially strong against undead or demons.";
+		close;
+}
+
+yuno_in03.gat,244,32,3	script	Ebeshi Jorge	120,{
+		mes "[Ebeshi Jorge]";
+		mes "Came here to look around? Hmm? well, there's nothing to look at here really? hohoho";
+		next;
+		mes "[Ebeshi Jorge]";
+		mes "Hohoho, nothing really to look at? Still, enjoy yourself before you go~ hohoho";
+		close;
+}
+
+yuno.gat,227,292,4	script	Yuno Soldier	105,{
+		mes "[Yuno Soldier]";
+		mes "Welcome to City of scholars, where wisdom exists...Yuno.";
+		next;
+		mes "[Yuno Soldier]";
+		mes "Around the City of Juno, there is fallen angel that fakes himself as the real angel, named 'Fake Angel'.";
+		next;
+		mes "[Yuno Soldier]";
+		mes "This one fakes itself as the real angel, and acts as if it's blessing travelers, and attacks them. It looks beautiful, so don't fall for its appearance.";
+		close;
+}
+
+yuno.gat,150,283,4	script	Yuno Soldier	105,{
+		mes "[Yuno Soldier]";
+		mes "Welcome to City of scholars where wisdom exists, Yuno.";
+		next;
+		mes "[Yuno Soldier]";
+		mes "Larva Golem is a stone doll that has a stone heart in which its magical power was induced by magma.....from the body, it flows...";
+		next;
+		mes "[Yuno Soldier]";
+		mes "Magma is really hot as to even melt away armor and weapon made with steel.";
+		next;
+		mes "[Yuno Soldier]";
+		mes "If you attack thoughtlessly, you might get hurt and even break your armor and/or weapon.";
+		close;
+}
+
+yuno.gat,162,328,4	script	Escla	735,{
+		mes "[Escla]";
+		mes "I've seen it before. Ahhh, I remember... A floating paper was flying around in the air helplessly...as if it couldn't resist the wind...was what I thought.";
+		next;
+		mes "[Escla]";
+		mes "Puhat *laugh* It attacked me all of sudden! Me, the one of three scholars of Yuno.";
+		next;
+		mes "[Escla]";
+		mes "As a Sage, I wouldn't lose to such thing, I thought, so I attacked it with a sword, but that paper began attacking me with quite clever attacks.";
+		next;
+		mes "[Escla]";
+		mes "It was using its thin body to escape a swing of my sword. and even if I hit it, I couldn't tell 'cause there I had no feeling in my hands.";
+		next;
+		mes "[Escla]";
+		mes "So finally I used my magic to get rid of that monster.";
+		next;
+		mes "[Escla]";
+		mes "Later on, I asked other scholars of this, and his name is 'The Paper'.";
+		next;
+		mes "[Escla]";
+		mes "It's a paper from old books of Juno, containing Juno's ancient wisdom... I thought, such a thing could happen, eh...";
+		close;
+}
+
+yuno_in01.gat,18,95,5	script	Stancle	99,{
+		mes "[Stancle]";
+		mes "I'm one of the scientists in this city, Stancle. It will benefit you if you remember my name.";
+		close;
+}
+
+yuno_in01.gat,19,182,3	script	Kapto	55,{
+		mes "[Kapto]";
+		mes "I'm Kapto. Usually just making machines. I'm not doing any research at this moment...";
+		next;
+		mes "[Kapto]";
+		mes "'Great', the special type of material, which I made, is the best of the best.";
+		close;
+}
+
+yuno_in01.gat,103,158,4	script	Bain	98,{
+if((countitem(974) < 1) || (countitem(986) < 5) || (countitem(7068) < 5) || (countitem(1003) < 5) || (countitem(7043) < 5) || (countitem(985) < 3) || (countitem(984) < 3) || (Zeny < 200000)) goto LNotEnough;
+			mes "[Bain]";
+			mes "Thank you very much you found all the items I needed";
+			next;
+			mes "[Bain]";
+			mes "I couldn't have completed this project without your help";
+			next;
+			delitem 974 1;
+			delitem 986 5;
+			delitem	7068 5;
+			delitem	1003 5;
+			delitem	7043 5;
+			delitem	985 3;
+			delitem 984 3;
+			set Zeny,Zeny-200000;
+			mes "[Bain]";
+			mes "And I have something to give you as a thank you from us for your help";
+			getitem 2410 1;
+			close;
+		LNotEnough:
+			mes "[Bain]";
+			mes "I'm Alchemist Bain. My bro and I are thinking of a way to make an automaton with the ability to think on its own.";
+			next;
+			mes "[Bain]";
+			mes "In the past, there is a record of making such a thing using the natural ingredients from the stars and different metals.";
+			next;
+			mes "[Bain]";
+			mes "But right now, the research's going nowhere because of shortage of ingredients.";
+			next;
+			mes "[Bain]";
+			mes "I don't know how other alchemists get their ingredients. Zeny is zeny as its own problem, but also there are things you have to get by fighting monsters.";
+			next;
+			mes "[Bain]";
+			mes "Ehu... I really need some ingredients, I don't know what to do *sigh*";
+			next;
+			menu "I'll get them for you",case1,"I hope you have Luck finding them",case2;
+		case1:
+			mes "[Bain]";
+			mes "Oh...Oh... The great outlander. You're helping our zeal towards our research. These are the ones we need:";
+			next;
+			mes "[Bain]";
+			mes "1 Mixture";
+			mes "5 Anvil";
+			mes "5 Half Burnt Logs";
+			mes "5 Coal";
+			mes "5 Fine Sand";
+			mes "3 Pure Elunium";
+			mes "3 Pure Oridecon";
+			next;
+			mes "[Bain]";
+			mes "And about 200,000 zeny. Because when you mix all the items, some zeny makes it good. Thank you...";
+			next;
+			mes "[Bain]";
+			mes "Please come back to me when u get all the ingredients. Good luck on your quest for the ingredients, come back when u have them all and I will give you something special.";
+			close;
+		case2:
+			mes "[Bain]";
+			mes "I hope some one will come along and help us. We would reward them well for there service";
+			close;
+}
+
+yuno_in01.gat,99,153,4	script	Bajin	47,{
+			mes "[Bajin]";
+			mes "Yes?";
+			next;
+			menu "You guys seem like you need help",case1,"Um, what were the ingredients again?",case2;
+			case2:
+			mes "[Bajin]";
+			mes "MM? you forgot the ingredients? I'll tell you again, please remember: ";
+			next;
+			mes "[Bajin]";
+			mes "1 Mixture";
+			mes "5 Furnace";
+			mes "5 Half Burnt Logs";
+			mes "5 Coal";
+			mes "5 Fine Sand";
+			mes "3 Pure Elunium";
+			mes "3 Pure Oridecon";
+			next;
+			mes "[Bajin]";
+			mes "And also 200,000 zeny is needed. I know this is a difficult task, but please help.";
+			close;
+			case1:
+			mes "[Bajin]";
+			mes "Yes! Yes we do!";
+			mes " ";
+			mes "Please talk to my brother Bain if you want to help us!";
+			close;
+}
+			
+yuno.gat,80,150,4	script	Young Woman	758,{
+			mes "[Young Woman]";
+			mes "Have you Ever seen such a beautiful city";
+			next;
+			mes "[Young Woman]";
+			mes "And Yuno at night time is so wonderful with its lights shiny through the clouds";
+			next;
+			mes "[Young Woman]";
+			mes "I'm sorry I got carried away , it's my first time being here in the City of Sages. I suggest you go look around and enjoy your self";
+			next;
+			mes "[Young Woman]";
+			mes "I believe I shall wait around here till nightfall just so I can see the lights clearly.";
+			next;
+			mes "[Young Woman]";
+			mes "Maybe I will see you later *smiles*.";
+			close;
+}
+
+yuno.gat,150,228,4	script	Yuno Soldier	105,{
+			mes "[Yuno Soldier]";
+			mes "Welcome to City of scholars where wisdom exists.";
+			close;
+}
+
+yuno.gat,165,228,4	script	Yuno Soldier	105,{
+			mes "[Yuno Soldier]";
+			mes "Welcome to City of scholars where wisdom exists.";
+			close;
+}
+
+yuno.gat,46,165,4	script	Yuno Soldier	105,{
+			mes "[Yuno Soldier]";
+			mes "Welcome to City of scholars where wisdom exists.";
+			close;
+}
+
+yuno.gat,61,165,4	script	Yuno Soldier	105,{
+			mes "[Yuno Soldier]";
+			mes "Welcome to City of scholars where wisdom exists.";
+			close;
+}
+
+yuno.gat,165,283,4	script	Yuno Soldier	105,{
+			mes "[Yuno Soldier]";
+			mes "Welcome to City of scholars where wisdom exists.";
+			next;
+			mes "[Yuno Soldier]";
+			mes "'Geographer', it is a hard shell type thing that grows around flowers from the earth. Thus, even if it's far away, you can't think less of it.";
+			next;
+			mes "[Yuno Soldier]";
+			mes "It got such name 'cause the passing-by geography scholar was eaten away during his research.";
+			close;
+}

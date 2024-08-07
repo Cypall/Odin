@@ -1,0 +1,284 @@
+alberta.gat,124,54,5	script	Reset Hypnotist	124,{
+	mes "[Hypnotist]";
+	if((CheckWeight > 0) || (GetJob == Job_Novice)) goto EmpInv;
+	mes "I am a hypnotist for Stat Reset.";
+	mes "Please select a service you want.";
+	next;
+	menu "^3355FF'Skill and Stat Service'^000000?",L0,"^FF3355Reset Skills^000000",L1,"^FF3355Reset Stats^000000",L2,"^FF3355Reset Skills and Stats^000000",L3,"Quit",LEnd;
+	
+	L0:
+		mes "[Hypnotist]";
+		mes "Please unequip all items and store everything in Kafra storage so that your weight becomes ^3355FF0^000000.";
+		mes "After you weight has become 0, Skill and Stat Reset service will be provided.";
+		mes "For your infomation, ^3355FFNovice class can't use this service^000000.";
+		close;
+	L1:
+		mes "[Hypnotist]";
+		if (Zeny < 200000) goto NeedZenys;
+		mes "Alright, here we go now.. Remember, changed what take affect until you log back on!";
+		setzeny Zeny,0 - 200000;
+		ResetSkill;
+		close;
+	L2:
+		mes "[Hypnotist]";
+		if (Zeny < 200000) goto NeedZenys;
+		mes "Alright, here we go now.. Remember, changed what take affect until you log back on!";
+		setzeny Zeny,0 - 200000;
+		ResetStatus;
+		close;
+	L3:
+		mes "[Hypnotist]";
+		if (Zeny < 300000) goto NeedZenys;
+		mes "Alright, here we go now.. Remember, changed what take affect until you log back on!";
+		setzeny Zeny,0 - 300000;
+		ResetSkill;
+		ResetStatus;
+		close;
+
+		NeedZenys:
+			mes "Sorry. you don't have enough Money.";
+			close;
+	LEnd:
+		close;	
+
+	EmpInv:
+		mes "If you are carraying items with you, please store all into ^0000FF'Kafra'^000000 Warehouse for you safety.";
+		close;
+}
+
+geffen.gat,119,105,4	script	Reset Hypnotist	124,{
+	mes "[Hypnotist]";
+	if((CheckWeight > 0) || (GetJob == Job_Novice)) goto EmpInv;
+	mes "I am a hypnotist for Stat Reset.";
+	mes "Please select a service you want.";
+	next;
+	menu "^3355FF'Skill and Stat Service'^000000?",L0,"^FF3355Reset Skills^000000",L1,"^FF3355Reset Stats^000000",L2,"^FF3355Reset Skills and Stats^000000",L3,"Quit",LEnd;
+	
+	L0:
+		mes "[Hypnotist]";
+		mes "Please unequip all items and store everything in Kafra storage so that your weight becomes ^3355FF0^000000.";
+		mes "After you weight has become 0, Skill and Stat Reset service will be provided.";
+		mes "For your infomation, ^3355FFNovice class can't use this service^000000.";
+		close;
+	L1:
+		mes "[Hypnotist]";
+		if (Zeny < 200000) goto NeedZenys;
+		mes "Alright, here we go now.. Remember, changed what take affect until you log back on!";
+		setzeny Zeny,0 - 200000;
+		ResetSkill;
+		close;
+	L2:
+		mes "[Hypnotist]";
+		if (Zeny < 200000) goto NeedZenys;
+		mes "Alright, here we go now.. Remember, changed what take affect until you log back on!";
+		setzeny Zeny,0 - 200000;
+		ResetStatus;
+		close;
+	L3:
+		mes "[Hypnotist]";
+		if (Zeny < 300000) goto NeedZenys;
+		mes "Alright, here we go now.. Remember, changed what take affect until you log back on!";
+		setzeny Zeny,0 - 300000;
+		ResetSkill;
+		ResetStatus;
+		close;
+
+		NeedZenys:
+			mes "Sorry. you don't have enough Money.";
+			close;
+	LEnd:
+		close;	
+	EmpInv:
+		mes "If you are carraying items with you, please store all into ^0000FF'Kafra'^000000 Warehouse for you safety.";
+		close;
+}
+
+izlude.gat,129,114,5	script	Reset Hypnotist	124,{
+	mes "[Hypnotist]";
+	if((CheckWeight > 0) || (GetJob == Job_Novice)) goto EmpInv;
+	mes "I am a hypnotist for Stat Reset.";
+	mes "Please select a service you want.";
+	next;
+	menu "^3355FF'Skill and Stat Service'^000000?",L0,"^FF3355Reset Skills^000000",L1,"^FF3355Reset Stats^000000",L2,"^FF3355Reset Skills and Stats^000000",L3,"Quit",LEnd;
+	
+	L0:
+		mes "[Hypnotist]";
+		mes "Please unequip all items and store everything in Kafra storage so that your weight becomes ^3355FF0^000000.";
+		mes "After you weight has become 0, Skill and Stat Reset service will be provided.";
+		mes "For your infomation, ^3355FFNovice class can't use this service^000000.";
+		close;
+	L1:
+		mes "[Hypnotist]";
+		if (Zeny < 200000) goto NeedZenys;
+		mes "Alright, here we go now.. Remember, changed what take affect until you log back on!";
+		setzeny Zeny,0 - 200000;
+		ResetSkill;
+		close;
+	L2:
+		mes "[Hypnotist]";
+		if (Zeny < 200000) goto NeedZenys;
+		mes "Alright, here we go now.. Remember, changed what take affect until you log back on!";
+		setzeny Zeny,0 - 200000;
+		ResetStatus;
+		close;
+	L3:
+		mes "[Hypnotist]";
+		if (Zeny < 300000) goto NeedZenys;
+		mes "Alright, here we go now.. Remember, changed what take affect until you log back on!";
+		setzeny Zeny,0 - 300000;
+		ResetSkill;
+		ResetStatus;
+		close;
+
+		NeedZenys:
+			mes "Sorry. you don't have enough Money.";
+			close;
+	LEnd:
+		close;	
+	EmpInv:
+		mes "If you are carraying items with you, please store all into ^0000FF'Kafra'^000000 Warehouse for you safety.";
+		close;
+}
+
+morocc.gat,158,95,4	script	Reset Hypnotist	124,{
+	mes "[Hypnotist]";
+	if((CheckWeight > 0) || (GetJob == Job_Novice)) goto EmpInv;
+	mes "I am a hypnotist for Stat Reset.";
+	mes "Please select a service you want.";
+	next;
+	menu "^3355FF'Skill and Stat Service'^000000?",L0,"^FF3355Reset Skills^000000",L1,"^FF3355Reset Stats^000000",L2,"^FF3355Reset Skills and Stats^000000",L3,"Quit",LEnd;
+	
+	L0:
+		mes "[Hypnotist]";
+		mes "Please unequip all items and store everything in Kafra storage so that your weight becomes ^3355FF0^000000.";
+		mes "After you weight has become 0, Skill and Stat Reset service will be provided.";
+		mes "For your infomation, ^3355FFNovice class can't use this service^000000.";
+		close;
+	L1:
+		mes "[Hypnotist]";
+		if (Zeny < 200000) goto NeedZenys;
+		mes "Alright, here we go now.. Remember, changed what take affect until you log back on!";
+		setzeny Zeny,0 - 200000;
+		ResetSkill;
+		close;
+	L2:
+		mes "[Hypnotist]";
+		if (Zeny < 200000) goto NeedZenys;
+		mes "Alright, here we go now.. Remember, changed what take affect until you log back on!";
+		setzeny Zeny,0 - 200000;
+		ResetStatus;
+		close;
+	L3:
+		mes "[Hypnotist]";
+		if (Zeny< 300000) goto NeedZenys;
+		mes "Alright, here we go now.. Remember, changed what take affect until you log back on!";
+		setzeny Zeny,0 - 300000;
+		ResetSkill;
+		ResetStatus;
+		close;
+
+		NeedZenys:
+			mes "Sorry. you don't have enough Money.";
+			close;
+	LEnd:
+		close;	
+	EmpInv:
+		mes "If you are carraying items with you, please store all into ^0000FF'Kafra'^000000 Warehouse for you safety.";
+		close;
+}
+
+payon.gat,84,153,4	script	Reset Hypnotist	124,{
+	mes "[Hypnotist]";
+	if((CheckWeight > 0) || (GetJob == Job_Novice)) goto EmpInv;
+	mes "I am a hypnotist for Stat Reset.";
+	mes "Please select a service you want.";
+	next;
+	menu "^3355FF'Skill and Stat Service'^000000?",L0,"^FF3355Reset Skills^000000",L1,"^FF3355Reset Stats^000000",L2,"^FF3355Reset Skills and Stats^000000",L3,"Quit",LEnd;
+	
+	L0:
+		mes "[Hypnotist]";
+		mes "Please unequip all items and store everything in Kafra storage so that your weight becomes ^3355FF0^000000.";
+		mes "After you weight has become 0, Skill and Stat Reset service will be provided.";
+		mes "For your infomation, ^3355FFNovice class can't use this service^000000.";
+		close;
+	L1:
+		mes "[Hypnotist]";
+		if (Zeny < 200000) goto NeedZenys;
+		mes "Alright, here we go now.. Remember, changed what take affect until you log back on!";
+		setzeny Zeny,0 - 200000;
+		ResetSkill;
+		close;
+	L2:
+		mes "[Hypnotist]";
+		if (Zeny < 200000) goto NeedZenys;
+		mes "Alright, here we go now.. Remember, changed what take affect until you log back on!";
+		setzeny Zeny,0 - 200000;
+		ResetStatus;
+		close;
+	L3:
+		mes "[Hypnotist]";
+		if (Zeny < 300000) goto NeedZenys;
+		mes "Alright, here we go now.. Remember, changed what take affect until you log back on!";
+		setzeny Zeny,0 - 300000;
+		ResetSkill;
+		ResetStatus;
+		close;
+
+		NeedZenys:
+			mes "Sorry. you don't have enough Money.";
+			close;
+	LEnd:
+		close;	
+
+	EmpInv:
+		mes "If you are carraying items with you, please store all into ^0000FF'Kafra'^000000 Warehouse for you safety.";
+		close;
+}
+
+prontera.gat,155,185,4	script	Reset Hypnotist	124,{
+	mes "[Hypnotist]";
+	if((CheckWeight > 0) || (GetJob == Job_Novice)) goto EmpInv;
+	mes "I am a hypnotist for Stat Reset.";
+	mes "Please select a service you want.";
+	next;
+	menu "^3355FF'Skill and Stat Service'^000000?",L0,"^FF3355Reset Skills^000000",L1,"^FF3355Reset Stats^000000",L2,"^FF3355Reset Skills and Stats^000000",L3,"Quit",LEnd;
+	
+	L0:
+		mes "[Hypnotist]";
+		mes "Please unequip all items and store everything in Kafra storage so that your weight becomes ^3355FF0^000000.";
+		mes "After you weight has become 0, Skill and Stat Reset service will be provided.";
+		mes "For your infomation, ^3355FFNovice class can't use this service^000000.";
+		close;
+	L1:
+		mes "[Hypnotist]";
+		if (Zeny < 200000) goto NeedZenys;
+		mes "Alright, here we go now.. Remember, changed what take affect until you log back on!";
+		setzeny Zeny,0 - 200000;
+		ResetSkill;
+		close;
+	L2:
+		mes "[Hypnotist]";
+		if (Zeny < 200000) goto NeedZenys;
+		mes "Alright, here we go now.. Remember, changed what take affect until you log back on!";
+		setzeny Zeny,0 - 200000;
+		ResetStatus;
+		close;
+	L3:
+		mes "[Hypnotist]";
+		if (Zeny < 300000) goto NeedZenys;
+		mes "Alright, here we go now.. Remember, changed what take affect until you log back on!";
+		setzeny Zeny,0 - 300000;
+		ResetSkill;
+		ResetStatus;
+		close;
+
+		NeedZenys:
+			mes "Sorry. you don't have enough Money.";
+			close;
+	LEnd:
+		close;	
+
+	EmpInv:
+		mes "If you are carraying items with you, please store all into ^0000FF'Kafra'^000000 Warehouse for you safety.";
+		close;
+}

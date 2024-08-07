@@ -1,0 +1,2 @@
+[status]
+server = 0

@@ -1,0 +1,43 @@
+// Doctor
+// Total 1 NPC's in this file
+// Created By: MivaBe on June 16th 2003
+// Edited/Fixed by: Lamborghini2121 on 04-21-04
+
+// Healer NPC by using the new introduced full_heal; command
+prontera.gat,140,196,2	script	GH's Doctor	121,{
+	mes "[General Hospital's Doctor]";
+	mes "Hi, my name is Joe and I will be your doctor for today.  How you feeling?";
+	next;
+	mes "[General Hospital's Doctor]";
+	mes "Painful Right??  I will cure you but only for a fee of 500z.";
+	next;
+	menu "Pay the Doctor",Case1,"Leave",Case2;
+	Case1:
+		if(Zeny<500) goto NoZeny;
+		mes "[General Hospital's Doctor]";
+		mes "Thank you.  Now, hush up and let me tend to your wounds.";
+		next;
+		mes "[General Hospital's Doctor]";
+		mes "Send this patient to the O.R.";
+		next;
+		mes "[General Hospital's Doctor]";
+		mes "*You take a pill and a small sip of water. shortly after, you begin to feel sleepy and pass out*^00000";
+		next;
+		set Zeny,0-500;
+		full_heal;
+		mes "[General Hospital's Doctor]";
+		mes "How you feeling now? You just woke up from the Operation.";
+		next;
+		mes "[General Hospital's Doctor]";
+		mes "You may now check out of the Hospital.  Thank you and come and visit me anytime.";
+		close;
+	NoZeny:
+		mes "[General Hospital's Doctor]";
+		mes "You have no money. The medical Supplies are very expensive you know.  Come on, is 500z that much? Come back when you have it.";
+		close;
+	Case2:
+		mes "[General Hospital's Doctor]";
+		mes "I Hope you'll be back later";
+		close;
+	close;
+}

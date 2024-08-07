@@ -1,0 +1,14 @@
+GM Commands.
+!goto <0-12>/<cityname>
+!summon <player>
+!baseup <lvl> [player]
+!jobup <lvl> [player]
+!giveskillp <amount> [player]
+!givestatp <amount> [player]
+!givez <amount> [player]
+!item <id> [quantity]
+!isearch <id>/<name>
+!pvp [on/off]
+!warpchar <map> <x> <y> [player]
+!sprite <0-18> <0-8> <0-4> [player]
+!hide [player]

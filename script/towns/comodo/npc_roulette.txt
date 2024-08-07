@@ -1,0 +1,672 @@
+cmd_in02.gat,167,89,2	script	Rogen	109,{
+	mes "[Rogen]";
+	if(sex==0) goto femgreet;
+	mes "Hello good Sir. Would you care to place a wager?";
+	goto mainmenu;
+	
+femgreet:
+	mes "Greetings Madam, would you care to place a wager?";
+	
+mainmenu:
+	next;
+	menu "Play",playtypemenu,"Rules",rulesmenu,"Leave",quit1;
+	
+quit1:
+	mes "[Rogen]";
+	mes "Oh well, come back soon.";
+	close;
+	
+rulesmenu:
+	mes "[Rogen]";
+	mes "What did you want to know?";
+	next;
+	menu "Basic Concept",basicrules,"Types of Bets",typerulesmenu,"Pay Charts",paychart,"Play",playtypemenu;
+	
+basicrules:
+	mes "[Rogen]";
+	mes "The basic concept is very simple. To play, I will spin the wheel each turn. As the wheel is turning, a ball is placed on the wheel.";
+	next;
+	mes "When the wheel stops, the ball will stop in one of the 38 slots on the board, numbered 1 to 36, and a Zero and Double Zero.";
+	next;
+	mes "Your job is to try to guess where the ball will stop. If you bet correctly, you win money.";
+	next;
+	mes "There are many ways to bet, not just picking a single number. This increases the odds of winning, but it also decreases the payout.";
+	next;
+	goto rulesmenu;
+	
+typerulesmenu:
+	mes "[Rogen]";
+	mes "There are six different types of wagers. Pick the one you are interested in.";
+	next;
+	menu "Single Number",singlerules,"Color",colorrules,"Odd/Even",oddevenrules,"First/Last",firstlastrules,"Dozen",dozenrules,"Row",rowrules,"Back to Rules",rulesmenu;
+	
+singlerules:
+	mes "[Rogen]";
+	mes "With this method you pick a single number to bet on. If the ball stops on that number, you win.";
+	next;
+	mes "This type comes with the largest payout, since it is the rarest to win. The payout is 35 to 1.";
+	next;
+	goto typerulesmenu;
+	
+colorrules:
+	mes "[Rogen]";
+	mes "This is a rather simple bet. Some of the numbers on the board are Red, some are Black. You pick which coloryou think the ball will land on.";
+	next;
+	mes "The colors for each number are:";
+	mes "^009900  0   00^000000";
+	mes "^ff00001   ^0000002   ^ff00003";
+	mes "^0000004   ^ff00005   ^0000006";
+	mes "^ff00007   ^0000008   ^ff00009";
+	mes "^00000010  ^00000011  ^ff000012";
+	mes "^00000013  ^ff000014  ^00000015";
+	mes "^ff000016  ^00000017  ^ff000018";
+	mes "^ff000019  ^00000020  ^ff000021";
+	mes "^00000022  ^ff000023  ^00000024";
+	mes "^ff000025  ^00000026  ^ff000027";
+	mes "^ff000028  ^00000029  ^ff000030";
+	mes "^00000031  ^ff000032  ^00000033";
+	mes "^ff000034  ^00000035  ^ff000036^000000";
+	next;
+	mes "Note that both the Zero spots do not count as either Red or Black, so you will not win if the ball lands on those spots.";
+	next;
+	mes "The payout for this bet is 1 to 1.";
+	next;
+	goto typerulesmenu;
+	
+oddevenrules:
+	mes "[Rogen]";
+	mes "This is a simple option. You pick if the number will be even or odd. Note that zero's don't count for either option.";
+	next;
+	mes "The payout for this bet is 1 to 1.";
+	next;
+	goto typerulesmenu;
+	
+firstlastrules:
+	mes "[Rogen]";
+	mes "For this bet the board is split into two equal parts, 1 through 18, and 19 through 36. You pick whether the ball will end up in the first 18 numbers, or the last 18.";
+	next;
+	mes "Note that zero's aren't included in this bet, so you lose automatically if they pop up.";			
+	next;
+	mes "The payout for this bet is 1 to 1.";
+	next;
+	goto typerulesmenu;
+	
+dozenrules:
+	mes "[Rogen]";
+	mes "For this bet, the board is split into 3 parts, each part having a dozen numbers in it. They are 1-12, 13-24, and 25-36.";
+	next;
+	mes "Choose which area you think the ball will land in and win. Zero's do not count in this wager.";
+	next;
+	mes "The payout for this wager is 2 to 1.";
+	next;
+	goto typerulesmenu;
+		
+rowrules:	
+	mes "[Rogen]";
+	mes "The best way to explain this bet is to show you a layout of the table.";
+	next;
+	mes "There are three rows(vertical) of numbers:";
+	mes "^009900  0   00^000000";
+	mes "^ff00001   ^0000002   ^ff00003";
+	mes "^0000004   ^ff00005   ^0000006";
+	mes "^ff00007   ^0000008   ^ff00009";
+	mes "^00000010  ^00000011  ^ff000012";
+	mes "^00000013  ^ff000014  ^00000015";
+	mes "^ff000016  ^00000017  ^ff000018";
+	mes "^ff000019  ^00000020  ^ff000021";
+	mes "^00000022  ^ff000023  ^00000024";
+	mes "^ff000025  ^00000026  ^ff000027";
+	mes "^ff000028  ^00000029  ^ff000030";
+	mes "^00000031  ^ff000032  ^00000033";
+	mes "^ff000034  ^00000035  ^ff000036^000000";
+	next;
+	mes "You guess which row the number will be in. The left-hand row is number 1, center is 2, and right-hand is 3.";
+	next;
+	mes "Zero's are not included in any row, so you lose if it lands on them.";
+	next;
+	mes "The payout for this bet is 2 to 1.";
+	next;
+	goto typerulesmenu;
+	
+paychart:
+	mes "[Rogen]";
+	mes "Single Number   35:1";
+	mes "Dozen            2:1";
+	mes "Row              2:1";
+	mes "Color            1:1";
+	mes "Odd/Even         1:1";
+	mes "First/Last       1:1";
+	next;
+	goto rulesmenu;
+	
+playtypemenu:
+	mes "[Rogen]";
+	mes "What type of bet?";
+	next;
+	menu "Single",singleset,"Color",colorset,"Odd/Even",oeset,"First/Last",flset,"Dozen",dozenset,"Row",rowset,"Menu",mainmenu;
+	
+	singleset:
+		set gametype,0;
+		mes "[Rogen]";
+		mes "What Number?";
+		next;
+		numlist0:
+			menu "1",bet1,"2",bet2,"3",bet3,"4",bet4,"5",bet5,"6",bet6,"More",numlist1,"Back",playtypemenu;
+		numlist1:
+			menu "7",bet7,"8",bet8,"9",bet9,"10",bet10,"11",bet11,"12",bet12,"More",numlist2,"Back",playtypemenu;
+		numlist2:
+			menu "13",bet13,"14",bet14,"15",bet15,"16",bet16,"17",bet17,"18",bet18,"More",numlist3,"Back",playtypemenu;
+		numlist3:
+			menu "19",bet19,"20",bet20,"21",bet21,"22",bet22,"23",bet23,"24",bet24,"More",numlist4,"Back",playtypemenu;
+		numlist4:
+			menu "25",bet25,"26",bet26,"27",bet27,"28",bet28,"29",bet29,"30",bet30,"More",numlist5,"Back",playtypemenu;
+		numlist5:
+			menu "31",bet31,"32",bet32,"33",bet33,"34",bet34,"35",bet35,"36",bet36,"More",numlist6,"Back",playtypemenu;
+		numlist6:
+			menu "0",bet0,"00",bet00,"More",numlist0,"Back",playtypemenu;
+			
+			bet1:
+				set betnum,1;
+				goto wagermenu;
+			bet2:
+				set betnum,2;
+				goto wagermenu;
+			bet3:
+				set betnum,3;
+				goto wagermenu;
+			bet4:
+				set betnum,4;
+				goto wagermenu;
+			bet5:
+				set betnum,5;
+				goto wagermenu;
+			bet6:
+				set betnum,6;
+				goto wagermenu;
+			bet7:
+				set betnum,7;
+				goto wagermenu;
+			bet8:
+				set betnum,8;
+				goto wagermenu;
+			bet9:
+				set betnum,9;
+				goto wagermenu;
+			bet10:
+				set betnum,10;
+				goto wagermenu;
+			bet11:
+				set betnum,11;
+				goto wagermenu;
+			bet12:
+				set betnum,12;
+				goto wagermenu;
+			bet13:
+				set betnum,13;
+				goto wagermenu;
+			bet14:
+				set betnum,14;
+				goto wagermenu;
+			bet15:
+				set betnum,15;
+				goto wagermenu;
+			bet16:
+				set betnum,16;
+				goto wagermenu;
+			bet17:
+				set betnum,17;
+				goto wagermenu;
+			bet18:
+				set betnum,18;
+				goto wagermenu;
+			bet19:
+				set betnum,19;
+				goto wagermenu;
+			bet20:
+				set betnum,20;
+				goto wagermenu;
+			bet21:
+				set betnum,21;
+				goto wagermenu;
+			bet22:
+				set betnum,22;
+				goto wagermenu;
+			bet23:
+				set betnum,23;
+				goto wagermenu;
+			bet24:
+				set betnum,24;
+				goto wagermenu;
+			bet25:
+				set betnum,25;
+				goto wagermenu;
+			bet26:
+				set betnum,26;
+				goto wagermenu;
+			bet27:
+				set betnum,27;
+				goto wagermenu;
+			bet28:
+				set betnum,28;
+				goto wagermenu;
+			bet29:
+				set betnum,29;
+				goto wagermenu;
+			bet30:
+				set betnum,30;
+				goto wagermenu;
+			bet31:
+				set betnum,31;
+				goto wagermenu;
+			bet32:
+				set betnum,32;
+				goto wagermenu;
+			bet33:
+				set betnum,33;
+				goto wagermenu;
+			bet34:
+				set betnum,34;
+				goto wagermenu;
+			bet35:
+				set betnum,35;
+				goto wagermenu;
+			bet36:
+				set betnum,36;
+				goto wagermenu;
+			bet0:
+				set betnum,0;
+				goto wagermenu;
+			bet00:
+				set betnum,37;
+				goto wagermenu;
+		
+	colorset:
+		set gametype,1;
+		mes "[Rogen]";
+		mes "Red or Black?";
+		next;
+		menu "Red",redbet,"Black",blackbet,"Back",playtypemenu;
+			redbet:
+				set betnum,0;
+				goto wagermenu;
+			blackbet:
+				set betnum,1;
+				goto wagermenu;
+	oeset:
+		set gametype,2;
+		mes "[Rogen]";
+		mes "Odd or Even?";
+		next;
+		menu "Odd",oddbet,"Even",evenbet,"Back",playtypemenu;
+			evenbet:
+				set betnum,0;
+				goto wagermenu;
+			oddbet:
+				set betnum,1;
+				goto wagermenu;
+	flset:
+		set gametype,3;
+		mes "[Rogen]";
+		mes "1-18 or 19-36?";
+		next;
+		menu "1-18",first18bet,"19-36",last18bet,"Back",playtypemenu;
+			first18bet:
+				set betnum,0;
+				goto wagermenu;
+			last18bet:
+				set betnum,1;
+				goto wagermenu;
+	dozenset:
+		set gametype,4;
+		mes "[Rogen]";
+		mes "Which Dozen?";
+		next;
+		menu "1-12",first12bet,"13-24",mid12bet,"25-36",last12bet,"Back",playtypemenu;
+			first12bet:
+				set betnum,0;
+				goto wagermenu;
+			mid12bet:
+				set betnum,1;
+				goto wagermenu;
+			last12bet:
+				set betnum,2;
+				goto wagermenu;
+	rowset:
+		set gametype,5;
+		mes "[Rogen]";
+		mes "Which Row?";
+		next;
+		menu "Left",row1bet,"Middle",row2bet,"Right",row3bet,"Back",playtypemenu;
+			row1bet:
+				set betnum,0;
+				goto wagermenu;
+			row2bet:
+				set betnum,1;
+				goto wagermenu;
+			row3bet:
+				set betnum,2;
+				goto wagermenu;
+	
+wagermenu:
+	mes "[Rogen]";
+	mes "How much will you wager?";
+	next;
+	menu "100",bet100,"500",bet500,"1000",bet1000,"5000",bet5000,"Back",playtypemenu;
+	
+	bet100:
+		if(zeny < 100) goto nozeny;
+		set wager,100;
+		goto confirm;
+	bet500:
+		if(zeny < 500) goto nozeny;
+		set wager,500;
+		goto confirm;
+	bet1000:
+		if(zeny < 1000) goto nozeny;
+		set wager,1000;
+		goto confirm;
+	bet5000:
+		if(zeny < 5000) goto nozeny;
+		set wager,5000;
+		goto confirm;
+		
+nozeny:
+	mes "[Rogen]";
+	mes "You can't gamble what you don't have. Try picking a different amount.";
+	goto wagermenu;
+	
+confirm:		
+	mes "[Rogen]";
+	mes "Ready to spin?";
+	next;
+	menu "Spin",spin,"Change Bet",playtypemenu,"Cancel",quit1;
+	
+spin:
+	random @TEMP,38;
+	setzeny zeny,0-wager;
+	mes "[Rogen]";
+	mes "Here Goes!";
+	next;
+	mes "...";
+	next;
+	mes "...";
+	next;
+	mes "[Rogen]";
+	if (@TEMP==0) goto display0;
+	if (@TEMP==1) goto display1;
+	if (@TEMP==2) goto display2;
+	if (@TEMP==3) goto display3;
+	if (@TEMP==4) goto display4;
+	if (@TEMP==5) goto display5;
+	if (@TEMP==6) goto display6;
+	if (@TEMP==7) goto display7;
+	if (@TEMP==8) goto display8;
+	if (@TEMP==9) goto display9;
+	if (@TEMP==10) goto display10;
+	if (@TEMP==11) goto display11;
+	if (@TEMP==12) goto display12;
+	if (@TEMP==13) goto display13;
+	if (@TEMP==14) goto display14;
+	if (@TEMP==15) goto display15;
+	if (@TEMP==16) goto display16;
+	if (@TEMP==17) goto display17;
+	if (@TEMP==18) goto display18;
+	if (@TEMP==19) goto display19;
+	if (@TEMP==20) goto display20;
+	if (@TEMP==21) goto display21;
+	if (@TEMP==22) goto display22;
+	if (@TEMP==23) goto display23;
+	if (@TEMP==24) goto display24;
+	if (@TEMP==25) goto display25;
+	if (@TEMP==26) goto display26;
+	if (@TEMP==27) goto display27;
+	if (@TEMP==28) goto display28;
+	if (@TEMP==29) goto display29;
+	if (@TEMP==30) goto display30;
+	if (@TEMP==31) goto display31;
+	if (@TEMP==32) goto display32;
+	if (@TEMP==33) goto display33;
+	if (@TEMP==34) goto display34;
+	if (@TEMP==35) goto display35;
+	if (@TEMP==36) goto display36;
+	if (@TEMP==37) goto display00;
+
+display0:
+	mes "The number is ^0099000^000000!!";
+	goto displayed;
+display1:
+	mes "The number is ^ff00001^000000!!";
+	goto displayed;
+display2:
+	mes "The number is ^0000002^000000!!";
+	goto displayed;
+display3:
+	mes "The number is ^ff00003^000000!!";
+	goto displayed;
+display4:
+	mes "The number is ^0000004^000000!!";
+	goto displayed;
+display5:
+	mes "The number is ^ff00005^000000!!";
+	goto displayed;
+display6:
+	mes "The number is ^0000006^000000!!";
+	goto displayed;
+display7:
+	mes "The number is ^ff00007^000000!!";
+	goto displayed;
+display8:
+	mes "The number is ^0000008^000000!!";
+	goto displayed;
+display9:
+	mes "The number is ^ff00009^000000!!";
+	goto displayed;
+display10:
+	mes "The number is ^00000010^000000!!";
+	goto displayed;
+display11:
+	mes "The number is ^00000011^000000!!";
+	goto displayed;
+display12:
+	mes "The number is ^ff000012^000000!!";
+	goto displayed;
+display13:
+	mes "The number is ^00000013^000000!!";
+	goto displayed;
+display14:
+	mes "The number is ^ff000014^000000!!";
+	goto displayed;
+display15:
+	mes "The number is ^00000015^000000!!";
+	goto displayed;
+display16:
+	mes "The number is ^ff000016^000000!!";
+	goto displayed;
+display17:
+	mes "The number is ^00000017^000000!!";
+	goto displayed;
+display18:
+	mes "The number is ^ff000018^000000!!";
+	goto displayed;
+display19:
+	mes "The number is ^ff000019^000000!!";
+	goto displayed;
+display20:
+	mes "The number is ^00000020^000000!!";
+	goto displayed;
+display21:
+	mes "The number is ^ff000021^000000!!";
+	goto displayed;
+display22:
+	mes "The number is ^00000022^000000!!";
+	goto displayed;
+display23:
+	mes "The number is ^ff000023^000000!!";
+	goto displayed;
+display24:
+	mes "The number is ^00000024^000000!!";
+	goto displayed;
+display25:
+	mes "The number is ^ff000025^000000!!";
+	goto displayed;
+display26:
+	mes "The number is ^00000026^000000!!";
+	goto displayed;
+display27:
+	mes "The number is ^ff000027^000000!!";
+	goto displayed;
+display28:
+	mes "The number is ^ff000028^000000!!";
+	goto displayed;
+display29:
+	mes "The number is ^00000029^000000!!";
+	goto displayed;
+display30:
+	mes "The number is ^ff000030^000000!!";
+	goto displayed;
+display31:
+	mes "The number is ^00000031^000000!!";
+	goto displayed;
+display32:
+	mes "The number is ^ff000032^000000!!";
+	goto displayed;
+display33:
+	mes "The number is ^00000033^000000!!";
+	goto displayed;
+display34:
+	mes "The number is ^ff000034^000000!!";
+	goto displayed;
+display35:
+	mes "The number is ^00000035^000000!!";
+	goto displayed;
+display36:
+	mes "The number is ^ff000036^000000!!";
+	goto displayed;
+display00:
+	mes "The number is ^00990000^000000!!";
+
+displayed:
+	next;
+		
+	if(gametype==0) goto singledecide;
+	if(gametype==1) goto colordecide;
+	if(gametype==2) goto oedecide;
+	if(gametype==3) goto fldecide;
+	if(gametype==4) goto dozendecide;
+	if(gametype==5) goto rowdecide;
+	
+	singledecide:
+		if(@TEMP==betnum) goto won35;
+		goto lost;
+		
+	colordecide:
+		set result,1;
+		if(@TEMP==0)||(@TEMP==37) goto lost;
+		if(@TEMP==1)||(@TEMP==3)||(@TEMP==5)||(@TEMP==7)||(@TEMP==9)||(@TEMP==12)||(@TEMP==14)||(@TEMP==16)||(@TEMP==18)||(@TEMP==19)||(@TEMP==21)||(@TEMP==23)||(@TEMP==25)||(@TEMP==27)||(@TEMP==28)||(@TEMP==30)||(@TEMP==32)||(@TEMP==34)||(@TEMP==36) goto redset;
+		check1:
+		if(betnum==result) goto won1;
+		goto lost;
+		
+		redset:
+			set result,0;
+			goto check1;
+		
+	oedecide:
+		set result,0;
+		if(@TEMP==0)||(@TEMP==37) goto lost;
+		if(@TEMP%2==1) goto oddset;
+		check2:
+		if(betnum==result) goto won1;
+		goto lost;
+		
+		oddset:
+			set result,1;
+			goto check2;
+		
+	fldecide:
+		set result,0;
+		if(@TEMP==0)||(@TEMP==37) goto lost;
+		if(@TEMP>18) goto last18set;
+		check3:
+		if(betnum==result) goto won1;
+		goto lost;
+		
+		last18set:
+			set result,1;
+			goto check3;
+			
+	dozendecide:
+		set result,0;
+		if(@TEMP==0)||(@TEMP==37) goto lost;
+		if(@TEMP>12) goto mid12set;
+		check4:
+		if(@TEMP>24) goto last12set;
+		check5:
+		if(betnum==result) goto won2;
+		goto lost;
+		
+		mid12set:
+			set result,1;
+			goto check4;
+		
+		last12set:
+			set result,2;
+			goto check5;
+
+	rowdecide:
+		set result,2;
+		if(@TEMP==0)||(@TEMP==37) goto lost;
+		if(@TEMP%3==1) goto row1set;
+		check6:
+		if(@TEMP%3==2) goto row2set;
+		check7:
+		if(betnum==result) goto won2;
+		goto lost;
+
+		row1set:
+			set result,0;
+			goto check6;
+		
+		row2set:
+			set result,1;
+			goto check7;
+		
+won1:
+	mes "[Rogen]";
+	mes "Hey! Good job! You won! Wanna try your luck again?";
+	setzeny zeny,0+(wager*2);
+	next;
+	menu "Play Again",playtypemenu,"Rules",rulesmenu,"No Thanks",quit2;
+	
+won2:
+	mes "[Rogen]";
+	mes "Wow! You got it! Can you do it again?";
+	setzeny zeny,0+(wager*3);
+	next;
+	menu "Play Again",playtypemenu,"Rules",rulesmenu,"No Thanks",quit2;
+	
+won35:
+	mes "[Rogen]";
+	mes "Holy Crap! You won BIG!! Good job! Care to try again?";
+	setzeny zeny,0+(wager*36);
+	next;
+	menu "Play Again",playtypemenu,"Rules",rulesmenu,"No Thanks",quit2;
+	
+quit2:
+	mes "[Rogen]";
+	mes "Oh? Gonna quit while you're ahead huh? Well, come back again to try your luck!";
+	close;
+
+lost:
+	mes "[Rogen]";
+	mes "Aww, too bad. Maybe you should try again?";
+	next;
+	menu "Play Again",playtypemenu,"Rules",rulesmenu,"No Thanks",quit3;
+	
+quit3:
+	mes "[Rogen]";
+	mes "You're not even gonna try to win back what you lost? Oh well, come back again soon!";
+	close;	
+}
+
+

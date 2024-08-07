@@ -1,0 +1,626 @@
+in_moc_16.gat,19,157,4	script	Aladin	118,{
+	mes "[Assassin Aladin]";
+	mes "There is nothing special for an Assassin..";
+	next;
+	mes "[Assassin Aladin]";
+	mes "You just hide.. wait for the right time... slash the target ...that's all.";
+	next;
+	mes "[Assassin Aladin]";
+	mes "The Best Assassin knows the right time to Murder.  Remember that if you want to be an expert.";
+	close;
+}
+
+in_moc_16.gat,14,83,4	script	Mohamed	118,{
+	mes "[Assassin Mohamed]";
+	mes "What the Heck!!!!!! My apples are gone!!!! I kept them in my pocket last night~!";
+	next;
+	mes "[Assassin Mohamed]";
+	mes "You didn't take them... did you?!.....Well I hope not.....";
+	next;
+	mes "[Assassin Mohamed]";
+	mes "How dare anyone do such a thing like stealing an Assassin's apples in his pocket!! What a man with plenty of guts!";
+	next;
+	mes "[Assassin Mohamed]";
+	mes ".....Hmmm...He seems like an expert...I wonder who the dude is..";
+	close;
+}
+
+in_moc_16.gat,183,110,4	script	Benahdin	118,{
+	mes "[Assassin Benahdin]";
+	mes "*Crunch Crunch*";
+	next;
+	mes "[Assassin Benahdin]";
+	mes "Err ...You mean this apple I am crunching now?? Hehehe .. This is part of Assassin Training...kind of Cool.";
+	next;
+	mes "[Assassin Benahdin]";
+	mes "Hiding and Cloaking, You should try these ones. If you not, you should be sorry.";
+	close;
+}
+
+moc_fild16.gat,199,212,4	script	Uncle Assassin	48,{
+	mes "[Hashisid]";
+	mes ".....To assassins, it is important not to meet targets in the eye. If the target is quick-witted, he will suspects you by the expression in your eyes.";
+	next;
+	menu "Notion of Assassin",L0,"Quit Conversation",LEnd;
+	L0:
+		mes "[Hashisid]";
+		mes "Let me chatter you about the dictionary notion of Assassin!!";
+		next;
+		mes "[Hashisid]";
+		mes "Assassin means. Infiltrator.. Murderer .. and someone who defames reputation of other people.";
+		next;
+		mes "[Hashisid]";
+		mes "However we assassin clan don't harm innocent people with nothing.";
+		next;
+		mes "[Hashisid]";
+		mes "Our main mission is assassinating evil creatures or gathering fact of them";
+		close;
+	LEnd:
+		mes "[Hashisid]";
+		mes "Once upon a time, our ancestors took their duties after smoking Hashisid the narcotic tobacco.";
+		next;
+		mes "[Hashisid]";
+		mes "But now our clan prohibit to smoke Hashisid because insect or animal monsters are very sensitive on the smell,";
+		next;
+		mes "[Hashisid]";
+		mes "so they can easily recognize our presence near them.";
+		next;
+		mes "[Hashisid]";
+		mes "Keep away from smelly food such as Garlic Bread before you go hunting.";
+		next;
+		mes "[Hashisid]";
+		mes "Otherwise you will be immediately ripped by Wild Boards or Wolves.";
+		close;
+}
+
+morocc_in.gat,112,122,2	script	Grampa	61,{
+	mes "[Old Scholar]";
+	mes "I've devoted my Life to the Pyramid Research. Nothing revealed yet, but I assure that biggest Pyramid holds within the Tomb of Ancient King";
+	next;
+	mes "[Old Scholar]";
+	mes "Osiris, The Greatest King of History would sleep the eternal sleep deep inside the Pyramid. If my eyes are working right...";
+	close;
+}
+
+morocc_in.gat,146,99,2	script	JavaDullihan	58,{
+	mes "[Dyer Maker JavaDullihan]";
+	mes "Oh... What a Beautiful day today. This is a day for making dyestuffs";
+	next;
+	menu "Talk",Talk,"Make Dyestuffs",MakeDyestuffs,"Cancel",Cancel;
+	Talk:
+		mes "[Dyer Maker JavaDullihan]";
+		mes "I don't have much to say...but will you listen?";
+		next;
+		menu "Listen",Listen,"Reject",Reject;
+		Listen:
+			mes "[Dyer Maker JavaDullihan]";
+			mes "My father has been making dyestuffs since I was young.....";
+			next;
+			mes "[Dyer Maker JavaDullihan]";
+			mes "I still have a memories of my father making dyestuffs all the time";
+			next;
+			mes "[Dyer Maker JavaDullihan]";
+			mes "He was working even at the moment my mother passed away of disease.";
+			next;
+			mes "[Dyer Maker JavaDullihan]";
+			mes "For that time, I was terribly disappointed at him...";
+			next;
+			mes "[Dyer Maker JavaDullihan]";
+			mes "I hated and couldn't understand him...eventually I didn't want to be a Dye Maker... So I got out of his place and did a lot of things to make a living.";
+			next;
+			mes "[Dyer Maker JavaDullihan]";
+			mes "However... as you see after all I became a Dye Maker following my father. Making Dyestuffs... Like Father Like Son... Now it's been 15 years since I started to make these goddamn things...";
+			next;
+			mes "[Dyer Maker JavaDullihan]";
+			mes "I can understand why my father fell in love with his job.";
+			next;
+			mes "[Dyer Maker JavaDullihan]";
+			mes "Why he sacrificed himself for the job...";
+			next;
+			mes "[Dyer Maker JavaDullihan]";
+			mes "Maybe it was for the Color getting beautiful time after time... He would want to find his own color of dream...";
+			next;
+			mes "[Dyer Maker JavaDullihan]";
+			mes "I could feel his eager for the colors... because... Now I am doing the same as he did. Since few years earlier... I have been able to hear the Colors from inside. You will see. I will make it for my father.";
+			close;
+		Reject:
+			mes "[Dyer Maker JavaDullihan]";
+			mes "Hahahaha... Well... indeed. Who wanted to hear a simple Dyer Maker Saying. Hahahaha...";
+			close;
+	MakeDyestuffs:
+		mes "[Dyer Maker JavaDullihan]";
+		mes "Fine! I will make the exact color you want.";
+		next;
+		mes "[Dyer Maker JavaDullihan]";
+		mes "So which color do you want? Dyestuffs will cost you at a different fee following its quality.";
+		next;
+		mes "[Dyer Maker JavaDullihan]";
+		mes "Because there are 2 types of dyestuffs. One can be found find anywhere easily but the other one is not. Maybe you won't be able to see even one in your entire life.";
+		next;
+		mes "[Dyer Maker JavaDullihan]";
+		mes "Don't think I cost you too much. All of them are my Masterpieces.";
+		next;
+		menu "Scarlet Dyestuffs",Scarlet,"Lemon Dyestuffs",Lemon,"Cobaltblue Dyestuffs",Cobaltblue,"Darkgreen Dyestuffs",Darkgreen,"Orange Dyestuffs",Orange,"Violet Dyestuffs",Violet,"White Dyestuffs",White,"Black Dyestuffs",Black;
+		Scarlet:
+			mes "[Dyer Maker JavaDullihan]";
+			mes "Hmm... To make a Scarlet Dyestuffs, I need 30 Red Herb and 1 Counteragent and 1 Empty Bottle. I set the fee only 3000 Zeny.";
+			next;
+			mes "[Dyer Maker JavaDullihan]";
+			mes "Ok are you ready?";
+			next;
+			menu "Make Dyestuffs",MDScarlet,"Cancel",MDScarletCancel;
+			MDScarlet:
+				mes "[Dyer Maker JavaDullihan]";
+				if((countitem(507) < 30) || (countitem(973) < 1) || (countitem(713) < 1) || (Zeny < 3000)) goto CantMakeDyestuffs;
+				mes "*swish swish*";
+				delitem 507,30;
+				delitem 973,1;
+				delitem 713,1;
+				setzeny Zeny,0 - 3000;
+				getitem 975,1;
+				close;
+			MDScarletCancel:
+				goto MakeDyestuffsMDCancel;
+				close;
+		Lemon:
+			mes "[Dyer Maker JavaDullihan]";
+			mes "Um... to make a Lemon Dyestuffs I need 30 Yellow Herb, 1 Counteragent and 1 Empty Bottle.";
+			next;
+			mes "[Dyer Maker JavaDullihan]";
+			mes "I set the fee only 3000 Zeny. Ok are you ready?";
+			next;
+			menu "Make Dyestuffs",MDLemon,"Cancel",MDLemonCancel;
+			MDLemon:
+				mes "[Dyer Maker JavaDullihan]";
+				if((countitem(508) < 30) || (countitem(973) < 1) || (countitem(713) < 1) || (Zeny < 3000)) goto CantMakeDyestuffs;
+				mes "*swish swish*";
+				delitem 508,30;
+				delitem 973,1;
+				delitem 713,1;
+				setzeny Zeny,0 - 3000;
+				getitem 976,1;
+				close;
+			MDLemonCancel:
+				goto MakeDyestuffsMDCancel;
+				close;
+		Cobaltblue:
+			mes "[Dyer Maker JavaDullihan]";
+			mes "Hmm... To make a Cobaltblue Dyestuffs, I need 20 Blue Herb, 1 Counteragent and 1 Empty Bottle.";
+			next;
+			mes "[Dyer Maker JavaDullihan]";
+			mes "Blue Herb is a little bit difficult to handle, so I set the fee 3500 Zeny for that. Ok are you ready?";
+			next;
+			menu "Make Dyestuffs",MDCobaltblue,"Cancel",MDCobaltblueCancel;
+			
+			MDCobaltblue:
+				mes "[Dyer Maker JavaDullihan]";
+				if((countitem(510) < 20) || (countitem(973) < 1) || (countitem(713) < 1) || (Zeny < 3500)) goto CantMakeDyestuffs;
+				mes "*swish swish*";
+				delitem 510,20;
+				delitem 973,1;
+				delitem 713,1;
+				setzeny Zeny,0 - 3500;
+				getitem 978,1;
+				close;
+			MDCobaltblueCancel:
+				goto MakeDyestuffsMDCancel;
+				close;
+		Darkgreen:
+			mes "[Dyer Maker JavaDullihan]";
+			mes "Hmm... To make a Darkgreen Dyestuffs, I need 5 Blue Herb, 20 Green Herb, 20 Yellow Herb, 1 Counteragent, 1 Mixture and 1 Empty Bottle.";
+			next;
+			mes "[Dyer Maker JavaDullihan]";
+			mes "Please remember all preparation items... gosh thye are too many... I set the fee 5000 Zeny. Ok are you ready?";
+			next;
+			menu "Make Dyestuffs",MDDarkgreen,"Cancel",MDDarkgreenCancel;
+			MDDarkgreen:
+				mes "[Dyer Maker JavaDullihan]";
+				if((countitem(510) < 5) || (countitem(511) < 20) || (countitem(508) < 20) || (countitem(973) < 1) || (countitem(974) < 1) || (countitem(713)<1) || (Zeny < 5000)) goto CantMakeDyestuffs;
+				mes "*swish swish*";
+				delitem 510,5;
+				delitem 511,20;
+				delitem 508,20;
+				delitem 973,1;
+				delitem 977,1;
+				delitem 713,1;
+				setzeny Zeny,0 - 5000;
+				getitem 979,1;
+				close;
+			MDDarkgreenCancel:
+				goto MakeDyestuffsMDCancel;
+				close;
+		Orange:
+			mes "[Dyer Maker JavaDullihan]";
+			mes "Hmm... To make a Orange Dyestuffs, I need 20 Red Herb, 20 Yellow Herb, 1 Counteragent, 1 Mixture and 1 Empty Bottle."; 
+			next;
+			mes "[Dyer Maker JavaDullihan]";
+			mes "I set the fee only 5000 Zeny. Ok are you ready?";
+			next;
+			menu "Make Dyestuffs",MDOrange,"Cancel",MDOrangeCancel;
+			MDOrange:
+				mes "[Dyer Maker JavaDullihan]";
+				if((countitem(507) < 20) || (countitem(508) < 20) || (countitem(973) < 1) || (countitem(977) < 1) || (countitem(713) < 1) || (Zeny < 5000)) goto CantMakeDyestuffs;
+				mes "*swish swish*";
+				delitem 507,20;
+				delitem 508,20;
+				delitem 973,1;
+				delitem 977,1;
+				delitem 713,1;
+				setzeny Zeny,0 - 5000;
+				getitem 980,1;
+				close;
+			MDOrangeCancel:
+				goto MakeDyestuffsMDCancel;
+				close;
+		Violet:
+			mes "[Dyer Maker JavaDullihan]";
+			mes "Hmm... To make a Violet Dyestuffs, I need 10 Blue Herb, 30 Red Herb, 1 Counteragent, 1 Mixture and 1 Empty Bottle.";
+			next;
+			mes "[Dyer Maker JavaDullihan]";
+			mes "I set the fee only 5000 Zeny. Ok are you ready?";
+			next;
+			menu "Make Dyestuffs",MDViolet,"Cancel",MDVioletCancel;
+			MDViolet:
+				mes "[Dyer Maker JavaDullihan]";
+				if((countitem(510) < 10) || (countitem(507) < 20) || (countitem(973) < 1) || (countitem(974) < 1) || (countitem(713) < 1) || (Zeny < 5000)) goto CantMakeDyestuffs;
+				mes "*swish swish*";
+				delitem 510,10;
+				delitem 507,20;
+				delitem 973,1;
+				delitem 974,1;
+				delitem 713,1;
+				setzeny Zeny,0 - 5000;
+				getitem 981,1;
+				close;
+			MDVoiletCancel:
+				goto MakeDyestuffsMDCancel;
+				close;
+		White:
+			mes "[Dyer Maker JavaDullihan]";
+			mes "Umm... To make a White Dyestuffs, I need 30 White Herb and 1 Counteragent and 1 Empty Bottle.";
+			next;
+			mes "[Dyer Maker JavaDullihan]";
+			mes "I set the fee only 3000 Zeny. Ok are you ready?";
+			next;
+			menu "Make Dyestuffs",MDWhite,"Cancel",MDWhiteCancel;
+			MDWhite:
+				mes "[Dyer Maker JavaDullihan]";
+				if((countitem(509) < 30) || (countitem(973) < 1) || (countitem(713) < 1) || (Zeny < 3000)) goto CantMakeDyestuffs;
+				mes "*swish swish*";
+				delitem 509,30;
+				delitem 973,1;
+				delitem 713,1;
+				setzeny Zeny,0 - 3000;
+				getitem 982,1;
+				close;
+			MDWhiteCancel:
+				goto MakeDyestuffsMDCancel;
+				close;
+		Black:
+			mes "[Dyer Maker JavaDullihan]";
+			mes "Hmm... To make a Black Dyestuffs, I need Red, Yellow, Green Herb as 30 by each kind, 5 Blue Herb, 1 Counteragent, 1 Mixture and 1 Empty Bottle.";
+			next;
+			mes "[Dyer Maker JavaDullihan]";
+			mes "This one takes quite a long time to make with difficulty, I have to set the fee 7000 Zeny for compensation. Ok are you ready?";
+			next;
+			menu "Make Dyestuffs",MDBlack,"Cancel",MDBlackCancel;
+			MDBlack:
+				mes "[Dyer Maker JavaDullihan]";
+				if((countitem(507) < 30) || (countitem(508) < 30) || (countitem(511) < 30) || (countitem(510) < 5) || (countitem(973) < 1) || (countitem(974) < 1) || (countitem(713)<1) || (Zeny < 7000)) goto CantMakeDyestuffs;
+				mes "*swish swish*";
+				delitem 507,30;
+				delitem 508,30;
+				delitem 511,30;
+				delitem 510,5;
+				delitem 973,1;
+				delitem 974,1;
+				delitem 713,1;
+				setzeny Zeny,0 - 7000;
+				getitem 983,1;
+				close;
+			MDBlackCancel:
+				goto MakeDyestuffsMDCancel;
+				close;
+				CantMakeDyestuffs:
+					mes "[Dyer Maker JavaDullihan]";
+					mes "Hmm... not enough... not enough...I don't think I can make the right one for you with them. Why don't you go outside and get more itmes?";
+					close;
+				MakeDyestuffsMDCancel:
+					mes "[Dyer Maker JavaDullihan]";
+					mes "Oh my god, What did you say? How could you have change your mind so quickly... oh boy...";
+					close;
+	Cancel:
+		close;
+}
+
+morocc.gat,44,180,8	script	Towner	89,{
+	mes "[Drunk Man]";
+	mes "Heh Heh... Hiccups! Oh, Are you new here? Nice to meet ya, Buddy! So how's your trip?";
+	next;
+	mes "[Drunk Man]";
+	mes "This was predestined that you and I meet this time, I will tell you what, Hiccups. It is I just heard from the Pub, you know...?";
+	next;
+	mes "[Drunk Man]";
+	mes "There is a Dagger Bringing a Great Luck to its Owner by hearsay. The well-know Thief in this Rune-Midgard possesses this Dagger, and never been caught";
+	next;
+	mes "[Drunk Man]";
+	mes "Arrrgh... I wish I could have that one... but Only in My Dreams.";
+	next;
+	mes "[Drunk Man]";
+	mes "How about you? Why don't you look for it? It is not a Big Deal to Whom like you, the Brave man? Giggle Giggle~ and I offered you a Big Tip, you would have to buy me a drink later if you searched that Sword, Promise me, Alright!";
+	mes "Hiccups!";
+	close;
+}
+
+morocc.gat,68,260,8	script	Towner	99,{
+	mes "[Towner]";
+	mes "Those Giant, Triangular Buildings at the Corner of Morroc Town are called as Pyramids... They have been there for thousands and thousands of years.";
+	next;
+	mes "[Towner]";
+	mes "Nobody knows when and why they were built or who built them. But all we know for sure is there are tons of Horrendous Monsters inside Pyramids.";
+	next;
+	mes "[Towner]";
+	mes "I think you better stay away from them.";
+	next;
+	mes "[Towner]";
+	mes "Monsters in Pyramid Love to Feed on Strangers. Giggle Giggle...";
+	close;
+}
+
+morocc.gat,76,75,4	script	Ant Man	47,{
+	mes "[Akira]";
+	mes "When you walk through the desert about one map toward north ...and 3 maps toward east for the next...you will see an entrance of";
+	next;
+	menu "'Anthell ?'",Anthell,"Ants?",Ants,"End conversation",End;
+	Anthell:
+		mes "[Akira]";
+		mes "When you head east from Morroc town, you will see a bridge connected to Payon Forrest.";
+		next;
+		mes "[Akira]";
+		mes "Map right before of bridge, when you go up straight, there is Anthell.";
+		close;
+	Ants:
+		mes "[Akira]";
+		mes "The hell swarms with innumerable giant ants, you will notice that those ants have different names which classify their level. Their names are Andre. Pierre. Deniro in order of their priority.";
+		next;
+		mes "[Akira]";
+		mes "Keep in mind their names, if you want to find right ants for your level.";
+		next;
+		mes "[Akira]";
+		mes "Oh and they are greedy for items just like porings, be careful.";
+		close;
+	End:
+		mes "[Akira]";
+		mes "Not only ants live in 'Anthell', but Giearth the grandpa earth fairy does.";
+		next;
+		mes "[Akira]";
+		mes "Of course ants are dangerous, because of their sharp teeth and jaws, that grandpa's shovel is really annoying. You'd better be careful with him.";
+		close;
+}
+
+morocc.gat,79,111,2	script	Picky Lady	700,{
+	mes "[Syvia]";
+	mes "All around the Rune-Midgard, you can see lost of cute monsters such as spore which lolls tongue when dead...";
+	next;
+	mes "[Syvia]";
+	mes "Or picky the desert chick wearing an egg shell on the head and jumping around in Morroc Desert..!";
+	next;
+	mes "[Syvia]";
+	mes "However you cant deny that Poring is the most popular monster.";
+	next;
+	menu "Angeling?",Angeling,"Ghostring?",Ghostring,"Quit Conversation",Quit;
+	Angeling:
+		mes "[Syvia]";
+		mes "2 rare porings living near Prontera are now getting popular. One of them is Angeling ! And the other is Ghostring";
+		next;
+		mes "[Syvia]";
+		mes "Angeling is a poring with angel wings, and is rarely seen among mass porings living in the field Southern Prontera";
+		next;
+		mes "[Syvia]";
+		mes "That guy is a high leveled monster of Holy property, so it withstands most of magic skills except magic skills or attack of neutral & shadow property.";
+		next;
+		mes "[Syvia]";
+		mes "Don't you think I know lots of things about porings? Frankly I fell in love with porings. =P";
+		close;
+	Ghostring:
+		mes "[Syvia]";
+		mes "2 rare porings living near Prontera are now getting popular. One of them is Angeling! And another on is Ghostring !";
+		next;
+		mes "[Syvia]";
+		mes "Ghostring is an evil ghost poring, and rarely seen among mass poring living in the field of southern Prontera.";
+		next;
+		mes "[Syvia]";
+		mes "That guy is a high-leveled monster of ghost property, so it withstands physical attacks.";
+		next;
+		mes "[Syvia]";
+		mes "That is you can do damage on it only through magic or other property caused from weapons.";
+		next;
+		mes "[Syvia]";
+		mes "Don't you think I know lots of things about porings? Frankly I fell in love with porings. =P";
+		close;
+	Quit:
+		mes "[Syvia]";
+		mes "OMG! You shrug me off?";
+		next;
+		mes "[Syvia]";
+		mes "I am proud of myself that I've studied lots of things about porings!!";
+		next;
+		mes "[Syvia]";
+		mes "If you want to know things about porings you can count on me!";
+		close;
+}
+
+morocc.gat,121,109,4	script	Roberto	88,{
+	mes "[Roberto]";
+	mes "Eh... First time seeing an archer or something?";
+	next;
+	mes "[Roberto]";
+	mes "Just go where you are going. I only talk to high level archers.";
+	next;
+	mes "[Roberto]";
+	mes "Won't open my mouth otherwise!";
+	close;
+}
+
+morocc.gat,123,58,4	script	Assassin Boy	118,{
+	mes "[Slayer Kid]";
+	mes "Expert of man-to-man fight, who becomes generally known to polish off enemies neatly and tidily. That is Assassin!!";
+	next;
+	mes "[Slayer Kid]";
+	menu "?????",What,"Where can I find the assassin clan?",Where,"Ende conversation",End;
+	What:
+		mes "[Slayer Kid]";
+		mes "People say Assassins practice to assassinate targets without trace, It's been 3 months since I left home to search around for the Assassin clan...Where can I reach them!!!!!!!!!!";
+		close;
+	Where:
+		mes "[Slayer Kid]";
+		mes "Well you know...I don't think it exists in the real world...";
+		next;
+		mes "[Slayer Kid]";
+		mes "People say when you walk down the dessert from this town toward 2 maps on the east, 2 maps on the south for the next, ";
+		next;
+		mes "[Slayer Kid]";
+		mes "If you are acknowledged by Assassin Cross the clan master, you will be qualified as an Assassin.";
+		next;
+		mes "[Slayer Kid]";
+		mes "Assassin Cross is an high emblem given to the best assassin of assassins!";
+		next;
+		mes "[Slayer Kid]";
+		mes "In case of poor thief, it will be almost impossible to meet the Assassin Cross...";
+		close;
+	End:
+		close;
+}
+
+morocc.gat,150,50,8	script	Towner	99,{
+	mes "[Lapidary]";
+	mes "Queen of the Jewelry is the Diamond. Nobody could deny its Beautiful and Lucid appearance when Look at once. So it Costs A lot money to purchase...";
+	next;
+	mes "[Lapidary]";
+	mes "Many Factors increase its Value, but the most important thing is the Size.";
+	next;
+	mes "[Lapidary]";
+	mes "Hmm... Besides its Crystallization should be perfect, not cracked or chipped if you want to make a fortune with a Diamond.";
+	close;
+}
+
+morocc.gat,180,155,4	script	Uncle in a glow	49,{
+	mes "[Dmitrii]";
+	mes "Because of the average temperature of Morroc region which is the highest in Rune-Midgard Kingdom. You will be burned on the ass if you recklessly sit down in the middle of desert.";
+	next;
+	menu "About the sand of Desert",AboutSand,"About the remedy for Fatigue",AboutFatigue,"End conversation",End;
+	AboutSand:
+		mes "[Dmitrii]";
+		mes ".....Well, it is supposed to be hot!!! But it's not !";
+		next;
+		mes "[Dmitrii]";
+		mes "Because the sand of Morroc desert doesn't conduct heat as much as it's supposed to do, it just feels warm when sit down on it for rest";
+		next;
+		mes "[Dmitrii]";
+		mes "So everybody is able to recover HP and SP in the middle of desert without suffering from heat.";
+		close;
+	AboutFatigue:
+		mes "[Dmitrii]";
+		mes "Remedy of Fatigue! Dreams for all potions! Especially Red Potions are popular in steady due to its affordable price and light weight, even though it only recovers small amount of HP.";
+		next;
+		mes "[Dmitrii]";
+		mes "Splash!!! Jump into the Oasis near Pyramids, and gulp up a potion~How does this sound ?";
+		close;
+	End:
+		mes "[Dmitrii]";
+		mes "Sometimes 'Milk' come out of 'PecoPeco's Egg'. I am wondering how come the cow milk comes out of bird eggs...";
+		next;
+		mes "[Dmitrii]";
+		mes "Meanwhile 'Milk' from eggs... doesn't it sound reasonable???";
+		close;
+}
+
+morocc.gat,208,85,7	script	Towner	83,{
+	mes "[Towner]";
+	mes "My Job is Trade Business, I keep coming and going between Morroc and Prontera due to my job.";
+	next;
+	mes "[Towner]";
+	mes "I can't even count how many times I've been across the Hot, Dry desert.";
+	next;
+	mes "[Towner]";
+	mes "One day, on the Desert I was so thirsty so I caught a Cactus to get some water out of it.";
+	next;
+	mes "[Towner]";
+	mes "Oh man, All of a Sudden, That Cactus turned out to be a Creature and started to shoot Needles toward me. It was the Worst Experience of My Entire Life.";
+	next;
+	mes "[Towner]";
+	mes "And I figured out later it is not a Normal Cactus but Muka the Monster...";
+	close;
+}
+
+morocc.gat,234,273,3	script	Fly Man	54,{
+	mes "[Armani]";
+	mes "I saw it I saw it! There is a particular fly existing at the north of this town!!!! That dude's name is Dragon Fly the King of Desert Flies!!!!!!!";
+	next;
+	menu "What... Dragon Fly?!",What,"So what?",SoWhat;
+	What:
+		mes "[Armani]";
+		mes "It is the boss of desert flies, It is much strong than other ordinary flies...";
+		next;
+		mes "[Armani]";
+		mes "Even though it happens by low chance, that dude drops 'Clip' one of rare items.  'Clip' is one and only accessory which contains a slot within,";
+		next;
+		mes "[Armani]";
+		mes "You can insert card into the item. It seems everybody dreams of Clip nowadays.";
+		next;
+		mes "[Armani]";
+		mes "So why don't you challenge?";
+		close;
+	SoWhat:
+		mes "[Armani]";
+		mes "Blah... Do you ignore Dragon Fly just because it's a kind of flies?";
+		next;
+		mes "[Armani]";
+		mes "Oh well if you get a chance to fight with, you will be much sorry than you expect. It is fly of flies!!!!";
+		next;
+		mes "[Armani]";
+		mes "Keep in mind that name, ' Dragon Fly '-";
+		close;
+}
+
+morocc.gat,277,213,4	script	Uncle Morroc	48,{
+	mes "[Phlanette]";
+	mes "Morroc is highly dry region surrounded by desert. There is no place which is not hot and dry comparing to Morroc in the world.";
+	next;
+	menu "Desert Story",DesertStory,"Quit Coversation",Quit;
+	DesertStory:
+		mes "[Phlanette]";
+		mes "Let me explain about the desert.";
+		next;
+		mes "[Phlanette]";
+		mes "Desert is bare of vegetation, due to low rainfall and high evaporation at the same time.";
+		next;
+		mes "[Phlanette]";
+		mes "But no matter how it's dry Though plants can survive and grow up in the desert.";
+		next;
+		mes "[Phlanette]";
+		mes "Unfortunately some of those plants growing up around Morroc Desert have been mutated into monsters, 'Muka' the cactus represents those desert monsters.";
+		close;
+	Quit:
+		mes "[Phlanette]";
+		mes "Sands everywhere!!!! *Sigh*Now I am sick and tired of sands and desert...";
+		next;
+		mes "[Phlanette]";
+		mes "Morroc!!!! I hate you -";
+		close;
+}
+
+morocc.gat,281,178,8	script	Cetsu	97,{
+	mes "[Cetsu]";
+	mes "People talk of a sword made out of ogre tooth, which is rumored to be much stronger than steel. This sword has come to be know as Grimtooth.";
+	next;
+	mes "[Cetsu]";
+	mes "A sword made of ogre tooth, however, cannot become the Grimtooth by more hardening and sharpening.";
+	next;
+	mes "[Cetsu]";
+	mes "The sword must be enchanted with special magic to attain its full potential. Unfortunately, only one blacksmith, who once lived in Prontera, knows how to do this.";
+	next;
+	mes "[Cetsu]";
+	mes "He left Prontera long ago and has not been seen since...";
+	close;
+}

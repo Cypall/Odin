@@ -1,0 +1,48 @@
+// $Id: npc_blacksmith.txt,v 1.1 2003/12/01 22:51:04 MivaBe Exp $
+//<--------------- Blacksmith Job Quest [Update: Oct. 06, 2003] --------------->\\
+geffen_in.gat,110,170,5	script	Blacksmith Guildsman	63,{
+	mes "[Blacksmith Guildsman]";
+	mes "Welcome to the Blacksmith Guild.";
+	next;
+	menu "Change a Job into a Blacksmith.",M0,"The Requirements.",M1,"Quit.",MEnd;
+
+	M0:
+		mes "[Blacksmith Guildsman]";
+		if(GetJob == Job_Blacksmith) goto JobBla;
+		if(GetJob != Job_Merchant) goto NotMer;
+		if(JobLevel < 40) goto NotLvl;
+		mes "Now you become a Blacksmith.";
+		if(Skillpoint != 0) goto SkPointN0;
+		Release_All;
+		JobChange Job_Blacksmith;
+		SkPointN0:
+		close;
+
+		NotLvl:
+			mes "You must be at least Job Level 40 before everything.";
+			close;
+		NotMer:
+			if(GetJob == Job_Novice) goto JobNov;
+			mes "Other jobs except 'Merchant' are not permitted to be Blacksmiths.";
+			close;
+
+			JobNov:
+				mes "Be a `Merchant' First.";
+				close;
+		JobBla:
+			mes "You're already a Blacksmith.";
+			close;
+	M1:
+		mes "[Blacksmith Guildsman]";
+		mes "Actually Rune-Midgard is an Underdevelopment Country in the Metal Industry! That's why the Govenment encourage people to join us,Blachsmiths more and more.";
+		mes "To make our nation an Advanced Country, we establish the requirements of Blacksmiths only Job Level 40!";
+		next;
+		mes "[Blacksmith Guildsman]";
+		mes "We are full with Energy to revive the Industry! You will take many advantage of being a Blacksmith! It may not look as much,but our Guild has the power,you know! There is no Later for us!";
+		next;
+		mes "[Blacksmith Guildsman]";
+		mes "Muhahaha... There is no Later for us, Alright?";
+		close;
+	MEnd:
+		close;
+}

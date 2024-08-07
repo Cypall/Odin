@@ -1,0 +1,4 @@
+1,srv,admn,S,sys@srv.com,02/09/2004 05:36:22,0,0,0,0,3 days,0,296
+2,sv1,admn,S,sys@srv.com,21/08/2004 11:49:27,0,0,0,0,3 days,0,263
+3,sv2,admn,S,sys@srv.com,28/08/2004 12:46:01,0,0,0,0,3 days,0,237
+4,sv3,admn,S,sys@srv.com,22/08/2004 04:13:55,0,0,0,0,3 days,0,203

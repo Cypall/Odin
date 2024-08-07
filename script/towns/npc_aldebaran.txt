@@ -1,0 +1,894 @@
+aldeba_in.gat,152,47,4	script	Giddy Fellow	97,{
+	mes "[Giddy Fellow]";
+	mes "E..E..E..Emergenc----y!!!";
+	next;
+	mes "[Giddy Fellow]";
+	mes "I CAN'T find my pet chicken anywhere!!";
+	next;
+	menu "What's the name of it?",L0,".....",L1;
+
+	L0:
+		mes "[Giddy Fellow]";
+		mes "It's 'The Great Picky' *sigh* Gosh..What am I gonna do?";
+		next;
+		mes "[Giddy Fellow]";
+		mes "Please find my cutey for me...";
+		next;
+		menu "Dude~! It's such a common name~",L00,".....",L01;
+
+		L00:
+			mes "[Giddy Fellow]";
+			mes "Wha-What are you talking about!!";
+			next;
+			mes "[Giddy Fellow]";
+			mes "My 'The Great Picky' is the one and only cutest chicken in this entire world!";
+			close;
+		L01:
+			mes "[Giddy Fellow]";
+			mes "Don't you laugh at me! I don't have any siblings so my cute chicken is like a younger brother to me! *sigh*";
+			close;
+	L1:
+		mes "[Giddy Fellow]";
+		mes "Don't you laugh at me! I don't have any siblings so my cute chicken is like a younger brother to me! *sigh*";
+		close;
+}
+
+aldeba_in.gat,156,179,4	script	Master	61,{
+	mes "[Master]";
+	mes "The head of the Kafra corp. is located here, in Aldebaran.";
+	next;
+	mes "[Master]";
+	mes "Young Kapra ladies visit me from time to time and I find them to be quite delightful and funny.";
+	next;
+	mes "[Master]";
+	mes "Alright, Attention! Quiz time!";
+	next;
+	mes "[Master]";
+	mes "We are doing....a poll, if you will, on favorite Kapra styles.";
+	next;
+	mes "[Master]";
+	mes "... Choose one Kafra Lady that makes you feel hot!";
+	next;
+	menu "Oh~it turns me on!!!!",L0,"No way..I am not a pervert",L1;
+
+	L0:
+		mes "[Master]";
+		mes "Alright...here you go.  Your Favorite Ladies!!! Take a look!";
+		next;
+		mes "[Master]";
+		mes "Original Kafra Mascot, the classical blue haired lady!";
+		next;
+		mes "[Master]";
+		mes "Candidate Number (1)  ' Pavianne ' !!";
+		next;
+		mes "[Master]";
+		mes "The graceful ponytail she has takes men's breath away! She is the favorite lady of young boys!!";
+		next;
+		mes "[Master]";
+		mes "Candidate Number (2) ' Blossom ' !!";
+		next;
+		mes "[Master]";
+		mes "Her long, straight hair is what makes her shine. She is the silk from the East!";
+		next;
+		mes "[Master]";
+		mes "Candidate Number (3) ' Jasmine ' !!";
+		next;
+		mes "[Master]";
+		mes "She is a tomboy with low-cut hair.";
+		next;
+		mes "[Master]";
+		mes "Candidate Number (4) ' Roxie ' !!";
+		mes "She is intelligent and sophisticated. Her luxurious glasses fit her well.";
+		next;
+		mes "[Master]";
+		mes "Candidate Number (5)  ' Leilah ' !!";
+		next;
+		mes "[Master]";
+		mes "Pretty and Cute. Although She looks young and immature, she's the best one on the staff!";
+		next;
+		mes "[Master]";
+		mes "Candidate Number (6) ' Curly Sue ' !!";
+		next;
+		mes "[Master]";
+		mes "Approval : Kafra Warehouse Corp......and Cool Event Corp. Thank you ~";
+		next;
+		menu "(1) Pavianne",L00,"(2) Blossom",L01,"(3) Jasmine",L02,"(4) Roxie",L03,"(5) Leilah",L04,"(6) Curly Sue",L05;
+
+		L00:
+			mes "[Master]";
+			mes "Oh~ you are a very conservative person and very close minded!";
+			next;
+			mes "[Master]";
+			mes "Try to accept new stuff! It's no use trying to escape from the reality!";
+			close;
+		L01:
+			mes "[Master]";
+			mes "You're over-jealous! If you ever get a partner who's as distractive as you... you'll cause a LOT of trouble for the neighbors!";
+			close;
+		L02:
+			mes "[Master]";
+			mes "You're indecisive...You've gotta make up your mind.";
+			next;
+			mes "[Master]";
+			mes "Cheer up! Be positive man!";
+			close;
+		L03:
+			mes "[Master]";
+			mes "Wake up! *slaps your face* When are you gonna come back to reality and stop looking for an unreachable, ideal girl?";
+			next;
+			mes "[Master]";
+			mes "Be realistic!";
+			close;
+		L04:
+			mes "[Master]";
+			mes "A piece of advice you......cynical you! Open your mind and embrace others! Don't just stand alone!";
+			close;
+		L05:
+			mes "[Master]";
+			mes "Wha-what?!?!";
+			next;
+			mes "[Master]"; 
+			mes "Thirst for  young girls....it's a c-c-crime!!!1!";
+			close;
+	L1:
+		mes "[Master]";
+		mes "Ah~~~!! I stayed up all last night trying to make this a wonderful survey....and you....ditching me like that. *pfft*";
+		next;
+		mes "[Master]";
+		mes "I hate you.";
+		close;
+}
+
+aldeba_in.gat,219,61,4	script	Nice-looking Man	109,{
+	mes "[Good-Looking Guy]";
+	mes "Forget about that goof living next door.";
+	next;
+	mes "[Good-Looking Guy]";
+	mes "About 2 years ago, he fell from a tree in the drill field and since then, he has been out of control.";
+	next;
+	mes "[Good-Looking Guy]";
+	mes "I heard he had the intentions of plucking fruit from the tree but lost his footing and BOOM!!!!";
+	next;
+	mes "[Good-Looking Guy]";
+	mes "Anyway, if he keeps talking to me, I'm gonna go craaaaaaazy!";
+	close;
+}
+
+aldeba_in.gat,223,121,2	script	Horrible-looking Man	63,{
+	mes "[Evil-Looking Guy]";
+	mes "Hey dude. Don't you think it's rude enough for a stranger to enter the other's house?";
+	next;
+	mes "[Evil-Looking Guy]";
+	mes "Now you got me all upset. What made you come into -my- house and talk to me?";
+	next;
+	mes "[Evil-Looking Guy]";
+	mes "Ahhhh....alright, alright. Let's quit playing. You came because you know who I am...right?";
+	next;
+	menu "Heh, you know me",L0,"What a bummer",L1;
+	
+	L0:
+		mes "[Evil-Looking Guy]";
+		mes "You! I am not sure if you've already heard this or not but in this world, there is something called a Mercenary System and it is quite easy to understand.";
+		next;
+		mes "[Evil-Looking Guy]";
+		mes "Basically, you pay money and someone will fight for you. The better and stronger the fighter, the more they will want.";
+		next;
+		mes "[Evil-Looking Guy]";
+		mes "Forget about the boring talk. Let me tell you how to pick up a nice one briefly.";
+		next;
+		mes "[Evil-Looking Guy]";
+		mes "First, check its' nose. A nice Mercenary has moist nose when it is healthy.";
+		next;
+		mes "[Evil-Looking Guy]";
+		mes "(If you get the chance, you can pat its' nose) If it has a dry one, you could say that guy caught a cold.";
+		next;
+		mes "[Evil-Looking Guy]";
+		mes "Also, a nice mercenary should have slender ankles.";
+		next;
+		mes "[Evil-Looking Guy]";
+		mes "Umm...in addition, it should have a snowy and skinny neck!";
+		next;
+		mes "[Evil-Looking Guy]";
+		mes "I love to see its beautiful hair, long, curly hair~! That'll be frosting on the cake.";
+		next;
+		mes "[Evil-Looking Guy]";
+		mes "Overall, the Mercenary System means 100% customer satisfaction!";
+		next;
+		mes "[Evil-Looking Guy]";
+	L1:
+		mes "[Evil-Looking Guy]";
+		mes "What!!! Get the heck out of my house!!! If you're a cop, show me a search warrant.";
+		close;
+}
+
+aldebaran.gat,46,129,4	script	Canal Boy	97,{
+	mes "[Panama]";
+	mes "AldeBaran is known throughout the world as 'The City of Canals'";
+	next;
+	menu "About the canales",L0,"End conversation",LEnd;
+	
+	L0:
+		mes "[Panama]";
+		mes "A Canal is an artificial gateway or artificially improved river used for travel and shipping.";
+		close;
+	LEnd:
+		mes "[Panama]";
+		mes "Odd water isn't it?";
+		next;
+		mes "[Panama]";
+		mes "Well this is a mountain town and water is supposed to be pure ...";
+		next;
+		mes "[Panama]";
+		mes "Help yourself with everything you see...";
+		close;
+}
+
+aldebaran.gat,49,93,4	script	Young Man	83,{
+	mes "[Miller]";
+	mes "Did you know that level 4 weapons exist?!?!?!?!?";
+	next;
+	mes "[Miller]";
+	mes "Hmmm... of course they are rarely seen in the open market.";
+	close;
+}
+
+aldebaran.gat,60,70,4	script	Senorita	69,{
+	mes "[Senorita Sylvia]";
+	mes "I came all the way here from Prontera because I heard there is Kafra Main Office somewhere.";
+	next;
+	mes "[Senorita Sylvia]";
+	mes "It's been 5 hours and I still can't find it.";
+	next;
+	mes "[Senorita Sylvia]";
+	mes "Where the hell is it~~~?!";	
+	next;
+	mes "[Senorita Sylvia]";
+	mes "Ah~ by the way, would you like to know some helpful information?";
+	next;
+	menu "Please continue",L0,"Not really",LEnd;
+	
+	L0:
+		mes "[Senorita Sylvia]";
+		mes "Some items you get from monsters can't be equipped right away.";
+		next;
+		mes "[Senorita Sylvia]";
+		mes "In that case, you've gotta use... Ta-Da~ A Magnifier~~!!!!";
+		next;
+		mes "[Senorita Sylvia]";
+		mes "With a magnifier, you can simply identify what kind of equipment it is.";
+		close;
+	LEnd:
+		mes "[Senorita Sylvia]";
+		mes "Whatever.....";
+		close;
+}
+
+aldebaran.gat,64,104,4	script	Smithing Guy	55,{
+	mes "[Quatro]";
+	mes "It has been rumored that a famous blacksmith came to this town from Geffen...";
+	next;
+	menu "Know anything helpful?",L0,"Blacksmith?",LEnd;
+	
+	L0:
+		mes "[Quatro]";
+		mes "Attack strength added by weapon level increases for every level it gets";
+		next;
+		mes "[Quatro]";
+		mes "Attack strength on a 1 leveled weapon is +2, on 2 leveled weapons, +3, and level 3 and 4 weapons are +5.";
+		close;
+	LEnd:
+		mes "[Quatro]";
+		mes "People say his life is weak and sick.";
+		mes "[Quatro]";
+		mes "He must constantly gather medicinal herbs.";
+		next;
+		mes "[Quatro]";
+		mes "He also has a devoted son, helping his work with no complaints.";
+		next;
+		mes "[Quatro]";
+		mes "I have a feeling that his son will be a good blacksmith in the future.";
+		close;
+}
+
+aldebaran.gat,67,154,4	script	Young Man	98,{
+	mes "[Isenberg]";
+	mes "Mountain Mjolnir....Payon Forrest, both of them are notorious for the amount of rain they get.";
+	next;
+	menu "Mt. Mjolnir",L0,"Payon Forrest",L1,"End conversation",LEnd;
+	
+	L0:
+		mes "[Isenberg]";
+		mes "Mt. Mjolnir, the Mountain Range which you must pass through to arrive here, Aldebaran, goes all the way from Prontera, the capital of Rune-Midgard to Geffen, the city of Magic....";
+		next;
+		mes "[Isenberg]";
+		mes "I must warn you.  The path contains aggressive and hostile monsters, which make it almost impossible to successfully pass through.";
+		close;
+	L1:
+		mes "[Isenberg]";
+		mes "You must pass through Payon Forest if you wish to visit Alberta or Payon and it can be found between Alberta and Payon.";
+		next;
+		mes "[Isenberg]";
+		mes "Unless you concentrate and figure out the correct paths, you will get lost.";
+		next;
+		mes "[Isenberg]";
+		mes "The forest was named after Payon, the village of independence instead of Alberta, the harbor town.";
+		next;
+		mes "[Isenberg]";
+		mes "Payon, the archer village, was built deep inside a steep and rugged forest with the idea of protection from outside influence.";
+		next;
+		mes "[Isenberg]";
+		mes "I guess that's why people call it Payon Forest and not Alberta Forest. Hmmmm";
+		close;
+	LEnd:
+		mes "[Isenberg]";
+		mes "Sometimes, this huge mountain puts and end to peoples dreams of venturing to Aldebaran.  In a way, I am glad that it creates this form of blockade from monsters but I hate to see peoples dreams shattered.";
+		close;
+}
+
+aldebaran.gat,81,61,4	script	Shell Gathering Lady	101,{
+	mes "[Joanne]";
+	mes "I like to go gathering sea shells. It's really fun";
+	next;
+	menu "Shell Gathering",L0,"End Conversation",LEnd;
+
+	L0:
+		mes "[Joanne]";
+		mes "When you see bubbles popping up from the sands or muddy puddle, dig up the ground near it a bit.";
+		next;
+		mes "[Joanne]";
+		mes "Usually shells conceal themselves under the ground.";
+		next;
+		mes "[Joanne]";
+		mes "By the way, there is a naughty hard covered shell fish!!";
+		next;
+		mes "[Joanne]";
+		mes "People call it an Ambernite, usually seen at the beach near the west province of Prontera.";
+		next;
+		mes "[Joanne]";
+		mes "If ever dare to catch it without preparation, I won't be seeing the sun rise tomorrow.";
+		next;
+		mes "[Joanne]";
+		mes "What a scary shell it is ..";
+		close;
+	LEnd:
+		mes "[Joanne]";
+		mes "I will taste Cave Shell Fish one of these days!! I know it's a bit dangerous but still, it's worth it.";
+		close;
+}
+
+aldebaran.gat,86,228,4	script	Little Kid	62,{
+	mes "[Bebe]";
+	mes "A while ago, I went out for a walk toward Mt. Mjolnir, carrying 'Bebevang', a little hog.";
+	next;
+	mes "[Bebe]";
+	mes "Bebevang is, in my opinion, very cute and pretty.  Wanna hear my story?";
+	next;
+	menu "Story of Bebevang",L0,"About Mt.Mjolnir",L1,"End Conversation",LEnd;
+
+	L0:
+		mes "[Bebe]";
+		mes "I was walking up a narrow lane and out of the blue, a giant, ugly plant attacked me and my Bebevang!";
+		next;
+		mes "[Bebe]";
+		mes "I was startled so I ran away and threw stones at it (I know it was coward and silly blow!) withstood my attack without rolling...";
+		next;
+		mes "[Bebe]";
+		mes "One more surprising thing, it was a huge flower with a Human face!!";
+		next;
+		mes "[Bebe]";
+		mes "Don't ever think of getting near it....It will bite off your head!!";
+		close;
+	L1:
+		mes "[Bebe]";
+		mes "Even though people are fascinated by the scenic beauty of Mt.Mjolnir, this mountain is filled with aggressive creatures such as flowers, and insects, especially bees, butterflies and moths.  Try to be careful.";
+		next;
+		mes "[Bebe]";
+		mes "Most of beasts and insects never cause harm on humans unless we attack them first.";
+		close;
+	LEnd:
+		mes "[Bebe]";
+		mes "Ah?! Where is my Bebevang...? Bebevang! Where are you?!?!?";
+		close;
+}
+
+aldebaran.gat,90,170,4	script	Slot Guy	47,{
+	mes "[Epthiel]";
+	mes "Some weapons and armors have slots, which are holes for inserting cards obtained from monsters.";
+	next;
+	menu "About the numbers of slots..",L0,"Relation between Cards and Slots",L1,"End Conversation",LEnd;
+
+	L0:
+		mes "[Epthiel]";
+		mes "Items dropped by monsters possess more slots than ordinary weapons or armors sold at NPC shop.";
+		next;
+		mes "[Epthiel]";
+		mes "Some of those items that allow its owner to insert more than 2 cards can be more valuable.";
+		close;
+	L1:
+		mes "[Epthiel]";
+		mes "Cards inserted into slots are impossible to be removed. Please be attentive before you do.";
+		close;
+	LEnd:
+		mes "[Epthiel]";
+		mes "Do you have a card?";
+		close;
+}
+
+aldebaran.gat,93,80,4	script	Crane leg	48,{
+	mes "[Daniel]";
+	mes "With waterways everywhere, the city of Aldebaran is such a wonderful place....B-U-T!";
+	next;
+	mes "[Daniel]";
+	mes "Last night on the way to see my girl friend without telling my parents, I fell into one of those waterways, spraining my ankle.";
+	next;
+	menu "Gosh, that's too bad",L0,"So what happended?",L1;
+
+	L0:
+		mes "[Daniel]";
+		mes "My girl friend is the youngest daughter of the armor merchant and she told me that equipment you get from monsters are much better in performance than the regular items you can buy on the market.";
+		next;
+		mes "[Daniel]";
+		mes "Items dropped by monsters have more quality than the usual ones in shops.";
+		next;
+		mes "[Daniel]";
+		mes "In professional terms, they say 'the more the slots, the more the value'...Whatever that means...";
+		close;
+	L1:
+		mes "[Daniel]";
+		mes "Huh? *sigh* You think I'm a stupid idiot, right? ";
+		close;
+}
+
+aldebaran.gat,113,70,2	script	Munster	48,{
+	mes "[Munster]";
+	mes "My family used to live in Geffen but we moved to this town, Aldebaran, last winter.";
+	next;
+	menu "Item Upgrade",L0,"Quit",LEnd;
+	
+	L0:
+		mes "[Munster]";
+		mes "My father was a famous blacksmith in Geffen, the homeland of blacksmiths.  Now we settled down this place, my mother's hometown.";
+		next;
+		mes "[Munster]";
+		mes "Sometimes, I help my father and recently, I learned that the success probability of item upgrade, followed the level of each weapon is...";
+		next;
+		mes "[Munster]";
+		mes "Level 1 weapons can be upgraded safely till +7, level 2's go to +6, and level 3's go to +5 without risk.";
+		next;
+		mes "[Munster]";
+		mes "In the case of upgrading a level 4 weapon, you can fail with the first attempt.";
+		close;
+	LEnd:
+		mes "[Munster]";
+		mes "Yet people don't know where my father's workshop is located in Aldebaran.";
+		next;
+		mes "[Munster]";
+		mes "I hope people will recognize my father's splendid performance soon.";
+		close;
+}
+
+aldebaran.gat,117,181,4	script	Phracon Guy	48,{
+	mes "[Joy]";
+	mes "Lv 1 weapons, the lowest grade, need a metal called 'Phracon' for the upgrade job.";
+	next;
+	menu "About Phracon",L0,"Advice about Phracon",L1,"End Conversation",LEnd;
+
+	L0:
+		mes "[Joy]";
+		mes "It is the most ordinary metal for item upgrade through all over the Rune-Midgard continent.";
+		next;
+		mes "[Joy]";
+		mes "Although it doesn't possess high strength compared other rare metals such as steel, it's been in a great favor by the commonage for a long time because it is easy to get.";
+		next;
+		mes "[Joy]";
+		mes "Either You can obtain Phracons from monsters or you can purchase them at forging workshops located in towns.";
+		next;
+		mes "[Joy]";
+		mes "When you start to upgrade higher leveled weapons, you will no longer need Phracons but for now....they will do just fine.";
+		next;
+		mes "[Munster]";
+		mes "You can grab a phracon for 100 zeny~!";
+		close;
+	L1:
+		mes "[Joy]";
+		mes "I heard lots of monsters carry phracons, why don't you go hunt them?";
+		next;
+		mes "[Joy]";
+		mes "Days ago, I went to go hunting with a Pub Master,";
+		close;
+	L2:
+		mes "[Joy]";
+		mes "I wish you luck on your hunt for phracons.";
+		close;
+}
+
+aldebaran.gat,121,231,4	script	Alchemy Guy	49,{
+	mes "[Chemirre]";
+	mes "Alchemist is one of 2nd Jobs that has is able to create jewelries out of several materials from the Ancient age of Aldebaran.";
+	next;
+	menu "About Alchemy of Payon",L0,"The notion of Alchemy",L1,".....",L2,"End Conversation",LEnd;
+
+	L0:
+		mes "[Chemirre]";
+		mes "Almost at the same time of Aldebaran, there was an oriental sorcery that originated from Taoism in Payon.";
+		next;
+		mes "[Chemirre]";
+		mes "Just like the Alchemy of Aldebaran, oriental alchemists of Payon were able to create gold out of materials, which was commonly referred to as 'Payon Alchemy'.";
+		close;
+	L1:
+		mes "[Chemirre]";
+		mes "Alchemist specialize in Chemical research, and in creating useful items out of various items.";
+		close;
+	L2:
+		mes "[Chemirre]";
+		mes "You look bored. Let me tell you something might be interesting.";
+		next;
+		mes "[Chemirre]";
+		mes "It's about monster cards and slots...";
+		next;
+		mes "[Chemirre]";
+		mes "Well, if you already possess at least one monster card, you already know what I am going to say anyway.";
+		next;
+		mes "[Chemirre]";
+		mes "Every card has its own requirements to be placed on equipments. For instance, let's say you got a poring card.";
+		next;
+		mes "[Chemirre]";
+		mes "Then you will be able to see its description with right click of a mouse. A Poring card increases its wearer's LUK by 1, and it can be only inserted on 'Armors'.";
+		next;
+		mes "[Chemirre]";
+		mes "Basically, you can't put it into dagger or something.";
+		next;
+		mes "[Chemirre]";
+		mes "Oh well, I'll guide you the simple instruction to use cards properly.";
+		next;
+		mes "[Chemirre]";
+		mes "First off, unequal the armor you want to bestow the card upon.";
+		next;
+		mes "[Chemirre]";
+		mes "Now, double click on a card in the inventory window.";
+		close;
+	L3:
+		mes "[Chemirre]";
+		mes "Midgard Alchemy evolves around the Aldebaran Alchemy Guild -!!";
+		next;
+		mes "[Chemirre]";
+		mes "Long live Aldebaran Alchemy Guild!!";
+		close;
+}
+
+aldebaran.gat,143,136,4	script	Bell Keeper A	89,{
+	mes "[Bell Keeper]";
+	mes "Let me introduce myself, I am 'Monster A' the Aldebaran Clock Tower Keeper, in committee of 'Heaven on Earth'.";
+	next;
+	mes "[Bell Keeper]";
+	mes "So it looks like you are taking great interest in this tower. Do you want me to inform you of it?";
+	next;
+	menu "About Clock Tower",L0,"About Committee of 'Heaven on Earth'",L1,"Quit",LEnd;
+	
+	L0:
+		mes "[Bell Keeper]";
+		mes "Every floor of this tower is connected by a certain device. That is a device called 'Warp Gear'";
+		next;
+		mes "[Bell Keeper]";
+		mes "Even though warps existing everywhere in the clock tower are connected each other, you should be careful with 'Random Warps' which transport you into an unknown spot";
+		next;
+		mes "[Bell Keeper]";
+		mes "If you don't want to be apart from your friends all of a sudden, be advised...";
+		next;
+		mes "[Bell Keeper]";
+		mes "I will give you another useful tip...random warps are shown in green color on the Mini-Map. So keep your eyes on the Mini-Map";
+		next;
+		mes "[Bell Keeper]";
+		mes "Have a good time with a bunch of watches. Huhuhuhuh...";
+		close;
+	L1:
+		mes "[Bell Keeper]";
+		mes "Ho~ Have you ever heard of the committee 'Heaven on Earth'?!";
+		next;
+		menu "Yup, I have",L10,"What are they?",L11;
+		
+		L10:
+			mes "[Bell Keeper]";
+			mes "Muhahahaha, good good. I am so glad we made a reputation all over the Rune-Midgard as you know us.";
+			next;
+			mes "[Bell Keeper]";
+			mes "What a great day to meet an adventurer like you! I would like to present you with this.";
+			next;
+			mes "[Bell Keeper]";
+			mes "Oops... Where did I leave it...";
+			next;
+			mes "[Bell Keeper]";
+			mes "Oh well well~ it seems like I left the present I intended to give you in the control room at the 4th floor. I promise I will give it to you next time. See you later.";
+			close;
+		L11:
+			mes "[Bell Keeper]";
+			mes "Ouch, I didn't expect anyone -that- ignorant of our committee... Tell you what.";
+			next;
+			mes "[Bell Keeper]";
+			mes "We are trying to build Heaven on earth, especially in this place. For the start, we built this clock tower.";
+			next;
+			mes "[Bell Keeper]";
+			mes "We drew up plans of Glastheim a long time ago.";
+			next;
+			mes "[Bell Keeper]";
+			mes "You will see great achievements of our own in many places.";
+			close;
+	LEnd:
+		close;
+}
+
+aldebaran.gat,146,124,4	script	Town Girl	101,{
+	mes "[Nastasia]";
+	mes "Somewhere in the world, there is a place called the 'Assassin Guild' which teaches you how to assassinate a person without even the slightest trace.";
+	next;
+	mes "[Nastasia]";
+	mes "They...are illegal? .....? And do they collect eDanielonal tuition?";
+	next;
+	menu "Continue conversation",L0,"End Conversation",LEnd;
+
+	L0:
+		mes "[Nastasia]";
+		mes "Most monsters with wings are very fast to move and attack.";
+		next;
+		mes "[Nastasia]";
+		mes "Therefore, it's very difficult to hit them successfully.";
+		next;
+		mes "[Nastasia]";
+		mes "In order to fight against those kinds, you'll need more DEX, right?";
+		close;
+	LEnd:
+		mes "[Nastasia]";
+		mes "Like an old saying, nothing is free in the world. So I guess they'll educate you for free.";
+		close;
+}
+
+aldebaran.gat,159,242,4	script	Insect Guy	119,{
+	mes "[Stromme]";
+	mes "When you take a walk in the Mt. Mjolnir you will easily recognize one thing.";
+	next;
+	mes "[Stromme]";
+	mes "That is, insects in Mt. Mjolnir are classified into different groups by their habit! Did you know ?";
+	next;
+	menu "About insects",L0,"End conversation",LEnd;
+	
+	L0:
+		mes "[Stromme]";
+		mes "Honey Bees, Butterflies or Moths are flying over flowers to gather honey.";
+		next;
+		mes "[Stromme]";
+		mes "However it doesn't mean that you can look down on them.";
+		next;
+		mes "[Stromme]";
+		mes "They have evolved for a long time to be able to counter when they get attack.";
+		next;
+		mes "[Stromme]";
+		mes "There are some kings of carnivorous insects, such as praying mantises, spiders or centipedes.";
+		next;
+		mes "[Stromme]";
+		mes "Especially mutants, which have transformed into monsters and are too strong for a person at certain level.";
+		next;
+		mes "[Stromme]";
+		mes "You could go beyond the realm even at one blow! Luckily that leech thingy is weak at sight, it won't notice you go around a distance from it.";
+		close;
+	LEnd:
+		mes "[Stromme]";
+		mes "Don't ever dare to attack even a ladybug. Respect mighty nature in Mt. Mjolnir, young man.";
+		close;
+}
+
+aldebaran.gat,180,46,4	script	Asian	88,{
+	mes "[Joo Jahk]";
+	mes "I am tourist from Payon, the city of forests..";
+	next;
+	mes "[Joo Jahk]";
+	mes "It's very cool here...probably thanks to the waterways.";
+	next;
+	mes "[Joo Jahk]";
+	mes "But.... Do you think I could drink water from it though? Well. I already did but I am still concerned";
+	next;
+	menu "Continue",L0,"End conversation",LEnd;
+
+	L0:
+		mes "[Joo Jahk]";
+		mes "I was traveling around Midgard and on the way here, I heard from really high level Magician that in case of impalpable Spiritual Property Monsters....";
+		next;
+		mes "[Joo Jahk]";
+		mes "physical attacks or magic's of non-property could hardly damage them.";
+		next;
+		mes "[Joo Jahk]";
+		mes "I hope this advice could come in handy for you.";
+		close;
+	LEnd:
+		mes "[Joo Jahk]";
+		mes "Water here tastes really fresh. Maybe thanks to well-preserved environments.";
+		next;
+		mes "[Joo Jahk]";
+		mes "I don't think I'll have to worry about the water I drank.";
+		close;
+}
+
+aldebaran.gat,212,122,4	script	Citizen	97,{
+	mes "Welcome! We, townspeople of Aldebaran, all welcome you .....";
+	next;
+	mes "[Gavin]";
+	mes "Well..Is it too over-exaggerated?";
+	next;
+	mes "[Gavin]";
+	mes "Hm.. It's just me alone, but hey! Still, I welcome you!";
+	next;
+	menu "Continue conversation",L0,"End conversation",LEnd;
+
+	L0:
+		mes "[Gavin]";
+		mes "Ah~ now I remember! I saw a very interesting monster.";
+		next;
+		mes "[Gavin]";
+		mes "Just a few days ago, I saw a Poring with Heaven's wings around the Mjollnir forest surrounding Aldebaran.";
+		next;
+		mes "[Gavin]";
+		mes "It was jumping around with other ordinary Porings.";
+		next;
+		mes "[Gavin]";
+		mes "Anglering...What's it like...?";
+		close;
+	LEnd:
+		mes "[Gavin]";
+		mes "Welcome to Aldebaran, a wonderful city of canals surrounded by the Mjollnir mountains.";
+		close;
+}
+
+//<=============== Al De Baran Dungeon ===============>\\
+alde_dun03.gat,264,16,4	script	Gatekeeper	101,{
+	mes "[Gatekeeper Boy]";
+	mes "Welcome to Kinase - Blue Gallino, The one of Local Specialty in Aldebaran.";
+	next;
+	mes "[Gatekeeper Boy]";
+	mes "You can't go through B4...Please go back.";
+	next;
+	menu "About Clock Tower",M0,"About B4th Floor",M1,"Move to the B4th Floor",M2,"End mesue",MEnd;
+
+	M0:
+		mes "[Gatekeeper Boy]";
+		mes "Homeland of Alchemy, Aldebaran!";
+		next;
+		mes "[Gatekeeper Boy]";
+		mes "A long long time ago, there were 3 Legendary Alchemists...";
+		next;
+		mes "[Gatekeeper Boy]";
+		mes "They are--Bruke Seimerm, Philip Warisez, and Romero Specialre.";
+		next;
+		mes "[Gatekeeper Boy]";
+		mes "This venerable architecture is their masterpiece.";
+		next;
+		mes "[Gatekeeper Boy]";
+		mes "I assume you would feel something unusual while on your way to this floor.";
+		close;
+	M1:
+		mes "[Gatekeeper Boy]";
+		mes "Ancient Alchemists sealed the gate of the 4th Floor using an Alchemistic Device to keep out evil creatures and human enemies.";
+		next;
+		mes "[Gatekeeper Boy]";
+		mes "It needs a key and that key has rumored to be possessed by gatekeeper creatures prowling around here.";
+		next;
+		mes "[Gatekeeper Boy]";
+		mes "The Key is the Intensiveness of Ancient Alchemy.";
+		mes "When used once, it will be released of all spells and disappear.";
+		next;
+		mes "[Gatekeeper Boy]";
+		mes "If that key comes into your possession, please show me.";
+		next;
+		mes "[Gatekeeper Boy]";
+		mes "The one who possesses the Key will have access to go through this gate with his own will!";
+		next;
+		mes "[Gatekeeper Boy]";
+		mes "I will give you a chance......";
+		close;
+	M2:
+		mes "[Gatekeeper Boy]";
+		if(countitem(7026) < 0) goto CheckKey;
+		mes "Hmm! I already felt that you are not an ordinary person.";
+		next;
+		mes "[Gatekeeper Boy]";
+		mes "Now, it seems to be successful in speculation.";
+		next;
+		mes "Please, enter at will and my the gods bless you.";
+		next;
+		delitem 7026,1;
+		warp "alde_dun04.gat",79,267;
+		close;
+
+		CheckKey:
+			mes "[Gatekeeper Boy]";
+			mes "......Unfortunately, you don't have the privilege of entering this gate.";
+			next;
+			mes "[Gatekeeper Boy]";
+			mes "You won't be able to go through as long as Ancient Alchemists don't grant you permission.";
+			close;
+	
+	M3:
+		mes "[Gatekeeper Boy]";
+		mes "This Clock Tower is the place where the 3 Ancient Legendary Alchemists had left their spirits and skills.";
+		next;
+		mes "Please don't scribble or damage on the interior.";
+		close;
+	MEnd:
+		close;
+}
+
+//<=============== Clock Tower ===============>\\
+c_tower3.gat,10,249,4	script	Gatekeeper	84,{
+	mes "[Gatekeeper Riku]";
+	mes "Welcome to Kinase - Blue Gallino, The one of Local Specialty in Aldebaran.";
+	next;
+	mes "[Gatekeeper Riku]";
+	mes "You can't go through B4...Please go back.";
+	next;
+	menu "About Clock Tower",M0,"About B4th Floor",M1,"Move to the B4th Floor",M2,"End mesue",MEnd;
+
+	M0:
+		mes "[Gatekeeper Riku]";
+		mes "Homeland of Alchemy, Aldebaran!";
+		next;
+		mes "[Gatekeeper Riku]";
+		mes "A long long time ago, there were 3 Legendary Alchemists...";
+		next;
+		mes "[Gatekeeper Riku]";
+		mes "They are--Bruke Seimerm, Philip Warisez, and Romero Specialre.";
+		next;
+		mes "[Gatekeeper Riku]";
+		mes "This venerable architecture is their masterpiece.";
+		next;
+		mes "[Gatekeeper Riku]";
+		mes "I assume you would feel something unusual while on your way to this floor.";
+		close;
+	M1:
+		mes "[Gatekeeper Riku]";
+		mes "Ancient Alchemists sealed the gate of the 4th Floor using an Alchemistic Device to keep out evil creatures and human enemies.";
+		next;
+		mes "[Gatekeeper Riku]";
+		mes "It needs a key and that key has rumored to be possessed by gatekeeper creatures prowling around here.";
+		next;
+		mes "[Gatekeeper Riku]";
+		mes "The Key is the Intensiveness of Ancient Alchemy.";
+		mes "When used once, it will be released of all spells and disappear.";
+		next;
+		mes "[Gatekeeper Riku]";
+		mes "If that key comes into your possession, please show me.";
+		next;
+		mes "[Gatekeeper Riku]";
+		mes "The one who possesses the Key will have access to go through this gate with his own will!";
+		next;
+		mes "[Gatekeeper Riku]";
+		mes "I will give you a chance......";
+		close;
+	M2:
+		mes "[Gatekeeper Riku]";
+		if(countitem(7026) < 0) goto CheckKey;
+		mes "Hmm! I already felt that you are not an ordinary person.";
+		next;
+		mes "[Gatekeeper Riku]";
+		mes "Now, it seems to be successful in speculation.";
+		next;
+		mes "Please, enter at will and my the gods bless you.";
+		next;
+		delitem 7026,1;
+		warp "alde_dun04.gat",79,267;
+		close;
+
+		CheckKey:
+			mes "[Gatekeeper Riku]";
+			mes "......Unfortunately, you don't have the privilege of entering this gate.";
+			next;
+			mes "[Gatekeeper Riku]";
+			mes "You won't be able to go through as long as Ancient Alchemists don't grant you permission.";
+			close;
+	
+	M3:
+		mes "[Gatekeeper Riku]";
+		mes "This Clock Tower is the place where the 3 Ancient Legendary Alchemists had left their spirits and skills.";
+		next;
+		mes "Please don't scribble or damage on the interior.";
+		close;
+	MEnd:
+		close;
+}

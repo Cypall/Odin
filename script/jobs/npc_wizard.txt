@@ -1,0 +1,47 @@
+// $Id: npc_wizard.txt,v 1.1 2003/12/01 22:51:04 MivaBe Exp $
+//<--------------- Wizard Job Quest [Update: Oct. 06, 2003] --------------->\\
+gef_tower.gat,111,37,4	script	Wizard	70,{
+	mes "[Wizard]";
+	mes "Welcome to the Wizard Guild.";
+	next;
+	menu "Change a Job into a Wizard.",M0,"The Requirements.",M1,"Quit.",MEnd;
+
+	M0:
+		mes "[Wizard]";
+		if(GetJob == Job_Wizard) goto JobWiz;
+		if(GetJob != Job_Mage) goto NotMag;
+		if(JobLevel < 40) goto NotLvl;
+		mes "Now you become a Wizard.";
+		if(SkillPoint != 0) goto SPN0;
+		Release_All;
+		JobChange Job_Wizard;
+		SPN0:
+		close;
+		
+		NotLvl:
+			mes "You must be at least Job Level 40 before everything.";
+			close;
+		NotMag:
+			if(GetJob == Job_Novice) goto JobNov;
+			mes "Other jobs except 'Mages' are not permitted to be Wizards.";
+			close;
+
+			JobNov:
+				mes "Be a 'Mage' First.";
+				close;
+		JobWiz:
+			mes "You're already a Wizard.";
+			close;
+	M1:
+		mes "[Wizard]";
+		mes "To Utilise the Magical Power of Geffen, Rune-Midgard encourages Mages to Grow Wizards. Why don't you apply on the Wizard if you reach at Job Level 40?";
+		next;
+		mes "[Wizard]";
+		mes "At this Time Geffen is at the height of its Magical prosperity. Also this is the Good opportunity to become a Wizard. There won't be a Tomorrow for Mages.";
+		next;
+		mes "[Wizard]";
+		mes "Dpn't forget, A chance like this comes but once in a lifetime.";
+		close;
+	MEnd:
+		close;
+}

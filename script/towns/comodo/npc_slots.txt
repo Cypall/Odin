@@ -1,0 +1,680 @@
+cmd_in02.gat,165,101,1	script	Slots	111,{
+begin:
+	mes "Please insert zeny to play.";
+	next;
+	menu "100",bet100,"500",bet500,"Pay Chart",paychart,"No Thanks",quit1;
+	
+quit1:
+	mes "Have a nice day!";
+	close;
+	
+bet100:
+	set wager,100;
+	goto spin;
+
+bet500:
+	set wager,500;
+	goto spin;
+	
+paychart:
+	mes "Pay Chart";
+	mes "Cherry     -        -        1:1";
+	mes "Cherry   Cherry     -        5:1";
+	mes "Cherry   Cherry   Cherry    30:1";
+	mes "Any 3 Bars                   1:1";
+	mes "3 of same color Bar        100:1";
+	mes "Jackpot    -        -        5:1";
+	mes "Jackpot  Jackpot    -       50:1";
+	mes "Jackpot  Jackpot  Jackpot 1000:1";
+	next;
+	goto begin;
+	
+spin:
+	setzeny zeny,0-wager;
+	random wheel1,10;
+	random wheel2,10;
+	random wheel3,10;
+	
+	if(wheel1<3) goto cherry1;
+	if(wheel1<5) goto redbar1;
+	if(wheel1<7) goto bluebar1;
+	if(wheel1<9) goto blackbar1;
+	goto jackpot1;
+	
+	cherry1:
+		set one,1;
+		mes "^ff0000Cherry^000000";
+		goto wheel2result;
+		
+	redbar1:
+		set one,2;
+		mes "^990000Bar^000000";
+		goto wheel2result;
+	bluebar1:
+		set one,3;
+		mes "^0000ffBar^000000";
+		goto wheel2result;
+	blackbar1:
+		set one,4;
+		mes "Bar";
+		goto wheel2result;
+	jackpot1:
+		set one,5;
+		mes "^009900Jackpot^000000";
+		goto wheel2result;
+
+wheel2result:
+	if(wheel2<3) goto cherry2;
+	if(wheel2<5) goto redbar2;
+	if(wheel2<7) goto bluebar2;
+	if(wheel2<9) goto blackbar2;
+	goto jackpot2;
+	
+	cherry2:
+		set two,1;
+		mes "^ff0000Cherry^000000";
+		goto wheel3result;
+		
+	redbar2:
+		set two,2;
+		mes "^990000Bar^000000";
+		goto wheel3result;
+	bluebar2:
+		set two,3;
+		mes "^0000ffBar^000000";
+		goto wheel3result;
+	blackbar2:
+		set two,4;
+		mes "Bar";
+		goto wheel3result;
+	jackpot2:
+		set two,5;
+		mes "^009900Jackpot^000000";
+		goto wheel3result;
+	
+wheel3result:
+	if(wheel3<3) goto cherry3;
+	if(wheel3<5) goto redbar3;
+	if(wheel3<7) goto bluebar3;
+	if(wheel3<9) goto blackbar3;
+	goto jackpot3;
+	
+	cherry3:
+		set three,1;
+		mes "^ff0000Cherry^000000";
+		goto result;
+		
+	redbar3:
+		set three,2;
+		mes "^990000Bar^000000";
+		goto result;
+	bluebar3:
+		set three,3;
+		mes "^0000ffBar^000000";
+		goto result;
+	blackbar3:
+		set three,4;
+		mes "Bar";
+		goto result;
+	jackpot3:
+		set three,5;
+		mes "^009900Jackpot^000000";
+		goto result;
+		
+result:
+	next;
+	if((one==5)&&(two==5)&&(three==5)) goto won1000;
+	if((one==5)&&(two==5)) goto won50;
+	if(one==5) goto won5;
+	if((one==4)&&(two==4)&&(three==4)) goto won100;
+	if((one==3)&&(two==3)&&(three==3)) goto won100;
+	if((one==2)&&(two==2)&&(three==2)) goto won100;
+	if((one<5)&&(one>1)&&(two<5)&&(two>1)&&(three<5)&&(three>1)) goto won1;
+	if((one==1)&&(two==1)&&(three==1)) goto won30;
+	if((one==1)&&(two==1)) goto won5;
+	if(one==1) goto won1;
+	mes "You lost...";
+	goto begin;
+	
+won1000:
+	mes "JACKPOT!!!!";
+	setzeny zeny,0+(wager*1000);
+	goto begin;		
+	
+won100:
+	mes "Mini-Jackpot!!!";
+	setzeny zeny,0+(wager*100);
+	goto begin;		
+
+won1:
+	mes "Even Money!";
+	setzeny zeny,0+(wager*1);
+	goto begin;		
+
+won5:
+	mes "Good Job!";
+	setzeny zeny,0+(wager*5);
+	goto begin;		
+
+won50:
+	mes "WOW!!";
+	setzeny zeny,0+(wager*50);
+	goto begin;		
+
+won30:
+	mes "Great!!";
+	setzeny zeny,0+(wager*30);
+	goto begin;		
+}
+
+cmd_in02.gat,167,101,1	script	Slots	111,{
+begin:
+	mes "Please insert zeny to play.";
+	next;
+	menu "100",bet100,"500",bet500,"Pay Chart",paychart,"No Thanks",quit1;
+	
+quit1:
+	mes "Have a nice day!";
+	close;
+	
+bet100:
+	set wager,100;
+	goto spin;
+
+bet500:
+	set wager,500;
+	goto spin;
+	
+paychart:
+	mes "Pay Chart";
+	mes "Cherry     -        -        1:1";
+	mes "Cherry   Cherry     -        5:1";
+	mes "Cherry   Cherry   Cherry    30:1";
+	mes "Any 3 Bars                   1:1";
+	mes "3 of same color Bar        100:1";
+	mes "Jackpot    -        -        5:1";
+	mes "Jackpot  Jackpot    -       50:1";
+	mes "Jackpot  Jackpot  Jackpot 1000:1";
+	next;
+	goto begin;
+	
+spin:
+	setzeny zeny,0-wager;
+	random wheel1,10;
+	random wheel2,10;
+	random wheel3,10;
+	
+	if(wheel1<3) goto cherry1;
+	if(wheel1<5) goto redbar1;
+	if(wheel1<7) goto bluebar1;
+	if(wheel1<9) goto blackbar1;
+	goto jackpot1;
+	
+	cherry1:
+		set one,1;
+		mes "^ff0000Cherry^000000";
+		goto wheel2result;
+		
+	redbar1:
+		set one,2;
+		mes "^990000Bar^000000";
+		goto wheel2result;
+	bluebar1:
+		set one,3;
+		mes "^0000ffBar^000000";
+		goto wheel2result;
+	blackbar1:
+		set one,4;
+		mes "Bar";
+		goto wheel2result;
+	jackpot1:
+		set one,5;
+		mes "^009900Jackpot^000000";
+		goto wheel2result;
+
+wheel2result:
+	if(wheel2<3) goto cherry2;
+	if(wheel2<5) goto redbar2;
+	if(wheel2<7) goto bluebar2;
+	if(wheel2<9) goto blackbar2;
+	goto jackpot2;
+	
+	cherry2:
+		set two,1;
+		mes "^ff0000Cherry^000000";
+		goto wheel3result;
+		
+	redbar2:
+		set two,2;
+		mes "^990000Bar^000000";
+		goto wheel3result;
+	bluebar2:
+		set two,3;
+		mes "^0000ffBar^000000";
+		goto wheel3result;
+	blackbar2:
+		set two,4;
+		mes "Bar";
+		goto wheel3result;
+	jackpot2:
+		set two,5;
+		mes "^009900Jackpot^000000";
+		goto wheel3result;
+	
+wheel3result:
+	if(wheel3<3) goto cherry3;
+	if(wheel3<5) goto redbar3;
+	if(wheel3<7) goto bluebar3;
+	if(wheel3<9) goto blackbar3;
+	goto jackpot3;
+	
+	cherry3:
+		set three,1;
+		mes "^ff0000Cherry^000000";
+		goto result;
+		
+	redbar3:
+		set three,2;
+		mes "^990000Bar^000000";
+		goto result;
+	bluebar3:
+		set three,3;
+		mes "^0000ffBar^000000";
+		goto result;
+	blackbar3:
+		set three,4;
+		mes "Bar";
+		goto result;
+	jackpot3:
+		set three,5;
+		mes "^009900Jackpot^000000";
+		goto result;
+		
+result:
+	next;
+	if((one==5)&&(two==5)&&(three==5)) goto won1000;
+	if((one==5)&&(two==5)) goto won50;
+	if(one==5) goto won5;
+	if((one==4)&&(two==4)&&(three==4)) goto won100;
+	if((one==3)&&(two==3)&&(three==3)) goto won100;
+	if((one==2)&&(two==2)&&(three==2)) goto won100;
+	if((one<5)&&(one>1)&&(two<5)&&(two>1)&&(three<5)&&(three>1)) goto won1;
+	if((one==1)&&(two==1)&&(three==1)) goto won30;
+	if((one==1)&&(two==1)) goto won5;
+	if(one==1) goto won1;
+	mes "You lost...";
+	goto begin;
+	
+won1000:
+	mes "JACKPOT!!!!";
+	setzeny zeny,0+(wager*1000);
+	goto begin;		
+	
+won100:
+	mes "Mini-Jackpot!!!";
+	setzeny zeny,0+(wager*100);
+	goto begin;		
+
+won1:
+	mes "Even Money!";
+	setzeny zeny,0+(wager*1);
+	goto begin;		
+
+won5:
+	mes "Good Job!";
+	setzeny zeny,0+(wager*5);
+	goto begin;		
+
+won50:
+	mes "WOW!!";
+	setzeny zeny,0+(wager*50);
+	goto begin;		
+
+won30:
+	mes "Great!!";
+	setzeny zeny,0+(wager*30);
+	goto begin;		
+}
+
+
+cmd_in02.gat,169,101,1	script	Slots	111,{
+begin:
+	mes "Please insert zeny to play.";
+	next;
+	menu "100",bet100,"500",bet500,"Pay Chart",paychart,"No Thanks",quit1;
+	
+quit1:
+	mes "Have a nice day!";
+	close;
+	
+bet100:
+	set wager,100;
+	goto spin;
+
+bet500:
+	set wager,500;
+	goto spin;
+	
+paychart:
+	mes "Pay Chart";
+	mes "Cherry     -        -        1:1";
+	mes "Cherry   Cherry     -        5:1";
+	mes "Cherry   Cherry   Cherry    30:1";
+	mes "Any 3 Bars                   1:1";
+	mes "3 of same color Bar        100:1";
+	mes "Jackpot    -        -        5:1";
+	mes "Jackpot  Jackpot    -       50:1";
+	mes "Jackpot  Jackpot  Jackpot 1000:1";
+	next;
+	goto begin;
+	
+spin:
+	setzeny zeny,0-wager;
+	random wheel1,10;
+	random wheel2,10;
+	random wheel3,10;
+	
+	if(wheel1<3) goto cherry1;
+	if(wheel1<5) goto redbar1;
+	if(wheel1<7) goto bluebar1;
+	if(wheel1<9) goto blackbar1;
+	goto jackpot1;
+	
+	cherry1:
+		set one,1;
+		mes "^ff0000Cherry^000000";
+		goto wheel2result;
+		
+	redbar1:
+		set one,2;
+		mes "^990000Bar^000000";
+		goto wheel2result;
+	bluebar1:
+		set one,3;
+		mes "^0000ffBar^000000";
+		goto wheel2result;
+	blackbar1:
+		set one,4;
+		mes "Bar";
+		goto wheel2result;
+	jackpot1:
+		set one,5;
+		mes "^009900Jackpot^000000";
+		goto wheel2result;
+
+wheel2result:
+	if(wheel2<3) goto cherry2;
+	if(wheel2<5) goto redbar2;
+	if(wheel2<7) goto bluebar2;
+	if(wheel2<9) goto blackbar2;
+	goto jackpot2;
+	
+	cherry2:
+		set two,1;
+		mes "^ff0000Cherry^000000";
+		goto wheel3result;
+		
+	redbar2:
+		set two,2;
+		mes "^990000Bar^000000";
+		goto wheel3result;
+	bluebar2:
+		set two,3;
+		mes "^0000ffBar^000000";
+		goto wheel3result;
+	blackbar2:
+		set two,4;
+		mes "Bar";
+		goto wheel3result;
+	jackpot2:
+		set two,5;
+		mes "^009900Jackpot^000000";
+		goto wheel3result;
+	
+wheel3result:
+	if(wheel3<3) goto cherry3;
+	if(wheel3<5) goto redbar3;
+	if(wheel3<7) goto bluebar3;
+	if(wheel3<9) goto blackbar3;
+	goto jackpot3;
+	
+	cherry3:
+		set three,1;
+		mes "^ff0000Cherry^000000";
+		goto result;
+		
+	redbar3:
+		set three,2;
+		mes "^990000Bar^000000";
+		goto result;
+	bluebar3:
+		set three,3;
+		mes "^0000ffBar^000000";
+		goto result;
+	blackbar3:
+		set three,4;
+		mes "Bar";
+		goto result;
+	jackpot3:
+		set three,5;
+		mes "^009900Jackpot^000000";
+		goto result;
+		
+result:
+	next;
+	if((one==5)&&(two==5)&&(three==5)) goto won1000;
+	if((one==5)&&(two==5)) goto won50;
+	if(one==5) goto won5;
+	if((one==4)&&(two==4)&&(three==4)) goto won100;
+	if((one==3)&&(two==3)&&(three==3)) goto won100;
+	if((one==2)&&(two==2)&&(three==2)) goto won100;
+	if((one<5)&&(one>1)&&(two<5)&&(two>1)&&(three<5)&&(three>1)) goto won1;
+	if((one==1)&&(two==1)&&(three==1)) goto won30;
+	if((one==1)&&(two==1)) goto won5;
+	if(one==1) goto won1;
+	mes "You lost...";
+	goto begin;
+	
+won1000:
+	mes "JACKPOT!!!!";
+	setzeny zeny,0+(wager*1000);
+	goto begin;		
+	
+won100:
+	mes "Mini-Jackpot!!!";
+	setzeny zeny,0+(wager*100);
+	goto begin;		
+
+won1:
+	mes "Even Money!";
+	setzeny zeny,0+(wager*1);
+	goto begin;		
+
+won5:
+	mes "Good Job!";
+	setzeny zeny,0+(wager*5);
+	goto begin;		
+
+won50:
+	mes "WOW!!";
+	setzeny zeny,0+(wager*50);
+	goto begin;		
+
+won30:
+	mes "Great!!";
+	setzeny zeny,0+(wager*30);
+	goto begin;		
+}
+
+
+cmd_in02.gat,171,101,1	script	Slots	111,{
+begin:
+	mes "Please insert zeny to play.";
+	next;
+	menu "100",bet100,"500",bet500,"Pay Chart",paychart,"No Thanks",quit1;
+	
+quit1:
+	mes "Have a nice day!";
+	close;
+	
+bet100:
+	set wager,100;
+	goto spin;
+
+bet500:
+	set wager,500;
+	goto spin;
+	
+paychart:
+	mes "Pay Chart";
+	mes "Cherry     -        -        1:1";
+	mes "Cherry   Cherry     -        5:1";
+	mes "Cherry   Cherry   Cherry    30:1";
+	mes "Any 3 Bars                   1:1";
+	mes "3 of same color Bar        100:1";
+	mes "Jackpot    -        -        5:1";
+	mes "Jackpot  Jackpot    -       50:1";
+	mes "Jackpot  Jackpot  Jackpot 1000:1";
+	next;
+	goto begin;
+	
+spin:
+	setzeny zeny,0-wager;
+	random wheel1,10;
+	random wheel2,10;
+	random wheel3,10;
+	
+	if(wheel1<3) goto cherry1;
+	if(wheel1<5) goto redbar1;
+	if(wheel1<7) goto bluebar1;
+	if(wheel1<9) goto blackbar1;
+	goto jackpot1;
+	
+	cherry1:
+		set one,1;
+		mes "^ff0000Cherry^000000";
+		goto wheel2result;
+		
+	redbar1:
+		set one,2;
+		mes "^990000Bar^000000";
+		goto wheel2result;
+	bluebar1:
+		set one,3;
+		mes "^0000ffBar^000000";
+		goto wheel2result;
+	blackbar1:
+		set one,4;
+		mes "Bar";
+		goto wheel2result;
+	jackpot1:
+		set one,5;
+		mes "^009900Jackpot^000000";
+		goto wheel2result;
+
+wheel2result:
+	if(wheel2<3) goto cherry2;
+	if(wheel2<5) goto redbar2;
+	if(wheel2<7) goto bluebar2;
+	if(wheel2<9) goto blackbar2;
+	goto jackpot2;
+	
+	cherry2:
+		set two,1;
+		mes "^ff0000Cherry^000000";
+		goto wheel3result;
+		
+	redbar2:
+		set two,2;
+		mes "^990000Bar^000000";
+		goto wheel3result;
+	bluebar2:
+		set two,3;
+		mes "^0000ffBar^000000";
+		goto wheel3result;
+	blackbar2:
+		set two,4;
+		mes "Bar";
+		goto wheel3result;
+	jackpot2:
+		set two,5;
+		mes "^009900Jackpot^000000";
+		goto wheel3result;
+	
+wheel3result:
+	if(wheel3<3) goto cherry3;
+	if(wheel3<5) goto redbar3;
+	if(wheel3<7) goto bluebar3;
+	if(wheel3<9) goto blackbar3;
+	goto jackpot3;
+	
+	cherry3:
+		set three,1;
+		mes "^ff0000Cherry^000000";
+		goto result;
+		
+	redbar3:
+		set three,2;
+		mes "^990000Bar^000000";
+		goto result;
+	bluebar3:
+		set three,3;
+		mes "^0000ffBar^000000";
+		goto result;
+	blackbar3:
+		set three,4;
+		mes "Bar";
+		goto result;
+	jackpot3:
+		set three,5;
+		mes "^009900Jackpot^000000";
+		goto result;
+		
+result:
+	next;
+	if((one==5)&&(two==5)&&(three==5)) goto won1000;
+	if((one==5)&&(two==5)) goto won50;
+	if(one==5) goto won5;
+	if((one==4)&&(two==4)&&(three==4)) goto won100;
+	if((one==3)&&(two==3)&&(three==3)) goto won100;
+	if((one==2)&&(two==2)&&(three==2)) goto won100;
+	if((one<5)&&(one>1)&&(two<5)&&(two>1)&&(three<5)&&(three>1)) goto won1;
+	if((one==1)&&(two==1)&&(three==1)) goto won30;
+	if((one==1)&&(two==1)) goto won5;
+	if(one==1) goto won1;
+	mes "You lost...";
+	goto begin;
+	
+won1000:
+	mes "JACKPOT!!!!";
+	setzeny zeny,0+(wager*1000);
+	goto begin;		
+	
+won100:
+	mes "Mini-Jackpot!!!";
+	setzeny zeny,0+(wager*100);
+	goto begin;		
+
+won1:
+	mes "Even Money!";
+	setzeny zeny,0+(wager*1);
+	goto begin;		
+
+won5:
+	mes "Good Job!";
+	setzeny zeny,0+(wager*5);
+	goto begin;		
+
+won50:
+	mes "WOW!!";
+	setzeny zeny,0+(wager*50);
+	goto begin;		
+
+won30:
+	mes "Great!!";
+	setzeny zeny,0+(wager*30);
+	goto begin;		
+}
+
+
+

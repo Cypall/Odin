@@ -1,0 +1,12 @@
+tur_dun01.gat,162,32,0	script	Sailor	100,{
+	mes "[Sailor]";
+	mes "Wanna return?";
+	next;
+	menu "Yeah, I am Tired to Death.",L0,"Nope I love this place.",L1;
+	
+	L0:
+		warp "izlude.gat",176,182;
+		close;
+	L1:
+		close;
+}

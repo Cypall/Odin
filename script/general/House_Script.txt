@@ -1,0 +1,38 @@
+//Ever want to have a house in RO?
+//Here you go, just edit the map locations and password and you have yourself a password protected house
+//By: Lamborghini2121
+
+//Pet for house (Make sure it isn't aggressive)
+ama_in01.gat,102,118,0,0	monster	Snuggles	1588,1,0,0,0
+
+//House coding
+amatsu.gat,101,151,6 script Housekeeper 708,{ 
+mes "[Housekeeper]"; 
+mes "Greetings, what do you want?"; 
+next; 
+menu "Let me in",L_Menu1,"House Description",L_Menu1_F2,"Nothing",-; 
+close; 
+	L_Menu1: 
+		// Requirement Check 
+		mes "[Housekeeper]"; 
+		mes "Please enter your Password."; 
+		next; 
+		input @HOUSE_PW; 
+		if(@HOUSE_PW == 369) goto L_Menu1_F3; 
+	L_Menu1_F1: 
+		mes "[Housekeeper]"; 
+		mes "You have entered the wrong password."; 
+		next; 
+		mes "[Housekeeper]"; 
+		mes "PM a GM if you can't get in."; 
+		close; 
+	L_Menu1_F2: 
+		mes "[Housekeeper]"; 
+		mes "This house is owned by _________"; 
+		close; 
+	L_Menu1_F3: 
+		mes "[Housekeeper]"; 
+		mes "That's the correct password, I'll guide you in!"; 
+		next; 
+		warp "ama_in01.gat",	88,	97;	close; 
+}

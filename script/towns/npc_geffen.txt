@@ -1,0 +1,536 @@
+geffen_in.gat,110,172,2	script	Christopher	63,{
+	mes "[Christopher Guillenrow]";
+	mes "Welcome to Christopher's Workshop.";
+	next;
+	mes "[Christopher Guillenrow]";
+	mes "You can get everything you need to forge here.";
+	next;
+	mes "[Christopher Guillenrow]";
+	mes "My dear... What business brings you to me?";
+	next;
+	menu "Purchase Anvil",PurAnvil,"Purchase Forging Item",PurForgIt,"Purchase Metal",PurMetal,"Purify Rough Ores",PurRouOre,"Cancel",PurCancel;
+	
+	PurAnvil:
+		mes "[Christopher Guillenrow]";
+		mes "A better anvil gives you better chances to make better weapons, you know.";
+		next;
+		mes "[Christopher Guillenrow]";
+		mes "But it will cost you more money than common ones";
+		next;
+		mes "[Christopher Guillenrow]";
+		mes "Just get it off your chest and choose the best one for your convenience";
+		next;
+		menu "Anvil - 30000z.",Anvil,"Oridecon Anvil - 120000z.",OriAnvil,"Golden Anvil - 300000z.",GolAnvil,"Better Anvil than others",BetAnvil,"Cancel",PurACancel;
+
+		Anvil:
+			mes "[Christopher Guillenrow]";
+			if(Zeny < 30000) goto NoZeny;
+			mes "This is the cheapest one but it is very efficient to forge.";
+			setzeny Zeny,0 - 30000;
+			getitem 986,1;
+			goto ThankYou;
+		OriAnvil:
+			mes "[Christopher Guillenrow]";
+			if(Zeny < 120000) goto NoZeny;
+			mes "Oh, buddy you have an eye for anvil.";
+			next;
+			mes "[Christopher Guillenrow]";
+			mes "This must be the proper anvil for a Blacksmith, right?";
+			setzeny Zeny,0 - 120000;
+			getitem 987,1;
+			goto ThankYou;
+		GolAnvil:
+			mes "[Christopher Guillenrow]";
+			if(Zeny < 300000) goto NoZeny;
+			mes "This one is the best among all other anvils in my workshop!";
+			next;
+			mes "[Christopher Guillenrow]";
+			mes "With this, you could rule the Blacksmith world.";
+			setzeny Zeny,0 - 300000;
+			getitem 988,1;
+			goto ThankYou;
+			
+		BetAnvil:
+			mes "[Christopher Guillenrow]";
+			mes "Well, sorry but I don't have any harder ones other than this golden anvil.";
+			next;
+			mes "[Christopher Guillenrow]";
+			mes "Maybe 'Ringgel' the Legendary Anvil maker would have one... But I don't think you can find him in this world";
+			close;
+		PurACancel:
+			mes "[Christopher Guillenrow]";
+			mes "Ok, Feel free to come anytime, whenever you need something. Farewell.";
+			close;
+	PurForgIt:
+		mes "[Christopher Guillenrow]";
+		mes "A respectable blacksmith uses fine tools.";
+		next;
+		mes "[Christopher Guillenrow]";
+		mes "Choose anything you want.";
+		next;
+		menu "Mini-Furnace - 150z.",MiniFurn,"Iron Hammer - 1000z.",IronHam,"Golden Hammer - 3000z.",GoldHam,"Oridecon Hammer - 5000z.",OriHam,"Cancel",PurFICancel;
+		
+		MiniFurn:
+			mes "[Christopher Guillenrow]";
+			mes "It's a tool exquisite for metal refining!!";
+			next;
+			mes "[Christopher Guillenrow]";
+			mes "So, how many do you wish to buy? If you want to quit, please note the number as '0'.";
+			next;
+			input;
+			mes "[Christopher Guillenrow]";
+			if(Script_flag_num <= 0) goto DealCanc;
+			if(Zeny < 150 * Script_flag_num) goto NoZeny;
+			if((GetWeight + (Script_flag_num * 20)) > GetMaxWeight) goto inputOW;
+			setzeny Zeny,0 - 150 * Script_flag_num;
+			getitem 612,Script_flag_num;
+			goto ThankYou;
+		IronHam:
+			mes "[Christopher Guillenrow]";
+			if(Zeny < 1000) goto NoZeny;
+			setzeny Zeny,0 - 100;
+			getitem 613,1;
+			goto ThankYou;
+		GoldHam:
+			mes "[Christopher Guillenrow]";
+			if(Zeny < 3000) goto NoZeny;
+			setzeny Zeny,0 - 3000;
+			getitem 614,1;
+			goto ThankYou;
+		OriHam:
+			mes "[Christopher Guillenrow]";
+			if(Zeny < 5000) goto NoZeny;
+			setzeny Zeny,0 - 5000;
+			getitem 615,1;
+			goto ThankYou;
+		PurFICancel:
+			mes "[Christopher Guillenrow]";
+			mes "Ok, Feel free to come anytime, whenever you need something. Farewell.";
+			close;
+	PurMetal:
+		mes "[Christopher Guillenrow]";
+		mes "I prepare all metals and only high quality ones at that.";
+		next;
+		mes "[Christopher Guillenrow]";
+		mes "Now then. Which one do you want?";
+		next;
+		menu "Phracon - 200z.",PurMPhracon,"Emveretarcon - 1000z.",PurMEmveretarcon,"Cancel",PurMCancel;
+		
+		PurMPhracon:
+			mes "[Christopher Guillenrow]";
+			mes "So, how many do you wish to buy? If you want to quit, please note the number as '0'.";
+			next;
+			input;
+			mes "[Christopher Guillenrow]";
+			if(Script_flag_num <= 0) goto DealCanc;
+			if(Zeny < 200 * Script_flag_num) goto NoZeny;
+			setzeny Zeny,0 - 200 * Script_flag_num;
+			getitem 1010,Script_flag_num;
+			goto ThankYou;
+		PurMEmveretarcon:
+			mes "[Christopher Guillenrow]";
+			mes "So, how many do you wish to buy? If you want to quit, please note the number as '0'.";
+			next;
+			input;
+			mes "[Christopher Guillenrow]";
+			if(Script_flag_num <= 0) goto DealCanc;
+			if(Zeny < 1000 * Script_flag_num) goto NoZeny;
+			setzeny Zeny,0 - 1000 * Script_flag_num;
+			getitem 1011,Script_flag_num;
+			goto ThankYou;
+		PurMCancel:
+			mes "[Christopher Guillenrow]";
+			mes "Ok, Feel free to come anytime whenever you need. Farewell.";
+			close;
+	PurRouOre:
+		mes "[Christopher Guillenrow]";
+		mes "I can purify Oridecon and Elunium.";
+		next;
+		mes "[Christopher Guillenrow]";
+		mes "I make a cutting Ore out of 5 each rough ones.";
+		next;
+		mes "[Christopher Guillenrow]";
+		mes "Well... Which one do you want to make?";
+		next;
+		menu "Make Oridecon",MakeOrid,"Make Elunium",MakeElun,"Cancel",PurROCancel;
+		
+		MakeOrid:
+			mes "[Christopher Guillenrow]";
+			if(countitem(756) < 5) goto CantMakeOrid;
+			delitem 756,5;
+			getitem 984,1;
+			mes "Here. This is an Oridecon for you. You will always be welcomed, please come again.";
+			close;
+			
+			CantMakeOrid:
+				mes "I told you I need 5 rough Oridecons for one Oridecon.";
+				close;
+		MakeElun:
+			mes "[Christopher Guillenrow]";
+			if(countitem(757) < 5) goto CantMakeElun;
+			delitem 757,5;
+			getitem 985,1;
+			mes "Here. This is an Elunium for you. You will always be welcomed, please come again.";
+			close;
+
+			CantMakeElun:
+				mes "I told you I need 5 rough Eluniums for one Eluniums.";
+				close;
+		PurROCancel:
+			mes "[Christopher Guillenrow]";
+			mes "Ok, Feel free to come anytime whenever you need. Farewell.";
+			close;
+	PurCancel:
+		close;
+		
+			DealCanc:
+				mes "Deal has canceled. Farewell.";
+				close;
+			NoZeny:
+				mes "I don't think I can let you have this... at lower price. I can't loose my money because of you.";
+				close;
+			ThankYou:
+				mes "Thank you for shopping at my workshop. Feel free to come anytime whenever you need.";
+				close;
+}
+
+geffen_in.gat,141,140,2	script	Morgenshtein	121,{
+		mes "[Chemist Morgenshtein]";
+//	if(coutitem($$$)<1) goto Standard;
+//	Standard:
+		mes "Heheheheheh... Shiff Shiff... I can smell something appetizing here.";
+		next;
+		mes "[Chemist Morgenshtein]";
+		mes "It is a Human Being... living one... umm yummy... Heheheheheh";
+		close;
+}
+
+geffen_in.gat,164,109,2	script	Dark Wizard	64,{
+	mes "[Dark Wizard]";
+	mes "Oh... I can feel Fresh and Mighty Spirits. Oh... Is that you? You seem to use magic as well.";
+	next;
+	mes "[Dark Wizard]";
+	mes "Magic... the power for magic is controlled by the rule of cause and effect...";
+	next;
+	mes "[Dark Wizard]";
+	mes "That is, if you use magic for the purpose of doing harm to others, or against the rule of Mother Nature, then the reaction will be back to you. Remember you reap what you sow";
+	next;
+	mes "[Dark Wizard]";
+	mes "But, if it's an item that protects the caster from the reaction, you can use magic safely with it. Those kinds of items are the shining stones known as Gemstones.";
+	next;
+	mes "[Dark Wizard]";
+	mes "Gemstone... Keep in mind of this Item.";
+	close;
+}
+
+geffen.gat,59,143,8	script	Lady	91,{
+	mes "[Womankind]";
+	mes "Oh, you must be a Stranger here.";
+	next;
+	mes "[Womankind]";
+	mes "Welcome to Geffen, the City of Magic. You must be very tired, aren't you? Why don't you eat Some Honey? It will relieve of your Fatigue~";
+	next;
+	mes "[Womankind]";
+	mes "Hornets, the Bee Family living in Grassland, gather Honey at the Queen Bee's Command, for Their Entire Life. Honey is Very Sweet and of high Nutritive Value, so it is the one of High-priced Articles.";
+	next;
+	mes "[Womankind]";
+	mes "But it doesn't mean Honey is the Best of Bee Products.";
+	next;
+	mes "[Womankind]";
+	mes "A rumor has it that is nothing compare with the `Royal Jelly' from the Queen bee.";
+	next;
+	mes "[Womankind]";
+	mes "Ah~ Thinking of Royal Jelly makes my mouth Water~";
+	close;
+}
+
+geffen.gat,111,48,2	script	Womankind	101,{
+	mes "[Womankind]";
+	mes "Good Day, Adventurer? Have you ever happened to see Orcs, the Demi-Human Tribe?";
+	next;
+	mes "[Womankind]";
+	mes "When you go down to the Southward from here, in the Deep Forest, you will meet Orcs.";
+	next;
+	mes "[Womankind]";
+	mes "They have, as Human, their Own Language and Culture by hearsay.";
+	next;
+	mes "What I wonder is... Would they Whisper Sweet Nothings and Fool Around? Hmm... I am so Curious.";
+	close;
+}
+
+geffen.gat,156,190,8	script	Young Man	82,{
+	mes "[Young Man]";
+	mes "Hmm... Interesting. Hmm... It is Very interesting... Oh, You've come at Just Right Time. let me tell you this Marvelous Story.";
+	next;
+	mes "[Womankind]";
+	mes "I found out a Mysterious Scroll when I was researching Magic, It describes the tree named Yggdrasil in which it's leaves, seeds and fruits have been deeply involved with everything alive in the world and the myth about Yggdrasil created the world.";
+	next;
+	mes "[Young Man]";
+	mes "Hmm Well, Frankly I've never touched that Tree or even seen it either...!";
+	next;
+	mes "[Womankind]";
+	mes "Anyway, It is weirdly and Wonderful, isn't it?";
+	close;
+}
+
+geffen.gat,181,114,4	script	Aure Dupon	82,{
+	mes "[Aure Dupon]";
+	mes "Time never awaits you. Even Magic can't make it slow. Now I can feel it still passing by while I am talking";
+	next;
+	mes "[Aure Dupon]";
+	mes "Anyway, why did you call me to stop?";
+	next;
+	menu "Talk",Talk,"Cancel",Cancel;
+	
+	Talk:
+		mes "[Aure Dupon]";
+		mes "I don't think I am a normal person because I am bewitched by power of magic. However besides me, it seems so many strange people are out there ...";
+		next;
+		mes "[Aure Dupon]";
+		mes "If were you, would you stake your life on one thing? Neglecting everything more important in your life... as you're gone insane...";
+		close;
+	Cancel:
+		mes "[Aure Dupon]";
+		mes "I can see your strong will on your look. But you won't tell me anything";
+		next;
+		mes "[Aure Dupon]";
+		mes "I feel sorry but I can't help it...";
+		mes "Human being is one part of Nature... The Human will is the same as ... Mother Nature.";
+		close;
+}
+
+geffen.gat,147,26,0	script	Young man	97,{
+	mes "[Young Man]";
+	mes "I heard that somewhere in this world, there is a rare staff which transforms its owner's psychic power into phisycal powers, and endows with destructive force also...";
+	mes "With this, everybody could be as strong as Hercules, despite their lack of muscles. Haw haw...I will take it.";
+	next;
+	mes "[Young Man]";
+	mes "Good heavens! You, since when were you behind me?";
+	mes "Did you happen to hear what I said? Ha ma...Muhaha. I didn't say anything. If you heard anything from me, just forget~Forget about it~";
+	mes "Yay~ veggie is cheap today~come on!!";
+	close;
+}
+
+geffen_in.gat,34,170,0	script	"Young man"	47,{
+	mes "[Young Man]";
+	mes "Hello? Isn't it wonderful, today? I am a promising young Mage. Ahem.";
+	mes "Nowadays, my mental anguish about magic things keeps me awake every night..sigh...Especially, about the weak point of magic, you know.";
+	next;
+	mes "[Young Man]";
+	mes "Darn! It was really annoying when I encountered that long-ranged enemy last time. It disrupted magic casting.";
+	mes "After all I realised I need a weapon to counter Such a long-ranged attack from an enemy....But geez..It is not easy to make such a weapon I wish.";
+	next;
+	mes "There should be another way.....Should be.....";
+	mes "Any ideas for me?";
+	close;
+}
+
+geffen_in.gat,70,67,5	script	Waitress	80,
+{
+	mes "[Waitress]";
+	mes "Ugh!! SO annoying! Why would you drink here when you could drink at the pub!? This is an Inn, not a pub!!";
+	mes "That man!... everytime he drinks... he gets like that! Ugh!!";
+	next;
+	mes "[Waitress]";
+	mes "(~yells to the man~)'Hey mister! I TOLD you... THIS.. IS.. AN INN, NOT A BAR!!'";
+	next;
+	mes "[Waitress]";
+	mes "(~sighs~) That old man in the front corner there gives me a headache.";
+	mes "My younger sister, who works at the pub, told me that there is someone just like him at the Pub.";
+	next;
+	mes "[Waitress]";
+	mes "To think that there are 2 of them in one city... It's JUST ABSURD!!";
+	next;
+	mes "[Waitress]";
+	mes "(~mumbles~)... I wish they would both just leave this town and be forgotten forever... that would be nice....";
+M_Menu:
+	next;
+	menu "May I have a drink?",M_0, "Has there been anything interesting lately?",M_1, "End Conversation",M_End;
+
+	M_0:
+		mes "[Waitress]";
+		mes "Oh my, I'm sorry but that DRUNKARD swallowed up every last drop of liquior we have.";
+		mes "Everyday it's the same thing... as soon as the Inn opens he comes in and gulps down drink after drink.";
+		next;
+		mes "[Waitress]";
+		mes "It's amazing he hasn't died yet.  Maybe if you came by some other time we'll be restocked... oh who am I kidding....";
+		goto M_Menu;
+	M_1:
+		mes "[Waitress]";
+		mes "Well... of all of the people who have stopped by latelty, there are a group of merchants that have caught my attention.";
+		mes "I could tell right away that they were from out of town.  My younger sister tells me they are from Schubaltzwald...";
+		next;
+		mes "[Waitress]";
+		mes "It really doesn't matter who they are or where they're from, afterall business is business.  They could be from Schuschu Chocolate Land for all I care....";
+		next;
+		mes "[Waitress]";
+		mes "I just wish the amount of local customers would start increasing again, since they are the bulk of my customers.";
+		goto M_Menu;
+	M_End:
+		mes "[Waitress]";
+		mes "Have a nice day!";
+		close;
+}
+
+geffen_in.gat,79,75,2	script	Merchant Daven	61,
+{
+	mes "[Merchant Daven]";
+	mes "Back in the day when I frist came to Geffen, the town was a very boring place to live in.";
+	next;
+	mes "[Merchant Daven]";
+	mes "But now there are noble Mages and a flourishing community of Blacksmiths, that make Geffen.......";
+	next;
+	mes "[Merchant Daven]";
+	mes ".... still.... a very BORING place to be.... Bleh! I'm really bored here!!!";
+M_Menu:
+	next;
+	menu "-Mages?",M_0, "-Blacksmiths?",M_1, "-Who are you?",M_2, "-End Conversation.",M_End;
+
+	M_0:
+		mes "[Merchant Daven]";
+		mes "Mages and Wizards love to carry books around with them wherever they go.  That's just how they are.";
+		next;
+		mes "[Merchant Daven]";
+		mes "Mages like to gather at the ^5555FFMagic Academey^000000 where they study the basics of magic use.";
+		next;
+		mes "[Merchant Daven]";
+		mes "After much study and with enough experience, Mages can become Wizards.  Wizards can use much more powerfull magical spells.";
+		mes "You can find them at the top floor of the ^5555FFGeffen Tower^000000.";
+		goto M_Menu;
+	M_1:
+		mes "[Merchant Daven]";
+		mes "Blaksmiths are difficult people.  They are also a dirty bunch, whose faces are often covered with black soot.";
+		mes "No matter where they are or what they do, they always smell of iron and soot.";
+		next;
+		mes "[Merchant Daven]";
+		mes "However, that is something that can't be helped.  Blacksmiths are always hard at work, refining ores, and tempering equipment.";
+		mes "It's just not possible to be a Blacksmith and not be dirty and smelly.  Unfortunately it's part of the job.";
+		next;
+		mes "[Merchant Daven]";
+		mes "Weapons forged by Blacksmiths can be much more unique then those sold in Armories.";
+		mes "The actual ores and stones used by the Blacksmiths are of a much higher quality and are often scarce.";
+		mes "This can give their weapons special qualities that are very benificial to a character.";
+		goto M_Menu;
+	M_2:
+		mes "[Merchant Daven]";
+		mes "Me?.... Oh I'm the world's PRETTIEST street merchant!!..... teh he he...";
+		next;
+		menu "..... I'm gonna puke....",sM_0, ".... SLAPP him upside his head!!!",sM_1;		
+
+		sM_0:
+			mes "[Merchant Daven]";
+			mes "Hehehe.... it was a joke.... a joke ok..... hehehe....";
+			goto M_Menu;
+		sM_1:
+			mes "~^FF8000!!!^FF0000THWAAACCCKKK^FF8000!!!^000000~";
+			next;
+			mes "[Merchant Daven]";
+			mes "OW!! Ok! Ok! I was just kidding.... sheesh....";
+			goto M_Menu;
+	M_End:
+		close;
+}
+
+geffen_in.gat,59,62,2	script	Drunkard	120,
+{
+	mes "[Drunkard]";
+	mes "Hmm... You're Joshua's friend too??";
+	next;
+	menu "-Nope.",M_0, "-Who's that??",M_1, "-I have no friends.(~sob~)",M_2;
+
+	M_0:
+		mes "[Drunkard]";
+		mes "Hmf. Yeah... that dork has no reason to have any friends.  Forget I even asked.";
+		close;
+	M_1:
+		mes "[Drunkard]";
+		mes "Uh... well if you go down this hall to the room on the left... you'll find this dork.";
+		mes "All day long, he just stays in that dark room tempering steel.... who the hell knows what he's making....";
+		next;
+		mes "[Drunkard]";
+		mes "If you're interested you should go talk to him.  From the looks of it, you two would probably get along really well... HAHAHA!";
+		close;
+	M_2:
+		mes "[Drunkard]";
+		mes "Oh... I see, I see. My appologies.  You seem to be sensative about this.  To think that you have no friends....";
+		mes "Ya know, you remind me of my younger self! Heck... you might end up just like me... heh heh.";
+		next;
+		mes "[Drunkard]";
+		mes "(~sob~sob~).... oh what happened to my life!!!....(~baaaahhhh~)";
+		next;
+		mes "[Waitress]";
+		mes "ARGH!! STOP being so noisey!";
+		close;
+}
+
+geffen_in.gat,113,73,4	script	Schubaltzwald Merchant	709,
+{
+	mes "[Schubaltzwald Merchant]";
+	mes "How are you, Rune-Midgard young'un? I am Schubaltzwald's one and only Hans Hadenhiem.";
+	next;
+	mes "[Schubaltzwald Merchant]";
+	mes "My business associates and I plan to do business, both here in Geffen, and at home in Schubaltzwald.";
+	next;
+	mes "[Schubaltzwald Merchant]";
+	mes "Although Rune-Midgard doesn't seem to have any exciting places to go sight-seeing, it does have a lot of interesting merchandise.";
+	mes "Because of their uniqueness, these items have become quite valuable in my city.";
+	next;
+	mes "[Schubaltzwald Merchant]";
+	mes "Something may be plentifull here, but scarce somewhere else, an item may be popular there but not here....";
+	mes "That is what makes being a merchant so interesting, the variety of items to buy and sell between different places.";
+	next;
+	mes "[Schubaltzwald Merchant]";
+	mes "Of course it would be ideal if a merchant could have a widespread distribution of the same items in different cities.";
+	next;
+	mes "[Schubaltzwald Merchant]";
+	mes "If you're not satisfied with the merchandise, just wait, and some other day what you're looking for may be in stock.";
+	mes "It's a merchant's duty to make the customer happy with the quality of the items being sold!";
+	close;
+}
+
+geffen_in.gat,28,134,4	script	Waitress	69,
+{
+	mes "[Waitress]";
+	mes "Meh! ALWAYS drinking and ALWAYS fighting..... HEY Mister! This is a place of BUSINESS!!";
+	next;
+	mes "[Waitress]";
+	mes "That man gives me a headache.  My sister at the Inn says that there is another IDIOT just LIKE HIM there!";
+	mes "I CAN'T BELIEEEEVE that there is more that one IDIOT like him in this world..... I wish they would just... just... DISAPPEAR!!";
+	next;
+	mes "[Waitress]";
+	mes "(~sighs~)";
+M_Menu:
+	next;
+	menu "Could I get drink?",M_0, "Anything interesting goin on lately?",M_1, "End Conversation",M_End;
+
+	M_0:
+		mes "[Waitress]";
+		mes "Jeez, I'm real sorry but we ran out of liquior. THAT DRUNKARD chugged down every last drop we had....";
+		mes "As soon as we open he's in here downing drink after drink! I'm surprised he's still alive.";
+		next;
+		mes "[Waitress]";
+		mes "Maybe if you stopped by later.... but then again, the way HE'S been drinking.... you might have better luck else where....";
+		goto M_Menu;
+	M_1:
+		mes "[Waitress]";
+		mes "Hmm... there really hasn't been anything new going on lately.... there haven't been any rumors from the customers either....";
+		mes "Come to think of it.... you yourself are a person of few words....";
+		next;
+		mes "[Waitress]";
+		mes "I'm sure there's a reason why there has been such a lull as of late....";
+		mes "It's just we working girls tend to get REALLLYYY BORED.... so if anything exciting happens let me know okay?";
+		goto M_Menu;
+	M_End:
+		mes "[Waitress]";
+		mes "You have a nice day now!";
+		close;
+}
+
+geffen_in.gat,21,125,5	script	Drunkard	52,
+{
+	mes "[Drunkard]";
+	mes "You want to be an idiotic magician? Is that why you came here??";
+	close;
+}
+
+

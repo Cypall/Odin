@@ -1,0 +1,57 @@
+// $Id: npc_hunter.txt,v 1.1 2003/12/01 22:51:04 MivaBe Exp $
+//<--------------- Hunter Job Quest [Update: Oct. 06, 2003] --------------->\\
+in_hunter.gat,99,98,4	script	Hunter Guildsman	98,{
+	mes "[Hunter Guildsman]";
+	mes "Good Day, This is the Hunter Guild.";
+	next;
+	menu "Change a Job into a Hunter.",M0,"The Requirements.",M1,"Quit.",MEnd;
+
+	M0:
+		mes "[Hunter Guildsman]";
+		if(GetJob == Job_Hunter) goto JobHun;
+		if(GetJob != Job_Archer) goto NotArc;
+		if(JobLevel < 40) goto NotLvl;
+		mes "Now you become a Hunter.";
+		if(SkillPoint != 0) goto SPN0;
+		Release_All;
+		JobChange Job_Hunter;
+		SPN0:
+		close;
+		
+		NotLvl:
+			mes "You must be at least Job Level 40 before everything.";
+			close;
+		NotArc:
+			if(GetJob == Job_Novice) goto JobNov;
+			mes "Other jobs except 'Archer' are not permitted to be Hunters.";
+			close;
+
+			JobNov:
+				mes "Be an 'Archer' First.";
+				close;
+		JobHun:
+			mes "You're already a Cool Hunter.";
+			close;
+	M1:
+		mes "[Hunter Guildsman]";
+		mes "It seems the King needs more Hunters! So he established a new constitution of Hunters, so you can be a Hunter anytime if you reach at Job Level 40 or above.";
+		next;
+		mes "[Hunter Guildsman]";
+		mes "This is the good chance to become a Hunter! I assume the Government will introduce many Strict requirements for Hunter later if there are too many people want to be Hunters!";
+		next;
+		mes "[Hunter Guildsman]";
+		mes "You can't miss the perfect chance!";
+		close;
+	MEnd:
+		close;
+}
+
+pay_fild10.gat,148,252,4	script	Hunter	98,{
+	if(GetJob != Job_Archer) goto NotArc;
+	warp "in_hunter.gat",100,18;
+	close;
+
+	NotArc:
+		mes "[Hunter]";
+		close;
+}

@@ -1,0 +1,2616 @@
+// $Id: npc_guide.txt,v 1.1 2003/12/01 22:51:04 MivaBe Exp $
+//<--------------- GUIDE's [Update: Sep. 09, 2003] --------------->\\
+//This file contains the Guides, Guards and Soldiers in RO World\\
+//<=========== Alberta - Begin ==========>\\
+alberta.gat,23,238,6	script	Guide	105,{
+	mes "[Alberta Squad]";
+	mes "Welcome to Alberta, the The Port Town.";
+	mes "We will helpyou when you take a wrong way, Feel free to inquire at us anytime.";
+	mes "Please Choose a menu `Notice' if you are a beginner of Ragnarok.";
+	next;
+	menu "View Bulidings.",L0,"Wipe all Indications on Mini-Map.",L1,"Notice.",L2,"Cancel",L3;
+	
+	L0:
+		mes "[Alberta Squad]";
+		mes "Please choose a Menu first.";
+		mes "Do you want me to leave indications on the Mini-Map?";
+		menu "Yes, please.",L00,"No, Thanks.",L01;
+
+		L00:
+			menu "^FF0000Merchant Guild^000000",L00a,"Armory",L00b,"Kit Shop",L00c,"Inn",L00d,"Cancel",L00e;
+			
+			L00a:
+				mes "[Alberta Squad]";
+				mes "'Merchant Guild' will help you to transform into a Merchant.";
+				viewpoint 1,33,42,4,0xFF0000;
+				next;
+				goto L00;
+				close;
+			L00b:
+				mes "[Alberta Squad]";
+				mes "'Armory' is located at North Contour from the Centre of Mini-Map.";
+				viewpoint 1,117,38,4,0xFF00FF;
+				next;
+				goto L00;
+				close;
+			L00c:
+				mes "[Alberta Squad]";
+				mes "'Kit Shop' is located at the Centre of Mini-Map.";
+				viewpoint 1,98,153,4,0xFF00FF;
+				next;
+				goto L00;
+				close;
+			L00d:
+				mes "[Alberta Squad]";
+				mes "'Armory' is located at North Contour around the Centre of Mini-Map.";
+				viewpoint 1,65,233,4,0xFF00FF;
+				next;
+				goto L00;				
+				close;
+			L00e:
+				mes "[Izlude Squad]";
+				mes "If you want to remove location marks, Please choose 'Wipe all Indications on Mini-Map.'.";
+				next;
+				goto L00;
+		L01:
+			menu "^FF0000Merchant Guild^000000",L01a,"Armory",L01b,"Kit Shop",L01c,"Inn",L01d,"Cancel",L01e;
+	
+			L01a:
+				mes "[Alberta Squad]";
+				mes "'Merchant Guild' will help you to transform into a Merchant.";
+				next;
+				goto L01;
+				close;
+			L01b:
+				mes "[Alberta Squad]";
+				mes "'Armory' is located at North Contour from the Centre of Mini-Map.";
+				next;
+				goto L01;
+				close;
+			L01c:
+				mes "[Alberta Squad]";
+				mes "'Kit Shop' is located at the Centre of Mini-Map.";
+				next;
+				goto L01;
+				close;
+			L01d:
+				mes "[Alberta Squad]";
+				mes "'Armory' is located at North Contour around the Centre of Mini-Map.";
+				next;
+				goto L01;
+				close;
+			L01e:
+				close;
+	L1:
+		mes "[Alberta Squad]";
+		mes "Under development.";
+		close;
+	L2:
+		mes "[Alberta Squad]";
+		mes "We altered the Location Guideinto de Newest Digital Style, out of the former Analog One.";
+		mes "Please Check this gorgeous newest system with your own eyes.";
+		next;
+		mes "[Alberta Squad]";
+		mes "Don't forget to refer the Mini-Map on Upper-Right of the Screen.";
+		mes "If you can't see the Mini-Map, just use Shortcut 'ctrl+tab' or Click 'map' button on the Basic Information Window";
+		mes "After that, Click '-' button on the Mini-Map until whole buildings are shown on it.";
+		next;
+		menu "View Bulidings.",L0,"Wipe all Indications on Mini-Map.",L1,"Notice.",L2,"Cancel",L3;
+		close;
+	L3:
+		close;
+}
+
+alberta.gat,120,60,3	script	Guide	105,{
+	mes "[Alberta Squad]";
+	mes "Welcome to Alberta, the Port Town.";
+	mes "We will help you when you take a Wrong way, Feel free to inquire at us anytime.";
+	mes "Please Choose a menu `Notice' if you are a beginner of Ragnarok.";
+	next;
+	menu "View Bulidings.",L0,"Wipe all Indications on Mini-Map.",L1,"Notice.",L2,"Cancel",L3;
+
+	L0:
+		mes "[Alberta Squad]";
+		mes "Please choose a Menu first.";
+		mes "Do you want me to leave indications on the Mini-Map?";
+		menu "Yes, please.",L00,"No, Thanks.",L01;
+
+		L00:
+			menu "^FF0000Merchant Guild^000000",L00a,"Armory",L00b,"Kit Shop",L00c,"Inn",L00d,"Cancel",L00e;
+			
+			L00a:
+				mes "[Alberta Squad]";
+				mes "'Merchant Guild' will help you to transform into a Merchant.";
+				viewpoint 1,33,42,4,0xFF0000;
+				next;
+				goto L00;
+				close;
+			L00b:
+				mes "[Alberta Squad]";
+				mes "'Armory' is located at North Contour from the Centre of Mini-Map.";
+				viewpoint 1,117,38,4,0xFF00FF;
+				next;
+				goto L00;
+				close;
+			L00c:
+				mes "[Alberta Squad]";
+				mes "'Kit Shop' is located at the Centre of Mini-Map.";
+				viewpoint 1,98,153,4,0xFF00FF;
+				next;
+				goto L00;
+				close;
+			L00d:
+				mes "[Alberta Squad]";
+				mes "'Armory' is located at North Contour around the Centre of Mini-Map.";
+				viewpoint 1,65,233,4,0xFF00FF;
+				next;
+				goto L00;				
+				close;
+			L00e:
+				mes "[Izlude Squad]";
+				mes "If you want to remove location marks, Please choose 'Wipe all Indications on Mini-Map.'.";
+				next;
+				goto L00;
+		L01:
+			menu "^FF0000Merchant Guild^000000",L01a,"Armory",L01b,"Kit Shop",L01c,"Inn",L01d,"Cancel",L01e;
+	
+			L01a:
+				mes "[Alberta Squad]";
+				mes "'Merchant Guild' will help you to transform into a Merchant.";
+				next;
+				goto L01;
+				close;
+			L01b:
+				mes "[Alberta Squad]";
+				mes "'Armory' is located at North Contour from the Centre of Mini-Map.";
+				next;
+				goto L01;
+				close;
+			L01c:
+				mes "[Alberta Squad]";
+				mes "'Kit Shop' is located at the Centre of Mini-Map.";
+				next;
+				goto L01;
+				close;
+			L01d:
+				mes "[Alberta Squad]";
+				mes "'Armory' is located at North Contour around the Centre of Mini-Map.";
+				next;
+				goto L01;
+				close;
+			L01e:
+				close;
+
+	L1:
+		mes "[Alberta Squad]";
+		mes "Under development";
+		close;
+	L2:
+		mes "[Alberta Squad]";
+		mes "We altered the Location Guide into de Newest Digital Style, out of the former Analog One.";
+		mes "Please Check this gorgeous newest system with your own eyes.";
+		next;
+		mes "[Alberta Squad]";
+		mes "Don't forget to refer the Mini-Map on Upper-Right of the Screen.";
+		mes "If you can't see the Mini-Map, just use Shortcut 'ctrl+tab' or Click 'map' button on the Basic Information Window";
+		mes "After that, Click '-' button on the Mini-Map until whole buildings are shown on it.";
+		next;
+		menu "View Bulidings.",L0,"Wipe all Indications on Mini-Map.",L1,"Notice.",L2,"Cancel",L3;
+		close;
+	L3:
+		close;
+}
+//<=========== Alberta - End ==========>\\
+//===============================================================================================================================\\
+//<=========== Al De Baran - Begin ==========>\\
+aldebaran.gat,139,63,4	script	Soldier	105,{
+	mes "[Al De Baran Guard]";
+	mes "I am just any ordinary guard you could find in any other cities!!";
+	mes "I am in charge of Service Guide in Al De Baran Garrison, and the name is Al De Baran Guard (No Name) !!";
+	mes "I will guide you though our town!";
+	next;
+	menu "Get Location Guide",L0,"End conversation",End;
+	
+	L0:
+		mes "^FF0000+^000000 -> Kafra Main Office";
+		mes "^0000FF+^000000 -> Weapon Shop";
+		mes "^00F0F0+^000000 -> Sorcerer Guild (Closed)";
+		mes "^808080+^000000 -> Pub";
+		mes "^00FF00+^000000 -> Item Shop";
+		mes "^F0F000+^000000 -> Chemical Acadamy (Closed)";
+		viewpoint 0,53,228,1,0xFF0000;
+		viewpoint 1,48,198,1,0x0000FF;
+		viewpoint 2,48,198,1,0x00F0F0;
+		viewpoint 3,48,198,1,0x808080;
+		viewpoint 4,48,198,1,0x00FF00;
+		viewpoint 5,35,35,1,0xF0F000;
+		close;
+	LEnd:
+		mes "[Al De Baran Guard]";
+		mes "We are shown to protect Al De Baran!!";
+		close;
+}
+//<=========== Al De Baran - End ==========>\\
+//===============================================================================================================================\\
+//<=========== Comodo - Begin ==========>\\
+comodo.gat,37,219,4	script	Comodo Guide	700,{
+	mes "[Native Papaya]";
+	mes "Where the night life continues 24 hours a day";
+	mes "The city of Dreams and Fantasy!";
+	mes "We welcome you to the land of Comodo!";
+	mes "I know the area very well.";
+	mes "If you need directions, ask me anytime for asistance";
+	next;
+	menu "Casino",M0,"Hula dancing stage ^0000FF(Dancer Job Change)^000000",M1,"Weapons and Armor Shop",M2,"Tool store",M3,"Tourist Shop",M4,"Kafra Corp. Western Branch",M5,"Chief's House",M6,"Pub",M7,"Camp Ground",M8,"End Conversation",MEnd;
+
+	M0:
+		mes "^FF0000+^000000 -> Casino!";
+		mes "The heart of Comodo's night life!";
+		mes "A heaven of rest for tired travelers!";
+		mes "Another service provided here.!";
+		mes "The COmodo Casino ~!";
+		viewpoint 0,124,100,1,0xFF0000;
+		close;
+	M1:
+		mes "^0000FF+^000000 -> Hula dancing Stage";
+		mes "Hula Hula - Hula Hula";
+		mes "When you become more comfortable performing on stage, you should consider changing job to be a Dancer";
+		mes "What do you think? Hula Dancing Stage - ^0000FF(Change job to Dancer)^000000";
+		viewpoint 0,187,167,1,0x0000FF;
+		close;
+	M2:
+		mes "^00FFFF+^000000 -> Weapons and Armor Shop";
+		mes "Here in Comodo, you can find unique items only found in Comodo.";
+		mes "'Comodo Weapons and Armor Shop'";
+		viewpoint 0,265,74,1,0x00FFFF;
+		close;
+	M3:
+		mes "^808080+^000000 -> Tool Shop";
+		mes "Here in Comodo, you can find tools only found in Comodo";
+		mes "'Comodo Tool Store'";
+		viewpoint 0,92,128,1,0x808080;
+		close;
+	M4:
+		mes "^0000FF+^000000 -> Tourist Shop";
+		mes "Here in Comodo, you can find unique gifts only found in Comodo";
+		mes "'Comodo Tourist Shop'";
+		viewpoint 0,296,125,1,0xFF0000;
+		close;
+	M5:
+		mes "^FF0000+^000000 -> Kafra Corp. Western Branch";
+		mes "The Western Branch of Midgards Kafra Corp.";
+		mes "Ofering you the best service!";
+		mes "Kafra Corp.'s Western Branch center is located here in Comodo";
+		viewpoint 0,130,195,1,0xFF0000;
+		close;
+	M6:
+		mes "^FF0000+^000000 -> Chief's House";
+		mes "This is the house where the Chief of Comodo resides.";
+		mes "If you are one who posseses a serious interest in Comodo, you can meet the Chief in person.";
+		mes "I think that would be okay with him.";
+		viewpoint 0,115,291,1,0xFF0000;
+		close;
+	M7:
+		mes "^FF0000+^000000 -> Pub";
+		mes "The pub is a place where tourists from all over the world come to converse and exchange ideas";
+		mes "Bringing the ethnic atmosphere of Comodo, to an environment which tourists can enjoy";
+		viewpoint 0,165,295,1,0xFF0000;
+		close;
+	M8:
+		mes "^FF0000+^000000 -> Camp Ground";
+		mes "Sometimes with family and sometimes with friends, people come to Comodo campground to creat great memories.";
+		mes "BBQ Camp Ground is where you can taste the ethnic flavors of Comodo's Spit BBQ!";
+		viewpoint 0,209,308,1,0xFF0000;
+		close;
+	MEnd:
+		mes "[Native Papaya]";
+		mes "Because Comodo is located in a cave, sunlight cannot shine into this area.";
+		mes "It is dark 24 hours a day!";
+		mes "The residents of Comodo are using this unusual circumstance to draw tourists to our area...";
+		close;
+}
+
+comodo.gat,176,350,4	script	Comodo Guide	700,{
+	mes "[Native Nutcoco]";
+	mes "Where the night life continues 24 hours a day";
+	mes "The city of Dreams and Fantasy!";
+	mes "We welcome you to the land of Comodo!";
+	mes "I know the area very well.";
+	mes "If you need directions, ask me anytime for asistance";
+	next;
+	menu "Casino",M0,"Hula dancing stage ^0000FF(Dancer Job Change)^000000",M1,"Weapons and Armor Shop",M2,"Tool store",M3,"Tourist Shop",M4,"Kafra Corp. Western Branch",M5,"Chief's House",M6,"Pub",M7,"Camp Ground",M8,"End Conversation",MEnd;
+
+	M0:
+		mes "^FF0000+^000000 -> Casino!";
+		mes "The heart of Comodo's night life!";
+		mes "A heaven of rest for tired travelers!";
+		mes "Another service provided here.!";
+		mes "The COmodo Casino ~!";
+		viewpoint 0,124,100,1,0xFF0000;
+		close;
+	M1:
+		mes "^0000FF+^000000 -> Hula dancing Stage";
+		mes "Hula Hula - Hula Hula";
+		mes "When you become more comfortable performing on stage, you should consider changing job to be a Dancer";
+		mes "What do you think? Hula Dancing Stage - ^0000FF(Change job to Dancer)^000000";
+		viewpoint 0,187,167,1,0x0000FF;
+		close;
+	M2:
+		mes "^00FFFF+^000000 -> Weapons and Armor Shop";
+		mes "Here in Comodo, you can find unique items only found in Comodo.";
+		mes "'Comodo Weapons and Armor Shop'";
+		viewpoint 0,265,74,1,0x00FFFF;
+		close;
+	M3:
+		mes "^808080+^000000 -> Tool Shop";
+		mes "Here in Comodo, you can find tools only found in Comodo";
+		mes "'Comodo Tool Store'";
+		viewpoint 0,92,128,1,0x808080;
+		close;
+	M4:
+		mes "^0000FF+^000000 -> Tourist Shop";
+		mes "Here in Comodo, you can find unique gifts only found in Comodo";
+		mes "'Comodo Tourist Shop'";
+		viewpoint 0,296,125,1,0xFF0000;
+		close;
+	M5:
+		mes "^FF0000+^000000 -> Kafra Corp. Western Branch";
+		mes "The Western Branch of Midgards Kafra Corp.";
+		mes "Ofering you the best service!";
+		mes "Kafra Corp.'s Western Branch center is located here in Comodo";
+		viewpoint 0,130,195,1,0xFF0000;
+		close;
+	M6:
+		mes "^FF0000+^000000 -> Chief's House";
+		mes "This is the house where the Chief of Comodo resides.";
+		mes "If you are one who posseses a serious interest in Comodo, you can meet the Chief in person.";
+		mes "I think that would be okay with him.";
+		viewpoint 0,115,291,1,0xFF0000;
+		close;
+	M7:
+		mes "^FF0000+^000000 -> Pub";
+		mes "The pub is a place where tourists from all over the world come to converse and exchange ideas";
+		mes "Bringing the ethnic atmosphere of Comodo, to an environment which tourists can enjoy";
+		viewpoint 0,165,295,1,0xFF0000;
+		close;
+	M8:
+		mes "^FF0000+^000000 -> Camp Ground";
+		mes "Sometimes with family and sometimes with friends, people come to Comodo campground to creat great memories.";
+		mes "BBQ Camp Ground is where you can taste the ethnic flavors of Comodo's Spit BBQ!";
+		viewpoint 0,209,308,1,0xFF0000;
+		close;
+	MEnd:
+		mes "[Native Kokomo]";
+		mes "Because Comodo is located in a cave, sunlight cannot shine into this area.";
+		mes "It is dark 24 hours a day!";
+		mes "The residents of Comodo are using this unusual circumstance to draw tourists to our area...";
+		close;
+}
+
+comodo.gat,323,178,4	script	Comodo Guide	700,{
+	mes "[Native Kokomo]";
+	mes "Where the night life continues 24 hours a day";
+	mes "The city of Dreams and Fantasy!";
+	mes "We welcome you to the land of Comodo!";
+	mes "I know the area very well.";
+	mes "If you need directions, ask me anytime for asistance";
+	next;
+	menu "Casino",M0,"Hula dancing stage ^0000FF(Dancer Job Change)^000000",M1,"Weapons and Armor Shop",M2,"Tool store",M3,"Tourist Shop",M4,"Kafra Corp. Western Branch",M5,"Chief's House",M6,"Pub",M7,"Camp Ground",M8,"End Conversation",MEnd;
+
+	M0:
+		mes "^FF0000+^000000 -> Casino!";
+		mes "The heart of Comodo's night life!";
+		mes "A heaven of rest for tired travelers!";
+		mes "Another service provided here.!";
+		mes "The COmodo Casino ~!";
+		viewpoint 0,124,100,1,0xFF0000;
+		close;
+	M1:
+		mes "^0000FF+^000000 -> Hula dancing Stage";
+		mes "Hula Hula - Hula Hula";
+		mes "When you become more comfortable performing on stage, you should consider changing job to be a Dancer";
+		mes "What do you think? Hula Dancing Stage - ^0000FF(Change job to Dancer)^000000";
+		viewpoint 0,187,167,1,0x0000FF;
+		close;
+	M2:
+		mes "^00FFFF+^000000 -> Weapons and Armor Shop";
+		mes "Here in Comodo, you can find unique items only found in Comodo.";
+		mes "'Comodo Weapons and Armor Shop'";
+		viewpoint 0,265,74,1,0x00FFFF;
+		close;
+	M3:
+		mes "^808080+^000000 -> Tool Shop";
+		mes "Here in Comodo, you can find tools only found in Comodo";
+		mes "'Comodo Tool Store'";
+		viewpoint 0,92,128,1,0x808080;
+		close;
+	M4:
+		mes "^0000FF+^000000 -> Tourist Shop";
+		mes "Here in Comodo, you can find unique gifts only found in Comodo";
+		mes "'Comodo Tourist Shop'";
+		viewpoint 0,296,125,1,0xFF0000;
+		close;
+	M5:
+		mes "^FF0000+^000000 -> Kafra Corp. Western Branch";
+		mes "The Western Branch of Midgards Kafra Corp.";
+		mes "Ofering you the best service!";
+		mes "Kafra Corp.'s Western Branch center is located here in Comodo";
+		viewpoint 0,130,195,1,0xFF0000;
+		close;
+	M6:
+		mes "^FF0000+^000000 -> Chief's House";
+		mes "This is the house where the Chief of Comodo resides.";
+		mes "If you are one who posseses a serious interest in Comodo, you can meet the Chief in person.";
+		mes "I think that would be okay with him.";
+		viewpoint 0,115,291,1,0xFF0000;
+		close;
+	M7:
+		mes "^FF0000+^000000 -> Pub";
+		mes "The pub is a place where tourists from all over the world come to converse and exchange ideas";
+		mes "Bringing the ethnic atmosphere of Comodo, to an environment which tourists can enjoy";
+		viewpoint 0,165,295,1,0xFF0000;
+		close;
+	M8:
+		mes "^FF0000+^000000 -> Camp Ground";
+		mes "Sometimes with family and sometimes with friends, people come to Comodo campground to creat great memories.";
+		mes "BBQ Camp Ground is where you can taste the ethnic flavors of Comodo's Spit BBQ!";
+		viewpoint 0,209,308,1,0xFF0000;
+		close;
+	MEnd:
+		mes "[Native Kokomo]";
+		mes "Because Comodo is located in a cave, sunlight cannot shine into this area.";
+		mes "It is dark 24 hours a day!";
+		mes "The residents of Comodo are using this unusual circumstance to draw tourists to our area...";
+		close;
+}
+//<=========== Comodo - End ==========>\\
+//===============================================================================================================================\\
+//<=========== Geffen - Begin ==========>\\
+geffen.gat,118,62,8	script	Guide	105,{
+	mes "[Geffen Squad]";
+	mes "Welcome to Geffen, the City of Magic.";
+	mes "We will help you when you take the Wrong way, Feel free to inquire at us anytime.";
+	mes "Please Choose a menu `Notice' if you are a beginner of Ragnarok.";
+	next;
+	menu "View Bulidings.",L0,"Wipe all Indications on Mini-Map.",L1,"Notice.",L2,"Cancel",L3;
+
+	L0:
+		mes "[Geffen Squad]";
+		mes "Please choose a Menu first.";
+		mes "Do you want me to leave indications on the Mini-Map?";
+		menu "Yes, please.",L00,"No, Thanks.",L01;
+
+		L00:
+			menu "^FF0000Magic Acadamy^000000",L00a,"Forge",L00b,"Armory",L00c,"Kit Shop",L00d,"Pub",L00e,"Inn",L00f,"Cancel",L00g;
+
+			L00a:
+				mes "[Geffen Squad]";
+				mes "'Magic Acadamy' is the Building in charge of Every Magical Theory.";
+				viewpoint 1,61,180,1,0xFF0000;
+				next;
+				goto L00;
+				close;
+			L00b:
+				mes "[Geffen Squad]";
+				mes "'Forge' is located at Southeast around the Tower of Magic.";
+				viewpoint 1,182,59,1,0x00FF00;
+				next;
+				goto L00;
+				close;
+			L00c:
+				mes "[Geffen Squad]";
+				mes "'Armory' is located at Northwest oround the Tower of Magic.";
+				viewpoint 1,98,141,1,0xFF00FF;
+				next;
+				goto L00;
+				close;
+			L00d:
+				mes "[Geffen Squad]";
+				mes "'Kit Shop' is located at Southwest arround the Tower of Magic.";
+				viewpoint 1,43,85,1,0xFF00FF;
+				next;
+				goto L00;
+				close;
+			L00e:
+				mes "[Geffen Squad]";
+				mes "'Pub' is located at Northeast around the Tower of Magic.";
+				viewpoint 1,138,138,1,0xFF00FF;
+				next;
+				goto L00;
+				close;
+			L00f:
+				mes "[Geffen Squad]";
+				mes "'Inn' is located at Northeast around the Tower of Magic.";
+				next;
+				viewpoint 1,172,174,1,0xFF00FF;
+				goto L00;
+				close;
+			L00g:
+				close;
+		L01:
+			menu "^FF0000Magic Acadamy^000000",L01a,"Forge",L01b,"Armory",L01c,"Kit Shop",L01d,"Pub",L01e,"Inn",L01f,"Cancel",L01g;
+
+			L01a:
+				mes "[Geffen Squad]";
+				mes "'Magic Acadamy' is the Building in charge of Every Magical Theory.";
+				next;
+				goto L01;
+				close;
+			L01b:
+				mes "[Geffen Squad]";
+				mes "'Forge' is located at Southeast around the Tower of Magic.";
+				next;
+				goto L01;
+				close;
+			L01c:
+				mes "[Geffen Squad]";
+				mes "'Armory' is located at Northwest oround the Tower of Magic.";
+				next;
+				goto L01;
+				close;
+			L01d:
+				mes "[Geffen Squad]";
+				mes "'Kit Shop' is located at Southwest arround the Tower of Magic.";
+				next;
+				goto L01;
+				close;
+			L01e:
+				mes "[Geffen Squad]";
+				mes "'Pub' is located at Northeast around the Tower of Magic.";
+				next;
+				goto L01;
+				close;
+			L01f:
+				mes "[Geffen Squad]";
+				mes "'Inn' is located at Northeast around the Tower of Magic.";
+				next;
+				goto L01;
+				close;
+			L01g:
+				close;
+	L2:
+		mes "[Geffen Squad]";
+		mes "We altered the Location Guide into de Newest Digital Style, out of the former Analog One.";
+		mes "Please Check this gorgeous newest system with your own eyes.";
+		next;
+		mes "[Geffen Squad]";
+		mes "Don't forget to refer the Mini-Map on Upper-Right of the Screen.";
+		mes "If you can't see the Mini-Map, just use Shortcut 'ctrl+tab' or Click 'map' button on the Basic Information Window";
+		mes "After that, Click '-' button on the Mini-Map until whole buildings are shown on it.";
+		next;
+		menu "View Bulidings.",L0,"Wipe all Indications on Mini-Map.",L1,"Notice.",L2,"Cancel",L3;
+		close;
+	L3:
+		close;
+}
+
+geffen.gat,203,116,8	script	Guide	105,{
+	mes "[Geffen Squad]";
+	mes "Welcome to Geffen, the City of Magic.";
+	mes "We will help you when you take the Wrong way, Feel free to inquire at us anytime.";
+	mes "Please Choose a menu `Notice' if you are a beginner of Ragnarok.";
+	next;
+	menu "View Bulidings.",L0,"Wipe all Indications on Mini-Map.",L1,"Notice.",L2,"Cancel",L3;
+
+	L0:
+		mes "[Geffen Squad]";
+		mes "Please choose a Menu first.";
+		mes "Do you want me to leave indications on the Mini-Map?";
+		menu "Yes, please.",L00,"No, Thanks.",L01;
+
+		L00:
+			menu "^FF0000Magic Acadamy^000000",L00a,"Forge",L00b,"Armory",L00c,"Kit Shop",L00d,"Pub",L00e,"Inn",L00f,"Cancel",L00g;
+
+			L00a:
+				mes "[Geffen Squad]";
+				mes "'Magic Acadamy' is the Building in charge of Every Magical Theory.";
+				viewpoint 1,61,180,1,0xFF0000;
+				next;
+				goto L00;
+				close;
+			L00b:
+				mes "[Geffen Squad]";
+				mes "'Forge' is located at Southeast around the Tower of Magic.";
+				viewpoint 1,182,59,1,0x00FF00;
+				next;
+				goto L00;
+				close;
+			L00c:
+				mes "[Geffen Squad]";
+				mes "'Armory' is located at Northwest oround the Tower of Magic.";
+				viewpoint 1,98,141,1,0xFF00FF;
+				next;
+				goto L00;
+				close;
+			L00d:
+				mes "[Geffen Squad]";
+				mes "'Kit Shop' is located at Southwest arround the Tower of Magic.";
+				viewpoint 1,43,85,1,0xFF00FF;
+				next;
+				goto L00;
+				close;
+			L00e:
+				mes "[Geffen Squad]";
+				mes "'Pub' is located at Northeast around the Tower of Magic.";
+				viewpoint 1,138,138,1,0xFF00FF;
+				next;
+				goto L00;
+				close;
+			L00f:
+				mes "[Geffen Squad]";
+				mes "'Inn' is located at Northeast around the Tower of Magic.";
+				next;
+				viewpoint 1,172,174,1,0xFF00FF;
+				goto L00;
+				close;
+			L00g:
+				close;
+		L01:
+			menu "^FF0000Magic Acadamy^000000",L01a,"Forge",L01b,"Armory",L01c,"Kit Shop",L01d,"Pub",L01e,"Inn",L01f,"Cancel",L01g;
+
+			L01a:
+				mes "[Geffen Squad]";
+				mes "'Magic Acadamy' is the Building in charge of Every Magical Theory.";
+				next;
+				goto L01;
+				close;
+			L01b:
+				mes "[Geffen Squad]";
+				mes "'Forge' is located at Southeast around the Tower of Magic.";
+				next;
+				goto L01;
+				close;
+			L01c:
+				mes "[Geffen Squad]";
+				mes "'Armory' is located at Northwest oround the Tower of Magic.";
+				next;
+				goto L01;
+				close;
+			L01d:
+				mes "[Geffen Squad]";
+				mes "'Kit Shop' is located at Southwest arround the Tower of Magic.";
+				next;
+				goto L01;
+				close;
+			L01e:
+				mes "[Geffen Squad]";
+				mes "'Pub' is located at Northeast around the Tower of Magic.";
+				next;
+				goto L01;
+				close;
+			L01f:
+				mes "[Geffen Squad]";
+				mes "'Inn' is located at Northeast around the Tower of Magic.";
+				next;
+				goto L01;
+				close;
+			L01g:
+				close;
+	L2:
+		mes "[Geffen Squad]";
+		mes "We altered the Location Guide into de Newest Digital Style, out of the former Analog One.";
+		mes "Please Check this gorgeous newest system with your own eyes.";
+		next;
+		mes "[Geffen Squad]";
+		mes "Don't forget to refer the Mini-Map on Upper-Right of the Screen.";
+		mes "If you can't see the Mini-Map, just use Shortcut 'ctrl+tab' or Click 'map' button on the Basic Information Window";
+		mes "After that, Click '-' button on the Mini-Map until whole buildings are shown on it.";
+		next;
+		menu "View Bulidings.",L0,"Wipe all Indications on Mini-Map.",L1,"Notice.",L2,"Cancel",L3;
+		close;
+	L3:
+		close;
+}
+//<=========== Geffen - End ==========>\\
+//===============================================================================================================================\\
+//<=========== Izlude - Begin ==========>\\
+izlude.gat,121,87,6	script	Guide	105,{
+	mes "[Izlude Squad]";
+	mes "Welcome to Izlude,the New Satelite of Prontera.";
+	mes "Feel free to inquire at us anytime, Algight?";
+	next;
+	menu "View Bulidings.",L0,"Wipe all Indications on Mini-Map.",L1,"Notice.",L2,"Cancel",L3;
+	
+	L0:
+		mes "[Izlude Squad]";
+		mes "Please choose a Menu first.";
+		mes "Do you want me to leave indications on the Mini-Map?";
+		menu "Yes, please.",L00,"No, Thanks.",L01;
+
+		L00:
+			menu "^FF0000Swordman Asosiation^000000",L00a,"Swordman Hall",L00b,"Arena",L00c,"Izlude Marina",L00d,"Armory",L00e,"Kit Shop",L00f,"Cancel",L00g;
+
+			L00a:
+				mes "[Izlude Squad]";
+				mes "Do you want to be a Swordman?";
+				viewpoint 1,52,140,1,0xFF0000;
+				next;
+				goto L00;
+				close;
+			L00b:
+				mes "[Izlude Squad]";
+				mes "Swordman Hall, the official Building of Swordman Assosiation is at East Contour.";
+				viewpoint 1,214,129,2,0x00FF00;
+				next;
+				goto L00;
+				close;
+			L00c:
+				mes "[Izlude Squad]";
+				mes "'Arena' the Popular Colosseum is at Due North. The Clockwise totation is 12.";
+				mes "You can have fun there, you know.";
+				next;
+				viewpoint 1,128,225,3,0x00FF00;
+				goto L00;
+				close;
+			L00d:
+				mes "[Izlude Squad]";
+				mes "Marina which allows you to go to 'Alberta' or 'Byalan Island' is at Northeast.";
+				viewpoint 1,200,180,4,0xFF0000;
+				next;
+				goto L00;
+				close;
+			L00e:
+				mes "[Izlude Squad]";
+				mes "Armory is near at Northwest, and you can find it easily.";
+				viewpoint 1,109,151,5,0xFF00FF;
+				next;
+				goto L00;
+				close;
+			L00f:
+				mes "[Izlude Squad]";
+				mes "Kit Shop is near at Northeast, and you can find it easily.";
+				viewpoint 1,148,148,4,0xFF00FF;
+				next;
+				goto L00;
+				close;
+			L00g:
+				mes "[Izlude Squad]";
+				mes "If you want to remove location marks, Please choose 'Wipe all Indications on Mini-Map.'.";
+				next;
+				goto L00;
+		L01:
+			next;
+			menu "^FF0000Swordman Asosiation^000000",L01a,"Swordman Hall",L01b,"Arena",L01c,"Izlude Marina",L01d,"Armory",L01e,"Kit Shop",L01f,"Cancel",L01g;
+
+			L01a:
+				mes "[Izlude Squad]";
+				mes "Do you want to be a Swordman?";
+				next;
+				goto L01;
+				close;
+			L01b:
+				mes "[Izlude Squad]";
+				mes "Swordman Hall, the official Building of Swordman Assosiation is at East Contour.";
+				next;
+				goto L01;
+				close;
+			L01c:
+				mes "[Izlude Squad]";
+				mes "'Arena' the Popular Colosseum is at Due North. The Clockwise totation is 12.";
+				mes "You can have fun there, you know.";
+				next;
+				goto L01;
+				close;
+			L01d:
+				mes "[Izlude Squad]";
+				mes "Marina which allows you to go to 'Alberta' or 'Byalan Island' is at Northeast.";
+				next;
+				goto L01;
+				close;
+			L01e:
+				mes "[Izlude Squad]";
+				mes "Armory is near at Northwest, and you can find it easily.";
+				next;
+				goto L01;
+				close;
+			L01f:
+				mes "[Izlude Squad]";
+				mes "Kit Shop is near at Northeast, and you can find it easily.";
+				next;
+				goto L01;
+				close;
+			L01g:
+				close;
+	L1:
+		mes "[Izlude Squad]";
+		mes "Under development.";
+		close;
+	L2:
+		mes "[Izlude Squad]";
+		mes "We altered the Location Guideinto de Newest Digital Style, out of the former Analog One.";
+		mes "Please Check this gorgeous newest system with your own eyes.";
+		next;
+		mes "[Izlude Squad]";
+		mes "Don't forget to refer the Mini-Map on Upper-Right of the Screen.";
+		mes "If you can't see the Mini-Map, just use Shortcut 'ctrl+tab' or Click 'map' button on the Basic Information Window";
+		mes "After that, Click '-' button on the Mini-Map until whole buildings are shown on it.";
+		next;
+		menu "View Bulidings.",L0,"Wipe all Indications on Mini-Map.",L1,"Notice.",L2,"Cancel",L3;
+		close;
+	L3:
+		close;
+}
+
+izlude.gat,124,178,4	script	Soldier	105,{
+	mes "[Soldier]";
+	mes "HeHeHeHe... HaHaHaHa";
+	mes "Huh? Why am I so happy?";
+	mes "you wanna know?";
+	next;
+	menu "Sure, why?",Sure,"Not really, I don't care.",NotReally;
+	
+	Sure:
+		mes "[Soldier]";
+		mes "Ah~~ There is not much for us to do these days. Merchants buy items, which monsters drop. You knew that, right?";
+		next;
+		menu "Of course",OfCourse,"Eh? Really?",EhReally;
+		
+		OfCourse:
+			mes "[Soldier]";
+			mes "HaHa In fact, that was actually our job.";
+			mes "But there were more and more hunters who come in order to get paid. So it was just too much to handle.";
+			next;
+			mes "[Soldier]";
+			mes "We had to work over time every day.";
+			mes "Ah~~~ that was a nightmare...~~~";
+			mes "Anyways, the government took a smart action, making the Registration System. The Office of Prize Compensation only pays those who have the Registration.";
+			next;
+			mes "[Soldier]";
+			mes "Requirements for the Registration are for a merchant to secure sufficient funds and to stay at one place all the time. The Office gives away the registration to any merchant who fullfills those requirements.";
+			next;
+			mes "[Soldier]";
+			mes "So there aren't too many people that come to us any more. I mean we are still busy, but that's nothing compared to how it was before~~";
+			mes "People who suffered first know how to thank even the slightest comfort.";
+			mes "HaHaHaHaHa!";
+			close;
+		EhReally:
+			mes "[Soldier]";
+			mes "What?! What do you mean you didn't know?!";
+			mes "Hm... well... well... You know you could get some items killing some monsters. You could make some money out of it if you bring and sell those to a merchant.";
+			mes "ANYWAYS!";
+			next;
+			mes "[Soldier]";
+			mes "HaHa In fact, that was actually our job.";
+			mes "But there were more and more hunters who come in order to get paid. So it was just too much to handle.";
+			next;
+			mes "[Soldier]";
+			mes "We had to work over time every day.";
+			mes "Ah~~~ that was a nightmare...~~~";
+			mes "Anyways, the government took a smart action, making the Registration System. The Office of Prize Compensation only pays those who have the Registration.";
+			next;
+			mes "[Soldier]";
+			mes "Requirements for the Registration are for a merchant to secure sufficient funds and to stay at one place all the time. The Office gives away the registration to any merchant who fullfills those requirements.";
+			next;
+			mes "[Soldier]";
+			mes "So there aren't too many people that come to us any more. I mean we are still busy, but that's nothing compared to how it was before~~";
+			mes "People who suffered first know how to thank even the slightest comfort.";
+			mes "HaHaHaHaHa!";
+			close;
+	NotRealy:
+		mes "[Soldier]";
+		mes "OK Good bye~~";
+		close;
+}
+//<=========== Izlude - End ==========>\\
+//===============================================================================================================================\\
+//<=========== Morroc - Begin ==========>\\
+morocc.gat,54,97,8	script	Guide	105,{
+	mes "[Morroc Squad]";
+	mes "Welcome to Morroc,the Frontier.";
+	mes "We will help you when you take a Wrong Way, Feel free to inquire at us anytime, Algight?";
+	next;
+	menu "View Bulidings.",L0,"Wipe all Indications on Mini-Map.",L1,"Notice.",L2,"Cancel",L3;
+	
+	L0:
+		mes "[Morroc Squad]";
+		mes "Please choose a Menu first.";
+		mes "Do you want me to leave indications on the Mini-Map?";
+		menu "Yes, please.",L00,"No, Thanks.",L01;
+
+		L00:
+			menu "^FF0000Thief Guild^000000",L00a,"Armory",L00b,"Inn",L00c,"Pub",L00d,"Mercenary Guild",L00e,"Cancel",L00f;
+
+			L00a:
+				mes "[Payon Squad]";
+				mes "'Thief Guild' wich grants you to be a Thief is located inside by hearsay...";
+				viewpoint 1,25,294,1,0xFF0000;
+				next;
+				goto L00;
+				close;
+			L00b:
+				mes "[Payon Squad]";
+				mes "'Armory' is located at Southwest around the Centre of Mini-Map.";
+				viewpoint 1,253,55,1,0xFF00FF;
+				next;
+				goto L00;
+				close;
+			L00c:
+				mes "[Payon Squad]";
+				mes "In Morroc there are 2 'Inn's' located both at South and Northeast around the Centre on Mini-Map.";
+				viewpoint 1,274,269,3,0xFF00FF;
+				viewpoint 1,197,66,3,0xFF00FF;
+				next;
+				goto L00;
+				close;
+			L00d:
+				mes "[Payon Squad]";
+				mes "'Pub' is located at Northwest around the Centre.";
+				viewpoint 1,53,259,2,0xFF00FF;
+				next;
+				goto L00;
+				close;
+			L00e:
+				mes "[Payon Squad]";
+				mes "'Mercenary Guild' is at East Contour around the Centre of Mini-Map.";
+				viewpoint 1,90,167,3,0x00FF00;
+				next;
+				goto L00;
+				close;
+			L00f:
+				mes "[Payon Squad]";
+				mes "If you want to remove location marks, Please choose 'Wipe all Indications on the Mini-Map.'.";
+				next;
+				goto L0;
+				close;
+		L01:
+			next;
+			menu "^FF0000Thief Guild^000000",L01a,"Armory",L01b,"Inn",L01c,"Pub",L01e,"Mercenary Guild",L01f,"Cancel",L01g;
+
+			L01a:
+				mes "[Payon Squad]";
+				mes "'Thief Guild' wich grants you to be a Thief is located inside by hearsay...";
+				next;
+				goto L01;
+				close;
+			L01b:
+				mes "[Payon Squad]";
+				mes "'Armory' is located at Southwest around the Centre of Mini-Map.";
+				next;
+				goto L01;
+				close;
+			L01c:
+				mes "[Payon Squad]";
+				mes "In Morroc there are 2 'Inn's' located both at South and Northeast around the Centre on Mini-Map.";
+				next;
+				goto L01;
+				close;
+			L01e:
+				mes "[Payon Squad]";
+				mes "'Pub' is located at Northwest around the Centre.";
+				next;
+				goto L01;
+				close;
+			L01f:
+				mes "[Payon Squad]";
+				mes "'Mercenary Guild' is at East Contour around the Centre of Mini-Map.";
+				next;
+				goto L01;
+				close;
+			L01g:
+				close;
+	L1:
+		mes "[Morroc Squad]";
+		mes "Under development";
+		close;
+	L2:
+		mes "[Morroc Squad]";
+		mes "We altered the Location Guideinto de Newest Digital Style, out of the former Analog One.";
+		mes "Please Check this gorgeous newest system with your own eyes.";
+		next;
+		mes "[Morroc Squad]";
+		mes "Don't forget to refer the Mini-Map on Upper-Right of the Screen.";
+		mes "If you can't see the Mini-Map, just use Shortcut 'ctrl+tab' or Click 'map' button on the Basic Information Window";
+		mes "After that, Click '-' button on the Mini-Map until whole buildings are shown on it.";
+		next;
+		menu "View Bulidings.",L0,"Wipe all Indications on Mini-Map.",L1,"Notice.",L2,"Cancel",L3;
+		close;
+	L3:
+		close;
+}
+
+morocc.gat,153,286,6	script	Guide	105,{
+	mes "[Morroc Squad]";
+	mes "Welcome to Morroc,the Frontier.";
+	mes "We will help you when you take a Wrong Way, Feel free to inquire at us anytime, Algight?";
+	next;
+	menu "View Bulidings.",L0,"Wipe all Indications on Mini-Map.",L1,"Notice.",L2,"Cancel",L3;
+	
+	L0:
+		mes "[Morroc Squad]";
+		mes "Please choose a Menu first.";
+		mes "Do you want me to leave indications on the Mini-Map?";
+		menu "Yes, please.",L00,"No, Thanks.",L01;
+
+		L00:
+			menu "^FF0000Thief Guild^000000",L00a,"Armory",L00b,"Inn",L00c,"Pub",L00d,"Mercenary Guild",L00e,"Cancel",L00f;
+
+			L00a:
+				mes "[Payon Squad]";
+				mes "'Thief Guild' wich grants you to be a Thief is located inside by hearsay...";
+				viewpoint 1,25,294,1,0xFF0000;
+				next;
+				goto L00;
+				close;
+			L00b:
+				mes "[Payon Squad]";
+				mes "'Armory' is located at Southwest around the Centre of Mini-Map.";
+				viewpoint 1,253,55,1,0xFF00FF;
+				next;
+				goto L00;
+				close;
+			L00c:
+				mes "[Payon Squad]";
+				mes "In Morroc there are 2 'Inn's' located both at South and Northeast around the Centre on Mini-Map.";
+				viewpoint 1,274,269,3,0xFF00FF;
+				viewpoint 1,197,66,3,0xFF00FF;
+				next;
+				goto L00;
+				close;
+			L00d:
+				mes "[Payon Squad]";
+				mes "'Pub' is located at Northwest around the Centre.";
+				viewpoint 1,53,259,2,0xFF00FF;
+				next;
+				goto L00;
+				close;
+			L00e:
+				mes "[Payon Squad]";
+				mes "'Mercenary Guild' is at East Contour around the Centre of Mini-Map.";
+				viewpoint 1,90,167,3,0x00FF00;
+				next;
+				goto L00;
+				close;
+			L00f:
+				mes "[Payon Squad]";
+				mes "If you want to remove location marks, Please choose 'Wipe all Indications on the Mini-Map.'.";
+				next;
+				goto L0;
+				close;
+		L01:
+			next;
+			menu "^FF0000Thief Guild^000000",L01a,"Armory",L01b,"Inn",L01c,"Pub",L01d,"Mercenary Guild",L01e,"Cancel",L01f;
+
+			L01a:
+				mes "[Payon Squad]";
+				mes "'Thief Guild' wich grants you to be a Thief is located inside by hearsay...";
+				next;
+				goto L01;
+				close;
+			L01b:
+				mes "[Payon Squad]";
+				mes "'Armory' is located at Southwest around the Centre of Mini-Map.";
+				next;
+				goto L01;
+				close;
+			L01c:
+				mes "[Payon Squad]";
+				mes "In Morroc there are 2 'Inn's' located both at South and Northeast around the Centre on Mini-Map.";
+				next;
+				goto L01;
+				close;
+			L01d:
+				mes "[Payon Squad]";
+				mes "'Pub' is located at Northwest around the Centre.";
+				next;
+				goto L01;
+				close;
+			L01e:
+				mes "[Payon Squad]";
+				mes "'Mercenary Guild' is at East Contour around the Centre of Mini-Map.";
+				next;
+				goto L01;
+				close;
+			L01f:
+				close;
+	L1:
+		mes "[Morroc Squad]";
+		mes "We altered the Location Guide into de Newest Digital Style, out of the former Analog One.";
+		mes "Please Check this gorgeous newest system with your own eyes.";
+		next;
+		mes "[Morroc Squad]";
+		mes "Don't forget to refer the Mini-Map on Upper-Right of the Screen.";
+		mes "If you can't see the Mini-Map, just use Shortcut 'ctrl+tab' or Click 'map' button on the Basic Information Window";
+		mes "After that, Click '-' button on the Mini-Map until whole buildings are shown on it.";
+		next;
+		menu "View Bulidings.",L0,"Wipe all Indications on Mini-Map.",L1,"Notice.",L2,"Cancel",L3;
+		close;
+	L2:
+		mes "[Morroc Squad]";
+		mes "We altered the Location Guideinto de Newest Digital Style, out of the former Analog One.";
+		mes "Please Check this gorgeous newest system with your own eyes.";
+		next;
+		mes "[Morroc Squad]";
+		mes "Don't forget to refer the Mini-Map on Upper-Right of the Screen.";
+		mes "If you can't see the Mini-Map, just use Shortcut 'ctrl+tab' or Click 'map' button on the Basic Information Window";
+		mes "After that, Click '-' button on the Mini-Map until whole buildings are shown on it.";
+		next;
+		menu "View Bulidings.",L0,"Wipe all Indications on Mini-Map.",L1,"Notice.",L2,"Cancel",L3;
+		close;
+	L3:
+		close;
+}
+//<=========== Morroc - End ==========>\\
+//===============================================================================================================================\\
+//<=========== Payon - Begin ==========>\\
+payon.gat,82,116,4	script	Guide	105,{
+	mes "[Payon Squad]";
+	mes "Welcome to Payon,the uplander village.";
+	mes "We will help you when you take the wrong way, Feel free to inquire at us anytime.";
+	mes "Please Choose a menu `Notice' if you are a beginner of Ragnarok.";
+	next;
+	menu "View Bulidings.",L0,"Wipe all Indications on Mini-Map.",L1,"Notice.",L2,"Cancel",L3;
+	
+	L0:
+		mes "[Payon Squad]";
+		mes "Please choose a Menu first.";
+		mes "Do you want me to leave indications on the Mini-Map?";
+		next;
+		menu "Yes, please.",L00,"No, Thanks.",L01;
+				
+		L00:
+			menu "^FF0000Archer Guild^000000",L00a,"Armory",L00b,"Kit Shop",L00c,"Inn",L00d,"Central Palace",L00e,"Cancel",L00f;
+
+			L00a:
+				mes "[Payon Squad]";
+				mes "'Archer Guild' is a Control Office of Archers. It is located at Northeast Contour of the Archer Village.";
+				viewpoint 1,175,189,1,0xFF0000;
+				next;
+				goto L00;
+				close;
+			L00b:
+				mes "[Payon Squad]";
+				mes "'Armory' is located at Northwest around the Centre.";
+				viewpoint 1,30,176,1,0xFF00FF;
+				next;
+				goto L00;
+				close;
+			L00c:
+				mes "[Payon Squad]";
+				mes "'Kit Shop' is located at Northwest Contour of the Archer Village.";
+				viewpoint 1,175,189,2,0xFF00FF;
+				next;
+				goto L00;
+				close;
+			L00d:
+				mes "[Payon Squad]";
+				mes "'Inn' is located at East around the Centre.";
+				viewpoint 1,172,133,3,0xFF00FF;
+				next;
+				goto L00;
+				close;
+			L00e:
+				mes "[Payon Squad]";
+				mes "'Central Palace' is at North around the Centre.";
+				viewpoint 1,90,167,3,0x00FF00;
+				next;
+				goto L00;
+				close;
+			L00f:
+				mes "[Payon Squad]";
+				mes "If you want to remove location marks, Please choose 'Wipe all Indications on the Mini-Map.'.";
+				next;
+				goto L0;
+				close;
+		L01:
+			next;
+			menu "^FF0000Archer Guild^000000",L01a,"Armory",L01b,"Kit Shop",L01c,"Inn",L01d,"Central Palace",L01e,"Cancel",L01f;
+
+			L01a:
+				mes "[Payon Squad]";
+				mes "'Archer Guild' is a Control Office of Archers. It is located at Northeast Contour of the Archer Village.";
+				next;
+				goto L01;
+				close;
+			L01b:
+				mes "[Payon Squad]";
+				mes "'Armory' is located at Northwest around the Centre.";
+				next;
+				goto L01;
+				close;
+			L01c:
+				mes "[Payon Squad]";
+				mes "'Kit Shop' is located at Northwest Contour of the Archer Village.";
+				next;
+				goto L01;
+				close;
+			L01d:
+				mes "[Payon Squad]";
+				mes "'Inn' is located at East around the Centre.";
+				next;
+				goto L01;
+				close;
+			L01e:
+				mes "[Payon Squad]";
+				mes "'Central Palace' is at North around the Centre.";
+				next;
+				goto L01;
+				close;
+			L01f:
+				goto ViewBuildings;
+				close;
+	L1:
+		mes "[Payon Squad]";
+		mes "Under development";
+		close;
+	L2:
+		mes "[Payon Squad]";
+		mes "We altered the Location Guide into de Newest Digital Style, out of the former Analog One.";
+		mes "Please Check this gorgeous newest system with your own eyes.";
+		next;
+		mes "[Payon Squad]";
+		mes "Don't forget to refer the Mini-Map on Upper-Right of the Screen.";
+		mes "If you can't see the Mini-Map, just use Shortcut 'ctrl+tab' or Click 'map' button on the Basic Information Window";
+		mes "After that, Click '-' button on the Mini-Map until whole buildings are shown on it.";
+		next;
+		menu "View Bulidings.",L0,"Wipe all Indications on Mini-Map.",L1,"Notice.",L2,"Cancel",L3;
+		close;
+	L3:
+		mes "[Payon Squad]";
+		mes "Bon Voyage, Wanderer";
+		close;
+}
+
+//_Archer Village_\\
+pay_arche.gat,85,30,2	script	Guide	105,{
+	mes "[Payon Squad]";
+	mes "Welcome to Payon,the uplander village.";
+	mes "We will help you when you take the wrong way, Feel free to inquire at us anytime.";
+	mes "Please Choose a menu `Notice' if you are a beginner of Ragnarok.";
+	next;
+	menu "View Bulidings.",L0,"Wipe all Indications on Mini-Map.",L1,"Notice.",L2,"Cancel",L3;
+	
+	L0:
+		mes "[Payon Squad]";
+		mes "Please choose a Menu first.";
+		mes "Do you want me to leave indications on the Mini-Map?";
+		next;
+		menu "Yes, please.",L00,"No, Thanks.",L01;
+				
+		L00:
+			menu "^FF0000Archer Guild^000000",L00a,"Kit Shop",L00b,"Payon Cave",L00c,"Cancel",L00d;
+
+			L00a:
+				mes "[Payon Squad]";
+				mes "'Archer Guild' is a COntrol Office of Archers.";
+				viewpoint 1,145,165,1,0x0000ff;
+				close;
+			L00b:
+				mes "[Payon Squad]";
+				mes "'Kit Shop' 'Armory' is located at Northwest around the Centre.";
+				viewpoint 1,71,156,2,0xFF00FF;
+				close;
+			L00c:
+				mes "[Payon Squad]";
+				mes "'Payon Cave' is located at West Contour arround the Centre of Mini-Map.";
+				viewpoint 1,36,131,3,0xFFFFFF;
+				close;
+			L00d:
+				close;
+		L01:
+			next;
+			menu "^FF0000Archer Guild^000000",L01a,"Kit Shop",L01b,"Payon Cave",L01c,"Cancel",L01e;
+
+			L01a:
+				mes "[Payon Squad]";
+				mes "'Archer Guild' is a COntrol Office of Archers.";
+				close;
+			L01b:
+				mes "[Payon Squad]";
+				mes "'Kit Shop' 'Armory' is located at Northwest around the Centre.";
+				close;
+			L01c:
+				mes "[Payon Squad]";
+				mes "'Payon Cave' is located at West Contour arround the Centre of Mini-Map.";
+				close;
+			L01e:
+				close;
+	L1:
+		mes "[Payon Squad]";
+		mes "Under development";
+		close;
+	L2:
+		mes "[Payon Squad]";
+		mes "We altered the Location Guide into de Newest Digital Style, out of the former Analog One.";
+		mes "Please Check this gorgeous newest system with your own eyes.";
+		next;
+		mes "[Payon Squad]";
+		mes "Don't forget to refer the Mini-Map on Upper-Right of the Screen.";
+		mes "If you can't see the Mini-Map, just use Shortcut 'ctrl+tab' or Click 'map' button on the Basic Information Window";
+		mes "After that, Click '-' button on the Mini-Map until whole buildings are shown on it.";
+		next;
+		menu "View Bulidings.",L0,"Wipe all Indications on Mini-Map.",L1,"Notice.",L2,"Cancel",L3;
+		close;
+	L3:
+		mes "[Payon Squad]";
+		mes "Bon Voyage, Wanderer";
+		close;
+}
+//<=========== Payon - End ==========>\\
+//===============================================================================================================================\\
+//<=========== Prontera - Begin ==========>\\
+prontera.gat,29,200,6	script	Guide	105,{
+	mes "[Prontera Squad]";
+	mes "Welcome to Prontera,the Capital City of Rune-Midgard Kingdom.";
+	mes "We can help you to find Buildings easily, Feel free to inquire at us anytime.";
+	mes "Please Choose a menu `Notice' if you are a beginner of Ragnarok.";
+	next;
+	menu "View Bulidings.",L0,"Wipe all Indications on Mini-Map.",L1,"Notice.",L2,"Cancel",L3;
+	
+	L0:
+		mes "[Prontera Squad]";
+		mes "Please choose a Menu first.";
+		mes "Do you want me to leave indications on the Mini-Map?";
+		next;
+		menu "Yes, please.",L00,"No, Thanks.",L01;
+
+		L00:
+			menu "Swordman Asosiation",L00a,"^0000C0Santuary^000000",L00b,"Prontera Chivalry",L00c,"Armory",L00d,"Kit Shop",L00e,"Inn",L00f,"Trading Post",L00g,"Pub",L00h,"Library",L00i,"Job Agency",L00j,"The Castle of Prontera",L00k,"City Hall",L00l,"Cancel",L00m;
+
+			L00a:
+				mes "[Prontera Squad]";
+				mes "The 'Swordman Assosiation' has moved to Izlude, the Sattelite of Prontera, now that Building is Empty";
+				viewpoint 1,237,40,1,0x00FF00;
+				next;
+				goto L00;
+				close;
+			L00b:
+				mes "[Prontera Squad]";
+				mes "The main Chapel of Rune-Midgard Kingdom, `Santuary' is located at Northeast. Usually citizens visit there to become Acolyte";
+				viewpoint 1,237,317,1,0xFF0000;
+				next;
+				goto L00;
+				close;
+			L00c:
+				mes "[Prontera Squad]";
+				mes "'Prontera Chivalry' the Defense Force of Prontera City is located at Northwest.";
+				viewpoint 1,45,346,1,0x00FF00;
+				next;
+				goto L00;
+				close;
+			L00d:
+				mes "[Prontera Squad]";
+				mes "'Armory' is located at Northeast around the Fountain.";
+				viewpoint 1,177,221,1,0xFF00FF;
+				next;
+				goto L00;
+				close;
+			L00e:
+				mes "[Prontera Squad]";
+				mes "'Kit Shop' is located Northwest around the Fountain.";
+				viewpoint 1,134,221,1,0xFF00FF;
+				next;
+				goto L00;
+				close;
+			L00f:
+				mes "[Prontera Squad]";
+				mes "There are 2 'Inn's' around the Fountain, on is located at West, other one at East.";
+				viewpoint 1,107,215,1,0xFF00FF;
+				viewpoint 1,204,192,1,0xFF00FF;
+				next;
+				goto L00;
+				close;
+			L00g:
+				mes "[Prontera Squad]";
+				mes "'Trading Post' is located at Southeast around the Fountain.";
+				viewpoint 1,179,184,1,0x00FF00;
+				next;
+				goto L00;
+				close;
+			L00h:
+				mes "[Prontera Squad]";
+				mes "'Pub is located at Southeast around the Fountain, right behind Trading Post building.";
+				viewpoint 1,208,154,1,0x00FF00;
+				next;
+				goto L00;
+				close;
+			L00i:
+				mes "[Prontera Squad]";
+				mes "There are 2 Buildings of 'Lybrary', located both at Northern East and Northern West around the Fountain.";
+				viewpoint 1,120,167,1,0x00FF00;
+				viewpoint 1,192,167,1,0x00FF00;
+				next;
+				goto L00;
+				close;
+			L00j:
+				mes "[Prontera Squad]";
+				mes "'Job Agency' is located at Southeast of the Fountain.";
+				viewpoint 1,133,183,1,0x00FF00;
+				next;
+				goto L00;
+				close;
+			L00k:
+				mes "[Prontera Squad]";
+				mes "'The Castle Of Prontera' is located at Due North. Clockwise rotation is 12.";
+				mes "And when you go outside the Castle through a postern, you will see the North Prontera Field.";
+				viewpoint 1,156,360,1,0x00FF00;
+				next;
+				goto L00;
+				close;
+			L00l:
+				mes "[Prontera Squad]";
+				mes "City Hall is located at Southeast Contour. The Clockwise rotarion is 7.";
+				viewpoint 1,74,90,1,0x00FF00;
+				next;
+				goto L00;
+				close;
+			L00m:
+				close;
+
+		L01:
+			menu "Swordman Asosiation",L01a,"^0000C0Santuary^000000",L01b,"Prontera Chivalry",L01c,"Armory",L01d,"Kit Shop",L01e,"Inn",L01f,"Trading Post",L01g,"Pub",L01h,"Library",L01i,"Job Agency",L01j,"The Castle of Prontera",L01k,"City Hall",L01l,"Cancel",L01m;
+
+			L01a:
+				mes "[Prontera Squad]";
+				mes "The 'Swordman Assosiation' has moved to Izlude, the Sattelite of Prontera, now that Building is Empty";
+				next;
+				goto L01;
+				close;
+			L01b:
+				mes "[Prontera Squad]";
+				mes "The main Chapel of Rune-Midgard Kingdom, `Santuary' is located at Northeast. Usually citizens visit there to become Acolyte";
+				next;
+				goto L01;
+				close;
+			L01c:
+				mes "[Prontera Squad]";
+				mes "'Prontera Chivalry' the Defense Force of Prontera City is located at Northwest.";
+				next;
+				goto L01;
+				close;
+			L01d:
+				mes "[Prontera Squad]";
+				mes "'Armory' is located at Northeast around the Fountain.";
+				next;
+				goto L01;
+				close;
+			L01e:
+				mes "[Prontera Squad]";
+				mes "'Kit Shop' is located Northwest around the Fountain.";
+				next;
+				goto ViewBuildingsYesOnMapNo;
+				close;
+			L01f:
+				mes "[Prontera Squad]";
+				mes "There are 2 'Inn's' around the Fountain, on is located at West, other one at East.";
+				next;
+				goto L01;
+				close;
+			L01g:
+				mes "[Prontera Squad]";
+				mes "'Trading Post' is located at Southeast around the Fountain.";
+				next;
+				goto L01;
+				close;
+			L01h:
+				mes "[Prontera Squad]";
+				mes "'Pub is located at Southeast around the Fountain, right behind Trading Post building.";
+				next;
+				goto L00;
+				close;
+			L01i:
+				mes "[Prontera Squad]";
+				mes "There are 2 Buildings of 'Lybrary', located both at Northern East and Northern West around the Fountain.";
+				next;
+				goto L01;
+				close;
+			L01j:
+				mes "[Prontera Squad]";
+				mes "'Job Agency' is located at Southeast of the Fountain.";
+				next;
+				goto L01;
+				close;
+			L01k:
+				mes "[Prontera Squad]";
+				mes "'The Castle Of Prontera' is located at Due North. Clockwise rotation is 12.";
+				mes "And when you go outside the Castle through a postern, you will see the North Prontera Field.";
+				next;
+				goto L01;
+				close;
+			L01l:
+				mes "[Prontera Squad]";
+				mes "City Hall is located at Southeast Contour. The Clockwise rotarion is 7.";
+				next;
+				goto L01;
+				close;
+			L01m:
+				close;
+
+	L1:
+		mes "[Prontera Squad]";
+		mes "Under development";
+		close;
+	L2:
+		mes "[Prontera Squad]";
+		mes "We altered the Location Guide into de Newest Digital Style, out of the former Analog One.";
+		mes "Please Check this gorgeous newest system with your own eyes.";
+		next;
+		mes "[Prontera Squad]";
+		mes "Don't forget to refer the Mini-Map on Upper-Right of the Screen.";
+		mes "If you can't see the Mini-Map, just use Shortcut 'ctrl+tab' or Click 'map' button on the Basic Information Window";
+		mes "After that, Click '-' button on the Mini-Map until whole buildings are shown on it.";
+		next;
+		menu "View Bulidings.",L0,"Wipe all Indications on Mini-Map.",L1,"Notice.",L2,"Cancel",L3;
+		close;
+	L3:
+		close;
+}
+
+prontera.gat,47,339,5	script	Guard	105,{
+	mes "[Guard]";
+	mes "Welcome to Prontera.";
+	close;
+}
+
+prontera.gat,52,344,5	script	Guard	105,{
+	mes "[Guard]";
+	mes "Welcome to Prontera.";
+	close;
+}
+
+prontera.gat,151,330,4	script	Guide	105,{
+	mes "[Prontera Squad]";
+	mes "Welcome to Prontera,the Capital City of Rune-Midgard Kingdom.";
+	mes "We can help you to find Buildings easily, Feel free to inquire at us anytime.";
+	mes "Please Choose a menu `Notice' if you are a beginner of Ragnarok.";
+	next;
+	menu "View Bulidings.",L0,"Wipe all Indications on Mini-Map.",L1,"Notice.",L2,"Cancel",L3;
+	
+	L0:
+		mes "[Prontera Squad]";
+		mes "Please choose a Menu first.";
+		mes "Do you want me to leave indications on the Mini-Map?";
+		next;
+		menu "Yes, please.",L00,"No, Thanks.",L01;
+
+		L00:
+			menu "Swordman Asosiation",L00a,"^0000C0Santuary^000000",L00b,"Prontera Chivalry",L00c,"Armory",L00d,"Kit Shop",L00e,"Inn",L00f,"Trading Post",L00g,"Pub",L00h,"Library",L00i,"Job Agency",L00j,"The Castle of Prontera",L00k,"City Hall",L00l,"Cancel",L00m;
+
+			L00a:
+				mes "[Prontera Squad]";
+				mes "The 'Swordman Assosiation' has moved to Izlude, the Sattelite of Prontera, now that Building is Empty";
+				viewpoint 1,237,40,1,0x00FF00;
+				next;
+				goto L00;
+				close;
+			L00b:
+				mes "[Prontera Squad]";
+				mes "The main Chapel of Rune-Midgard Kingdom, `Santuary' is located at Northeast. Usually citizens visit there to become Acolyte";
+				viewpoint 1,237,317,1,0xFF0000;
+				next;
+				goto L00;
+				close;
+			L00c:
+				mes "[Prontera Squad]";
+				mes "'Prontera Chivalry' the Defense Force of Prontera City is located at Northwest.";
+				viewpoint 1,45,346,1,0x00FF00;
+				next;
+				goto L00;
+				close;
+			L00d:
+				mes "[Prontera Squad]";
+				mes "'Armory' is located at Northeast around the Fountain.";
+				viewpoint 1,177,221,1,0xFF00FF;
+				next;
+				goto L00;
+				close;
+			L00e:
+				mes "[Prontera Squad]";
+				mes "'Kit Shop' is located Northwest around the Fountain.";
+				viewpoint 1,134,221,1,0xFF00FF;
+				next;
+				goto L00;
+				close;
+			L00f:
+				mes "[Prontera Squad]";
+				mes "There are 2 'Inn's' around the Fountain, on is located at West, other one at East.";
+				viewpoint 1,107,215,1,0xFF00FF;
+				viewpoint 1,204,192,1,0xFF00FF;
+				next;
+				goto L00;
+				close;
+			L00g:
+				mes "[Prontera Squad]";
+				mes "'Trading Post' is located at Southeast around the Fountain.";
+				viewpoint 1,179,184,1,0x00FF00;
+				next;
+				goto L00;
+				close;
+			L00h:
+				mes "[Prontera Squad]";
+				mes "'Pub is located at Southeast around the Fountain, right behind Trading Post building.";
+				viewpoint 1,208,154,1,0x00FF00;
+				next;
+				goto L00;
+				close;
+			L00i:
+				mes "[Prontera Squad]";
+				mes "There are 2 Buildings of 'Lybrary', located both at Northern East and Northern West around the Fountain.";
+				viewpoint 1,120,167,1,0x00FF00;
+				viewpoint 1,192,167,1,0x00FF00;
+				next;
+				goto L00;
+				close;
+			L00j:
+				mes "[Prontera Squad]";
+				mes "'Job Agency' is located at Southeast of the Fountain.";
+				viewpoint 1,133,183,1,0x00FF00;
+				next;
+				goto L00;
+				close;
+			L00k:
+				mes "[Prontera Squad]";
+				mes "'The Castle Of Prontera' is located at Due North. Clockwise rotation is 12.";
+				mes "And when you go outside the Castle through a postern, you will see the North Prontera Field.";
+				viewpoint 1,156,360,1,0x00FF00;
+				next;
+				goto L00;
+				close;
+			L00l:
+				mes "[Prontera Squad]";
+				mes "City Hall is located at Southeast Contour. The Clockwise rotarion is 7.";
+				viewpoint 1,74,90,1,0x00FF00;
+				next;
+				goto L00;
+				close;
+			L00m:
+				close;
+
+		L01:
+			menu "Swordman Asosiation",L01a,"^0000C0Santuary^000000",L01b,"Prontera Chivalry",L01c,"Armory",L01d,"Kit Shop",L01e,"Inn",L01f,"Trading Post",L01g,"Pub",L01h,"Library",L01i,"Job Agency",L01j,"The Castle of Prontera",L01k,"City Hall",L01l,"Cancel",L01m;
+
+			L01a:
+				mes "[Prontera Squad]";
+				mes "The 'Swordman Assosiation' has moved to Izlude, the Sattelite of Prontera, now that Building is Empty";
+				next;
+				goto L01;
+				close;
+			L01b:
+				mes "[Prontera Squad]";
+				mes "The main Chapel of Rune-Midgard Kingdom, `Santuary' is located at Northeast. Usually citizens visit there to become Acolyte";
+				next;
+				goto L01;
+				close;
+			L01c:
+				mes "[Prontera Squad]";
+				mes "'Prontera Chivalry' the Defense Force of Prontera City is located at Northwest.";
+				next;
+				goto L01;
+				close;
+			L01d:
+				mes "[Prontera Squad]";
+				mes "'Armory' is located at Northeast around the Fountain.";
+				next;
+				goto L01;
+				close;
+			L01e:
+				mes "[Prontera Squad]";
+				mes "'Kit Shop' is located Northwest around the Fountain.";
+				next;
+				goto ViewBuildingsYesOnMapNo;
+				close;
+			L01f:
+				mes "[Prontera Squad]";
+				mes "There are 2 'Inn's' around the Fountain, on is located at West, other one at East.";
+				next;
+				goto L01;
+				close;
+			L01g:
+				mes "[Prontera Squad]";
+				mes "'Trading Post' is located at Southeast around the Fountain.";
+				next;
+				goto L01;
+				close;
+			L01h:
+				mes "[Prontera Squad]";
+				mes "'Pub is located at Southeast around the Fountain, right behind Trading Post building.";
+				next;
+				goto L00;
+				close;
+			L01i:
+				mes "[Prontera Squad]";
+				mes "There are 2 Buildings of 'Lybrary', located both at Northern East and Northern West around the Fountain.";
+				next;
+				goto L01;
+				close;
+			L01j:
+				mes "[Prontera Squad]";
+				mes "'Job Agency' is located at Southeast of the Fountain.";
+				next;
+				goto L01;
+				close;
+			L01k:
+				mes "[Prontera Squad]";
+				mes "'The Castle Of Prontera' is located at Due North. Clockwise rotation is 12.";
+				mes "And when you go outside the Castle through a postern, you will see the North Prontera Field.";
+				next;
+				goto L01;
+				close;
+			L01l:
+				mes "[Prontera Squad]";
+				mes "City Hall is located at Southeast Contour. The Clockwise rotarion is 7.";
+				next;
+				goto L01;
+				close;
+			L01m:
+				close;
+
+	L1:
+		mes "[Prontera Squad]";
+		mes "Under development";
+		close;
+	L2:
+		mes "[Prontera Squad]";
+		mes "We altered the Location Guide into de Newest Digital Style, out of the former Analog One.";
+		mes "Please Check this gorgeous newest system with your own eyes.";
+		next;
+		mes "[Prontera Squad]";
+		mes "Don't forget to refer the Mini-Map on Upper-Right of the Screen.";
+		mes "If you can't see the Mini-Map, just use Shortcut 'ctrl+tab' or Click 'map' button on the Basic Information Window";
+		mes "After that, Click '-' button on the Mini-Map until whole buildings are shown on it.";
+		next;
+		menu "View Bulidings.",L0,"Wipe all Indications on Mini-Map.",L1,"Notice.",L2,"Cancel",L3;
+		close;
+	L3:
+		close;
+}
+
+prontera.gat,154,187,4	script	Guide	105,{
+	mes "[Prontera Squad]";
+	mes "Welcome to Prontera,the Capital City of Rune-Midgard Kingdom.";
+	mes "We can help you to find Buildings easily, Feel free to inquire at us anytime.";
+	mes "Please Choose a menu `Notice' if you are a beginner of Ragnarok.";
+	next;
+	menu "View Bulidings.",L0,"Wipe all Indications on Mini-Map.",L1,"Notice.",L2,"Cancel",L3;
+	
+	L0:
+		mes "[Prontera Squad]";
+		mes "Please choose a Menu first.";
+		mes "Do you want me to leave indications on the Mini-Map?";
+		next;
+		menu "Yes, please.",L00,"No, Thanks.",L01;
+
+		L00:
+			menu "Swordman Asosiation",L00a,"^0000C0Santuary^000000",L00b,"Prontera Chivalry",L00c,"Armory",L00d,"Kit Shop",L00e,"Inn",L00f,"Trading Post",L00g,"Pub",L00h,"Library",L00i,"Job Agency",L00j,"The Castle of Prontera",L00k,"City Hall",L00l,"Cancel",L00m;
+
+			L00a:
+				mes "[Prontera Squad]";
+				mes "The 'Swordman Assosiation' has moved to Izlude, the Sattelite of Prontera, now that Building is Empty";
+				viewpoint 1,237,40,1,0x00FF00;
+				next;
+				goto L00;
+				close;
+			L00b:
+				mes "[Prontera Squad]";
+				mes "The main Chapel of Rune-Midgard Kingdom, `Santuary' is located at Northeast. Usually citizens visit there to become Acolyte";
+				viewpoint 1,237,317,1,0xFF0000;
+				next;
+				goto L00;
+				close;
+			L00c:
+				mes "[Prontera Squad]";
+				mes "'Prontera Chivalry' the Defense Force of Prontera City is located at Northwest.";
+				viewpoint 1,45,346,1,0x00FF00;
+				next;
+				goto L00;
+				close;
+			L00d:
+				mes "[Prontera Squad]";
+				mes "'Armory' is located at Northeast around the Fountain.";
+				viewpoint 1,177,221,1,0xFF00FF;
+				next;
+				goto L00;
+				close;
+			L00e:
+				mes "[Prontera Squad]";
+				mes "'Kit Shop' is located Northwest around the Fountain.";
+				viewpoint 1,134,221,1,0xFF00FF;
+				next;
+				goto L00;
+				close;
+			L00f:
+				mes "[Prontera Squad]";
+				mes "There are 2 'Inn's' around the Fountain, on is located at West, other one at East.";
+				viewpoint 1,107,215,1,0xFF00FF;
+				viewpoint 1,204,192,1,0xFF00FF;
+				next;
+				goto L00;
+				close;
+			L00g:
+				mes "[Prontera Squad]";
+				mes "'Trading Post' is located at Southeast around the Fountain.";
+				viewpoint 1,179,184,1,0x00FF00;
+				next;
+				goto L00;
+				close;
+			L00h:
+				mes "[Prontera Squad]";
+				mes "'Pub is located at Southeast around the Fountain, right behind Trading Post building.";
+				viewpoint 1,208,154,1,0x00FF00;
+				next;
+				goto L00;
+				close;
+			L00i:
+				mes "[Prontera Squad]";
+				mes "There are 2 Buildings of 'Lybrary', located both at Northern East and Northern West around the Fountain.";
+				viewpoint 1,120,167,1,0x00FF00;
+				viewpoint 1,192,167,1,0x00FF00;
+				next;
+				goto L00;
+				close;
+			L00j:
+				mes "[Prontera Squad]";
+				mes "'Job Agency' is located at Southeast of the Fountain.";
+				viewpoint 1,133,183,1,0x00FF00;
+				next;
+				goto L00;
+				close;
+			L00k:
+				mes "[Prontera Squad]";
+				mes "'The Castle Of Prontera' is located at Due North. Clockwise rotation is 12.";
+				mes "And when you go outside the Castle through a postern, you will see the North Prontera Field.";
+				viewpoint 1,156,360,1,0x00FF00;
+				next;
+				goto L00;
+				close;
+			L00l:
+				mes "[Prontera Squad]";
+				mes "City Hall is located at Southeast Contour. The Clockwise rotarion is 7.";
+				viewpoint 1,74,90,1,0x00FF00;
+				next;
+				goto L00;
+				close;
+			L00m:
+				close;
+
+		L01:
+			menu "Swordman Asosiation",L01a,"^0000C0Santuary^000000",L01b,"Prontera Chivalry",L01c,"Armory",L01d,"Kit Shop",L01e,"Inn",L01f,"Trading Post",L01g,"Pub",L01h,"Library",L01i,"Job Agency",L01j,"The Castle of Prontera",L01k,"City Hall",L01l,"Cancel",L01m;
+
+			L01a:
+				mes "[Prontera Squad]";
+				mes "The 'Swordman Assosiation' has moved to Izlude, the Sattelite of Prontera, now that Building is Empty";
+				next;
+				goto L01;
+				close;
+			L01b:
+				mes "[Prontera Squad]";
+				mes "The main Chapel of Rune-Midgard Kingdom, `Santuary' is located at Northeast. Usually citizens visit there to become Acolyte";
+				next;
+				goto L01;
+				close;
+			L01c:
+				mes "[Prontera Squad]";
+				mes "'Prontera Chivalry' the Defense Force of Prontera City is located at Northwest.";
+				next;
+				goto L01;
+				close;
+			L01d:
+				mes "[Prontera Squad]";
+				mes "'Armory' is located at Northeast around the Fountain.";
+				next;
+				goto L01;
+				close;
+			L01e:
+				mes "[Prontera Squad]";
+				mes "'Kit Shop' is located Northwest around the Fountain.";
+				next;
+				goto ViewBuildingsYesOnMapNo;
+				close;
+			L01f:
+				mes "[Prontera Squad]";
+				mes "There are 2 'Inn's' around the Fountain, on is located at West, other one at East.";
+				next;
+				goto L01;
+				close;
+			L01g:
+				mes "[Prontera Squad]";
+				mes "'Trading Post' is located at Southeast around the Fountain.";
+				next;
+				goto L01;
+				close;
+			L01h:
+				mes "[Prontera Squad]";
+				mes "'Pub is located at Southeast around the Fountain, right behind Trading Post building.";
+				next;
+				goto L00;
+				close;
+			L01i:
+				mes "[Prontera Squad]";
+				mes "There are 2 Buildings of 'Lybrary', located both at Northern East and Northern West around the Fountain.";
+				next;
+				goto L01;
+				close;
+			L01j:
+				mes "[Prontera Squad]";
+				mes "'Job Agency' is located at Southeast of the Fountain.";
+				next;
+				goto L01;
+				close;
+			L01k:
+				mes "[Prontera Squad]";
+				mes "'The Castle Of Prontera' is located at Due North. Clockwise rotation is 12.";
+				mes "And when you go outside the Castle through a postern, you will see the North Prontera Field.";
+				next;
+				goto L01;
+				close;
+			L01l:
+				mes "[Prontera Squad]";
+				mes "City Hall is located at Southeast Contour. The Clockwise rotarion is 7.";
+				next;
+				goto L01;
+				close;
+			L01m:
+				close;
+
+	L1:
+		mes "[Prontera Squad]";
+		mes "Under development";
+		close;
+	L2:
+		mes "[Prontera Squad]";
+		mes "We altered the Location Guide into de Newest Digital Style, out of the former Analog One.";
+		mes "Please Check this gorgeous newest system with your own eyes.";
+		next;
+		mes "[Prontera Squad]";
+		mes "Don't forget to refer the Mini-Map on Upper-Right of the Screen.";
+		mes "If you can't see the Mini-Map, just use Shortcut 'ctrl+tab' or Click 'map' button on the Basic Information Window";
+		mes "After that, Click '-' button on the Mini-Map until whole buildings are shown on it.";
+		next;
+		menu "View Bulidings.",L0,"Wipe all Indications on Mini-Map.",L1,"Notice.",L2,"Cancel",L3;
+		close;
+	L3:
+		close;
+}
+
+prontera.gat,160,29,8	script	Guide	105,{
+	mes "[Prontera Squad]";
+	mes "Welcome to Prontera,the Capital City of Rune-Midgard Kingdom.";
+	mes "We can help you to find Buildings easily, Feel free to inquire at us anytime.";
+	mes "Please Choose a menu `Notice' if you are a beginner of Ragnarok.";
+	next;
+	menu "View Bulidings.",L0,"Wipe all Indications on Mini-Map.",L1,"Notice.",L2,"Cancel",L3;
+	
+	L0:
+		mes "[Prontera Squad]";
+		mes "Please choose a Menu first.";
+		mes "Do you want me to leave indications on the Mini-Map?";
+		next;
+		menu "Yes, please.",L00,"No, Thanks.",L01;
+
+		L00:
+			menu "Swordman Asosiation",L00a,"^0000C0Santuary^000000",L00b,"Prontera Chivalry",L00c,"Armory",L00d,"Kit Shop",L00e,"Inn",L00f,"Trading Post",L00g,"Pub",L00h,"Library",L00i,"Job Agency",L00j,"The Castle of Prontera",L00k,"City Hall",L00l,"Cancel",L00m;
+
+			L00a:
+				mes "[Prontera Squad]";
+				mes "The 'Swordman Assosiation' has moved to Izlude, the Sattelite of Prontera, now that Building is Empty";
+				viewpoint 1,237,40,1,0x00FF00;
+				next;
+				goto L00;
+				close;
+			L00b:
+				mes "[Prontera Squad]";
+				mes "The main Chapel of Rune-Midgard Kingdom, `Santuary' is located at Northeast. Usually citizens visit there to become Acolyte";
+				viewpoint 1,237,317,1,0xFF0000;
+				next;
+				goto L00;
+				close;
+			L00c:
+				mes "[Prontera Squad]";
+				mes "'Prontera Chivalry' the Defense Force of Prontera City is located at Northwest.";
+				viewpoint 1,45,346,1,0x00FF00;
+				next;
+				goto L00;
+				close;
+			L00d:
+				mes "[Prontera Squad]";
+				mes "'Armory' is located at Northeast around the Fountain.";
+				viewpoint 1,177,221,1,0xFF00FF;
+				next;
+				goto L00;
+				close;
+			L00e:
+				mes "[Prontera Squad]";
+				mes "'Kit Shop' is located Northwest around the Fountain.";
+				viewpoint 1,134,221,1,0xFF00FF;
+				next;
+				goto L00;
+				close;
+			L00f:
+				mes "[Prontera Squad]";
+				mes "There are 2 'Inn's' around the Fountain, on is located at West, other one at East.";
+				viewpoint 1,107,215,1,0xFF00FF;
+				viewpoint 1,204,192,1,0xFF00FF;
+				next;
+				goto L00;
+				close;
+			L00g:
+				mes "[Prontera Squad]";
+				mes "'Trading Post' is located at Southeast around the Fountain.";
+				viewpoint 1,179,184,1,0x00FF00;
+				next;
+				goto L00;
+				close;
+			L00h:
+				mes "[Prontera Squad]";
+				mes "'Pub is located at Southeast around the Fountain, right behind Trading Post building.";
+				viewpoint 1,208,154,1,0x00FF00;
+				next;
+				goto L00;
+				close;
+			L00i:
+				mes "[Prontera Squad]";
+				mes "There are 2 Buildings of 'Lybrary', located both at Northern East and Northern West around the Fountain.";
+				viewpoint 1,120,167,1,0x00FF00;
+				viewpoint 1,192,167,1,0x00FF00;
+				next;
+				goto L00;
+				close;
+			L00j:
+				mes "[Prontera Squad]";
+				mes "'Job Agency' is located at Southeast of the Fountain.";
+				viewpoint 1,133,183,1,0x00FF00;
+				next;
+				goto L00;
+				close;
+			L00k:
+				mes "[Prontera Squad]";
+				mes "'The Castle Of Prontera' is located at Due North. Clockwise rotation is 12.";
+				mes "And when you go outside the Castle through a postern, you will see the North Prontera Field.";
+				viewpoint 1,156,360,1,0x00FF00;
+				next;
+				goto L00;
+				close;
+			L00l:
+				mes "[Prontera Squad]";
+				mes "City Hall is located at Southeast Contour. The Clockwise rotarion is 7.";
+				viewpoint 1,74,90,1,0x00FF00;
+				next;
+				goto L00;
+				close;
+			L00m:
+				close;
+
+		L01:
+			menu "Swordman Asosiation",L01a,"^0000C0Santuary^000000",L01b,"Prontera Chivalry",L01c,"Armory",L01d,"Kit Shop",L01e,"Inn",L01f,"Trading Post",L01g,"Pub",L01h,"Library",L01i,"Job Agency",L01j,"The Castle of Prontera",L01k,"City Hall",L01l,"Cancel",L01m;
+
+			L01a:
+				mes "[Prontera Squad]";
+				mes "The 'Swordman Assosiation' has moved to Izlude, the Sattelite of Prontera, now that Building is Empty";
+				next;
+				goto L01;
+				close;
+			L01b:
+				mes "[Prontera Squad]";
+				mes "The main Chapel of Rune-Midgard Kingdom, `Santuary' is located at Northeast. Usually citizens visit there to become Acolyte";
+				next;
+				goto L01;
+				close;
+			L01c:
+				mes "[Prontera Squad]";
+				mes "'Prontera Chivalry' the Defense Force of Prontera City is located at Northwest.";
+				next;
+				goto L01;
+				close;
+			L01d:
+				mes "[Prontera Squad]";
+				mes "'Armory' is located at Northeast around the Fountain.";
+				next;
+				goto L01;
+				close;
+			L01e:
+				mes "[Prontera Squad]";
+				mes "'Kit Shop' is located Northwest around the Fountain.";
+				next;
+				goto ViewBuildingsYesOnMapNo;
+				close;
+			L01f:
+				mes "[Prontera Squad]";
+				mes "There are 2 'Inn's' around the Fountain, on is located at West, other one at East.";
+				next;
+				goto L01;
+				close;
+			L01g:
+				mes "[Prontera Squad]";
+				mes "'Trading Post' is located at Southeast around the Fountain.";
+				next;
+				goto L01;
+				close;
+			L01h:
+				mes "[Prontera Squad]";
+				mes "'Pub is located at Southeast around the Fountain, right behind Trading Post building.";
+				next;
+				goto L00;
+				close;
+			L01i:
+				mes "[Prontera Squad]";
+				mes "There are 2 Buildings of 'Lybrary', located both at Northern East and Northern West around the Fountain.";
+				next;
+				goto L01;
+				close;
+			L01j:
+				mes "[Prontera Squad]";
+				mes "'Job Agency' is located at Southeast of the Fountain.";
+				next;
+				goto L01;
+				close;
+			L01k:
+				mes "[Prontera Squad]";
+				mes "'The Castle Of Prontera' is located at Due North. Clockwise rotation is 12.";
+				mes "And when you go outside the Castle through a postern, you will see the North Prontera Field.";
+				next;
+				goto L01;
+				close;
+			L01l:
+				mes "[Prontera Squad]";
+				mes "City Hall is located at Southeast Contour. The Clockwise rotarion is 7.";
+				next;
+				goto L01;
+				close;
+			L01m:
+				close;
+
+	L1:
+		mes "[Prontera Squad]";
+		mes "Under development";
+		close;
+	L2:
+		mes "[Prontera Squad]";
+		mes "We altered the Location Guide into de Newest Digital Style, out of the former Analog One.";
+		mes "Please Check this gorgeous newest system with your own eyes.";
+		next;
+		mes "[Prontera Squad]";
+		mes "Don't forget to refer the Mini-Map on Upper-Right of the Screen.";
+		mes "If you can't see the Mini-Map, just use Shortcut 'ctrl+tab' or Click 'map' button on the Basic Information Window";
+		mes "After that, Click '-' button on the Mini-Map until whole buildings are shown on it.";
+		next;
+		menu "View Bulidings.",L0,"Wipe all Indications on Mini-Map.",L1,"Notice.",L2,"Cancel",L3;
+		close;
+	L3:
+		close;
+}
+
+prontera.gat,160,330,4	script	Guard	105,{
+	mes "Welcome to Prontera.";
+	close;
+}
+prontera.gat,223,99,1	script	Guard	105,{
+	mes "Welcome to Prontera.";
+	close;
+}
+
+prontera.gat,229,104,1	script	Guard	105,{
+	mes "Welcome to Prontera.";
+	close;
+}
+
+prontera.gat,282,208,2	script	Guide	105,{
+	mes "[Prontera Squad]";
+	mes "Welcome to Prontera,the Capital City of Rune-Midgard Kingdom.";
+	mes "We can help you to find Buildings easily, Feel free to inquire at us anytime.";
+	mes "Please Choose a menu `Notice' if you are a beginner of Ragnarok.";
+	next;
+	menu "View Bulidings.",L0,"Wipe all Indications on Mini-Map.",L1,"Notice.",L2,"Cancel",L3;
+	
+	L0:
+		mes "[Prontera Squad]";
+		mes "Please choose a Menu first.";
+		mes "Do you want me to leave indications on the Mini-Map?";
+		next;
+		menu "Yes, please.",L00,"No, Thanks.",L01;
+
+		L00:
+			menu "Swordman Asosiation",L00a,"^0000C0Santuary^000000",L00b,"Prontera Chivalry",L00c,"Armory",L00d,"Kit Shop",L00e,"Inn",L00f,"Trading Post",L00g,"Pub",L00h,"Library",L00i,"Job Agency",L00j,"The Castle of Prontera",L00k,"City Hall",L00l,"Cancel",L00m;
+
+			L00a:
+				mes "[Prontera Squad]";
+				mes "The 'Swordman Assosiation' has moved to Izlude, the Sattelite of Prontera, now that Building is Empty";
+				viewpoint 1,237,40,1,0x00FF00;
+				next;
+				goto L00;
+				close;
+			L00b:
+				mes "[Prontera Squad]";
+				mes "The main Chapel of Rune-Midgard Kingdom, `Santuary' is located at Northeast. Usually citizens visit there to become Acolyte";
+				viewpoint 1,237,317,1,0xFF0000;
+				next;
+				goto L00;
+				close;
+			L00c:
+				mes "[Prontera Squad]";
+				mes "'Prontera Chivalry' the Defense Force of Prontera City is located at Northwest.";
+				viewpoint 1,45,346,1,0x00FF00;
+				next;
+				goto L00;
+				close;
+			L00d:
+				mes "[Prontera Squad]";
+				mes "'Armory' is located at Northeast around the Fountain.";
+				viewpoint 1,177,221,1,0xFF00FF;
+				next;
+				goto L00;
+				close;
+			L00e:
+				mes "[Prontera Squad]";
+				mes "'Kit Shop' is located Northwest around the Fountain.";
+				viewpoint 1,134,221,1,0xFF00FF;
+				next;
+				goto L00;
+				close;
+			L00f:
+				mes "[Prontera Squad]";
+				mes "There are 2 'Inn's' around the Fountain, on is located at West, other one at East.";
+				viewpoint 1,107,215,1,0xFF00FF;
+				viewpoint 1,204,192,1,0xFF00FF;
+				next;
+				goto L00;
+				close;
+			L00g:
+				mes "[Prontera Squad]";
+				mes "'Trading Post' is located at Southeast around the Fountain.";
+				viewpoint 1,179,184,1,0x00FF00;
+				next;
+				goto L00;
+				close;
+			L00h:
+				mes "[Prontera Squad]";
+				mes "'Pub is located at Southeast around the Fountain, right behind Trading Post building.";
+				viewpoint 1,208,154,1,0x00FF00;
+				next;
+				goto L00;
+				close;
+			L00i:
+				mes "[Prontera Squad]";
+				mes "There are 2 Buildings of 'Lybrary', located both at Northern East and Northern West around the Fountain.";
+				viewpoint 1,120,167,1,0x00FF00;
+				viewpoint 1,192,167,1,0x00FF00;
+				next;
+				goto L00;
+				close;
+			L00j:
+				mes "[Prontera Squad]";
+				mes "'Job Agency' is located at Southeast of the Fountain.";
+				viewpoint 1,133,183,1,0x00FF00;
+				next;
+				goto L00;
+				close;
+			L00k:
+				mes "[Prontera Squad]";
+				mes "'The Castle Of Prontera' is located at Due North. Clockwise rotation is 12.";
+				mes "And when you go outside the Castle through a postern, you will see the North Prontera Field.";
+				viewpoint 1,156,360,1,0x00FF00;
+				next;
+				goto L00;
+				close;
+			L00l:
+				mes "[Prontera Squad]";
+				mes "City Hall is located at Southeast Contour. The Clockwise rotarion is 7.";
+				viewpoint 1,74,90,1,0x00FF00;
+				next;
+				goto L00;
+				close;
+			L00m:
+				close;
+
+		L01:
+			menu "Swordman Asosiation",L01a,"^0000C0Santuary^000000",L01b,"Prontera Chivalry",L01c,"Armory",L01d,"Kit Shop",L01e,"Inn",L01f,"Trading Post",L01g,"Pub",L01h,"Library",L01i,"Job Agency",L01j,"The Castle of Prontera",L01k,"City Hall",L01l,"Cancel",L01m;
+
+			L01a:
+				mes "[Prontera Squad]";
+				mes "The 'Swordman Assosiation' has moved to Izlude, the Sattelite of Prontera, now that Building is Empty";
+				next;
+				goto L01;
+				close;
+			L01b:
+				mes "[Prontera Squad]";
+				mes "The main Chapel of Rune-Midgard Kingdom, `Santuary' is located at Northeast. Usually citizens visit there to become Acolyte";
+				next;
+				goto L01;
+				close;
+			L01c:
+				mes "[Prontera Squad]";
+				mes "'Prontera Chivalry' the Defense Force of Prontera City is located at Northwest.";
+				next;
+				goto L01;
+				close;
+			L01d:
+				mes "[Prontera Squad]";
+				mes "'Armory' is located at Northeast around the Fountain.";
+				next;
+				goto L01;
+				close;
+			L01e:
+				mes "[Prontera Squad]";
+				mes "'Kit Shop' is located Northwest around the Fountain.";
+				next;
+				goto ViewBuildingsYesOnMapNo;
+				close;
+			L01f:
+				mes "[Prontera Squad]";
+				mes "There are 2 'Inn's' around the Fountain, on is located at West, other one at East.";
+				next;
+				goto L01;
+				close;
+			L01g:
+				mes "[Prontera Squad]";
+				mes "'Trading Post' is located at Southeast around the Fountain.";
+				next;
+				goto L01;
+				close;
+			L01h:
+				mes "[Prontera Squad]";
+				mes "'Pub is located at Southeast around the Fountain, right behind Trading Post building.";
+				next;
+				goto L00;
+				close;
+			L01i:
+				mes "[Prontera Squad]";
+				mes "There are 2 Buildings of 'Lybrary', located both at Northern East and Northern West around the Fountain.";
+				next;
+				goto L01;
+				close;
+			L01j:
+				mes "[Prontera Squad]";
+				mes "'Job Agency' is located at Southeast of the Fountain.";
+				next;
+				goto L01;
+				close;
+			L01k:
+				mes "[Prontera Squad]";
+				mes "'The Castle Of Prontera' is located at Due North. Clockwise rotation is 12.";
+				mes "And when you go outside the Castle through a postern, you will see the North Prontera Field.";
+				next;
+				goto L01;
+				close;
+			L01l:
+				mes "[Prontera Squad]";
+				mes "City Hall is located at Southeast Contour. The Clockwise rotarion is 7.";
+				next;
+				goto L01;
+				close;
+			L01m:
+				close;
+
+	L1:
+		mes "[Prontera Squad]";
+		mes "Under development";
+		close;
+	L2:
+		mes "[Prontera Squad]";
+		mes "We altered the Location Guide into de Newest Digital Style, out of the former Analog One.";
+		mes "Please Check this gorgeous newest system with your own eyes.";
+		next;
+		mes "[Prontera Squad]";
+		mes "Don't forget to refer the Mini-Map on Upper-Right of the Screen.";
+		mes "If you can't see the Mini-Map, just use Shortcut 'ctrl+tab' or Click 'map' button on the Basic Information Window";
+		mes "After that, Click '-' button on the Mini-Map until whole buildings are shown on it.";
+		next;
+		menu "View Bulidings.",L0,"Wipe all Indications on Mini-Map.",L1,"Notice.",L2,"Cancel",L3;
+		close;
+	L3:
+		close;
+}
+
+prontera.gat,288,88,4	script	Guide	105,{
+	mes "[Prontera Squad]";
+	mes "Welcome to Prontera,the Capital City of Rune-Midgard Kingdom.";
+	mes "We can help you to find Buildings easily, Feel free to inquire at us anytime.";
+	mes "Please Choose a menu `Notice' if you are a beginner of Ragnarok.";
+	next;
+	menu "View Bulidings.",L0,"Wipe all Indications on Mini-Map.",L1,"Notice.",L2,"Cancel",L3;
+	
+	L0:
+		mes "[Prontera Squad]";
+		mes "Please choose a Menu first.";
+		mes "Do you want me to leave indications on the Mini-Map?";
+		next;
+		menu "Yes, please.",L00,"No, Thanks.",L01;
+
+		L00:
+			menu "Swordman Asosiation",L00a,"^0000C0Santuary^000000",L00b,"Prontera Chivalry",L00c,"Armory",L00d,"Kit Shop",L00e,"Inn",L00f,"Trading Post",L00g,"Pub",L00h,"Library",L00i,"Job Agency",L00j,"The Castle of Prontera",L00k,"City Hall",L00l,"Cancel",L00m;
+
+			L00a:
+				mes "[Prontera Squad]";
+				mes "The 'Swordman Assosiation' has moved to Izlude, the Sattelite of Prontera, now that Building is Empty";
+				viewpoint 1,237,40,1,0x00FF00;
+				next;
+				goto L00;
+				close;
+			L00b:
+				mes "[Prontera Squad]";
+				mes "The main Chapel of Rune-Midgard Kingdom, `Santuary' is located at Northeast. Usually citizens visit there to become Acolyte";
+				viewpoint 1,237,317,1,0xFF0000;
+				next;
+				goto L00;
+				close;
+			L00c:
+				mes "[Prontera Squad]";
+				mes "'Prontera Chivalry' the Defense Force of Prontera City is located at Northwest.";
+				viewpoint 1,45,346,1,0x00FF00;
+				next;
+				goto L00;
+				close;
+			L00d:
+				mes "[Prontera Squad]";
+				mes "'Armory' is located at Northeast around the Fountain.";
+				viewpoint 1,177,221,1,0xFF00FF;
+				next;
+				goto L00;
+				close;
+			L00e:
+				mes "[Prontera Squad]";
+				mes "'Kit Shop' is located Northwest around the Fountain.";
+				viewpoint 1,134,221,1,0xFF00FF;
+				next;
+				goto L00;
+				close;
+			L00f:
+				mes "[Prontera Squad]";
+				mes "There are 2 'Inn's' around the Fountain, on is located at West, other one at East.";
+				viewpoint 1,107,215,1,0xFF00FF;
+				viewpoint 1,204,192,1,0xFF00FF;
+				next;
+				goto L00;
+				close;
+			L00g:
+				mes "[Prontera Squad]";
+				mes "'Trading Post' is located at Southeast around the Fountain.";
+				viewpoint 1,179,184,1,0x00FF00;
+				next;
+				goto L00;
+				close;
+			L00h:
+				mes "[Prontera Squad]";
+				mes "'Pub is located at Southeast around the Fountain, right behind Trading Post building.";
+				viewpoint 1,208,154,1,0x00FF00;
+				next;
+				goto L00;
+				close;
+			L00i:
+				mes "[Prontera Squad]";
+				mes "There are 2 Buildings of 'Lybrary', located both at Northern East and Northern West around the Fountain.";
+				viewpoint 1,120,167,1,0x00FF00;
+				viewpoint 1,192,167,1,0x00FF00;
+				next;
+				goto L00;
+				close;
+			L00j:
+				mes "[Prontera Squad]";
+				mes "'Job Agency' is located at Southeast of the Fountain.";
+				viewpoint 1,133,183,1,0x00FF00;
+				next;
+				goto L00;
+				close;
+			L00k:
+				mes "[Prontera Squad]";
+				mes "'The Castle Of Prontera' is located at Due North. Clockwise rotation is 12.";
+				mes "And when you go outside the Castle through a postern, you will see the North Prontera Field.";
+				viewpoint 1,156,360,1,0x00FF00;
+				next;
+				goto L00;
+				close;
+			L00l:
+				mes "[Prontera Squad]";
+				mes "City Hall is located at Southeast Contour. The Clockwise rotarion is 7.";
+				viewpoint 1,74,90,1,0x00FF00;
+				next;
+				goto L00;
+				close;
+			L00m:
+				close;
+
+		L01:
+			menu "Swordman Asosiation",L01a,"^0000C0Santuary^000000",L01b,"Prontera Chivalry",L01c,"Armory",L01d,"Kit Shop",L01e,"Inn",L01f,"Trading Post",L01g,"Pub",L01h,"Library",L01i,"Job Agency",L01j,"The Castle of Prontera",L01k,"City Hall",L01l,"Cancel",L01m;
+
+			L01a:
+				mes "[Prontera Squad]";
+				mes "The 'Swordman Assosiation' has moved to Izlude, the Sattelite of Prontera, now that Building is Empty";
+				next;
+				goto L01;
+				close;
+			L01b:
+				mes "[Prontera Squad]";
+				mes "The main Chapel of Rune-Midgard Kingdom, `Santuary' is located at Northeast. Usually citizens visit there to become Acolyte";
+				next;
+				goto L01;
+				close;
+			L01c:
+				mes "[Prontera Squad]";
+				mes "'Prontera Chivalry' the Defense Force of Prontera City is located at Northwest.";
+				next;
+				goto L01;
+				close;
+			L01d:
+				mes "[Prontera Squad]";
+				mes "'Armory' is located at Northeast around the Fountain.";
+				next;
+				goto L01;
+				close;
+			L01e:
+				mes "[Prontera Squad]";
+				mes "'Kit Shop' is located Northwest around the Fountain.";
+				next;
+				goto ViewBuildingsYesOnMapNo;
+				close;
+			L01f:
+				mes "[Prontera Squad]";
+				mes "There are 2 'Inn's' around the Fountain, on is located at West, other one at East.";
+				next;
+				goto L01;
+				close;
+			L01g:
+				mes "[Prontera Squad]";
+				mes "'Trading Post' is located at Southeast around the Fountain.";
+				next;
+				goto L01;
+				close;
+			L01h:
+				mes "[Prontera Squad]";
+				mes "'Pub is located at Southeast around the Fountain, right behind Trading Post building.";
+				next;
+				goto L00;
+				close;
+			L01i:
+				mes "[Prontera Squad]";
+				mes "There are 2 Buildings of 'Lybrary', located both at Northern East and Northern West around the Fountain.";
+				next;
+				goto L01;
+				close;
+			L01j:
+				mes "[Prontera Squad]";
+				mes "'Job Agency' is located at Southeast of the Fountain.";
+				next;
+				goto L01;
+				close;
+			L01k:
+				mes "[Prontera Squad]";
+				mes "'The Castle Of Prontera' is located at Due North. Clockwise rotation is 12.";
+				mes "And when you go outside the Castle through a postern, you will see the North Prontera Field.";
+				next;
+				goto L01;
+				close;
+			L01l:
+				mes "[Prontera Squad]";
+				mes "City Hall is located at Southeast Contour. The Clockwise rotarion is 7.";
+				next;
+				goto L01;
+				close;
+			L01m:
+				close;
+
+	L1:
+		mes "[Prontera Squad]";
+		mes "Under development";
+		close;
+	L2:
+		mes "[Prontera Squad]";
+		mes "We altered the Location Guide into de Newest Digital Style, out of the former Analog One.";
+		mes "Please Check this gorgeous newest system with your own eyes.";
+		next;
+		mes "[Prontera Squad]";
+		mes "Don't forget to refer the Mini-Map on Upper-Right of the Screen.";
+		mes "If you can't see the Mini-Map, just use Shortcut 'ctrl+tab' or Click 'map' button on the Basic Information Window";
+		mes "After that, Click '-' button on the Mini-Map until whole buildings are shown on it.";
+		next;
+		menu "View Bulidings.",L0,"Wipe all Indications on Mini-Map.",L1,"Notice.",L2,"Cancel",L3;
+		close;
+	L3:
+		close;
+}
+//<=========== Prontera - End ==========>\\
+//===============================================================================================================================\\
+//<=========== Prontera Maze - Begin ==========>\\
+prt_maze02.gat,100,69,4	script	Soldier	105,{
+	mes "[Soldier]";
+	mes "Yo yo, you'd be better not to go in there. It has rumored there is a Demon living in the forest.";
+	mes "Of course it is just a rumor because no one see the people turning back from the palce.";
+	mes "hmmm... it's up to you to go in or leave.";
+	close;
+}
+
+prt_maze02.gat,110,69,4	script	Soldier	105,{
+	mes "[Soldier]";
+	mes "Sigh... the last guy entered this place haven't come back either. He didn't listen to me and went in to gather herbs or something like that...";
+	mes "He was a really stupid, if I were him, I wouldn't give up my life just for those lame herbs or something.";
+	close;
+}
+//<=========== Prontera Maze - End ==========>\\
+//===============================================================================================================================\\

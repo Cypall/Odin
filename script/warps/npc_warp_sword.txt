@@ -1,0 +1,4641 @@
+sword_1-1.gat,16,251,0	hiddenwarp	1_blank_1_a	139,{
+	set @TEMP,0;
+	random @TEMP,5;
+	goto L0;
+
+	L0:
+		if(@TEMP !=0) goto L1;
+		warp "sword_1-1.gat",65,56;
+		close;
+	L1:
+		if(@TEMP !=1) goto L2;
+		warp "sword_1-1.gat",29,26;
+		close;
+	L2:
+		if(@TEMP !=2) goto L3;
+		warp "sword_1-1.gat",43,16;
+		close;
+	L3:
+		if(@TEMP !=3) goto L4;
+		warp "sword_1-1.gat",23,112;
+		close;
+	L4:
+		warp "sword_1-1.gat",58,83;
+		close;
+}
+	
+sword_1-1.gat,19,251,0	hiddenwarp	1_blank_1_b	139,{
+	set @TEMP,0;
+	random @TEMP,5;
+	goto L0;
+
+	L0:
+		if(@TEMP !=0) goto L1;
+		warp "sword_1-1.gat",65,56;
+		close;
+	L1:
+		if(@TEMP !=1) goto L2;
+		warp "sword_1-1.gat",29,26;
+		close;
+	L2:
+		if(@TEMP !=2) goto L3;
+		warp "sword_1-1.gat",43,16;
+		close;
+	L3:
+		if(@TEMP !=3) goto L4;
+		warp "sword_1-1.gat",23,112;
+		close;
+	L4:
+		warp "sword_1-1.gat",58,83;
+		close;
+}
+
+sword_1-1.gat,17,250,0	hiddenwarp	1_blank_1_c	139,{
+	set @TEMP,0;
+	random @TEMP,5;
+	goto L0;
+
+	L0:
+		if(@TEMP !=0) goto L1;
+		warp "sword_1-1.gat",65,56;
+		close;
+	L1:
+		if(@TEMP !=1) goto L2;
+		warp "sword_1-1.gat",29,26;
+		close;
+	L2:
+		if(@TEMP !=2) goto L3;
+		warp "sword_1-1.gat",43,16;
+		close;
+	L3:
+		if(@TEMP !=3) goto L4;
+		warp "sword_1-1.gat",23,112;
+		close;
+	L4:
+		warp "sword_1-1.gat",58,83;
+		close;
+}
+
+sword_1-1.gat,16,238,0	hiddenwarp	1_blank_2_a	139,{
+	set @TEMP,0;
+	random @TEMP,5;
+	goto L0;
+
+	L0:
+		if(@TEMP !=0) goto L1;
+		warp "sword_1-1.gat",65,56;
+		close;
+	L1:
+		if(@TEMP !=1) goto L2;
+		warp "sword_1-1.gat",29,26;
+		close;
+	L2:
+		if(@TEMP !=2) goto L3;
+		warp "sword_1-1.gat",43,16;
+		close;
+	L3:
+		if(@TEMP !=3) goto L4;
+		warp "sword_1-1.gat",23,112;
+		close;
+	L4:
+		warp "sword_1-1.gat",58,83;
+		close;
+}
+
+sword_1-1.gat,19,238,0	hiddenwarp	1_blank_2_b	139,{
+	set @TEMP,0;
+	random @TEMP,5;
+	goto L0;
+
+	L0:
+		if(@TEMP !=0) goto L1;
+		warp "sword_1-1.gat",65,56,
+		close;
+	L1:
+		if(@TEMP !=1) goto L2;
+		warp "sword_1-1.gat",29,26;
+		close;
+	L2:
+		if(@TEMP !=2) goto L3;
+		warp "sword_1-1.gat",43,16;
+		close;
+	L3:
+		if(@TEMP !=3) goto L4;
+		warp "sword_1-1.gat",23,112;
+		close;
+	L4:
+		warp "sword_1-1.gat",58,83;
+		close;
+}
+
+sword_1-1.gat,17,239,0	hiddenwarp	1_blank_2_c	139,{
+	set @TEMP,0;
+	random @TEMP,5;
+	goto L0;
+
+	L0:
+		if(@TEMP !=0) goto L1;
+		warp "sword_1-1.gat",65,56;
+		close;
+	L1:
+		if(@TEMP !=1) goto L2;
+		warp "sword_1-1.gat",29,26;
+		close;
+	L2:
+		if(@TEMP !=2) goto L3;
+		warp "sword_1-1.gat",43,16;
+		close;
+	L3:
+		if(@TEMP !=3) goto L4;
+		warp "sword_1-1.gat",23,112;
+		close;
+	L4:
+		warp "sword_1-1.gat",58,83;
+		close;
+}
+
+
+sword_1-1.gat,28,247,0	hiddenwarp	1_blank_3_a	139,{
+	set @TEMP,0;
+	random @TEMP,5;
+	goto L0;
+
+	L0:
+		if(@TEMP !=0) goto L1;
+		warp "sword_1-1.gat",65,56;
+		close;
+	L1:
+		if(@TEMP !=1) goto L2;
+		warp "sword_1-1.gat",29,26;
+		close;
+	L2:
+		if(@TEMP !=2) goto L3;
+		warp "sword_1-1.gat",43,16;
+		close;
+	L3:
+		if(@TEMP !=3) goto L4;
+		warp "sword_1-1.gat",23,112;
+		close;
+	L4:
+		warp "sword_1-1.gat",58,83;
+		close;
+}
+
+sword_1-1.gat,33,245,0	hiddenwarp	1_blank_3_b	139,{
+	set @TEMP,0;
+	random @TEMP,5;
+	goto L0;
+
+	L0:
+		if(@TEMP !=0) goto L1;
+		warp "sword_1-1.gat",65,56;
+		close;
+	L1:
+		if(@TEMP !=1) goto L2;
+		warp "sword_1-1.gat",29,26;
+		close;
+	L2:
+		if(@TEMP !=2) goto L3;
+		warp "sword_1-1.gat",43,16;
+		close;
+	L3:
+		if(@TEMP !=3) goto L4;
+		warp "sword_1-1.gat",23,112;
+		close;
+	L4:
+		warp "sword_1-1.gat",58,83;
+		close;
+}
+
+sword_1-1.gat,29,242,0	hiddenwarp	1_blank_3_c	139,{
+	set @TEMP,0;
+	random @TEMP,5;
+	goto L0;
+
+	L0:
+		if(@TEMP !=0) goto L1;
+		warp "sword_1-1.gat",65,56;
+		close;
+	L1:
+		if(@TEMP !=1) goto L2;
+		warp "sword_1-1.gat",29,26;
+		close;
+	L2:
+		if(@TEMP !=2) goto L3;
+		warp "sword_1-1.gat",43,16;
+		close;
+	L3:
+		if(@TEMP !=3) goto L4;
+		warp "sword_1-1.gat",23,112;
+		close;
+	L4:
+		warp "sword_1-1.gat",58,83;
+		close;
+}
+
+sword_1-1.gat,24,244,0	hiddenwarp	1_blank_3_d	139,{
+	set @TEMP,0;
+	random @TEMP,5;
+	goto L0;
+
+	L0:
+		if(@TEMP !=0) goto L1;
+		warp "sword_1-1.gat",65,56;
+		close;
+	L1:
+		if(@TEMP !=1) goto L2;
+		warp "sword_1-1.gat",29,26;
+		close;
+	L2:
+		if(@TEMP !=2) goto L3;
+		warp "sword_1-1.gat",43,16;
+		close;
+	L3:
+		if(@TEMP !=3) goto L4;
+		warp "sword_1-1.gat",23,112;
+		close;
+	L4:
+		warp "sword_1-1.gat",58,83;
+		close;
+}
+
+sword_1-1.gat,38,251,0	hiddenwarp	1_blank_4_a	139,{
+	set @TEMP,0;
+	random @TEMP,5;
+	goto L0;
+
+	L0:
+		if(@TEMP !=0) goto L1;
+		warp "sword_1-1.gat",65,56;
+		close;
+	L1:
+		if(@TEMP !=1) goto L2;
+		warp "sword_1-1.gat",29,26;
+		close;
+	L2:
+		if(@TEMP !=2) goto L3;
+		warp "sword_1-1.gat",43,16;
+		close;
+	L3:
+		if(@TEMP !=3) goto L4;
+		warp "sword_1-1.gat",23,112;
+		close;
+	L4:
+		warp "sword_1-1.gat",58,83;
+		close;
+}
+
+sword_1-1.gat,41,251,0	hiddenwarp	1_blank_4_b	139,{
+	set @TEMP,0;
+	random @TEMP,5;
+	goto L0;
+
+	L0:
+		if(@TEMP !=0) goto L1;
+		warp "sword_1-1.gat",65,56;
+		close;
+	L1:
+		if(@TEMP !=1) goto L2;
+		warp "sword_1-1.gat",29,26;
+		close;
+	L2:
+		if(@TEMP !=2) goto L3;
+		warp "sword_1-1.gat",43,16;
+		close;
+	L3:
+		if(@TEMP !=3) goto L4;
+		warp "sword_1-1.gat",23,112;
+		close;
+	L4:
+		warp "sword_1-1.gat",58,83;
+		close;
+}
+
+sword_1-1.gat,39,250,0	hiddenwarp	1_blank_4_c	139,{
+	set @TEMP,0;
+	random @TEMP,5;
+	goto L0;
+
+	L0:
+		if(@TEMP !=0) goto L1;
+		warp "sword_1-1.gat",65,56;
+		close;
+	L1:
+		if(@TEMP !=1) goto L2;
+		warp "sword_1-1.gat",29,26;
+		close;
+	L2:
+		if(@TEMP !=2) goto L3;
+		warp "sword_1-1.gat",43,16;
+		close;
+	L3:
+		if(@TEMP !=3) goto L4;
+		warp "sword_1-1.gat",23,112;
+		close;
+	L4:
+		warp "sword_1-1.gat",58,83;
+		close;
+}
+
+sword_1-1.gat,38,238,0	hiddenwarp	1_blank_5_a	139,{
+	set @TEMP,0;
+	random @TEMP,5;
+	goto L0;
+
+	L0:
+		if(@TEMP !=0) goto L1;
+		warp "sword_1-1.gat",65,56;
+		close;
+	L1:
+		if(@TEMP !=1) goto L2;
+		warp "sword_1-1.gat",29,26;
+		close;
+	L2:
+		if(@TEMP !=2) goto L3;
+		warp "sword_1-1.gat",43,16;
+		close;
+	L3:
+		if(@TEMP !=3) goto L4;
+		warp "sword_1-1.gat",23,112;
+		close;
+	L4:
+		warp "sword_1-1.gat",58,83;
+		close;
+}
+
+sword_1-1.gat,41,238,0	hiddenwarp	1_blank_5_b	139,{
+	set @TEMP,0;
+	random @TEMP,5;
+	goto L0;
+
+	L0:
+		if(@TEMP !=0) goto L1;
+		warp "sword_1-1.gat",65,56;
+		close;
+	L1:
+		if(@TEMP !=1) goto L2;
+		warp "sword_1-1.gat",29,26;
+		close;
+	L2:
+		if(@TEMP !=2) goto L3;
+		warp "sword_1-1.gat",43,16;
+		close;
+	L3:
+		if(@TEMP !=3) goto L4;
+		warp "sword_1-1.gat",23,112;
+		close;
+	L4:
+		warp "sword_1-1.gat",58,83;
+		close;
+}
+
+sword_1-1.gat,39,239,0	hiddenwarp	1_blank_5_c	139,{
+	set @TEMP,0;
+	random @TEMP,5;
+	goto L0;
+
+	L0:
+		if(@TEMP !=0) goto L1;
+		warp "sword_1-1.gat",65,56;
+		close;
+	L1:
+		if(@TEMP !=1) goto L2;
+		warp "sword_1-1.gat",29,26;
+		close;
+	L2:
+		if(@TEMP !=2) goto L3;
+		warp "sword_1-1.gat",43,16;
+		close;
+	L3:
+		if(@TEMP !=3) goto L4;
+		warp "sword_1-1.gat",23,112;
+		close;
+	L4:
+		warp "sword_1-1.gat",58,83;
+		close;
+}
+
+sword_1-1.gat,54,251,0	hiddenwarp	1_blank_6_a	139,{
+	set @TEMP,0;
+	random @TEMP,5;
+	goto L0;
+
+	L0:
+		if(@TEMP !=0) goto L1;
+		warp "sword_1-1.gat",65,56;
+		close;
+	L1:
+		if(@TEMP !=1) goto L2;
+		warp "sword_1-1.gat",29,26;
+		close;
+	L2:
+		if(@TEMP !=2) goto L3;
+		warp "sword_1-1.gat",43,16;
+		close;
+	L3:
+		if(@TEMP !=3) goto L4;
+		warp "sword_1-1.gat",23,112;
+		close;
+	L4:
+		warp "sword_1-1.gat",58,83;
+		close;
+}
+
+sword_1-1.gat,71,251,0	hiddenwarp	1_blank_6_b	139,{
+	set @TEMP,0;
+	random @TEMP,5;
+	goto L0;
+
+	L0:
+		if(@TEMP !=0) goto L1;
+		warp "sword_1-1.gat",65,56;
+		close;
+	L1:
+		if(@TEMP !=1) goto L2;
+		warp "sword_1-1.gat",29,26;
+		close;
+	L2:
+		if(@TEMP !=2) goto L3;
+		warp "sword_1-1.gat",43,16;
+		close;
+	L3:
+		if(@TEMP !=3) goto L4;
+		warp "sword_1-1.gat",23,112;
+		close;
+	L4:
+		warp "sword_1-1.gat",58,83;
+		close;
+}
+
+sword_1-1.gat,62,250,0	hiddenwarp	1_blank_6_c	139,{
+	set @TEMP,0;
+	random @TEMP,5;
+	goto L0;
+
+	L0:
+		if(@TEMP !=0) goto L1;
+		warp "sword_1-1.gat",65,56;
+		close;
+	L1:
+		if(@TEMP !=1) goto L2;
+		warp "sword_1-1.gat",29,26;
+		close;
+	L2:
+		if(@TEMP !=2) goto L3;
+		warp "sword_1-1.gat",43,16;
+		close;
+	L3:
+		if(@TEMP !=3) goto L4;
+		warp "sword_1-1.gat",23,112;
+		close;
+	L4:
+		warp "sword_1-1.gat",58,83;
+		close;
+}
+
+sword_1-1.gat,62,247,0	hiddenwarp	1_blank_7_a	139,{
+	set @TEMP,0;
+	random @TEMP,5;
+	goto L0;
+
+	L0:
+		if(@TEMP !=0) goto L1;
+		warp "sword_1-1.gat",65,56;
+		close;
+	L1:
+		if(@TEMP !=1) goto L2;
+		warp "sword_1-1.gat",29,26;
+		close;
+	L2:
+		if(@TEMP !=2) goto L3;
+		warp "sword_1-1.gat",43,16;
+		close;
+	L3:
+		if(@TEMP !=3) goto L4;
+		warp "sword_1-1.gat",23,112;
+		close;
+	L4:
+		warp "sword_1-1.gat",58,83;
+		close;
+}
+
+sword_1-1.gat,71,244,0	hiddenwarp	1_blank_7_b	139,{
+	set @TEMP,0;
+	random @TEMP,5;
+	goto L0;
+
+	L0:
+		if(@TEMP !=0) goto L1;
+		warp "sword_1-1.gat",65,56;
+		close;
+	L1:
+		if(@TEMP !=1) goto L2;
+		warp "sword_1-1.gat",29,26;
+		close;
+	L2:
+		if(@TEMP !=2) goto L3;
+		warp "sword_1-1.gat",43,16;
+		close;
+	L3:
+		if(@TEMP !=3) goto L4;
+		warp "sword_1-1.gat",23,112;
+		close;
+	L4:
+		warp "sword_1-1.gat",58,83;
+		close;
+}
+
+sword_1-1.gat,63,242,0	hiddenwarp	1_blank_7_c	139,{
+	set @TEMP,0;
+	random @TEMP,5;
+	goto L0;
+
+	L0:
+		if(@TEMP !=0) goto L1;
+		warp "sword_1-1.gat",65,56;
+		close;
+	L1:
+		if(@TEMP !=1) goto L2;
+		warp "sword_1-1.gat",29,26;
+		close;
+	L2:
+		if(@TEMP !=2) goto L3;
+		warp "sword_1-1.gat",43,16;
+		close;
+	L3:
+		if(@TEMP !=3) goto L4;
+		warp "sword_1-1.gat",23,112;
+		close;
+	L4:
+		warp "sword_1-1.gat",58,83;
+		close;
+}
+
+sword_1-1.gat,54,244,0	hiddenwarp	1_blank_7_d	139,{
+	set @TEMP,0;
+	random @TEMP,5;
+	goto L0;
+
+	L0:
+		if(@TEMP !=0) goto L1;
+		warp "sword_1-1.gat",65,56;
+		close;
+	L1:
+		if(@TEMP !=1) goto L2;
+		warp "sword_1-1.gat",29,26;
+		close;
+	L2:
+		if(@TEMP !=2) goto L3;
+		warp "sword_1-1.gat",43,16;
+		close;
+	L3:
+		if(@TEMP !=3) goto L4;
+		warp "sword_1-1.gat",23,112;
+		close;
+	L4:
+		warp "sword_1-1.gat",58,83;
+		close;
+}
+
+sword_1-1.gat,54,238,0	hiddenwarp	1_blank_8_a	139,{
+	set @TEMP,0;
+	random @TEMP,5;
+	goto L0;
+
+	L0:
+		if(@TEMP !=0) goto L1;
+		warp "sword_1-1.gat",65,56;
+		close;
+	L1:
+		if(@TEMP !=1) goto L2;
+		warp "sword_1-1.gat",29,26;
+		close;
+	L2:
+		if(@TEMP !=2) goto L3;
+		warp "sword_1-1.gat",43,16;
+		close;
+	L3:
+		if(@TEMP !=3) goto L4;
+		warp "sword_1-1.gat",23,112;
+		close;
+	L4:
+		warp "sword_1-1.gat",58,83;
+		close;
+}
+
+sword_1-1.gat,71,238,0	hiddenwarp	1_blank_8_b	139,{
+	set @TEMP,0;
+	random @TEMP,5;
+	goto L0;
+
+	L0:
+		if(@TEMP !=0) goto L1;
+		warp "sword_1-1.gat",65,56;
+		close;
+	L1:
+		if(@TEMP !=1) goto L2;
+		warp "sword_1-1.gat",29,26;
+		close;
+	L2:
+		if(@TEMP !=2) goto L3;
+		warp "sword_1-1.gat",43,16;
+		close;
+	L3:
+		if(@TEMP !=3) goto L4;
+		warp "sword_1-1.gat",23,112;
+		close;
+	L4:
+		warp "sword_1-1.gat",58,83;
+		close;
+}
+
+sword_1-1.gat,62,239,0	hiddenwarp	1_blank_8_c	139,{
+	set @TEMP,0;
+	random @TEMP,5;
+	goto L0;
+
+	L0:
+		if(@TEMP !=0) goto L1;
+		warp "sword_1-1.gat",65,56;
+		close;
+	L1:
+		if(@TEMP !=1) goto L2;
+		warp "sword_1-1.gat",29,26;
+		close;
+	L2:
+		if(@TEMP !=2) goto L3;
+		warp "sword_1-1.gat",43,16;
+		close;
+	L3:
+		if(@TEMP !=3) goto L4;
+		warp "sword_1-1.gat",23,112;
+		close;
+	L4:
+		warp "sword_1-1.gat",58,83;
+		close;
+}
+
+sword_1-1.gat,102,247,0	hiddenwarp	1_blank_9_a	139,{
+	set @TEMP,0;
+	random @TEMP,5;
+	goto L0;
+
+	L0:
+		if(@TEMP !=0) goto L1;
+		warp "sword_1-1.gat",65,56;
+		close;
+	L1:
+		if(@TEMP !=1) goto L2;
+		warp "sword_1-1.gat",29,26;
+		close;
+	L2:
+		if(@TEMP !=2) goto L3;
+		warp "sword_1-1.gat",43,16;
+		close;
+	L3:
+		if(@TEMP !=3) goto L4;
+		warp "sword_1-1.gat",23,112;
+		close;
+	L4:
+		warp "sword_1-1.gat",58,83;
+		close;
+}
+
+sword_1-1.gat,105,245,0	hiddenwarp	1_blank_9_b	139,{
+	set @TEMP,0;
+	random @TEMP,5;
+	goto L0;
+
+	L0:
+		if(@TEMP !=0) goto L1;
+		warp "sword_1-1.gat",65,56;
+		close;
+	L1:
+		if(@TEMP !=1) goto L2;
+		warp "sword_1-1.gat",29,26;
+		close;
+	L2:
+		if(@TEMP !=2) goto L3;
+		warp "sword_1-1.gat",43,16;
+		close;
+	L3:
+		if(@TEMP !=3) goto L4;
+		warp "sword_1-1.gat",23,112;
+		close;
+	L4:
+		warp "sword_1-1.gat",58,83;
+		close;
+}
+
+sword_1-1.gat,103,244,0	hiddenwarp	1_blank_9_c	139,{
+	set @TEMP,0;
+	random @TEMP,5;
+	goto L0;
+
+	L0:
+		if(@TEMP !=0) goto L1;
+		warp "sword_1-1.gat",65,56;
+		close;
+	L1:
+		if(@TEMP !=1) goto L2;
+		warp "sword_1-1.gat",29,26;
+		close;
+	L2:
+		if(@TEMP !=2) goto L3;
+		warp "sword_1-1.gat",43,16;
+		close;
+	L3:
+		if(@TEMP !=3) goto L4;
+		warp "sword_1-1.gat",23,112;
+		close;
+	L4:
+		warp "sword_1-1.gat",58,83;
+		close;
+}
+
+sword_1-1.gat,100,244,0	hiddenwarp	1_blank_9_d	139,{
+	set @TEMP,0;
+	random @TEMP,5;
+	goto L0;
+
+	L0:
+		if(@TEMP !=0) goto L1;
+		warp "sword_1-1.gat",65,56;
+		close;
+	L1:
+		if(@TEMP !=1) goto L2;
+		warp "sword_1-1.gat",29,26;
+		close;
+	L2:
+		if(@TEMP !=2) goto L3;
+		warp "sword_1-1.gat",43,16;
+		close;
+	L3:
+		if(@TEMP !=3) goto L4;
+		warp "sword_1-1.gat",23,112;
+		close;
+	L4:
+		warp "sword_1-1.gat",58,83;
+		close;
+}
+
+sword_1-1.gat,156,249,0	hiddenwarp	1_blank_10_a	139,{
+	set @TEMP,0;
+	random @TEMP,5;
+	goto L0;
+
+	L0:
+		if(@TEMP !=0) goto L1;
+		warp "sword_1-1.gat",65,56;
+		close;
+	L1:
+		if(@TEMP !=1) goto L2;
+		warp "sword_1-1.gat",29,26;
+		close;
+	L2:
+		if(@TEMP !=2) goto L3;
+		warp "sword_1-1.gat",43,16;
+		close;
+	L3:
+		if(@TEMP !=3) goto L4;
+		warp "sword_1-1.gat",23,112;
+		close;
+	L4:
+		warp "sword_1-1.gat",58,83;
+		close;
+}
+
+sword_1-1.gat,156,248,0	hiddenwarp	1_blank_10_b	139,{
+	set @TEMP,0;
+	random @TEMP,5;
+	goto L0;
+
+	L0:
+		if(@TEMP !=0) goto L1;
+		warp "sword_1-1.gat",65,56;
+		close;
+	L1:
+		if(@TEMP !=1) goto L2;
+		warp "sword_1-1.gat",29,26;
+		close;
+	L2:
+		if(@TEMP !=2) goto L3;
+		warp "sword_1-1.gat",43,16;
+		close;
+	L3:
+		if(@TEMP !=3) goto L4;
+		warp "sword_1-1.gat",23,112;
+		close;
+	L4:
+		warp "sword_1-1.gat",58,83;
+		close;
+}
+
+sword_1-1.gat,170,249,0	hiddenwarp	1_blank_10_c	139,{
+	set @TEMP,0;
+	random @TEMP,5;
+	goto L0;
+
+	L0:
+		if(@TEMP !=0) goto L1;
+		warp "sword_1-1.gat",65,56;
+		close;
+	L1:
+		if(@TEMP !=1) goto L2;
+		warp "sword_1-1.gat",29,26;
+		close;
+	L2:
+		if(@TEMP !=2) goto L3;
+		warp "sword_1-1.gat",43,16;
+		close;
+	L3:
+		if(@TEMP !=3) goto L4;
+		warp "sword_1-1.gat",23,112;
+		close;
+	L4:
+		warp "sword_1-1.gat",58,83;
+		close;
+}
+
+sword_1-1.gat,170,248,0	hiddenwarp	1_blank_10_d	139,{
+	set @TEMP,0;
+	random @TEMP,5;
+	goto L0;
+
+	L0:
+		if(@TEMP !=0) goto L1;
+		warp "sword_1-1.gat",65,56;
+		close;
+	L1:
+		if(@TEMP !=1) goto L2;
+		warp "sword_1-1.gat",29,26;
+		close;
+	L2:
+		if(@TEMP !=2) goto L3;
+		warp "sword_1-1.gat",43,16;
+		close;
+	L3:
+		if(@TEMP !=3) goto L4;
+		warp "sword_1-1.gat",23,112;
+		close;
+	L4:
+		warp "sword_1-1.gat",58,83;
+		close;
+}
+
+sword_1-1.gat,156,245,0	hiddenwarp	1_blank_11_a	139,{
+	set @TEMP,0;
+	random @TEMP,5;
+	goto L0;
+
+	L0:
+		if(@TEMP !=0) goto L1;
+		warp "sword_1-1.gat",65,56;
+		close;
+	L1:
+		if(@TEMP !=1) goto L2;
+		warp "sword_1-1.gat",29,26;
+		close;
+	L2:
+		if(@TEMP !=2) goto L3;
+		warp "sword_1-1.gat",43,16;
+		close;
+	L3:
+		if(@TEMP !=3) goto L4;
+		warp "sword_1-1.gat",23,112;
+		close;
+	L4:
+		warp "sword_1-1.gat",58,83;
+		close;
+}
+
+sword_1-1.gat,156,244,0	hiddenwarp	1_blank_11_b	139,{
+	set @TEMP,0;
+	random @TEMP,5;
+	goto L0;
+
+	L0:
+		if(@TEMP !=0) goto L1;
+		warp "sword_1-1.gat",65,56;
+		close;
+	L1:
+		if(@TEMP !=1) goto L2;
+		warp "sword_1-1.gat",29,26;
+		close;
+	L2:
+		if(@TEMP !=2) goto L3;
+		warp "sword_1-1.gat",43,16;
+		close;
+	L3:
+		if(@TEMP !=3) goto L4;
+		warp "sword_1-1.gat",23,112;
+		close;
+	L4:
+		warp "sword_1-1.gat",58,83;
+		close;
+}
+
+sword_1-1.gat,170,245,0	hiddenwarp	1_blank_11_c	139,{
+	set @TEMP,0;
+	random @TEMP,5;
+	goto L0;
+
+	L0:
+		if(@TEMP !=0) goto L1;
+		warp "sword_1-1.gat",65,56;
+		close;
+	L1:
+		if(@TEMP !=1) goto L2;
+		warp "sword_1-1.gat",29,26;
+		close;
+	L2:
+		if(@TEMP !=2) goto L3;
+		warp "sword_1-1.gat",43,16;
+		close;
+	L3:
+		if(@TEMP !=3) goto L4;
+		warp "sword_1-1.gat",23,112;
+		close;
+	L4:
+		warp "sword_1-1.gat",58,83;
+		close;
+}
+
+sword_1-1.gat,170,244,0	hiddenwarp	1_blank_11_d	139,{
+	set @TEMP,0;
+	random @TEMP,5;
+	goto L0;
+
+	L0:
+		if(@TEMP !=0) goto L1;
+		warp "sword_1-1.gat",65,56;
+		close;
+	L1:
+		if(@TEMP !=1) goto L2;
+		warp "sword_1-1.gat",29,26;
+		close;
+	L2:
+		if(@TEMP !=2) goto L3;
+		warp "sword_1-1.gat",43,16;
+		close;
+	L3:
+		if(@TEMP !=3) goto L4;
+		warp "sword_1-1.gat",23,112;
+		close;
+	L4:
+		warp "sword_1-1.gat",58,83;
+		close;
+}
+
+sword_1-1.gat,156,241,0	hiddenwarp	1_blank_12_a	139,{
+	set @TEMP,0;
+	random @TEMP,5;
+	goto L0;
+
+	L0:
+		if(@TEMP !=0) goto L1;
+		warp "sword_1-1.gat",65,56;
+		close;
+	L1:
+		if(@TEMP !=1) goto L2;
+		warp "sword_1-1.gat",29,26;
+		close;
+	L2:
+		if(@TEMP !=2) goto L3;
+		warp "sword_1-1.gat",43,16;
+		close;
+	L3:
+		if(@TEMP !=3) goto L4;
+		warp "sword_1-1.gat",23,112;
+		close;
+	L4:
+		warp "sword_1-1.gat",58,83;
+		close;
+}
+
+sword_1-1.gat,156,240,0	hiddenwarp	1_blank_12_b	139,{
+	set @TEMP,0;
+	random @TEMP,5;
+	goto L0;
+
+	L0:
+		if(@TEMP !=0) goto L1;
+		warp "sword_1-1.gat",65,56;
+		close;
+	L1:
+		if(@TEMP !=1) goto L2;
+		warp "sword_1-1.gat",29,26;
+		close;
+	L2:
+		if(@TEMP !=2) goto L3;
+		warp "sword_1-1.gat",43,16;
+		close;
+	L3:
+		if(@TEMP !=3) goto L4;
+		warp "sword_1-1.gat",23,112;
+		close;
+	L4:
+		warp "sword_1-1.gat",58,83;
+		close;
+}
+
+sword_1-1.gat,170,241,0	hiddenwarp	1_blank_12_c	139,{
+	set @TEMP,0;
+	random @TEMP,5;
+	goto L0;
+
+	L0:
+		if(@TEMP !=0) goto L1;
+		warp "sword_1-1.gat",65,56;
+		close;
+	L1:
+		if(@TEMP !=1) goto L2;
+		warp "sword_1-1.gat",29,26;
+		close;
+	L2:
+		if(@TEMP !=2) goto L3;
+		warp "sword_1-1.gat",43,16;
+		close;
+	L3:
+		if(@TEMP !=3) goto L4;
+		warp "sword_1-1.gat",23,112;
+		close;
+	L4:
+		warp "sword_1-1.gat",58,83;
+		close;
+}
+
+sword_1-1.gat,170,240,0	hiddenwarp	1_blank_12_d	139,{
+	set @TEMP,0;
+	random @TEMP,5;
+	goto L0;
+
+	L0:
+		if(@TEMP !=0) goto L1;
+		warp "sword_1-1.gat",65,56;
+		close;
+	L1:
+		if(@TEMP !=1) goto L2;
+		warp "sword_1-1.gat",29,26;
+		close;
+	L2:
+		if(@TEMP !=2) goto L3;
+		warp "sword_1-1.gat",43,16;
+		close;
+	L3:
+		if(@TEMP !=3) goto L4;
+		warp "sword_1-1.gat",23,112;
+		close;
+	L4:
+		warp "sword_1-1.gat",58,83;
+		close;
+}
+
+sword_1-1.gat,180,251,0	hiddenwarp	1_blank_13_a	139,{
+	set @TEMP,0;
+	random @TEMP,5;
+	goto L0;
+
+	L0:
+		if(@TEMP !=0) goto L1;
+		warp "sword_1-1.gat",65,56;
+		close;
+	L1:
+		if(@TEMP !=1) goto L2;
+		warp "sword_1-1.gat",29,26;
+		close;
+	L2:
+		if(@TEMP !=2) goto L3;
+		warp "sword_1-1.gat",43,16;
+		close;
+	L3:
+		if(@TEMP !=3) goto L4;
+		warp "sword_1-1.gat",23,112;
+		close;
+	L4:
+		warp "sword_1-1.gat",58,83;
+		close;
+}
+	
+sword_1-1.gat,183,251,0	hiddenwarp	1_blank_13_b	139,{
+	set @TEMP,0;
+	random @TEMP,5;
+	goto L0;
+
+	L0:
+		if(@TEMP !=0) goto L1;
+		warp "sword_1-1.gat",65,56;
+		close;
+	L1:
+		if(@TEMP !=1) goto L2;
+		warp "sword_1-1.gat",29,26;
+		close;
+	L2:
+		if(@TEMP !=2) goto L3;
+		warp "sword_1-1.gat",43,16;
+		close;
+	L3:
+		if(@TEMP !=3) goto L4;
+		warp "sword_1-1.gat",23,112;
+		close;
+	L4:
+		warp "sword_1-1.gat",58,83;
+		close;
+}
+
+sword_1-1.gat,181,250,0	hiddenwarp	1_blank_13_c	139,{
+	set @TEMP,0;
+	random @TEMP,5;
+	goto L0;
+
+	L0:
+		if(@TEMP !=0) goto L1;
+		warp "sword_1-1.gat",65,56;
+		close;
+	L1:
+		if(@TEMP !=1) goto L2;
+		warp "sword_1-1.gat",29,26;
+		close;
+	L2:
+		if(@TEMP !=2) goto L3;
+		warp "sword_1-1.gat",43,16;
+		close;
+	L3:
+		if(@TEMP !=3) goto L4;
+		warp "sword_1-1.gat",23,112;
+		close;
+	L4:
+		warp "sword_1-1.gat",58,83;
+		close;
+}
+
+sword_1-1.gat,180,238,0	hiddenwarp	1_blank_14_a	139,{
+	set @TEMP,0;
+	random @TEMP,5;
+	goto L0;
+
+	L0:
+		if(@TEMP !=0) goto L1;
+		warp "sword_1-1.gat",65,56;
+		close;
+	L1:
+		if(@TEMP !=1) goto L2;
+		warp "sword_1-1.gat",29,26;
+		close;
+	L2:
+		if(@TEMP !=2) goto L3;
+		warp "sword_1-1.gat",43,16;
+		close;
+	L3:
+		if(@TEMP !=3) goto L4;
+		warp "sword_1-1.gat",23,112;
+		close;
+	L4:
+		warp "sword_1-1.gat",58,83;
+		close;
+}
+
+sword_1-1.gat,183,238,0	hiddenwarp	1_blank_14_b	139,{
+	set @TEMP,0;
+	random @TEMP,5;
+	goto L0;
+
+	L0:
+		if(@TEMP !=0) goto L1;
+		warp "sword_1-1.gat",65,56;
+		close;
+	L1:
+		if(@TEMP !=1) goto L2;
+		warp "sword_1-1.gat",29,26;
+		close;
+	L2:
+		if(@TEMP !=2) goto L3;
+		warp "sword_1-1.gat",43,16;
+		close;
+	L3:
+		if(@TEMP !=3) goto L4;
+		warp "sword_1-1.gat",23,112;
+		close;
+	L4:
+		warp "sword_1-1.gat",58,83;
+		close;
+}
+
+sword_1-1.gat,181,239,0	hiddenwarp	1_blank_14_c	139,{
+	set @TEMP,0;
+	random @TEMP,5;
+	goto L0;
+
+	L0:
+		if(@TEMP !=0) goto L1;
+		warp "sword_1-1.gat",65,56;
+		close;
+	L1:
+		if(@TEMP !=1) goto L2;
+		warp "sword_1-1.gat",29,26;
+		close;
+	L2:
+		if(@TEMP !=2) goto L3;
+		warp "sword_1-1.gat",43,16;
+		close;
+	L3:
+		if(@TEMP !=3) goto L4;
+		warp "sword_1-1.gat",23,112;
+		close;
+	L4:
+		warp "sword_1-1.gat",58,83;
+		close;
+}
+
+sword_1-1.gat,193,254,1	hiddenwarp	1_rest	139,{
+	warp "sword_1-1.gat",215,244;
+}
+//<=========== Part 1 - End ==========>\\
+
+//<=========== Part 2 - Begin ==========>\\
+sword_1-1.gat,56,212,0	hiddenwarp	2_blank_1_a	139,{
+	set @TEMP,0;
+	random @TEMP,5;
+	goto L0;
+
+	L0:
+		if(@TEMP !=0) goto L1;
+		warp "sword_1-1.gat",162,120;
+		close;
+	L1:
+		if(@TEMP !=1) goto L2;
+		warp "sword_1-1.gat",94,120;
+		close;
+	L2:
+		if(@TEMP !=2) goto L3;
+		warp "sword_1-1.gat",94,85;
+		close;
+	L3:
+		if(@TEMP !=3) goto L4;
+		warp "sword_1-1.gat",162,85;
+		close;
+	L4:
+		warp "sword_1-1.gat",130,47;
+		close;
+}
+
+sword_1-1.gat,95,212,0	hiddenwarp	2_blank_1_b	139,{
+	set @TEMP,0;
+	random @TEMP,5;
+	goto L0;
+
+	L0:
+		if(@TEMP !=0) goto L1;
+		warp "sword_1-1.gat",162,120;
+		close;
+	L1:
+		if(@TEMP !=1) goto L2;
+		warp "sword_1-1.gat",94,120;
+		close;
+	L2:
+		if(@TEMP !=2) goto L3;
+		warp "sword_1-1.gat",94,85;
+		close;
+	L3:
+		if(@TEMP !=3) goto L4;
+		warp "sword_1-1.gat",162,85;
+		close;
+	L4:
+		warp "sword_1-1.gat",130,47;
+		close;
+}
+
+sword_1-1.gat,56,210,0	hiddenwarp	2_blank_s_a	139,{
+	set @TEMP,0;
+	random @TEMP,5;
+	goto L0;
+
+	L0:
+		if(@TEMP !=0) goto L1;
+		warp "sword_1-1.gat",162,120;
+		close;
+	L1:
+		if(@TEMP !=1) goto L2;
+		warp "sword_1-1.gat",94,120;
+		close;
+	L2:
+		if(@TEMP !=2) goto L3;
+		warp "sword_1-1.gat",94,85;
+		close;
+	L3:
+		if(@TEMP !=3) goto L4;
+		warp "sword_1-1.gat",162,85;
+		close;
+	L4:
+		warp "sword_1-1.gat",130,47;
+		close;
+}
+
+sword_1-1.gat,95,210,0	hiddenwarp	2_blank_2_b	139,{
+	set @TEMP,0;
+	random @TEMP,5;
+	goto L0;
+
+	L0:
+		if(@TEMP !=0) goto L1;
+		warp "sword_1-1.gat",162,120;
+		close;
+	L1:
+		if(@TEMP !=1) goto L2;
+		warp "sword_1-1.gat",94,120;
+		close;
+	L2:
+		if(@TEMP !=2) goto L3;
+		warp "sword_1-1.gat",94,85;
+		close;
+	L3:
+		if(@TEMP !=3) goto L4;
+		warp "sword_1-1.gat",162,85;
+		close;
+	L4:
+		warp "sword_1-1.gat",130,47;
+		close;
+}
+
+sword_1-1.gat,16,206,0	hiddenwarp	2_blank_2_c	139,{
+	set @TEMP,0;
+	random @TEMP,5;
+	goto L0;
+
+	L0:
+		if(@TEMP !=0) goto L1;
+		warp "sword_1-1.gat",162,120;
+		close;
+	L1:
+		if(@TEMP !=1) goto L2;
+		warp "sword_1-1.gat",94,120;
+		close;
+	L2:
+		if(@TEMP !=2) goto L3;
+		warp "sword_1-1.gat",94,85;
+		close;
+	L3:
+		if(@TEMP !=3) goto L4;
+		warp "sword_1-1.gat",162,85;
+		close;
+	L4:
+		warp "sword_1-1.gat",130,47;
+		close;
+}
+
+sword_1-1.gat,97,206,0	hiddenwarp	2_blank_2_d	139,{
+	set @TEMP,0;
+	random @TEMP,5;
+	goto L0;
+
+	L0:
+		if(@TEMP !=0) goto L1;
+		warp "sword_1-1.gat",162,120;
+		close;
+	L1:
+		if(@TEMP !=1) goto L2;
+		warp "sword_1-1.gat",94,120;
+		close;
+	L2:
+		if(@TEMP !=2) goto L3;
+		warp "sword_1-1.gat",94,85;
+		close;
+	L3:
+		if(@TEMP !=3) goto L4;
+		warp "sword_1-1.gat",162,85;
+		close;
+	L4:
+		warp "sword_1-1.gat",130,47;
+		close;
+}
+
+sword_1-1.gat,56,203,0	hiddenwarp	2_blank_2_e	139,{
+	set @TEMP,0;
+	random @TEMP,5;
+	goto L0;
+
+	L0:
+		if(@TEMP !=0) goto L1;
+		warp "sword_1-1.gat",162,120;
+		close;
+	L1:
+		if(@TEMP !=1) goto L2;
+		warp "sword_1-1.gat",94,120;
+		close;
+	L2:
+		if(@TEMP !=2) goto L3;
+		warp "sword_1-1.gat",94,85;
+		close;
+	L3:
+		if(@TEMP !=3) goto L4;
+		warp "sword_1-1.gat",162,85;
+		close;
+	L4:
+		warp "sword_1-1.gat",130,47;
+		close;
+}
+
+sword_1-1.gat,95,203,0	hiddenwarp	2_blank_2_f	139,{
+	set @TEMP,0;
+	random @TEMP,5;
+	goto L0;
+
+	L0:
+		if(@TEMP !=0) goto L1;
+		warp "sword_1-1.gat",162,120;
+		close;
+	L1:
+		if(@TEMP !=1) goto L2;
+		warp "sword_1-1.gat",94,120;
+		close;
+	L2:
+		if(@TEMP !=2) goto L3;
+		warp "sword_1-1.gat",94,85;
+		close;
+	L3:
+		if(@TEMP !=3) goto L4;
+		warp "sword_1-1.gat",162,85;
+		close;
+	L4:
+		warp "sword_1-1.gat",130,47;
+		close;
+}
+
+sword_1-1.gat,56,201,0	hiddenwarp	2_blank_3_a	139,{
+	set @TEMP,0;
+	random @TEMP,5;
+	goto L0;
+
+	L0:
+		if(@TEMP !=0) goto L1;
+		warp "sword_1-1.gat",162,120;
+		close;
+	L1:
+		if(@TEMP !=1) goto L2;
+		warp "sword_1-1.gat",94,120;
+		close;
+	L2:
+		if(@TEMP !=2) goto L3;
+		warp "sword_1-1.gat",94,85;
+		close;
+	L3:
+		if(@TEMP !=3) goto L4;
+		warp "sword_1-1.gat",162,85;
+		close;
+	L4:
+		warp "sword_1-1.gat",130,47;
+		close;
+}
+
+sword_1-1.gat,95,201,0	hiddenwarp	2_blank_3_b	139,{
+	set @TEMP,0;
+	random @TEMP,5;
+	goto L0;
+
+	L0:
+		if(@TEMP !=0) goto L1;
+		warp "sword_1-1.gat",162,120;
+		close;
+	L1:
+		if(@TEMP !=1) goto L2;
+		warp "sword_1-1.gat",94,120;
+		close;
+	L2:
+		if(@TEMP !=2) goto L3;
+		warp "sword_1-1.gat",94,85;
+		close;
+	L3:
+		if(@TEMP !=3) goto L4;
+		warp "sword_1-1.gat",162,85;
+		close;
+	L4:
+		warp "sword_1-1.gat",130,47;
+		close;
+}
+
+sword_1-1.gat,113,212,0	hiddenwarp	2_blank_4_a	139,{
+	set @TEMP,0;
+	random @TEMP,5;
+	goto L0;
+
+	L0:
+		if(@TEMP !=0) goto L1;
+		warp "sword_1-1.gat",162,120;
+		close;
+	L1:
+		if(@TEMP !=1) goto L2;
+		warp "sword_1-1.gat",94,120;
+		close;
+	L2:
+		if(@TEMP !=2) goto L3;
+		warp "sword_1-1.gat",94,85;
+		close;
+	L3:
+		if(@TEMP !=3) goto L4;
+		warp "sword_1-1.gat",162,85;
+		close;
+	L4:
+		warp "sword_1-1.gat",130,47;
+		close;
+}
+
+sword_1-1.gat,125,212,0	hiddenwarp	2_blank_4_b	139,{
+	set @TEMP,0;
+	random @TEMP,5;
+	goto L0;
+
+	L0:
+		if(@TEMP !=0) goto L1;
+		warp "sword_1-1.gat",162,120;
+		close;
+	L1:
+		if(@TEMP !=1) goto L2;
+		warp "sword_1-1.gat",94,120;
+		close;
+	L2:
+		if(@TEMP !=2) goto L3;
+		warp "sword_1-1.gat",94,85;
+		close;
+	L3:
+		if(@TEMP !=3) goto L4;
+		warp "sword_1-1.gat",162,85;
+		close;
+	L4:
+		warp "sword_1-1.gat",130,47;
+		close;
+}
+
+sword_1-1.gat,113,210,0	hiddenwarp	2_blank_5_a	139,{
+	set @TEMP,0;
+	random @TEMP,5;
+	goto L0;
+
+	L0:
+		if(@TEMP !=0) goto L1;
+		warp "sword_1-1.gat",162,120;
+		close;
+	L1:
+		if(@TEMP !=1) goto L2;
+		warp "sword_1-1.gat",94,120;
+		close;
+	L2:
+		if(@TEMP !=2) goto L3;
+		warp "sword_1-1.gat",94,85;
+		close;
+	L3:
+		if(@TEMP !=3) goto L4;
+		warp "sword_1-1.gat",162,85;
+		close;
+	L4:
+		warp "sword_1-1.gat",130,47;
+		close;
+}
+
+sword_1-1.gat,125,210,0	hiddenwarp	2_blank_5_b	139,{
+	set @TEMP,0;
+	random @TEMP,5;
+	goto L0;
+
+	L0:
+		if(@TEMP !=0) goto L1;
+		warp "sword_1-1.gat",162,120;
+		close;
+	L1:
+		if(@TEMP !=1) goto L2;
+		warp "sword_1-1.gat",94,120;
+		close;
+	L2:
+		if(@TEMP !=2) goto L3;
+		warp "sword_1-1.gat",94,85;
+		close;
+	L3:
+		if(@TEMP !=3) goto L4;
+		warp "sword_1-1.gat",162,85;
+		close;
+	L4:
+		warp "sword_1-1.gat",130,47;
+		close;
+}
+
+sword_1-1.gat,100,206,0	hiddenwarp	2_blank_5_c	139,{
+	set @TEMP,0;
+	random @TEMP,5;
+	goto L0;
+
+	L0:
+		if(@TEMP !=0) goto L1;
+		warp "sword_1-1.gat",162,120;
+		close;
+	L1:
+		if(@TEMP !=1) goto L2;
+		warp "sword_1-1.gat",94,120;
+		close;
+	L2:
+		if(@TEMP !=2) goto L3;
+		warp "sword_1-1.gat",94,85;
+		close;
+	L3:
+		if(@TEMP !=3) goto L4;
+		warp "sword_1-1.gat",162,85;
+		close;
+	L4:
+		warp "sword_1-1.gat",130,47;
+		close;
+}
+
+sword_1-1.gat,127,206,0	hiddenwarp	2_blank_5_d	139,{
+	set @TEMP,0;
+	random @TEMP,5;
+	goto L0;
+
+	L0:
+		if(@TEMP !=0) goto L1;
+		warp "sword_1-1.gat",162,120;
+		close;
+	L1:
+		if(@TEMP !=1) goto L2;
+		warp "sword_1-1.gat",94,120;
+		close;
+	L2:
+		if(@TEMP !=2) goto L3;
+		warp "sword_1-1.gat",94,85;
+		close;
+	L3:
+		if(@TEMP !=3) goto L4;
+		warp "sword_1-1.gat",162,85;
+		close;
+	L4:
+		warp "sword_1-1.gat",130,47;
+		close;
+}
+
+sword_1-1.gat,113,203,0	hiddenwarp	2_blank_5_e	139,{
+	set @TEMP,0;
+	random @TEMP,5;
+	goto L0;
+
+	L0:
+		if(@TEMP !=0) goto L1;
+		warp "sword_1-1.gat",162,120;
+		close;
+	L1:
+		if(@TEMP !=1) goto L2;
+		warp "sword_1-1.gat",94,120;
+		close;
+	L2:
+		if(@TEMP !=2) goto L3;
+		warp "sword_1-1.gat",94,85;
+		close;
+	L3:
+		if(@TEMP !=3) goto L4;
+		warp "sword_1-1.gat",162,85;
+		close;
+	L4:
+		warp "sword_1-1.gat",130,47;
+		close;
+}
+
+sword_1-1.gat,125,210,0	hiddenwarp	2_blank_5_f	139,{
+	set @TEMP,0;
+	random @TEMP,5;
+	goto L0;
+
+	L0:
+		if(@TEMP !=0) goto L1;
+		warp "sword_1-1.gat",162,120;
+		close;
+	L1:
+		if(@TEMP !=1) goto L2;
+		warp "sword_1-1.gat",94,120;
+		close;
+	L2:
+		if(@TEMP !=2) goto L3;
+		warp "sword_1-1.gat",94,85;
+		close;
+	L3:
+		if(@TEMP !=3) goto L4;
+		warp "sword_1-1.gat",162,85;
+		close;
+	L4:
+		warp "sword_1-1.gat",130,47;
+		close;
+}
+
+sword_1-1.gat,113,201,0	hiddenwarp	2_blank_6_a	139,{
+	set @TEMP,0;
+	random @TEMP,5;
+	goto L0;
+
+	L0:
+		if(@TEMP !=0) goto L1;
+		warp "sword_1-1.gat",162,120;
+		close;
+	L1:
+		if(@TEMP !=1) goto L2;
+		warp "sword_1-1.gat",94,120;
+		close;
+	L2:
+		if(@TEMP !=2) goto L3;
+		warp "sword_1-1.gat",94,85;
+		close;
+	L3:
+		if(@TEMP !=3) goto L4;
+		warp "sword_1-1.gat",162,85;
+		close;
+	L4:
+		warp "sword_1-1.gat",130,47;
+		close;
+}
+
+sword_1-1.gat,113,201,0	hiddenwarp	2_blank_6_b	139,{
+	set @TEMP,0;
+	random @TEMP,5;
+	goto L0;
+
+	L0:
+		if(@TEMP !=0) goto L1;
+		warp "sword_1-1.gat",162,120;
+		close;
+	L1:
+		if(@TEMP !=1) goto L2;
+		warp "sword_1-1.gat",94,120;
+		close;
+	L2:
+		if(@TEMP !=2) goto L3;
+		warp "sword_1-1.gat",94,85;
+		close;
+	L3:
+		if(@TEMP !=3) goto L4;
+		warp "sword_1-1.gat",162,85;
+		close;
+	L4:
+		warp "sword_1-1.gat",130,47;
+		close;
+}
+
+sword_1-1.gat,155,212,0	hiddenwarp	2_blank_7_a	139,{
+	set @TEMP,0;
+	random @TEMP,5;
+	goto L0;
+
+	L0:
+		if(@TEMP !=0) goto L1;
+		warp "sword_1-1.gat",162,120;
+		close;
+	L1:
+		if(@TEMP !=1) goto L2;
+		warp "sword_1-1.gat",94,120;
+		close;
+	L2:
+		if(@TEMP !=2) goto L3;
+		warp "sword_1-1.gat",94,85;
+		close;
+	L3:
+		if(@TEMP !=3) goto L4;
+		warp "sword_1-1.gat",162,85;
+		close;
+	L4:
+		warp "sword_1-1.gat",130,47;
+		close;
+}
+
+sword_1-1.gat,181,212,0	hiddenwarp	2_blank_7_b	139,{
+	set @TEMP,0;
+	random @TEMP,5;
+	goto L0;
+
+	L0:
+		if(@TEMP !=0) goto L1;
+		warp "sword_1-1.gat",162,120;
+		close;
+	L1:
+		if(@TEMP !=1) goto L2;
+		warp "sword_1-1.gat",94,120;
+		close;
+	L2:
+		if(@TEMP !=2) goto L3;
+		warp "sword_1-1.gat",94,85;
+		close;
+	L3:
+		if(@TEMP !=3) goto L4;
+		warp "sword_1-1.gat",162,85;
+		close;
+	L4:
+		warp "sword_1-1.gat",130,47;
+		close;
+}
+
+sword_1-1.gat,155,210,0	hiddenwarp	2_blank_8_a	139,{
+	set @TEMP,0;
+	random @TEMP,5;
+	goto L0;
+
+	L0:
+		if(@TEMP !=0) goto L1;
+		warp "sword_1-1.gat",162,120;
+		close;
+	L1:
+		if(@TEMP !=1) goto L2;
+		warp "sword_1-1.gat",94,120;
+		close;
+	L2:
+		if(@TEMP !=2) goto L3;
+		warp "sword_1-1.gat",94,85;
+		close;
+	L3:
+		if(@TEMP !=3) goto L4;
+		warp "sword_1-1.gat",162,85;
+		close;
+	L4:
+		warp "sword_1-1.gat",130,47;
+		close;
+}
+
+sword_1-1.gat,181,210,0	hiddenwarp	2_blank_8_b	139,{
+	set @TEMP,0;
+	random @TEMP,5;
+	goto L0;
+
+	L0:
+		if(@TEMP !=0) goto L1;
+		warp "sword_1-1.gat",162,120;
+		close;
+	L1:
+		if(@TEMP !=1) goto L2;
+		warp "sword_1-1.gat",94,120;
+		close;
+	L2:
+		if(@TEMP !=2) goto L3;
+		warp "sword_1-1.gat",94,85;
+		close;
+	L3:
+		if(@TEMP !=3) goto L4;
+		warp "sword_1-1.gat",162,85;
+		close;
+	L4:
+		warp "sword_1-1.gat",130,47;
+		close;
+}
+
+sword_1-1.gat,130,206,0	hiddenwarp	2_blank_8_c	139,{
+	set @TEMP,0;
+	random @TEMP,5;
+	goto L0;
+
+	L0:
+		if(@TEMP !=0) goto L1;
+		warp "sword_1-1.gat",162,120;
+		close;
+	L1:
+		if(@TEMP !=1) goto L2;
+		warp "sword_1-1.gat",94,120;
+		close;
+	L2:
+		if(@TEMP !=2) goto L3;
+		warp "sword_1-1.gat",94,85;
+		close;
+	L3:
+		if(@TEMP !=3) goto L4;
+		warp "sword_1-1.gat",162,85;
+		close;
+	L4:
+		warp "sword_1-1.gat",130,47;
+		close;
+}
+
+sword_1-1.gat,183,206,0	hiddenwarp	2_blank_8_d	139,{
+	set @TEMP,0;
+	random @TEMP,5;
+	goto L0;
+
+	L0:
+		if(@TEMP !=0) goto L1;
+		warp "sword_1-1.gat",162,120;
+		close;
+	L1:
+		if(@TEMP !=1) goto L2;
+		warp "sword_1-1.gat",94,120;
+		close;
+	L2:
+		if(@TEMP !=2) goto L3;
+		warp "sword_1-1.gat",94,85;
+		close;
+	L3:
+		if(@TEMP !=3) goto L4;
+		warp "sword_1-1.gat",162,85;
+		close;
+	L4:
+		warp "sword_1-1.gat",130,47;
+		close;
+}
+	
+sword_1-1.gat,155,203,0	hiddenwarp	2_blank_8_e	139,{
+	set @TEMP,0;
+	random @TEMP,5;
+	goto L0;
+
+	L0:
+		if(@TEMP !=0) goto L1;
+		warp "sword_1-1.gat",162,120;
+		close;
+	L1:
+		if(@TEMP !=1) goto L2;
+		warp "sword_1-1.gat",94,120;
+		close;
+	L2:
+		if(@TEMP !=2) goto L3;
+		warp "sword_1-1.gat",94,85;
+		close;
+	L3:
+		if(@TEMP !=3) goto L4;
+		warp "sword_1-1.gat",162,85;
+		close;
+	L4:
+		warp "sword_1-1.gat",130,47;
+		close;
+}
+
+sword_1-1.gat,181,203,0	hiddenwarp	2_blank_8_f	139,{
+	set @TEMP,0;
+	random @TEMP,5;
+	goto L0;
+
+	L0:
+		if(@TEMP !=0) goto L1;
+		warp "sword_1-1.gat",162,120;
+		close;
+	L1:
+		if(@TEMP !=1) goto L2;
+		warp "sword_1-1.gat",94,120;
+		close;
+	L2:
+		if(@TEMP !=2) goto L3;
+		warp "sword_1-1.gat",94,85;
+		close;
+	L3:
+		if(@TEMP !=3) goto L4;
+		warp "sword_1-1.gat",162,85;
+		close;
+	L4:
+		warp "sword_1-1.gat",130,47;
+		close;
+}
+
+sword_1-1.gat,155,201,0	hiddenwarp	2_blank_9_a	139,{
+	set @TEMP,0;
+	random @TEMP,5;
+	goto L0;
+
+	L0:
+		if(@TEMP !=0) goto L1;
+		warp "sword_1-1.gat",162,120;
+		close;
+	L1:
+		if(@TEMP !=1) goto L2;
+		warp "sword_1-1.gat",94,120;
+		close;
+	L2:
+		if(@TEMP !=2) goto L3;
+		warp "sword_1-1.gat",94,85;
+		close;
+	L3:
+		if(@TEMP !=3) goto L4;
+		warp "sword_1-1.gat",162,85;
+		close;
+	L4:
+		warp "sword_1-1.gat",130,47;
+		close;
+}
+
+sword_1-1.gat,181,201,0	hiddenwarp	2_blank_9_b	139,{
+	set @TEMP,0;
+	random @TEMP,5;
+	goto L0;
+
+	L0:
+		if(@TEMP !=0) goto L1;
+		warp "sword_1-1.gat",162,120;
+		close;
+	L1:
+		if(@TEMP !=1) goto L2;
+		warp "sword_1-1.gat",94,120;
+		close;
+	L2:
+		if(@TEMP !=2) goto L3;
+		warp "sword_1-1.gat",94,85;
+		close;
+	L3:
+		if(@TEMP !=3) goto L4;
+		warp "sword_1-1.gat",162,85;
+		close;
+	L4:
+		warp "sword_1-1.gat",130,47;
+		close;
+}
+//<=========== Part 2 - End ==========>\\
+
+//<=========== Part 3 - Begin ==========>\\
+sword_1-1.gat,17,174,0	hiddenwarp	3_blank_1_a	139,{
+	set @TEMP,0;
+	random @TEMP,5;
+	goto L0;
+
+	L0:
+		if(@TEMP !=0) goto L1;
+		warp "sword_1-1.gat",162,120;
+		close;
+	L1:
+		if(@TEMP !=1) goto L2;
+		warp "sword_1-1.gat",94,120;
+		close;
+	L2:
+		if(@TEMP !=2) goto L3;
+		warp "sword_1-1.gat",94,85;
+		close;
+	L3:
+		if(@TEMP !=3) goto L4;
+		warp "sword_1-1.gat",162,85;
+		close;
+	L4:
+		warp "sword_1-1.gat",130,47;
+		close;
+}
+
+sword_1-1.gat,17,163,0	hiddenwarp	3_blank_2_a	139,{
+	set @TEMP,0;
+	random @TEMP,5;
+	goto L0;
+
+	L0:
+		if(@TEMP !=0) goto L1;
+		warp "sword_1-1.gat",162,120;
+		close;
+	L1:
+		if(@TEMP !=1) goto L2;
+		warp "sword_1-1.gat",94,120;
+		close;
+	L2:
+		if(@TEMP !=2) goto L3;
+		warp "sword_1-1.gat",94,85;
+		close;
+	L3:
+		if(@TEMP !=3) goto L4;
+		warp "sword_1-1.gat",162,85;
+		close;
+	L4:
+		warp "sword_1-1.gat",130,47;
+		close;
+}
+
+sword_1-1.gat,29,171,0	hiddenwarp	3_blank_3_a	139,{
+	set @TEMP,0;
+	random @TEMP,5;
+	goto L0;
+
+	L0:
+		if(@TEMP !=0) goto L1;
+		warp "sword_1-1.gat",162,120;
+		close;
+	L1:
+		if(@TEMP !=1) goto L2;
+		warp "sword_1-1.gat",94,120;
+		close;
+	L2:
+		if(@TEMP !=2) goto L3;
+		warp "sword_1-1.gat",94,85;
+		close;
+	L3:
+		if(@TEMP !=3) goto L4;
+		warp "sword_1-1.gat",162,85;
+		close;
+	L4:
+		warp "sword_1-1.gat",130,47;
+		close;
+}
+
+sword_1-1.gat,31,168,0	hiddenwarp	3_blank_3_b	139,{
+	set @TEMP,0;
+	random @TEMP,5;
+	goto L0;
+
+	L0:
+		if(@TEMP !=0) goto L1;
+		warp "sword_1-1.gat",162,120;
+		close;
+	L1:
+		if(@TEMP !=1) goto L2;
+		warp "sword_1-1.gat",94,120;
+		close;
+	L2:
+		if(@TEMP !=2) goto L3;
+		warp "sword_1-1.gat",94,85;
+		close;
+	L3:
+		if(@TEMP !=3) goto L4;
+		warp "sword_1-1.gat",162,85;
+		close;
+	L4:
+		warp "sword_1-1.gat",130,47;
+		close;
+}
+
+sword_1-1.gat,28,166,0	hiddenwarp	3_blank_3_c	139,{
+	set @TEMP,0;
+	random @TEMP,5;
+	goto L0;
+
+	L0:
+		if(@TEMP !=0) goto L1;
+		warp "sword_1-1.gat",162,120;
+		close;
+	L1:
+		if(@TEMP !=1) goto L2;
+		warp "sword_1-1.gat",94,120;
+		close;
+	L2:
+		if(@TEMP !=2) goto L3;
+		warp "sword_1-1.gat",94,85;
+		close;
+	L3:
+		if(@TEMP !=3) goto L4;
+		warp "sword_1-1.gat",162,85;
+		close;
+	L4:
+		warp "sword_1-1.gat",130,47;
+		close;
+}
+	
+sword_1-1.gat,26,168,0	hiddenwarp	3_blank_3_d	139,{
+	set @TEMP,0;
+	random @TEMP,5;
+	goto L0;
+
+	L0:
+		if(@TEMP !=0) goto L1;
+		warp "sword_1-1.gat",162,120;
+		close;
+	L1:
+		if(@TEMP !=1) goto L2;
+		warp "sword_1-1.gat",94,120;
+		close;
+	L2:
+		if(@TEMP !=2) goto L3;
+		warp "sword_1-1.gat",94,85;
+		close;
+	L3:
+		if(@TEMP !=3) goto L4;
+		warp "sword_1-1.gat",162,85;
+		close;
+	L4:
+		warp "sword_1-1.gat",130,47;
+		close;
+}
+	
+sword_1-1.gat,36,169,0	hiddenwarp	3_blank_4_a	139,{
+	set @TEMP,0;
+	random @TEMP,5;
+	goto L0;
+
+	L0:
+		if(@TEMP !=0) goto L1;
+		warp "sword_1-1.gat",162,120;
+		close;
+	L1:
+		if(@TEMP !=1) goto L2;
+		warp "sword_1-1.gat",94,120;
+		close;
+	L2:
+		if(@TEMP !=2) goto L3;
+		warp "sword_1-1.gat",94,85;
+		close;
+	L3:
+		if(@TEMP !=3) goto L4;
+		warp "sword_1-1.gat",162,85;
+		close;
+	L4:
+		warp "sword_1-1.gat",130,47;
+		close;
+}
+
+sword_1-1.gat,37,169,0	hiddenwarp	3_blank_4_b	139,{
+	set @TEMP,0;
+	random @TEMP,5;
+	goto L0;
+
+	L0:
+		if(@TEMP !=0) goto L1;
+		warp "sword_1-1.gat",162,120;
+		close;
+	L1:
+		if(@TEMP !=1) goto L2;
+		warp "sword_1-1.gat",94,120;
+		close;
+	L2:
+		if(@TEMP !=2) goto L3;
+		warp "sword_1-1.gat",94,85;
+		close;
+	L3:
+		if(@TEMP !=3) goto L4;
+		warp "sword_1-1.gat",162,85;
+		close;
+	L4:
+		warp "sword_1-1.gat",130,47;
+		close;
+}
+
+sword_1-1.gat,37,168,0	hiddenwarp	3_blank_4_c	139,{
+	set @TEMP,0;
+	random @TEMP,5;
+	goto L0;
+
+	L0:
+		if(@TEMP !=0) goto L1;
+		warp "sword_1-1.gat",162,120;
+		close;
+	L1:
+		if(@TEMP !=1) goto L2;
+		warp "sword_1-1.gat",94,120;
+		close;
+	L2:
+		if(@TEMP !=2) goto L3;
+		warp "sword_1-1.gat",94,85;
+		close;
+	L3:
+		if(@TEMP !=3) goto L4;
+		warp "sword_1-1.gat",162,85;
+		close;
+	L4:
+		warp "sword_1-1.gat",130,47;
+		close;
+}
+
+sword_1-1.gat,36,168,0	hiddenwarp	3_blank_4_c	139,{
+	set @TEMP,0;
+	random @TEMP,5;
+	goto L0;
+
+	L0:
+		if(@TEMP !=0) goto L1;
+		warp "sword_1-1.gat",162,120;
+		close;
+	L1:
+		if(@TEMP !=1) goto L2;
+		warp "sword_1-1.gat",94,120;
+		close;
+	L2:
+		if(@TEMP !=2) goto L3;
+		warp "sword_1-1.gat",94,85;
+		close;
+	L3:
+		if(@TEMP !=3) goto L4;
+		warp "sword_1-1.gat",162,85;
+		close;
+	L4:
+		warp "sword_1-1.gat",130,47;
+		close;
+}
+
+sword_1-1.gat,40,175,0	hiddenwarp	3_blank_5_a	139,{
+	set @TEMP,0;
+	random @TEMP,5;
+	goto L0;
+
+	L0:
+		if(@TEMP !=0) goto L1;
+		warp "sword_1-1.gat",162,120;
+		close;
+	L1:
+		if(@TEMP !=1) goto L2;
+		warp "sword_1-1.gat",94,120;
+		close;
+	L2:
+		if(@TEMP !=2) goto L3;
+		warp "sword_1-1.gat",94,85;
+		close;
+	L3:
+		if(@TEMP !=3) goto L4;
+		warp "sword_1-1.gat",162,85;
+		close;
+	L4:
+		warp "sword_1-1.gat",130,47;
+		close;
+}
+
+sword_1-1.gat,41,175,0	hiddenwarp	3_blank_5_b	139,{
+	set @TEMP,0;
+	random @TEMP,5;
+	goto L0;
+
+	L0:
+		if(@TEMP !=0) goto L1;
+		warp "sword_1-1.gat",162,120;
+		close;
+	L1:
+		if(@TEMP !=1) goto L2;
+		warp "sword_1-1.gat",94,120;
+		close;
+	L2:
+		if(@TEMP !=2) goto L3;
+		warp "sword_1-1.gat",94,85;
+		close;
+	L3:
+		if(@TEMP !=3) goto L4;
+		warp "sword_1-1.gat",162,85;
+		close;
+	L4:
+		warp "sword_1-1.gat",130,47;
+		close;
+}
+
+sword_1-1.gat,41,171,0	hiddenwarp	3_blank_6_a	139,{
+	set @TEMP,0;
+	random @TEMP,5;
+	goto L0;
+
+	L0:
+		if(@TEMP !=0) goto L1;
+		warp "sword_1-1.gat",162,120;
+		close;
+	L1:
+		if(@TEMP !=1) goto L2;
+		warp "sword_1-1.gat",94,120;
+		close;
+	L2:
+		if(@TEMP !=2) goto L3;
+		warp "sword_1-1.gat",94,85;
+		close;
+	L3:
+		if(@TEMP !=3) goto L4;
+		warp "sword_1-1.gat",162,85;
+		close;
+	L4:
+		warp "sword_1-1.gat",130,47;
+		close;
+}
+
+sword_1-1.gat,41,170,0	hiddenwarp	3_blank_6_b	139,{
+	set @TEMP,0;
+	random @TEMP,5;
+	goto L0;
+
+	L0:
+		if(@TEMP !=0) goto L1;
+		warp "sword_1-1.gat",162,120;
+		close;
+	L1:
+		if(@TEMP !=1) goto L2;
+		warp "sword_1-1.gat",94,120;
+		close;
+	L2:
+		if(@TEMP !=2) goto L3;
+		warp "sword_1-1.gat",94,85;
+		close;
+	L3:
+		if(@TEMP !=3) goto L4;
+		warp "sword_1-1.gat",162,85;
+		close;
+	L4:
+		warp "sword_1-1.gat",130,47;
+		close;
+}
+
+sword_1-1.gat,41,167,0	hiddenwarp	3_blank_6_c	139,{
+	set @TEMP,0;
+	random @TEMP,5;
+	goto L0;
+
+	L0:
+		if(@TEMP !=0) goto L1;
+		warp "sword_1-1.gat",162,120;
+		close;
+	L1:
+		if(@TEMP !=1) goto L2;
+		warp "sword_1-1.gat",94,120;
+		close;
+	L2:
+		if(@TEMP !=2) goto L3;
+		warp "sword_1-1.gat",94,85;
+		close;
+	L3:
+		if(@TEMP !=3) goto L4;
+		warp "sword_1-1.gat",162,85;
+		close;
+	L4:
+		warp "sword_1-1.gat",130,47;
+		close;
+}
+
+sword_1-1.gat,41,166,0	hiddenwarp	3_blank_6_d	139,{
+	set @TEMP,0;
+	random @TEMP,5;
+	goto L0;
+
+	L0:
+		if(@TEMP !=0) goto L1;
+		warp "sword_1-1.gat",162,120;
+		close;
+	L1:
+		if(@TEMP !=1) goto L2;
+		warp "sword_1-1.gat",94,120;
+		close;
+	L2:
+		if(@TEMP !=2) goto L3;
+		warp "sword_1-1.gat",94,85;
+		close;
+	L3:
+		if(@TEMP !=3) goto L4;
+		warp "sword_1-1.gat",162,85;
+		close;
+	L4:
+		warp "sword_1-1.gat",130,47;
+		close;
+}
+
+sword_1-1.gat,42,169,0	hiddenwarp	3_blank_6_e	139,{
+	set @TEMP,0;
+	random @TEMP,5;
+	goto L0;
+
+	L0:
+		if(@TEMP !=0) goto L1;
+		warp "sword_1-1.gat",162,120;
+		close;
+	L1:
+		if(@TEMP !=1) goto L2;
+		warp "sword_1-1.gat",94,120;
+		close;
+	L2:
+		if(@TEMP !=2) goto L3;
+		warp "sword_1-1.gat",94,85;
+		close;
+	L3:
+		if(@TEMP !=3) goto L4;
+		warp "sword_1-1.gat",162,85;
+		close;
+	L4:
+		warp "sword_1-1.gat",130,47;
+		close;
+}
+
+sword_1-1.gat,43,170,0	hiddenwarp	3_blank_6_f	139,{
+	set @TEMP,0;
+	random @TEMP,5;
+	goto L0;
+
+	L0:
+		if(@TEMP !=0) goto L1;
+		warp "sword_1-1.gat",162,120;
+		close;
+	L1:
+		if(@TEMP !=1) goto L2;
+		warp "sword_1-1.gat",94,120;
+		close;
+	L2:
+		if(@TEMP !=2) goto L3;
+		warp "sword_1-1.gat",94,85;
+		close;
+	L3:
+		if(@TEMP !=3) goto L4;
+		warp "sword_1-1.gat",162,85;
+		close;
+	L4:
+		warp "sword_1-1.gat",130,47;
+		close;
+}
+
+sword_1-1.gat,43,167,0	hiddenwarp	3_blank_6_g	139,{
+	set @TEMP,0;
+	random @TEMP,5;
+	goto L0;
+
+	L0:
+		if(@TEMP !=0) goto L1;
+		warp "sword_1-1.gat",162,120;
+		close;
+	L1:
+		if(@TEMP !=1) goto L2;
+		warp "sword_1-1.gat",94,120;
+		close;
+	L2:
+		if(@TEMP !=2) goto L3;
+		warp "sword_1-1.gat",94,85;
+		close;
+	L3:
+		if(@TEMP !=3) goto L4;
+		warp "sword_1-1.gat",162,85;
+		close;
+	L4:
+		warp "sword_1-1.gat",130,47;
+		close;
+}
+
+sword_1-1.gat,40,162,0	hiddenwarp	3_blank_7_a	139,{
+	set @TEMP,0;
+	random @TEMP,5;
+	goto L0;
+
+	L0:
+		if(@TEMP !=0) goto L1;
+		warp "sword_1-1.gat",162,120;
+		close;
+	L1:
+		if(@TEMP !=1) goto L2;
+		warp "sword_1-1.gat",94,120;
+		close;
+	L2:
+		if(@TEMP !=2) goto L3;
+		warp "sword_1-1.gat",94,85;
+		close;
+	L3:
+		if(@TEMP !=3) goto L4;
+		warp "sword_1-1.gat",162,85;
+		close;
+	L4:
+		warp "sword_1-1.gat",130,47;
+		close;
+}
+
+hiddenwarp "sword_1-1" "3_blank_7_b" 41 162 0 1
+sword_1-1.gat,41,162,0	hiddenwarp	3_blank_7_b	139,{
+	set @TEMP,0;
+	random @TEMP,5;
+	goto L0;
+
+	L0:
+		if(@TEMP !=0) goto L1;
+		warp "sword_1-1.gat",162,120;
+		close;
+	L1:
+		if(@TEMP !=1) goto L2;
+		warp "sword_1-1.gat",94,120;
+		close;
+	L2:
+		if(@TEMP !=2) goto L3;
+		warp "sword_1-1.gat",94,85;
+		close;
+	L3:
+		if(@TEMP !=3) goto L4;
+		warp "sword_1-1.gat",162,85;
+		close;
+	L4:
+		warp "sword_1-1.gat",130,47;
+		close;
+}
+
+sword_1-1.gat,46,175,0	hiddenwarp	3_blank_8_a	139,{
+	set @TEMP,0;
+	random @TEMP,5;
+	goto L0;
+
+	L0:
+		if(@TEMP !=0) goto L1;
+		warp "sword_1-1.gat",162,120;
+		close;
+	L1:
+		if(@TEMP !=1) goto L2;
+		warp "sword_1-1.gat",94,120;
+		close;
+	L2:
+		if(@TEMP !=2) goto L3;
+		warp "sword_1-1.gat",94,85;
+		close;
+	L3:
+		if(@TEMP !=3) goto L4;
+		warp "sword_1-1.gat",162,85;
+		close;
+	L4:
+		warp "sword_1-1.gat",130,47;
+		close;
+}
+	
+sword_1-1.gat,51,175,0	hiddenwarp	3_blank_8_b	139,{
+	set @TEMP,0;
+	random @TEMP,5;
+	goto L0;
+
+	L0:
+		if(@TEMP !=0) goto L1;
+		warp "sword_1-1.gat",162,120;
+		close;
+	L1:
+		if(@TEMP !=1) goto L2;
+		warp "sword_1-1.gat",94,120;
+		close;
+	L2:
+		if(@TEMP !=2) goto L3;
+		warp "sword_1-1.gat",94,85;
+		close;
+	L3:
+		if(@TEMP !=3) goto L4;
+		warp "sword_1-1.gat",162,85;
+		close;
+	L4:
+		warp "sword_1-1.gat",130,47;
+		close;
+}
+	
+sword_1-1.gat,47,174,0	hiddenwarp	3_blank_8_c	139,{
+	set @TEMP,0;
+	random @TEMP,5;
+	goto L0;
+
+	L0:
+		if(@TEMP !=0) goto L1;
+		warp "sword_1-1.gat",162,120;
+		close;
+	L1:
+		if(@TEMP !=1) goto L2;
+		warp "sword_1-1.gat",94,120;
+		close;
+	L2:
+		if(@TEMP !=2) goto L3;
+		warp "sword_1-1.gat",94,85;
+		close;
+	L3:
+		if(@TEMP !=3) goto L4;
+		warp "sword_1-1.gat",162,85;
+		close;
+	L4:
+		warp "sword_1-1.gat",130,47;
+		close;
+}
+
+sword_1-1.gat,50,174,0	hiddenwarp	3_blank_8_d	139,{
+	set @TEMP,0;
+	random @TEMP,5;
+	goto L0;
+
+	L0:
+		if(@TEMP !=0) goto L1;
+		warp "sword_1-1.gat",162,120;
+		close;
+	L1:
+		if(@TEMP !=1) goto L2;
+		warp "sword_1-1.gat",94,120;
+		close;
+	L2:
+		if(@TEMP !=2) goto L3;
+		warp "sword_1-1.gat",94,85;
+		close;
+	L3:
+		if(@TEMP !=3) goto L4;
+		warp "sword_1-1.gat",162,85;
+		close;
+	L4:
+		warp "sword_1-1.gat",130,47;
+		close;
+}
+
+sword_1-1.gat,48,173,0	hiddenwarp	3_blank_8_e	139,{
+	set @TEMP,0;
+	random @TEMP,5;
+	goto L0;
+
+	L0:
+		if(@TEMP !=0) goto L1;
+		warp "sword_1-1.gat",162,120;
+		close;
+	L1:
+		if(@TEMP !=1) goto L2;
+		warp "sword_1-1.gat",94,120;
+		close;
+	L2:
+		if(@TEMP !=2) goto L3;
+		warp "sword_1-1.gat",94,85;
+		close;
+	L3:
+		if(@TEMP !=3) goto L4;
+		warp "sword_1-1.gat",162,85;
+		close;
+	L4:
+		warp "sword_1-1.gat",130,47;
+		close;
+}
+	
+sword_1-1.gat,49,173,0	hiddenwarp	3_blank_8_f	139,{
+	set @TEMP,0;
+	random @TEMP,5;
+	goto L0;
+
+	L0:
+		if(@TEMP !=0) goto L1;
+		warp "sword_1-1.gat",162,120;
+		close;
+	L1:
+		if(@TEMP !=1) goto L2;
+		warp "sword_1-1.gat",94,120;
+		close;
+	L2:
+		if(@TEMP !=2) goto L3;
+		warp "sword_1-1.gat",94,85;
+		close;
+	L3:
+		if(@TEMP !=3) goto L4;
+		warp "sword_1-1.gat",162,85;
+		close;
+	L4:
+		warp "sword_1-1.gat",130,47;
+		close;
+}
+
+sword_1-1.gat,46,162,0	hiddenwarp	3_blank_9_a	139,{
+	set @TEMP,0;
+	random @TEMP,5;
+	goto L0;
+
+	L0:
+		if(@TEMP !=0) goto L1;
+		warp "sword_1-1.gat",162,120;
+		close;
+	L1:
+		if(@TEMP !=1) goto L2;
+		warp "sword_1-1.gat",94,120;
+		close;
+	L2:
+		if(@TEMP !=2) goto L3;
+		warp "sword_1-1.gat",94,85;
+		close;
+	L3:
+		if(@TEMP !=3) goto L4;
+		warp "sword_1-1.gat",162,85;
+		close;
+	L4:
+		warp "sword_1-1.gat",130,47;
+		close;
+}
+
+sword_1-1.gat,51,162,0	hiddenwarp	3_blank_9_b	139,{
+	set @TEMP,0;
+	random @TEMP,5;
+	goto L0;
+
+	L0:
+		if(@TEMP !=0) goto L1;
+		warp "sword_1-1.gat",162,120;
+		close;
+	L1:
+		if(@TEMP !=1) goto L2;
+		warp "sword_1-1.gat",94,120;
+		close;
+	L2:
+		if(@TEMP !=2) goto L3;
+		warp "sword_1-1.gat",94,85;
+		close;
+	L3:
+		if(@TEMP !=3) goto L4;
+		warp "sword_1-1.gat",162,85;
+		close;
+	L4:
+		warp "sword_1-1.gat",130,47;
+		close;
+}
+
+sword_1-1.gat,47,163,0	hiddenwarp	3_blank_9_c	139,{
+	set @TEMP,0;
+	random @TEMP,5;
+	goto L0;
+
+	L0:
+		if(@TEMP !=0) goto L1;
+		warp "sword_1-1.gat",162,120;
+		close;
+	L1:
+		if(@TEMP !=1) goto L2;
+		warp "sword_1-1.gat",94,120;
+		close;
+	L2:
+		if(@TEMP !=2) goto L3;
+		warp "sword_1-1.gat",94,85;
+		close;
+	L3:
+		if(@TEMP !=3) goto L4;
+		warp "sword_1-1.gat",162,85;
+		close;
+	L4:
+		warp "sword_1-1.gat",130,47;
+		close;
+}
+
+sword_1-1.gat,50,163,0	hiddenwarp	3_blank_9_d	139,{
+	set @TEMP,0;
+	random @TEMP,5;
+	goto L0;
+
+	L0:
+		if(@TEMP !=0) goto L1;
+		warp "sword_1-1.gat",162,120;
+		close;
+	L1:
+		if(@TEMP !=1) goto L2;
+		warp "sword_1-1.gat",94,120;
+		close;
+	L2:
+		if(@TEMP !=2) goto L3;
+		warp "sword_1-1.gat",94,85;
+		close;
+	L3:
+		if(@TEMP !=3) goto L4;
+		warp "sword_1-1.gat",162,85;
+		close;
+	L4:
+		warp "sword_1-1.gat",130,47;
+		close;
+}
+
+sword_1-1.gat,48,164,0	hiddenwarp	3_blank_9_e	139,{
+	set @TEMP,0;
+	random @TEMP,5;
+	goto L0;
+
+	L0:
+		if(@TEMP !=0) goto L1;
+		warp "sword_1-1.gat",162,120;
+		close;
+	L1:
+		if(@TEMP !=1) goto L2;
+		warp "sword_1-1.gat",94,120;
+		close;
+	L2:
+		if(@TEMP !=2) goto L3;
+		warp "sword_1-1.gat",94,85;
+		close;
+	L3:
+		if(@TEMP !=3) goto L4;
+		warp "sword_1-1.gat",162,85;
+		close;
+	L4:
+		warp "sword_1-1.gat",130,47;
+		close;
+}
+
+sword_1-1.gat,49,164,0	hiddenwarp	3_blank_9_f	139,{
+	set @TEMP,0;
+	random @TEMP,5;
+	goto L0;
+
+	L0:
+		if(@TEMP !=0) goto L1;
+		warp "sword_1-1.gat",162,120;
+		close;
+	L1:
+		if(@TEMP !=1) goto L2;
+		warp "sword_1-1.gat",94,120;
+		close;
+	L2:
+		if(@TEMP !=2) goto L3;
+		warp "sword_1-1.gat",94,85;
+		close;
+	L3:
+		if(@TEMP !=3) goto L4;
+		warp "sword_1-1.gat",162,85;
+		close;
+	L4:
+		warp "sword_1-1.gat",130,47;
+		close;
+}
+
+sword_1-1.gat,54,170,0	hiddenwarp	3_blank_10_a	139,{
+	set @TEMP,0;
+	random @TEMP,5;
+	goto L0;
+
+	L0:
+		if(@TEMP !=0) goto L1;
+		warp "sword_1-1.gat",162,120;
+		close;
+	L1:
+		if(@TEMP !=1) goto L2;
+		warp "sword_1-1.gat",94,120;
+		close;
+	L2:
+		if(@TEMP !=2) goto L3;
+		warp "sword_1-1.gat",94,85;
+		close;
+	L3:
+		if(@TEMP !=3) goto L4;
+		warp "sword_1-1.gat",162,85;
+		close;
+	L4:
+		warp "sword_1-1.gat",130,47;
+		close;
+}
+	
+sword_1-1.gat,55,170,0	hiddenwarp	3_blank_10_b	139,{
+	set @TEMP,0;
+	random @TEMP,5;
+	goto L0;
+
+	L0:
+		if(@TEMP !=0) goto L1;
+		warp "sword_1-1.gat",162,120;
+		close;
+	L1:
+		if(@TEMP !=1) goto L2;
+		warp "sword_1-1.gat",94,120;
+		close;
+	L2:
+		if(@TEMP !=2) goto L3;
+		warp "sword_1-1.gat",94,85;
+		close;
+	L3:
+		if(@TEMP !=3) goto L4;
+		warp "sword_1-1.gat",162,85;
+		close;
+	L4:
+		warp "sword_1-1.gat",130,47;
+		close;
+}
+
+sword_1-1.gat,54,167,0	hiddenwarp	3_blank_10_c	139,{
+	set @TEMP,0;
+	random @TEMP,5;
+	goto L0;
+
+	L0:
+		if(@TEMP !=0) goto L1;
+		warp "sword_1-1.gat",162,120;
+		close;
+	L1:
+		if(@TEMP !=1) goto L2;
+		warp "sword_1-1.gat",94,120;
+		close;
+	L2:
+		if(@TEMP !=2) goto L3;
+		warp "sword_1-1.gat",94,85;
+		close;
+	L3:
+		if(@TEMP !=3) goto L4;
+		warp "sword_1-1.gat",162,85;
+		close;
+	L4:
+		warp "sword_1-1.gat",130,47;
+		close;
+}
+
+sword_1-1.gat,55,167,0	hiddenwarp	3_blank_10_d	139,{
+	set @TEMP,0;
+	random @TEMP,5;
+	goto L0;
+
+	L0:
+		if(@TEMP !=0) goto L1;
+		warp "sword_1-1.gat",162,120;
+		close;
+	L1:
+		if(@TEMP !=1) goto L2;
+		warp "sword_1-1.gat",94,120;
+		close;
+	L2:
+		if(@TEMP !=2) goto L3;
+		warp "sword_1-1.gat",94,85;
+		close;
+	L3:
+		if(@TEMP !=3) goto L4;
+		warp "sword_1-1.gat",162,85;
+		close;
+	L4:
+		warp "sword_1-1.gat",130,47;
+		close;
+}
+
+sword_1-1.gat,53,169,0	hiddenwarp	3_blank_10_e	139,{
+	set @TEMP,0;
+	random @TEMP,5;
+	goto L0;
+
+	L0:
+		if(@TEMP !=0) goto L1;
+		warp "sword_1-1.gat",162,120;
+		close;
+	L1:
+		if(@TEMP !=1) goto L2;
+		warp "sword_1-1.gat",94,120;
+		close;
+	L2:
+		if(@TEMP !=2) goto L3;
+		warp "sword_1-1.gat",94,85;
+		close;
+	L3:
+		if(@TEMP !=3) goto L4;
+		warp "sword_1-1.gat",162,85;
+		close;
+	L4:
+		warp "sword_1-1.gat",130,47;
+		close;
+}
+
+sword_1-1.gat,53,168,0	hiddenwarp	3_blank_10_f	139,{
+	set @TEMP,0;
+	random @TEMP,5;
+	goto L0;
+
+	L0:
+		if(@TEMP !=0) goto L1;
+		warp "sword_1-1.gat",162,120;
+		close;
+	L1:
+		if(@TEMP !=1) goto L2;
+		warp "sword_1-1.gat",94,120;
+		close;
+	L2:
+		if(@TEMP !=2) goto L3;
+		warp "sword_1-1.gat",94,85;
+		close;
+	L3:
+		if(@TEMP !=3) goto L4;
+		warp "sword_1-1.gat",162,85;
+		close;
+	L4:
+		warp "sword_1-1.gat",130,47;
+		close;
+}
+
+hiddenwarp "sword_1-1" "3_blank_10_g" 56 169 1 0
+sword_1-1.gat,56,169,0	hiddenwarp	3_blank_10_g	139,{
+	set @TEMP,0;
+	random @TEMP,5;
+	goto L0;
+
+	L0:
+		if(@TEMP !=0) goto L1;
+		warp "sword_1-1.gat",162,120;
+		close;
+	L1:
+		if(@TEMP !=1) goto L2;
+		warp "sword_1-1.gat",94,120;
+		close;
+	L2:
+		if(@TEMP !=2) goto L3;
+		warp "sword_1-1.gat",94,85;
+		close;
+	L3:
+		if(@TEMP !=3) goto L4;
+		warp "sword_1-1.gat",162,85;
+		close;
+	L4:
+		warp "sword_1-1.gat",130,47;
+		close;
+}
+
+sword_1-1.gat,56,168,0	hiddenwarp	3_blank_10_h	139,{
+	set @TEMP,0;
+	random @TEMP,5;
+	goto L0;
+
+	L0:
+		if(@TEMP !=0) goto L1;
+		warp "sword_1-1.gat",162,120;
+		close;
+	L1:
+		if(@TEMP !=1) goto L2;
+		warp "sword_1-1.gat",94,120;
+		close;
+	L2:
+		if(@TEMP !=2) goto L3;
+		warp "sword_1-1.gat",94,85;
+		close;
+	L3:
+		if(@TEMP !=3) goto L4;
+		warp "sword_1-1.gat",162,85;
+		close;
+	L4:
+		warp "sword_1-1.gat",130,47;
+		close;
+}
+
+sword_1-1.gat,58,175,0	hiddenwarp	3_blank_11_a	139,{
+	set @TEMP,0;
+	random @TEMP,5;
+	goto L0;
+
+	L0:
+		if(@TEMP !=0) goto L1;
+		warp "sword_1-1.gat",162,120;
+		close;
+	L1:
+		if(@TEMP !=1) goto L2;
+		warp "sword_1-1.gat",94,120;
+		close;
+	L2:
+		if(@TEMP !=2) goto L3;
+		warp "sword_1-1.gat",94,85;
+		close;
+	L3:
+		if(@TEMP !=3) goto L4;
+		warp "sword_1-1.gat",162,85;
+		close;
+	L4:
+		warp "sword_1-1.gat",130,47;
+		close;
+}
+
+sword_1-1.gat,59,174,0	hiddenwarp	3_blank_11_b	139,{
+	set @TEMP,0;
+	random @TEMP,5;
+	goto L0;
+
+	L0:
+		if(@TEMP !=0) goto L1;
+		warp "sword_1-1.gat",162,120;
+		close;
+	L1:
+		if(@TEMP !=1) goto L2;
+		warp "sword_1-1.gat",94,120;
+		close;
+	L2:
+		if(@TEMP !=2) goto L3;
+		warp "sword_1-1.gat",94,85;
+		close;
+	L3:
+		if(@TEMP !=3) goto L4;
+		warp "sword_1-1.gat",162,85;
+		close;
+	L4:
+		warp "sword_1-1.gat",130,47;
+		close;
+}
+
+sword_1-1.gat,60,174,0	hiddenwarp	3_blank_11_c	139,{
+	set @TEMP,0;
+	random @TEMP,5;
+	goto L0;
+
+	L0:
+		if(@TEMP !=0) goto L1;
+		warp "sword_1-1.gat",162,120;
+		close;
+	L1:
+		if(@TEMP !=1) goto L2;
+		warp "sword_1-1.gat",94,120;
+		close;
+	L2:
+		if(@TEMP !=2) goto L3;
+		warp "sword_1-1.gat",94,85;
+		close;
+	L3:
+		if(@TEMP !=3) goto L4;
+		warp "sword_1-1.gat",162,85;
+		close;
+	L4:
+		warp "sword_1-1.gat",130,47;
+		close;
+}
+
+hiddenwarp "sword_1-1" "3_blank_11_d" 61 172 1 0
+sword_1-1.gat,61,172,0	hiddenwarp	3_blank_11_d	139,{
+	set @TEMP,0;
+	random @TEMP,5;
+	goto L0;
+
+	L0:
+		if(@TEMP !=0) goto L1;
+		warp "sword_1-1.gat",162,120;
+		close;
+	L1:
+		if(@TEMP !=1) goto L2;
+		warp "sword_1-1.gat",94,120;
+		close;
+	L2:
+		if(@TEMP !=2) goto L3;
+		warp "sword_1-1.gat",94,85;
+		close;
+	L3:
+		if(@TEMP !=3) goto L4;
+		warp "sword_1-1.gat",162,85;
+		close;
+	L4:
+		warp "sword_1-1.gat",130,47;
+		close;
+}
+
+sword_1-1.gat,58,162,0	hiddenwarp	3_blank_12_a	139,{
+	set @TEMP,0;
+	random @TEMP,5;
+	goto L0;
+
+	L0:
+		if(@TEMP !=0) goto L1;
+		warp "sword_1-1.gat",162,120;
+		close;
+	L1:
+		if(@TEMP !=1) goto L2;
+		warp "sword_1-1.gat",94,120;
+		close;
+	L2:
+		if(@TEMP !=2) goto L3;
+		warp "sword_1-1.gat",94,85;
+		close;
+	L3:
+		if(@TEMP !=3) goto L4;
+		warp "sword_1-1.gat",162,85;
+		close;
+	L4:
+		warp "sword_1-1.gat",130,47;
+		close;
+}
+
+sword_1-1.gat,59,163,0	hiddenwarp	3_blank_12_b	139,{
+	set @TEMP,0;
+	random @TEMP,5;
+	goto L0;
+
+	L0:
+		if(@TEMP !=0) goto L1;
+		warp "sword_1-1.gat",162,120;
+		close;
+	L1:
+		if(@TEMP !=1) goto L2;
+		warp "sword_1-1.gat",94,120;
+		close;
+	L2:
+		if(@TEMP !=2) goto L3;
+		warp "sword_1-1.gat",94,85;
+		close;
+	L3:
+		if(@TEMP !=3) goto L4;
+		warp "sword_1-1.gat",162,85;
+		close;
+	L4:
+		warp "sword_1-1.gat",130,47;
+		close;
+}
+	
+sword_1-1.gat,60,164,0	hiddenwarp	3_blank_12_c	139,{
+	set @TEMP,0;
+	random @TEMP,5;
+	goto L0;
+
+	L0:
+		if(@TEMP !=0) goto L1;
+		warp "sword_1-1.gat",162,120;
+		close;
+	L1:
+		if(@TEMP !=1) goto L2;
+		warp "sword_1-1.gat",94,120;
+		close;
+	L2:
+		if(@TEMP !=2) goto L3;
+		warp "sword_1-1.gat",94,85;
+		close;
+	L3:
+		if(@TEMP !=3) goto L4;
+		warp "sword_1-1.gat",162,85;
+		close;
+	L4:
+		warp "sword_1-1.gat",130,47;
+		close;
+}
+
+sword_1-1.gat,61,165,0	hiddenwarp	3_blank_12_d	139,{
+	set @TEMP,0;
+	random @TEMP,5;
+	goto L0;
+
+	L0:
+		if(@TEMP !=0) goto L1;
+		warp "sword_1-1.gat",162,120;
+		close;
+	L1:
+		if(@TEMP !=1) goto L2;
+		warp "sword_1-1.gat",94,120;
+		close;
+	L2:
+		if(@TEMP !=2) goto L3;
+		warp "sword_1-1.gat",94,85;
+		close;
+	L3:
+		if(@TEMP !=3) goto L4;
+		warp "sword_1-1.gat",162,85;
+		close;
+	L4:
+		warp "sword_1-1.gat",130,47;
+		close;
+}
+
+sword_1-1.gat,76,172,0	hiddenwarp	3_blank_13_a	139,{
+	set @TEMP,0;
+	random @TEMP,5;
+	goto L0;
+
+	L0:
+		if(@TEMP !=0) goto L1;
+		warp "sword_1-1.gat",162,120;
+		close;
+	L1:
+		if(@TEMP !=1) goto L2;
+		warp "sword_1-1.gat",94,120;
+		close;
+	L2:
+		if(@TEMP !=2) goto L3;
+		warp "sword_1-1.gat",94,85;
+		close;
+	L3:
+		if(@TEMP !=3) goto L4;
+		warp "sword_1-1.gat",162,85;
+		close;
+	L4:
+		warp "sword_1-1.gat",130,47;
+		close;
+}
+
+sword_1-1.gat,77,173,0	hiddenwarp	3_blank_13_b	139,{
+	set @TEMP,0;
+	random @TEMP,5;
+	goto L0;
+
+	L0:
+		if(@TEMP !=0) goto L1;
+		warp "sword_1-1.gat",162,120;
+		close;
+	L1:
+		if(@TEMP !=1) goto L2;
+		warp "sword_1-1.gat",94,120;
+		close;
+	L2:
+		if(@TEMP !=2) goto L3;
+		warp "sword_1-1.gat",94,85;
+		close;
+	L3:
+		if(@TEMP !=3) goto L4;
+		warp "sword_1-1.gat",162,85;
+		close;
+	L4:
+		warp "sword_1-1.gat",130,47;
+		close;
+}
+
+sword_1-1.gat,78,174,0	hiddenwarp	3_blank_13_c	139,{
+	set @TEMP,0;
+	random @TEMP,5;
+	goto L0;
+
+	L0:
+		if(@TEMP !=0) goto L1;
+		warp "sword_1-1.gat",162,120;
+		close;
+	L1:
+		if(@TEMP !=1) goto L2;
+		warp "sword_1-1.gat",94,120;
+		close;
+	L2:
+		if(@TEMP !=2) goto L3;
+		warp "sword_1-1.gat",94,85;
+		close;
+	L3:
+		if(@TEMP !=3) goto L4;
+		warp "sword_1-1.gat",162,85;
+		close;
+	L4:
+		warp "sword_1-1.gat",130,47;
+		close;
+}
+
+sword_1-1.gat,79,175,0	hiddenwarp	3_blank_13_d	139,{
+	set @TEMP,0;
+	random @TEMP,5;
+	goto L0;
+
+	L0:
+		if(@TEMP !=0) goto L1;
+		warp "sword_1-1.gat",162,120;
+		close;
+	L1:
+		if(@TEMP !=1) goto L2;
+		warp "sword_1-1.gat",94,120;
+		close;
+	L2:
+		if(@TEMP !=2) goto L3;
+		warp "sword_1-1.gat",94,85;
+		close;
+	L3:
+		if(@TEMP !=3) goto L4;
+		warp "sword_1-1.gat",162,85;
+		close;
+	L4:
+		warp "sword_1-1.gat",130,47;
+		close;
+}
+	
+sword_1-1.gat,76,164,0	hiddenwarp	3_blank_14_a	139,{
+	set @TEMP,0;
+	random @TEMP,5;
+	goto L0;
+
+	L0:
+		if(@TEMP !=0) goto L1;
+		warp "sword_1-1.gat",162,120;
+		close;
+	L1:
+		if(@TEMP !=1) goto L2;
+		warp "sword_1-1.gat",94,120;
+		close;
+	L2:
+		if(@TEMP !=2) goto L3;
+		warp "sword_1-1.gat",94,85;
+		close;
+	L3:
+		if(@TEMP !=3) goto L4;
+		warp "sword_1-1.gat",162,85;
+		close;
+	L4:
+		warp "sword_1-1.gat",130,47;
+		close;
+}
+	
+sword_1-1.gat,77,164,0	hiddenwarp	3_blank_14_b	139,{
+	set @TEMP,0;
+	random @TEMP,5;
+	goto L0;
+
+	L0:
+		if(@TEMP !=0) goto L1;
+		warp "sword_1-1.gat",162,120;
+		close;
+	L1:
+		if(@TEMP !=1) goto L2;
+		warp "sword_1-1.gat",94,120;
+		close;
+	L2:
+		if(@TEMP !=2) goto L3;
+		warp "sword_1-1.gat",94,85;
+		close;
+	L3:
+		if(@TEMP !=3) goto L4;
+		warp "sword_1-1.gat",162,85;
+		close;
+	L4:
+		warp "sword_1-1.gat",130,47;
+		close;
+}
+
+sword_1-1.gat,78,163,0	hiddenwarp	3_blank_14_c	139,{
+	set @TEMP,0;
+	random @TEMP,5;
+	goto L0;
+
+	L0:
+		if(@TEMP !=0) goto L1;
+		warp "sword_1-1.gat",162,120;
+		close;
+	L1:
+		if(@TEMP !=1) goto L2;
+		warp "sword_1-1.gat",94,120;
+		close;
+	L2:
+		if(@TEMP !=2) goto L3;
+		warp "sword_1-1.gat",94,85;
+		close;
+	L3:
+		if(@TEMP !=3) goto L4;
+		warp "sword_1-1.gat",162,85;
+		close;
+	L4:
+		warp "sword_1-1.gat",130,47;
+		close;
+}
+
+sword_1-1.gat,79,162,0	hiddenwarp	3_blank_14_d	139,{
+	set @TEMP,0;
+	random @TEMP,5;
+	goto L0;
+
+	L0:
+		if(@TEMP !=0) goto L1;
+		warp "sword_1-1.gat",162,120;
+		close;
+	L1:
+		if(@TEMP !=1) goto L2;
+		warp "sword_1-1.gat",94,120;
+		close;
+	L2:
+		if(@TEMP !=2) goto L3;
+		warp "sword_1-1.gat",94,85;
+		close;
+	L3:
+		if(@TEMP !=3) goto L4;
+		warp "sword_1-1.gat",162,85;
+		close;
+	L4:
+		warp "sword_1-1.gat",130,47;
+		close;
+}
+	
+sword_1-1.gat,94,175,0	hiddenwarp	3_blank_15_a	139,{
+	set @TEMP,0;
+	random @TEMP,5;
+	goto L0;
+
+	L0:
+		if(@TEMP !=0) goto L1;
+		warp "sword_1-1.gat",162,120;
+		close;
+	L1:
+		if(@TEMP !=1) goto L2;
+		warp "sword_1-1.gat",94,120;
+		close;
+	L2:
+		if(@TEMP !=2) goto L3;
+		warp "sword_1-1.gat",94,85;
+		close;
+	L3:
+		if(@TEMP !=3) goto L4;
+		warp "sword_1-1.gat",162,85;
+		close;
+	L4:
+		warp "sword_1-1.gat",130,47;
+		close;
+}
+	
+sword_1-1.gat,95,174,0	hiddenwarp	3_blank_15_b	139,{
+	set @TEMP,0;
+	random @TEMP,5;
+	goto L0;
+
+	L0:
+		if(@TEMP !=0) goto L1;
+		warp "sword_1-1.gat",162,120;
+		close;
+	L1:
+		if(@TEMP !=1) goto L2;
+		warp "sword_1-1.gat",94,120;
+		close;
+	L2:
+		if(@TEMP !=2) goto L3;
+		warp "sword_1-1.gat",94,85;
+		close;
+	L3:
+		if(@TEMP !=3) goto L4;
+		warp "sword_1-1.gat",162,85;
+		close;
+	L4:
+		warp "sword_1-1.gat",130,47;
+		close;
+}
+	
+sword_1-1.gat,98,174,0	hiddenwarp	3_blank_15_c	139,{
+	set @TEMP,0;
+	random @TEMP,5;
+	goto L0;
+
+	L0:
+		if(@TEMP !=0) goto L1;
+		warp "sword_1-1.gat",162,120;
+		close;
+	L1:
+		if(@TEMP !=1) goto L2;
+		warp "sword_1-1.gat",94,120;
+		close;
+	L2:
+		if(@TEMP !=2) goto L3;
+		warp "sword_1-1.gat",94,85;
+		close;
+	L3:
+		if(@TEMP !=3) goto L4;
+		warp "sword_1-1.gat",162,85;
+		close;
+	L4:
+		warp "sword_1-1.gat",130,47;
+		close;
+}
+
+sword_1-1.gat,99,175,0	hiddenwarp	3_blank_16_d	139,{
+	set @TEMP,0;
+	random @TEMP,5;
+	goto L0;
+
+	L0:
+		if(@TEMP !=0) goto L1;
+		warp "sword_1-1.gat",162,120;
+		close;
+	L1:
+		if(@TEMP !=1) goto L2;
+		warp "sword_1-1.gat",94,120;
+		close;
+	L2:
+		if(@TEMP !=2) goto L3;
+		warp "sword_1-1.gat",94,85;
+		close;
+	L3:
+		if(@TEMP !=3) goto L4;
+		warp "sword_1-1.gat",162,85;
+		close;
+	L4:
+		warp "sword_1-1.gat",130,47;
+		close;
+}
+
+sword_1-1.gat,96,169,0	hiddenwarp	3_blank_17_a	139,{
+	set @TEMP,0;
+	random @TEMP,5;
+	goto L0;
+
+	L0:
+		if(@TEMP !=0) goto L1;
+		warp "sword_1-1.gat",162,120;
+		close;
+	L1:
+		if(@TEMP !=1) goto L2;
+		warp "sword_1-1.gat",94,120;
+		close;
+	L2:
+		if(@TEMP !=2) goto L3;
+		warp "sword_1-1.gat",94,85;
+		close;
+	L3:
+		if(@TEMP !=3) goto L4;
+		warp "sword_1-1.gat",162,85;
+		close;
+	L4:
+		warp "sword_1-1.gat",130,47;
+		close;
+}
+
+sword_1-1.gat,97,169,0	hiddenwarp	3_blank_17_b	139,{
+	set @TEMP,0;
+	random @TEMP,5;
+	goto L0;
+
+	L0:
+		if(@TEMP !=0) goto L1;
+		warp "sword_1-1.gat",162,120;
+		close;
+	L1:
+		if(@TEMP !=1) goto L2;
+		warp "sword_1-1.gat",94,120;
+		close;
+	L2:
+		if(@TEMP !=2) goto L3;
+		warp "sword_1-1.gat",94,85;
+		close;
+	L3:
+		if(@TEMP !=3) goto L4;
+		warp "sword_1-1.gat",162,85;
+		close;
+	L4:
+		warp "sword_1-1.gat",130,47;
+		close;
+}
+
+sword_1-1.gat,97,168,0	hiddenwarp	3_blank_17_c	139,{
+	set @TEMP,0;
+	random @TEMP,5;
+	goto L0;
+
+	L0:
+		if(@TEMP !=0) goto L1;
+		warp "sword_1-1.gat",162,120;
+		close;
+	L1:
+		if(@TEMP !=1) goto L2;
+		warp "sword_1-1.gat",94,120;
+		close;
+	L2:
+		if(@TEMP !=2) goto L3;
+		warp "sword_1-1.gat",94,85;
+		close;
+	L3:
+		if(@TEMP !=3) goto L4;
+		warp "sword_1-1.gat",162,85;
+		close;
+	L4:
+		warp "sword_1-1.gat",130,47;
+		close;
+}
+
+sword_1-1.gat,96,168,0	hiddenwarp	3_blank_17_d	139,{
+	set @TEMP,0;
+	random @TEMP,5;
+	goto L0;
+
+	L0:
+		if(@TEMP !=0) goto L1;
+		warp "sword_1-1.gat",162,120;
+		close;
+	L1:
+		if(@TEMP !=1) goto L2;
+		warp "sword_1-1.gat",94,120;
+		close;
+	L2:
+		if(@TEMP !=2) goto L3;
+		warp "sword_1-1.gat",94,85;
+		close;
+	L3:
+		if(@TEMP !=3) goto L4;
+		warp "sword_1-1.gat",162,85;
+		close;
+	L4:
+		warp "sword_1-1.gat",130,47;
+		close;
+}
+
+sword_1-1.gat,94,162,0	hiddenwarp	3_blank_18_a	139,{
+	set @TEMP,0;
+	random @TEMP,5;
+	goto L0;
+
+	L0:
+		if(@TEMP !=0) goto L1;
+		warp "sword_1-1.gat",162,120;
+		close;
+	L1:
+		if(@TEMP !=1) goto L2;
+		warp "sword_1-1.gat",94,120;
+		close;
+	L2:
+		if(@TEMP !=2) goto L3;
+		warp "sword_1-1.gat",94,85;
+		close;
+	L3:
+		if(@TEMP !=3) goto L4;
+		warp "sword_1-1.gat",162,85;
+		close;
+	L4:
+		warp "sword_1-1.gat",130,47;
+		close;
+}
+
+sword_1-1.gat,95,163,0	hiddenwarp	3_blank_18_b	139,{
+	set @TEMP,0;
+	random @TEMP,5;
+	goto L0;
+
+	L0:
+		if(@TEMP !=0) goto L1;
+		warp "sword_1-1.gat",162,120;
+		close;
+	L1:
+		if(@TEMP !=1) goto L2;
+		warp "sword_1-1.gat",94,120;
+		close;
+	L2:
+		if(@TEMP !=2) goto L3;
+		warp "sword_1-1.gat",94,85;
+		close;
+	L3:
+		if(@TEMP !=3) goto L4;
+		warp "sword_1-1.gat",162,85;
+		close;
+	L4:
+		warp "sword_1-1.gat",130,47;
+		close;
+}
+
+sword_1-1.gat,98,163,0	hiddenwarp	3_blank_18_c	139,{
+	set @TEMP,0;
+	random @TEMP,5;
+	goto L0;
+
+	L0:
+		if(@TEMP !=0) goto L1;
+		warp "sword_1-1.gat",162,120;
+		close;
+	L1:
+		if(@TEMP !=1) goto L2;
+		warp "sword_1-1.gat",94,120;
+		close;
+	L2:
+		if(@TEMP !=2) goto L3;
+		warp "sword_1-1.gat",94,85;
+		close;
+	L3:
+		if(@TEMP !=3) goto L4;
+		warp "sword_1-1.gat",162,85;
+		close;
+	L4:
+		warp "sword_1-1.gat",130,47;
+		close;
+}
+
+sword_1-1.gat,99,162,0	hiddenwarp	3_blank_18_d	139,{
+	set @TEMP,0;
+	random @TEMP,5;
+	goto L0;
+
+	L0:
+		if(@TEMP !=0) goto L1;
+		warp "sword_1-1.gat",162,120;
+		close;
+	L1:
+		if(@TEMP !=1) goto L2;
+		warp "sword_1-1.gat",94,120;
+		close;
+	L2:
+		if(@TEMP !=2) goto L3;
+		warp "sword_1-1.gat",94,85;
+		close;
+	L3:
+		if(@TEMP !=3) goto L4;
+		warp "sword_1-1.gat",162,85;
+		close;
+	L4:
+		warp "sword_1-1.gat",130,47;
+		close;
+}
+
+sword_1-1.gat,114,175,0	hiddenwarp	3_blank_19_a	139,{
+	set @TEMP,0;
+	random @TEMP,5;
+	goto L0;
+
+	L0:
+		if(@TEMP !=0) goto L1;
+		warp "sword_1-1.gat",162,120;
+		close;
+	L1:
+		if(@TEMP !=1) goto L2;
+		warp "sword_1-1.gat",94,120;
+		close;
+	L2:
+		if(@TEMP !=2) goto L3;
+		warp "sword_1-1.gat",94,85;
+		close;
+	L3:
+		if(@TEMP !=3) goto L4;
+		warp "sword_1-1.gat",162,85;
+		close;
+	L4:
+		warp "sword_1-1.gat",130,47;
+		close;
+}
+	
+sword_1-1.gat,115,175,0	hiddenwarp	3_blank_19_b	139,{
+	set @TEMP,0;
+	random @TEMP,5;
+	goto L0;
+
+	L0:
+		if(@TEMP !=0) goto L1;
+		warp "sword_1-1.gat",162,120;
+		close;
+	L1:
+		if(@TEMP !=1) goto L2;
+		warp "sword_1-1.gat",94,120;
+		close;
+	L2:
+		if(@TEMP !=2) goto L3;
+		warp "sword_1-1.gat",94,85;
+		close;
+	L3:
+		if(@TEMP !=3) goto L4;
+		warp "sword_1-1.gat",162,85;
+		close;
+	L4:
+		warp "sword_1-1.gat",130,47;
+		close;
+}
+
+sword_1-1.gat,114,162,0	hiddenwarp	3_blank_20_a	139,{
+	set @TEMP,0;
+	random @TEMP,5;
+	goto L0;
+
+	L0:
+		if(@TEMP !=0) goto L1;
+		warp "sword_1-1.gat",162,120;
+		close;
+	L1:
+		if(@TEMP !=1) goto L2;
+		warp "sword_1-1.gat",94,120;
+		close;
+	L2:
+		if(@TEMP !=2) goto L3;
+		warp "sword_1-1.gat",94,85;
+		close;
+	L3:
+		if(@TEMP !=3) goto L4;
+		warp "sword_1-1.gat",162,85;
+		close;
+	L4:
+		warp "sword_1-1.gat",130,47;
+		close;
+}
+
+sword_1-1.gat,115,162,0	hiddenwarp	3_blank_20_b	139,{
+	set @TEMP,0;
+	random @TEMP,5;
+	goto L0;
+
+	L0:
+		if(@TEMP !=0) goto L1;
+		warp "sword_1-1.gat",162,120;
+		close;
+	L1:
+		if(@TEMP !=1) goto L2;
+		warp "sword_1-1.gat",94,120;
+		close;
+	L2:
+		if(@TEMP !=2) goto L3;
+		warp "sword_1-1.gat",94,85;
+		close;
+	L3:
+		if(@TEMP !=3) goto L4;
+		warp "sword_1-1.gat",162,85;
+		close;
+	L4:
+		warp "sword_1-1.gat",130,47;
+		close;
+}
+	
+sword_1-1.gat,126,175,0	hiddenwarp	3_blank_21_a	139,{
+	set @TEMP,0;
+	random @TEMP,5;
+	goto L0;
+
+	L0:
+		if(@TEMP !=0) goto L1;
+		warp "sword_1-1.gat",162,120;
+		close;
+	L1:
+		if(@TEMP !=1) goto L2;
+		warp "sword_1-1.gat",94,120;
+		close;
+	L2:
+		if(@TEMP !=2) goto L3;
+		warp "sword_1-1.gat",94,85;
+		close;
+	L3:
+		if(@TEMP !=3) goto L4;
+		warp "sword_1-1.gat",162,85;
+		close;
+	L4:
+		warp "sword_1-1.gat",130,47;
+		close;
+}
+	
+sword_1-1.gat,127,175,0	hiddenwarp	3_blank_21_b	139,{
+	set @TEMP,0;
+	random @TEMP,5;
+	goto L0;
+
+	L0:
+		if(@TEMP !=0) goto L1;
+		warp "sword_1-1.gat",162,120;
+		close;
+	L1:
+		if(@TEMP !=1) goto L2;
+		warp "sword_1-1.gat",94,120;
+		close;
+	L2:
+		if(@TEMP !=2) goto L3;
+		warp "sword_1-1.gat",94,85;
+		close;
+	L3:
+		if(@TEMP !=3) goto L4;
+		warp "sword_1-1.gat",162,85;
+		close;
+	L4:
+		warp "sword_1-1.gat",130,47;
+		close;
+}
+
+sword_1-1.gat,126,162,0	hiddenwarp	3_blank_1_a	139,{
+	set @TEMP,0;
+	random @TEMP,5;
+	goto L0;
+
+	L0:
+		if(@TEMP !=0) goto L1;
+		warp "sword_1-1.gat",162,120;
+		close;
+	L1:
+		if(@TEMP !=1) goto L2;
+		warp "sword_1-1.gat",94,120;
+		close;
+	L2:
+		if(@TEMP !=2) goto L3;
+		warp "sword_1-1.gat",94,85;
+		close;
+	L3:
+		if(@TEMP !=3) goto L4;
+		warp "sword_1-1.gat",162,85;
+		close;
+	L4:
+		warp "sword_1-1.gat",130,47;
+		close;
+}
+
+sword_1-1.gat,127,162,0	hiddenwarp	3_blank_23_b	139,{
+	set @TEMP,0;
+	random @TEMP,5;
+	goto L0;
+
+	L0:
+		if(@TEMP !=0) goto L1;
+		warp "sword_1-1.gat",162,120;
+		close;
+	L1:
+		if(@TEMP !=1) goto L2;
+		warp "sword_1-1.gat",94,120;
+		close;
+	L2:
+		if(@TEMP !=2) goto L3;
+		warp "sword_1-1.gat",94,85;
+		close;
+	L3:
+		if(@TEMP !=3) goto L4;
+		warp "sword_1-1.gat",162,85;
+		close;
+	L4:
+		warp "sword_1-1.gat",130,47;
+		close;
+}
+
+sword_1-1.gat,160,174,0	hiddenwarp	3_blank_24_a	139,{
+	set @TEMP,0;
+	random @TEMP,5;
+	goto L0;
+
+	L0:
+		if(@TEMP !=0) goto L1;
+		warp "sword_1-1.gat",162,120;
+		close;
+	L1:
+		if(@TEMP !=1) goto L2;
+		warp "sword_1-1.gat",94,120;
+		close;
+	L2:
+		if(@TEMP !=2) goto L3;
+		warp "sword_1-1.gat",94,85;
+		close;
+	L3:
+		if(@TEMP !=3) goto L4;
+		warp "sword_1-1.gat",162,85;
+		close;
+	L4:
+		warp "sword_1-1.gat",130,47;
+		close;
+}
+
+sword_1-1.gat,161,174,0	hiddenwarp	3_blank_24_b	139,{
+	set @TEMP,0;
+	random @TEMP,5;
+	goto L0;
+
+	L0:
+		if(@TEMP !=0) goto L1;
+		warp "sword_1-1.gat",162,120;
+		close;
+	L1:
+		if(@TEMP !=1) goto L2;
+		warp "sword_1-1.gat",94,120;
+		close;
+	L2:
+		if(@TEMP !=2) goto L3;
+		warp "sword_1-1.gat",94,85;
+		close;
+	L3:
+		if(@TEMP !=3) goto L4;
+		warp "sword_1-1.gat",162,85;
+		close;
+	L4:
+		warp "sword_1-1.gat",130,47;
+		close;
+}
+	
+sword_1-1.gat,160,163,0	hiddenwarp	3_blank_25_a	139,{
+	set @TEMP,0;
+	random @TEMP,5;
+	goto L0;
+
+	L0:
+		if(@TEMP !=0) goto L1;
+		warp "sword_1-1.gat",162,120;
+		close;
+	L1:
+		if(@TEMP !=1) goto L2;
+		warp "sword_1-1.gat",94,120;
+		close;
+	L2:
+		if(@TEMP !=2) goto L3;
+		warp "sword_1-1.gat",94,85;
+		close;
+	L3:
+		if(@TEMP !=3) goto L4;
+		warp "sword_1-1.gat",162,85;
+		close;
+	L4:
+		warp "sword_1-1.gat",130,47;
+		close;
+}
+
+hiddenwarp "sword_1-1" "3_blank_25_b" 161 163 0 2
+sword_1-1.gat,161,163,0	hiddenwarp	3_blank_25_b	139,{
+	set @TEMP,0;
+	random @TEMP,5;
+	goto L0;
+
+	L0:
+		if(@TEMP !=0) goto L1;
+		warp "sword_1-1.gat",162,120;
+		close;
+	L1:
+		if(@TEMP !=1) goto L2;
+		warp "sword_1-1.gat",94,120;
+		close;
+	L2:
+		if(@TEMP !=2) goto L3;
+		warp "sword_1-1.gat",94,85;
+		close;
+	L3:
+		if(@TEMP !=3) goto L4;
+		warp "sword_1-1.gat",162,85;
+		close;
+	L4:
+		warp "sword_1-1.gat",130,47;
+		close;
+}
+
+sword_1-1.gat,168,175,0	hiddenwarp	3_blank_26_a	139,{
+	set @TEMP,0;
+	random @TEMP,5;
+	goto L0;
+
+	L0:
+		if(@TEMP !=0) goto L1;
+		warp "sword_1-1.gat",162,120;
+		close;
+	L1:
+		if(@TEMP !=1) goto L2;
+		warp "sword_1-1.gat",94,120;
+		close;
+	L2:
+		if(@TEMP !=2) goto L3;
+		warp "sword_1-1.gat",94,85;
+		close;
+	L3:
+		if(@TEMP !=3) goto L4;
+		warp "sword_1-1.gat",162,85;
+		close;
+	L4:
+		warp "sword_1-1.gat",130,47;
+		close;
+}
+	
+sword_1-1.gat,169,175,0	hiddenwarp	3_blank_26_b	139,{
+	set @TEMP,0;
+	random @TEMP,5;
+	goto L0;
+
+	L0:
+		if(@TEMP !=0) goto L1;
+		warp "sword_1-1.gat",162,120;
+		close;
+	L1:
+		if(@TEMP !=1) goto L2;
+		warp "sword_1-1.gat",94,120;
+		close;
+	L2:
+		if(@TEMP !=2) goto L3;
+		warp "sword_1-1.gat",94,85;
+		close;
+	L3:
+		if(@TEMP !=3) goto L4;
+		warp "sword_1-1.gat",162,85;
+		close;
+	L4:
+		warp "sword_1-1.gat",130,47;
+		close;
+}
+
+sword_1-1.gat,168,162,0	hiddenwarp	3_blank_27_a	139,{
+	set @TEMP,0;
+	random @TEMP,5;
+	goto L0;
+
+	L0:
+		if(@TEMP !=0) goto L1;
+		warp "sword_1-1.gat",162,120;
+		close;
+	L1:
+		if(@TEMP !=1) goto L2;
+		warp "sword_1-1.gat",94,120;
+		close;
+	L2:
+		if(@TEMP !=2) goto L3;
+		warp "sword_1-1.gat",94,85;
+		close;
+	L3:
+		if(@TEMP !=3) goto L4;
+		warp "sword_1-1.gat",162,85;
+		close;
+	L4:
+		warp "sword_1-1.gat",130,47;
+		close;
+}
+	
+sword_1-1.gat,169,162,0	hiddenwarp	3_blank_27_b	139,{
+	set @TEMP,0;
+	random @TEMP,5;
+	goto L0;
+
+	L0:
+		if(@TEMP !=0) goto L1;
+		warp "sword_1-1.gat",162,120;
+		close;
+	L1:
+		if(@TEMP !=1) goto L2;
+		warp "sword_1-1.gat",94,120;
+		close;
+	L2:
+		if(@TEMP !=2) goto L3;
+		warp "sword_1-1.gat",94,85;
+		close;
+	L3:
+		if(@TEMP !=3) goto L4;
+		warp "sword_1-1.gat",162,85;
+		close;
+	L4:
+		warp "sword_1-1.gat",130,47;
+		close;
+}
+
+sword_1-1.gat,176,174,0	hiddenwarp	3_blank_28_a	139,{
+	set @TEMP,0;
+	random @TEMP,5;
+	goto L0;
+
+	L0:
+		if(@TEMP !=0) goto L1;
+		warp "sword_1-1.gat",162,120;
+		close;
+	L1:
+		if(@TEMP !=1) goto L2;
+		warp "sword_1-1.gat",94,120;
+		close;
+	L2:
+		if(@TEMP !=2) goto L3;
+		warp "sword_1-1.gat",94,85;
+		close;
+	L3:
+		if(@TEMP !=3) goto L4;
+		warp "sword_1-1.gat",162,85;
+		close;
+	L4:
+		warp "sword_1-1.gat",130,47;
+		close;
+}
+
+sword_1-1.gat,177,174,0	hiddenwarp	3_blank_28_b	139,{
+	set @TEMP,0;
+	random @TEMP,5;
+	goto L0;
+
+	L0:
+		if(@TEMP !=0) goto L1;
+		warp "sword_1-1.gat",162,120;
+		close;
+	L1:
+		if(@TEMP !=1) goto L2;
+		warp "sword_1-1.gat",94,120;
+		close;
+	L2:
+		if(@TEMP !=2) goto L3;
+		warp "sword_1-1.gat",94,85;
+		close;
+	L3:
+		if(@TEMP !=3) goto L4;
+		warp "sword_1-1.gat",162,85;
+		close;
+	L4:
+		warp "sword_1-1.gat",130,47;
+		close;
+}
+
+hiddenwarp "sword_1-1" "3_blank_28_c" 178 173 1 0
+sword_1-1.gat,178,173,0	hiddenwarp	3_blank_28_c	139,{
+	set @TEMP,0;
+	random @TEMP,5;
+	goto L0;
+
+	L0:
+		if(@TEMP !=0) goto L1;
+		warp "sword_1-1.gat",162,120;
+		close;
+	L1:
+		if(@TEMP !=1) goto L2;
+		warp "sword_1-1.gat",94,120;
+		close;
+	L2:
+		if(@TEMP !=2) goto L3;
+		warp "sword_1-1.gat",94,85;
+		close;
+	L3:
+		if(@TEMP !=3) goto L4;
+		warp "sword_1-1.gat",162,85;
+		close;
+	L4:
+		warp "sword_1-1.gat",130,47;
+		close;
+}
+
+sword_1-1.gat,178,172,0	hiddenwarp	3_blank_28_d	139,{
+	set @TEMP,0;
+	random @TEMP,5;
+	goto L0;
+
+	L0:
+		if(@TEMP !=0) goto L1;
+		warp "sword_1-1.gat",162,120;
+		close;
+	L1:
+		if(@TEMP !=1) goto L2;
+		warp "sword_1-1.gat",94,120;
+		close;
+	L2:
+		if(@TEMP !=2) goto L3;
+		warp "sword_1-1.gat",94,85;
+		close;
+	L3:
+		if(@TEMP !=3) goto L4;
+		warp "sword_1-1.gat",162,85;
+		close;
+	L4:
+		warp "sword_1-1.gat",130,47;
+		close;
+}
+
+sword_1-1.gat,181,174,0	hiddenwarp	3_blank_28_e	139,{
+	set @TEMP,0;
+	random @TEMP,5;
+	goto L0;
+
+	L0:
+		if(@TEMP !=0) goto L1;
+		warp "sword_1-1.gat",162,120;
+		close;
+	L1:
+		if(@TEMP !=1) goto L2;
+		warp "sword_1-1.gat",94,120;
+		close;
+	L2:
+		if(@TEMP !=2) goto L3;
+		warp "sword_1-1.gat",94,85;
+		close;
+	L3:
+		if(@TEMP !=3) goto L4;
+		warp "sword_1-1.gat",162,85;
+		close;
+	L4:
+		warp "sword_1-1.gat",130,47;
+		close;
+}
+
+sword_1-1.gat,179,169,0	hiddenwarp	3_blank_29_a	139,{
+	set @TEMP,0;
+	random @TEMP,5;
+	goto L0;
+
+	L0:
+		if(@TEMP !=0) goto L1;
+		warp "sword_1-1.gat",162,120;
+		close;
+	L1:
+		if(@TEMP !=1) goto L2;
+		warp "sword_1-1.gat",94,120;
+		close;
+	L2:
+		if(@TEMP !=2) goto L3;
+		warp "sword_1-1.gat",94,85;
+		close;
+	L3:
+		if(@TEMP !=3) goto L4;
+		warp "sword_1-1.gat",162,85;
+		close;
+	L4:
+		warp "sword_1-1.gat",130,47;
+		close;
+}
+
+sword_1-1.gat,179,168,0	hiddenwarp	3_blank_29_b	139,{
+	set @TEMP,0;
+	random @TEMP,5;
+	goto L0;
+
+	L0:
+		if(@TEMP !=0) goto L1;
+		warp "sword_1-1.gat",162,120;
+		close;
+	L1:
+		if(@TEMP !=1) goto L2;
+		warp "sword_1-1.gat",94,120;
+		close;
+	L2:
+		if(@TEMP !=2) goto L3;
+		warp "sword_1-1.gat",94,85;
+		close;
+	L3:
+		if(@TEMP !=3) goto L4;
+		warp "sword_1-1.gat",162,85;
+		close;
+	L4:
+		warp "sword_1-1.gat",130,47;
+		close;
+}
+
+sword_1-1.gat,182,169,0	hiddenwarp	3_blank_29_c	139,{
+	set @TEMP,0;
+	random @TEMP,5;
+	goto L0;
+
+	L0:
+		if(@TEMP !=0) goto L1;
+		warp "sword_1-1.gat",162,120;
+		close;
+	L1:
+		if(@TEMP !=1) goto L2;
+		warp "sword_1-1.gat",94,120;
+		close;
+	L2:
+		if(@TEMP !=2) goto L3;
+		warp "sword_1-1.gat",94,85;
+		close;
+	L3:
+		if(@TEMP !=3) goto L4;
+		warp "sword_1-1.gat",162,85;
+		close;
+	L4:
+		warp "sword_1-1.gat",130,47;
+		close;
+}
+
+sword_1-1.gat,183,169,0	hiddenwarp	3_blank_29_d	139,{
+	set @TEMP,0;
+	random @TEMP,5;
+	goto L0;
+
+	L0:
+		if(@TEMP !=0) goto L1;
+		warp "sword_1-1.gat",162,120;
+		close;
+	L1:
+		if(@TEMP !=1) goto L2;
+		warp "sword_1-1.gat",94,120;
+		close;
+	L2:
+		if(@TEMP !=2) goto L3;
+		warp "sword_1-1.gat",94,85;
+		close;
+	L3:
+		if(@TEMP !=3) goto L4;
+		warp "sword_1-1.gat",162,85;
+		close;
+	L4:
+		warp "sword_1-1.gat",130,47;
+		close;
+}
+
+sword_1-1.gat,181,167,0	hiddenwarp	3_blank_29_e	139,{
+	set @TEMP,0;
+	random @TEMP,5;
+	goto L0;
+
+	L0:
+		if(@TEMP !=0) goto L1;
+		warp "sword_1-1.gat",162,120;
+		close;
+	L1:
+		if(@TEMP !=1) goto L2;
+		warp "sword_1-1.gat",94,120;
+		close;
+	L2:
+		if(@TEMP !=2) goto L3;
+		warp "sword_1-1.gat",94,85;
+		close;
+	L3:
+		if(@TEMP !=3) goto L4;
+		warp "sword_1-1.gat",162,85;
+		close;
+	L4:
+		warp "sword_1-1.gat",130,47;
+		close;
+}
+
+sword_1-1.gat,181,166,0	hiddenwarp	3_blank_29_f	139,{
+	set @TEMP,0;
+	random @TEMP,5;
+	goto L0;
+
+	L0:
+		if(@TEMP !=0) goto L1;
+		warp "sword_1-1.gat",162,120;
+		close;
+	L1:
+		if(@TEMP !=1) goto L2;
+		warp "sword_1-1.gat",94,120;
+		close;
+	L2:
+		if(@TEMP !=2) goto L3;
+		warp "sword_1-1.gat",94,85;
+		close;
+	L3:
+		if(@TEMP !=3) goto L4;
+		warp "sword_1-1.gat",162,85;
+		close;
+	L4:
+		warp "sword_1-1.gat",130,47;
+		close;
+}
+
+sword_1-1.gat,183,167,0	hiddenwarp	3_blank_29_g	139,{
+	set @TEMP,0;
+	random @TEMP,5;
+	goto L0;
+
+	L0:
+		if(@TEMP !=0) goto L1;
+		warp "sword_1-1.gat",162,120;
+		close;
+	L1:
+		if(@TEMP !=1) goto L2;
+		warp "sword_1-1.gat",94,120;
+		close;
+	L2:
+		if(@TEMP !=2) goto L3;
+		warp "sword_1-1.gat",94,85;
+		close;
+	L3:
+		if(@TEMP !=3) goto L4;
+		warp "sword_1-1.gat",162,85;
+		close;
+	L4:
+		warp "sword_1-1.gat",130,47;
+		close;
+}
+
+sword_1-1.gat,176,163,0	hiddenwarp	3_blank_30_a	139,{
+	set @TEMP,0;
+	random @TEMP,5;
+	goto L0;
+
+	L0:
+		if(@TEMP !=0) goto L1;
+		warp "sword_1-1.gat",162,120;
+		close;
+	L1:
+		if(@TEMP !=1) goto L2;
+		warp "sword_1-1.gat",94,120;
+		close;
+	L2:
+		if(@TEMP !=2) goto L3;
+		warp "sword_1-1.gat",94,85;
+		close;
+	L3:
+		if(@TEMP !=3) goto L4;
+		warp "sword_1-1.gat",162,85;
+		close;
+	L4:
+		warp "sword_1-1.gat",130,47;
+		close;
+}
+
+sword_1-1.gat,177,163,0	hiddenwarp	3_blank_30_b	139,{
+	set @TEMP,0;
+	random @TEMP,5;
+	goto L0;
+
+	L0:
+		if(@TEMP !=0) goto L1;
+		warp "sword_1-1.gat",162,120;
+		close;
+	L1:
+		if(@TEMP !=1) goto L2;
+		warp "sword_1-1.gat",94,120;
+		close;
+	L2:
+		if(@TEMP !=2) goto L3;
+		warp "sword_1-1.gat",94,85;
+		close;
+	L3:
+		if(@TEMP !=3) goto L4;
+		warp "sword_1-1.gat",162,85;
+		close;
+	L4:
+		warp "sword_1-1.gat",130,47;
+		close;
+}
+
+sword_1-1.gat,181,163,0	hiddenwarp	3_blank_30_c	139,{
+	set @TEMP,0;
+	random @TEMP,5;
+	goto L0;
+
+	L0:
+		if(@TEMP !=0) goto L1;
+		warp "sword_1-1.gat",162,120;
+		close;
+	L1:
+		if(@TEMP !=1) goto L2;
+		warp "sword_1-1.gat",94,120;
+		close;
+	L2:
+		if(@TEMP !=2) goto L3;
+		warp "sword_1-1.gat",94,85;
+		close;
+	L3:
+		if(@TEMP !=3) goto L4;
+		warp "sword_1-1.gat",162,85;
+		close;
+	L4:
+		warp "sword_1-1.gat",130,47;
+		close;
+}

@@ -1,0 +1,1254 @@
+alb2trea.gat,39,50,5	script	Sailor	100,{
+	mes "[Sailor]";
+	mes "Do you wanna return?";
+	next;
+	menu "Return to Alberta",M0,"Quit",MEnd;
+
+	M0:
+		warp "alberta.gat",192,169;
+		close;
+	MEnd:
+		close;
+}
+
+alberta_in.gat,16,28,4	script	Grampa Pharmacist	61,{
+	mes "[Grampa Pharmacist]";
+	mes "Err... Who are you...?";
+	next;
+	menu "Make Potion",L0,"Talk",L1,"Information",L2,"Cancel",LEnd;
+	
+	L0:
+		mes "[Grampa Pharmacist]";
+		if(countitem(713) < 1) goto NeedBottle;
+		mes "Did you prepare all items needed?";
+		mes "Which potion do you want?";
+		next;
+		menu "Red Potion",L00,"Orange Potion",L01,"Yellow Potion",L02,"White Potion",L03,"Blue Potion",L04,"Green Potion",L05,"Nah, I change my mind",Nah;
+		
+		L00:
+			mes "[Grampa Pharmacist]";
+			if(((countitem(507) < 2) | (countitem(713) < 0)) | (Zeny < 3)) goto NeedOther;
+			set l0,507;
+			set l1,501;
+			mes "How many?";
+			next;
+			set l2,0;
+			menu "As many as I can?",L00a,"Um I will set the Numbers",L00b,"Nah, forget about it",L00c;
+			
+			L00a:
+				if(((countitem(507) < 2) | (countitem(713) < 0)) | (Zeny < 3)) goto L00ab;
+				goto L00aa;
+				
+				L00aa:
+					delitem l0,2;
+					delitem 713,1;
+					setzeny Zeny,0 - 3;
+					set l2,l2 + 1;
+					goto L00a;
+				L00ab:
+					if(l2==0) goto NeedOther;
+					getitem l1,l2;
+					goto GotMsg;
+			L00b:
+				input;
+				mes "[Grampa Pharmacist]";
+				if(Script_flag_num <= 0) goto inpCan;
+				if(((countitem(507) < 2 * Script_flag_num) || (countitem(713) < Script_flag_num)) || (Zeny < 3 * Script_flag_num)) goto NeedOther;
+				delitem 507,Script_flag_num * 2;
+				delitem 713,Script_flag_num;
+				setzeny Zeny,0 - 3 * Script_flag_num;
+				getitem 501,Script_flag_num;
+				goto GotMsg;
+
+			L00c:
+				goto MakeMenu;
+				close;
+		L01:
+			mes "[Grampa Pharmacist]";
+			if((countitem(507) < 1) || (countitem(508) < 1) || (countitem(713) < 0) || (Zeny < 5)) goto NeedOther;
+			set l0,507;
+			set l1,508;
+			set l2,502;
+			mes "How many?";
+			next;
+			set l3,0;
+			menu "As many as I can?",L01a,"Um I will set the Numbers",L01b,"Nah, forget about it",L01c;
+			
+			L01a:
+				if((countitem(507) < 1) || (countitem(508) < 1) || (countitem(713) < 0) || (Zeny < 5)) goto L01ab;
+				goto L01aa;
+
+				L01aa:
+					delitem l0,1;
+					delitem l1,1;
+					delitem 713,1;
+					setzeny Zeny,0 - 5;
+					set l3,l3 + 1;
+					goto L01a;
+				L01ab:
+					if(l3 == 0) goto NeedOther;
+					getitem l2,l3;
+					goto GotMsg;
+			L01b:
+				input;
+				mes "[Grampa Pharmacist]";
+				if(Script_flag_num <= 0) goto inpCan;
+				if(((countitem(507) < Script_flag_num) || (countitem(508) < Script_flag_num) || (countitem(713) < Script_flag_num)) || (Zeny<5*Script_flag_num)) goto NeedOther;
+				delitem 507,Script_flag_num;
+				delitem 508,Script_flag_num;
+				delitem 713,Script_flag_num;
+				setzeny Zeny,0 - 5 * Script_flag_num;
+				getitem 502,Script_flag_num;
+				goto GotMsg;
+			L01c:
+				goto MakeMenu;
+				close;
+		L02:
+			mes "[Grampa Pharmacist]";
+			if((countitem(508) < 2) || (countitem(713) < 0) || (Zeny < 10)) goto NeedOther;
+			set l0,508;
+			set l1,503;
+			mes "How many?";
+			next;
+			set l2,0;
+			menu "As many as I can?",L02a,"Um I will set the Numbers",L02b,"Nah, forget about it",L02c;
+			
+			L02a:
+				if((countitem(508) < 2) || (countitem(713) < 0) || (Zeny < 10)) goto L02ab;
+				goto L02aa;
+
+				L02aa:
+					delitem l0,2;
+					delitem 713,1;
+					setzeny Zeny,0 - 10;
+					set l2,l2 + 1;
+					goto L02a;
+				L02ab:
+					if(l2 == 0) goto NeeOther;
+					getitem l1,l2;
+					goto GotMsg;
+			L02b:
+				input;
+				mes "[Grampa Pharmacist]";
+				if(Script_flag_num <= 0) goto inpCan;
+				if(((countitem(508) < 2 * Script_flag_num) || (countitem(713) < Script_flag_num)) || (Zeny < 10 * Script_flag_num)) goto NeedOther;
+				delitem 508,Script_flag_num;
+				delitem 508,Script_flag_num;
+				delitem 713,Script_flag_num;
+				setzeny Zeny,0 - 10 * Script_flag_num;
+				getitem 503,Script_flag_num;
+				goto GotMsg;
+			L02c:
+				goto MakeMenu;
+				close;
+		L03:
+			mes "[Grampa Pharmacist]";
+			if((countitem(509) < 2) || (countitem(713) < 0) || (Zeny < 20)) goto NeedOther;
+			set l0,509;
+			set l1,504;
+			mes "How many?";
+			next;
+			set l2,0;
+			menu "As many as I can?",L03a,"Um I will set the Numbers",L03b,"Nah, forget about it",L03c;
+			
+			L03a:
+				if((countitem(509) < 2) || (countitem(713) < 0) || (Zeny < 20)) goto L03ab;
+				goto L03aa;
+
+				L03aa:
+					delitem l0,2;
+					delitem 713,1;
+					setzeny Zeny,0 - 20;
+					set l2,l2 + 1;
+					goto GotMsg;
+				L03ab:
+					if(l2 == 0) goto NeedOther;
+					getitem l1,l2;
+					goto GotMsg;
+			L03b:
+				input;
+				mes "[Grampa Pharmacist]";
+				if(Script_flag_num <= 0) goto inpCon;
+				if(((countitem(509) < 2 * Script_flag_num) || (countitem(713) < Script_flag_num)) || (Zeny < 20 * Script_flag_num)) goto NeedOther;
+				delitem 509,Script_flag_num;
+				delitem 509,Script_flag_num;
+				delitem 713,Script_flag_num;
+				setzeny Zeny,0 - 20 * Script_flag_num;
+				getitem 504,Script_flag_num;
+				goto GotMsg;
+			L03c:
+				goto MakeMenu;
+				close;
+		L04:
+			mes "[Grampa Pharmacist]";
+			if((countitem(510) < 2) || (countitem(713) < 0) || (Zeny < 30)) goto NeedOther;
+			set l0,510;
+			set l1,505;
+			mes "How many?";
+			next;
+			set l2,0;
+			menu "As many as I can?",L04a,"Um I will set the Numbers",L04b,"Nah, forget about it",L04c;
+			
+			L04a:
+				if((countitem(510) < 2) || (countitem(713) < 0) || (Zeny < 30)) goto L04ab;
+				goto L04aa;
+
+				L04aa:
+					delitem l0,2;
+					delitem 713,1;
+					setzeny Zeny,0 - 30;
+					set l2,l2 + 1;
+					goto GotMsg;
+				L04ab:
+					if(l2 == 0) goto NeetOther;
+					getitem l1,l2;
+					goto GotMsg;
+			L04b:
+				input;
+				mes "[Grampa Pharmacist]";
+				if(Script_flag_num <= 0) goto inpCan;
+				if(((countitem(510) < 2 * Script_flag_num) || (countitem(713) < Script_flag_num)) || (Zeny < 30 * Script_flag_num)) goto NeedOther;
+				delitem 510,Script_flag_num;
+				delitem 510,Script_flag_num;
+				delitem 713,Script_flag_num;
+				setzeny Zeny,0 - 30 * Script_flag_num;
+				getitem 505,Script_flag_num;
+				goto GotMsg;
+			L04c:
+				goto MakeMenu;
+				close;
+		L05:
+			mes "[Grampa Pharmacist]";
+			if((countitem(511) < 2) || (countitem(713) < 0) || (Zeny < 3)) goto NeedOther;
+			set l0,511;
+			set l1,506;
+			mes "How many?";
+			next;
+			set l2,0;
+			menu "As many as I can?",L05a,"Um I will set the Numbers",L05b,"Nah, forget about it",L05c;
+			
+			L05a:
+				if((countitem(511) < 2) || (countitem(713) < 0) || (Zeny < 3)) goto L05ab;
+				goto L05aa;
+
+				L05aa:
+					delitem l1,2;
+					delitem 713,1;
+					setzeny Zeny,0 - 3;
+					set l2,l2 + 1;
+					goto GotMsg;
+				L05ab:
+					if(l2 == 0) goto NeedOther;
+					getitem l1,l2;
+					goto GotMsg;
+			L05b:
+				input;
+				mes "[Grampa Pharmacist]";
+				if(Script_flag_num <= 0) goto inpCan;
+				if(((countitem(511) < 2 * Script_flag_num) || (countitem(713) < Script_flag_num)) || (Zeny < 3 * Script_flag_num)) goto NeedOther;
+				delitem 511,Script_flag_num;
+				delitem 511,Script_flag_num;
+				delitem 713,Script_flag_num;
+				setzeny Zeny,0 - 3 * Script_flag_num;
+				getitem 506,Script_flag_num;
+				goto GotMsg;
+			L05c:
+				goto MakeMenu;
+				close;
+
+		NeedBottle:
+			mes "[Grampa Pharmacist]";
+			mes "Don't you see I need at least 1 Empty Bottle to fill! Why did you come without it! You idiot!!";
+			close;
+			
+			NeedOther:
+				mes "[Grampa Pharmacist]";
+				mes "You rascal! What did you expect from me after you even didn't bring all items! Get lost!";
+				close;
+
+				inpCan:
+					mes "[Grampa Pharmacist]";
+					mes "Deal canceled.";
+					close;
+
+				MakeMenu:
+					mes "[Grampa Pharmacist]";
+					mes "What did you say?! You little punk... *spits* Get the heck out of here!";
+					close;
+
+					GotMsg:
+						mes "[Grampa Pharmacist]";
+						mes "Here you are. Take it. But keep in mind! Overdose could kill you.";
+						close;
+	L1:
+		mes "[Grampa Pharmacist]";
+		mes "You can cure disease with medicine but you have to be careful with medicine. Otherwise you could be addicted...";
+		next;
+		mes "[Grampa Pharmacist]";
+		mes "Pssssst... I am too old to talk this long.";
+		next;
+		mes "[Grampa Pharmacist]";
+		mes "Anyway, a potion is a medicine which can assist you when you are out of physical energy. That's all.";
+		close;
+	L2:
+		mes "[Grampa Pharmacist]";
+		mes "Gasp... What an annoying young one... Fine, I will explain how the potions work for you.";
+		next;
+		mes "[Grampa Pharmacist]";
+		mes "You can consume nomal hearbs alone, but if you consume them after proccesing it into a potion, you will be able to recover more energy in the same time.";
+		next;
+		mes "[Grampa Pharmacist]";
+		mes "I am the one and only one who can make potions out of herbs. There is a......fee for my effort....!";
+		next;
+		mes "[Grampa Pharmacist]";
+		mes "Red Potion - ^00FFFF2 Red Herb, 1 Empty Bottle, Fee 3 Zeny.";
+		next;
+		mes "[Grampa Pharmacist]";
+		mes "Orange Potion - ^00FFFF1 Red Herb, 1 Yellow Herb, 1 Empty Bottle, Fee 5 Zeny.";
+		next;
+		mes "[Grampa Pharmacist]";
+		mes "Yellow Potion - ^00FFFF2 Yellow Herb, 1 Empty Bottle, Fee 10 Zeny.";
+		next;
+		mes "[Grampa Pharmacist]";
+		mes "White Potion - ^00FFFF2 White Herb, 1 Empty Bottle, Fee 20 Zeny.";
+		next;
+		mes "[Grampa Pharmacist]";
+		mes "Blue Potion - ^00FFFF2 Blue Herb, 1 Empty Bottle, Fee 30 Zeny.";
+		next;
+		mes "[Grampa Pharmacist]";
+		mes "Green Potion - ^00FFFF2 Grren Herb, 1 Empty Bottle, Fee 3 Zeny.";
+		close;
+	LEnd:
+		mes "[Grampa Pharmacist]";
+		mes "Were you about to say something?";
+		close;
+}
+
+alberta_in.gat,20,183,6	script	Young Man	49,{
+	mes "[Merchant]";
+	mes "People say Gungnir, the legendary weapon, never miss the target...Wouldn'tit be great if it was true?";
+	close;
+}
+
+alberta_in.gat,133,55,6	script	Louitz	84,{
+	mes "[Louitz]";
+	mes "What's the matter?";
+	next;
+	menu "Talk",Talk,"Cancel",Cancel;
+	
+	Talk:
+		mes "[Louitz]";
+		mes "I'd stayed in Geffen to find Magic Tools for a while. In Geffen, I heard the Rumor about the Mad Scientist.";
+		next;
+		mes "[Louitz]";
+		mes "With Great Interest, I tried to meet him several times and finally I did....but it was no use...because he was too consumed by his work; he didn't even look at me.";
+		next;
+		mes "[Louitz]";
+		mes "Now, I still remember what I heard in his murmuring: 'Karvodainirol... Detrimindexta...'";
+		next;
+		mes "[Louitz]";
+		mes "At first, I thought it's just useless murmur, but now I realised those things are new Solutions totally different from Water.";
+		close;
+	Cancel:
+		mes "[Louitz]";
+		mes "Um... Now I've seen everything.";
+		close;
+}
+
+alberta.gat,53,39,8	script	Merchant	100,{
+	mes "[Merchant]";
+	mes "Oh, you look like a stranger, huh?";
+	next;
+	mes "[Merchant]";
+	mes "Welcome to Alberta. By the way, excuse me for my look of lack of intrest. I am thinking of some great plans.";
+	next;
+	mes "[Merchant]";
+	mes "I happened to hear there is a store talking about unique armors which resist magic in Geffen. If I can circulate them in bulk, I will be rich in no time.";
+	close;
+}
+
+alberta.gat,58,80,8	script	Merchant	99,{
+	mes "[Merchant]";
+	mes "We merchants can open a roadside stand and do business. With the discount skill, we can buy goods really cheap from the stores in towns and load them in our carts we rent. Then we can go anywhere and making money.";
+	next;
+	mes "[Merchant]";
+	mes "This way, business is more convenient and safe. Don't fall asleep though it's too eaay.";
+	close;
+}
+
+alberta.gat,62,156,2	script	Phina	102,{
+	mes "[Phina]";
+	mes "This one time, I was walking in the forest and I saw this little green piece of grass sticking out on the ground.";
+	next;
+	mes "[Phina]";
+	mes "It was soooo cute that I wanted to touch it. And then you know what happened?. The grass actualy slapped my hand.";
+	next;
+	mes "[Phina]";
+	mes "I was so surprised so I backed off a bit. Then I realized it was not grass but a very small animal.";
+	next;
+	mes "[Phina]";
+	mes "Don't startle them even by mistakes. Even calm animals can be very dangerouswhen they are angry";
+	close;
+}
+
+alberta.gat,93,174,2	script	Grandma	103,{
+	mes "[Grandma]";
+	mes "Some time ago, a ship drifted in at the harbor of Alberta.";
+	next;
+	mes "[Grandma]";
+	mes "Holding onto a little hope of survivors, some of town's young people walked into the ship, but they all ran out terrified. They said the corpses are walking around inside the ship.";
+	next;
+	mes "[Grandma]";
+	mes "Oh~ and marine organisms, which they newer saw before, were packed inside, so young people couldn't even get pass the entrance area of the ship...";
+	next;
+	mes "[Grandma]";
+	mes "So we can't do anything about that ominous-looking ship but just leave it. We were just hopping some day it will sink or drift away and then Cool Event Corp. heard the rumor.";
+	next;
+	mes "[Grandma]";
+	mes "I wonder how on earth they knew about the ship. Anyway, they paid the city a huge amount for letting them handle the matter.";
+	next;
+	mes "[Grandma]";
+	mes "Now they recruit all those young people from all over the places to wipe out the monsters. Well... It looks like Cool Event Corp. persuaded the young to test thier ability. It might be a good experience as a young person...";
+	next;
+	mes "[Grandma]";
+	mes "But it's not worth risking one's life...";
+	close;
+}
+
+alberta.gat,97,51,7	script	Merchant	84,{
+	mes "[Merchant]";
+	mes "When you travel all around the world, you will hear of many rumors. One of Rumors I've heard was really interesting. There are cards which seals the power of monsters within.";
+	next;
+	mes "[Merchant]";
+	mes "If anybody happens to get a hand on those cards, he will obtain the power of monsters... Bah, I don't believe it though."; 
+	close;
+}
+
+alberta.gat,117,135,7	script	Kid	96,{
+	mes "[Kid]";
+	mes "Heh? Is this your first time in Alberta? Heh... you don't like dolls, don't you? Boys don't like girlish stuff. I like dolls a looooooooot!";
+	next;
+	mes "[Kid]";
+	mes "I mean~ I want a new doll~I wish my dad will buy me a doll for the birthday present.";
+	next;
+	mes "[Kid]";
+	mes "I am wondering what kind of doll he will buy... I hope it will be a yoyo the monkey doll. Heh~ Cute yoyo doll. So cute.";
+	close;
+}
+
+alberta.gat,131,139,4	script	Drunken old man	54,{
+	mes "[Drunken old man]";
+	mes "Hiccup... Huh?... Wh-what are you staring at? Get lost!!";
+	next;
+	menu "Stay",L0,"Leave him alone",L1;
+	
+	L0:
+		mes "[Drunken old man]";
+		mes "Hahahaha hiccup... So you got some nerve...";
+		next;
+		mes "[Drunken old man]";
+		mes "he... I look worthless now, but I used to be a sailor of the infamous `Going Mary'.";
+		next;
+		menu "Is that a ship?",L0a,"Really? No kidding!",L0b;
+		
+		L0a:
+			mes "[Drunken old man]";
+			mes "Come again? Never heard of it?";
+			next;
+			mes "[Drunken old man]";
+			mes "Stupid! Everybody knew the notorious pirateship `Going Mary'! hiccup~";
+			next;
+			mes "[Drunken old man]";
+			mes "Ah~ my ol'days... Only-only if we hadn't met that STORM... hiccup";
+			next;
+			mes "[Drunken old man]";
+			mes "AH~ Captian. I miss our cap'n more than anything... No foe survired before cap'n's sword.";
+			next;
+			mes "[Drunken old man]";
+			mes "CAPTIAN~~~!!! HICCUP~ You know He swung his sword like this... then... THEN!!!";
+			next;
+			mes "[Drunken old man]";
+			mes "Not only the targeted bastard but also enemies next were surrounded by flames. You know, now I think of it, the sword should've had some sort of mysterious power within.";
+			next;
+			mes "[Drunken old man]";
+			mes "Phew~~ sob sob... God I miss everyone... Now I'm depressed. Go away now.";
+			close;
+		L0b:
+			mes "[Drunken old man]";
+			mes "CAPTIAN~~~!!! HICCUP~ You know He swung his sword like this... then... THEN!!!";
+			next;
+			mes "[Drunken old man]";
+			mes "Not only the targeted bastard but also enemies next were surrounded by flames. You know, now I think of it, the sword should've had some sort of mysterious power within.";
+			next;
+			mes "[Drunken old man]";
+			mes "Phew~~ sob sob... God I miss everyone... Now I'm depressed. Go away now.";
+			close;
+	L1:
+		mes "[Drunken old man]";
+		mes "That's right! Go AWAY~";
+		close;
+}
+
+alberta.gat,189,151,5	script	Sailor	100,{
+	mes "[Sailor]";
+	mes "Where you wanna go?";
+	next;
+	menu "Sunken Ship -> 250 Zeny",M0,"Izlude Marina -> 500 Zeny",M1,"Turtle Island -> 1850",M2,"Quit",L0c;
+	
+	M0:
+		if(Zeny < 250) goto NoZenyM0;
+		setzeny Zeny,0 - 250;
+		warp "alb2trea.gat",43,53;
+		close;
+
+		NoZenyM0:
+			mes "[Sailor]";
+			mes "I'm sorry but I told you I would need 250 Zeny, and it looks like you dont have it.";
+			goto NoZeny;
+	M1:
+		if(Zeny < 500) goto NoZenyM1;
+		setzeny Zeny,0 - 500;
+		warp "izlude.gat",176,182;
+		close;
+
+		NoZenyM1:
+			mes "[Sailor]";
+			mes "I'm sorry but I told you I would need 500 Zeny, and it looks like you dont have it.";
+			goto NoZeny;
+	M2:
+		mes "[Sailor]";
+		if(Zeny < 1850) goto NoZenyM2;
+		setzeny Zeny,0 - 1850;
+		warp "tur_dun01.gat",159,37;
+		close;
+
+		NoZenyM2:
+			mes "[Sailor]";
+			mes "I'm sorry but I told you I would need zzz Zeny, and it looks like you dont have it.";
+			goto NoZeny;
+
+		NoZeny:
+			mes "Please come back later when you have this.";
+			close;
+
+	L0c:
+		close;
+}
+
+alberta.gat,190,173,4	script	Phelix	85,{
+	if(event_zelopy == 1) goto EveZel;
+	mes "[Phelix]";
+	mes "What the hell are you doing here?";
+	next;
+	mes "[Phelix]";
+	mes "There is nothing you can get for free in this ship, if you want to get rewarded, Do work!!";
+	next;
+	mes "[Phelix]";
+	mes "Hmm, however if you bring me 10 Jellopies I will consider to give you 1 potion.";
+	next;
+	mes "[Phelix]";
+	mes "Well, if it's too much burden on you, 3 Jellopies are affordable for 1 sweet potato.";
+	next;
+	mes "[Phelix]";
+	mes "If you have a interest in my offer, catch me later with stuffs required.";
+	set event_zelopy,1;
+	close;
+	
+	EveZel:
+		mes "[Phelix]";
+		mes "Hmm.. you want to exchange jellopies to Red Potion or Sweet Potato? Well.. What do you want to get?";
+		next;
+		menu "Red Potion please",M0,"Sweet Potato please",M1;
+
+		M0:
+			mes "[Phelix]";
+			mes "Ok then let me take a look on the stuffs you brought..";
+			next;
+			mes "[Phelix]";
+			if(countitem(909) < 10) goto NoJel4Red;
+			set l0,909;
+			set l1,501;
+			mes "Ho...Well done.";
+			mes "How many potions do you want to get?";
+			next;
+			set l2,0;
+			menu "As many as I can, please",M00,"I want to set numbers",M01,"Well I want to cancel",M0End;
+
+			M00:
+				if(countitem(909) < 10) goto M00b;
+				goto M00a;
+
+				M00a:
+					delitem 909,10;
+					set l2,l2 + 1;
+					goto M00;
+				M00b:
+					if(l2 == 0) goto NotEnoJel4Red;
+					getitem l1,l2;
+					goto GotMsgJel4Red;
+			M01:
+				mes "[Phelix]";
+				mes "Write numbers less than 100, OK? If you change your mind, just write '0'.";
+				next;
+//				mes "I assume you can get " + gap + " for the maximum.";
+
+				inpAgaRed:
+					input;
+					mes "[Phelix]";
+					if(Script_flag_num <= 0) goto inpCan1;
+					if(Script_flag_num > 100) goto inpErrRed;
+					if(countitem(909) < Script_flag_num * 10) goto NotEnoJel4Red;
+					delitem 909,Script_flag_num * 10;
+					getitem 501,Script_flag_num;
+					goto GotMsgJel4Red;
+
+					inpCan1:
+						mes "[Phelix]";
+						mes "Come again whenever you want.";
+						close;
+
+					NotEnoJel4Red:
+						mes "[Phelix]";
+						mes "Well well you don't have enough Jellopies.";
+						next;
+						mes "[Phelix]";
+						mes "Go get more Jellopies for your convenience.";
+						close;
+
+					inpErrRed:
+						mes "[Phelix]";
+						mes "It is unfair demand, I can't give you more than 100 at one time. Set the numbers again.";
+						next;
+						goto inpAgaRed;
+
+					GotMsgJel4Red:
+						mes "[Phelix]";
+						mes "There you go~! Potions I promised. Hopefully they will be useful for you.";
+						close;
+			M02:
+				mes "[Phelix]";
+				mes "No problem, see you next time.";
+				close;
+
+			NoJel4Red:
+				mes "[Phelix]";
+				mes "Ouch! It's not enough. I said 10 Jellopies go with 1 Red Potion.. Do you understand?";
+				close;
+		M1:
+			mes "[Phelix]";
+			mes "Ok then let me take a look on the stuffs you brought here..";
+			next;
+			mes "[Phelix]";
+			if(countitem(909) < 3) goto NoJel4SwP;
+			set l0,909;
+			set l1,516;
+			mes "Ho...well done.";
+			mes "How many potatoes do you want?";
+			next;
+			set l2,0;
+			menu "As many as I can, please",M10,"I prefer to set numbers",M11,"I want to cancel",MEnd;
+
+			M10:
+				if(countitem(909) < 3) goto M10b;
+				goto M10a;
+
+				M10a:
+					delitem l0,3;
+					set l2,l2 + 1;
+					goto M10;
+				M10b:
+					if(l1 == 0) goto NotEnoJel4SwP;
+					getitem l1,l2;
+					goto GotMsgJel4SwP;
+			M11:
+				mes "[Phelix]";
+				mes "Write numbers less than 100. If you change your mind, just write '0'.";
+				next;
+//				mes "I assume you can get " + gap + " for the maximum.";
+				next;
+
+				inpAgaSwP:
+					input;
+					mes "[Phelix]";
+					if(Script_flag_num <= 0) goto inpCan2;
+					if(Script_flag_num > 100) goto inpErrSwP;
+					if(countitem(909) < Script_flag_num * 3) goto NotEnoJel4SwP;
+					delitem 909,Script_flag_num * 3;
+					getitem 516,Script_flag_num;
+					goto GotMsgJel4SwP;
+
+					inpCan2:
+						mes "Well see you next time.";
+						close;
+					NotEnoJel4SwP:
+						mes "Well well you don't have enough Jellopies.";
+						next;
+						mes "[Phelix]";
+						mes "Go get more Jellopies for your convenience.";
+						close;
+					inpErrSwP:
+						mes "It is unfair demand, I can¡¯t give you more than 100 at one time. Set the numbers again.";
+						next;
+						goto inpAgaSwP;
+
+					GotMsgJel4SwP:
+						mes "There you go~! Sweet Potatoes I promised. Hopefully they will efficiently aid you in fights.";
+						close;
+
+			M12:
+				mes "[Phelix]";
+				mes "Come again.";
+				close;
+
+			NoJel4SwP:
+				mes "Ouch! It's not enough. I said 3 Jellopies go with 1 sweet potato.. Do you understand?";
+				close;
+}
+
+alberta.gat,195,151,3	script	Paul	86,{
+	mes "[Paul]";
+	mes "Good Day, Ladies and Gentleman. Would you like to join exploration of Sunken Ship, the special event provided by Cool Event Corp.?";
+	next;
+	mes "[Phelix]";
+	mes "Oh! Before you join, I would like to suggest you one thing neccessary. Don't dare to challange if you are not that strong ~.";
+	next;
+	mes "[Paul]";
+	mes "So, Are you ready? Ok then, please choose your way.";
+	mes "Ouch! Adminssion fee is 200 Zeny.";
+	next;
+	menu "Enter",M0,"Quit",MEnd;
+	
+	M0:
+		if(Zeny < 200) goto NoZeny;
+		setzeny Zeny,0 - 200;
+		warp "alb2trea.gat",62,69;
+		close;
+	MEnd:
+		mes "[Paul]";
+		mes "Please come later.";
+		close;
+
+		NoZeny:
+			mes "[Paul]";
+			mes "I'm sorry but i told you i would need 200 Zeny, and it looks like you dont have it.";
+			next;
+			mes "[Phelix]";
+			mes "Please come back later when you have this";
+			close;
+}
+
+alberta.gat,90,71,3	script	Soda Man	89,
+{
+	mes "[Soda Man]";
+	mes "Ummm.... delicious....";
+	next;
+	mes "[Soda Man]";
+	mes "Wait! Don't bother me right now.  Hmm? What am I doing you ask?  Well isn't it obvious what I'm doing?";
+	mes "Look at this! I've mixed sugar and soda together in this container.  Watch what happens when I heat it up.";
+	next;
+	mes "[Soda Man]";
+	mes "The two ingredients will melt soon and intermix.  When the color of the mixture turns brown, we have to stop heating it.";
+	mes "At that point it will have a marshmallow consistency.";
+	next;
+	mes "[Soda Man]";
+	mes "You see what I am talking about now? Do you think it's valuable?........ What?..... No?.....";
+	mes "Hmm... then what about the story of the old man who almost conquered ^5555FFTurtle Island^000000?";
+	next;
+	mes "[Soda Man]";
+	mes "Go to the inn and you'll find an old drunkard there.  When you speak to him at first, it may seem like he's taliking nonsense.";
+	mes "But be patient and if you listen to his words carefully you may be able to pick up some usefull information.";
+	next;
+	mes "[Soda Man]";
+	mes "Oh, and there is a letter on the table inside of that old man's room.  It's a scary story about Turtle Island.";
+	close;
+}
+
+alberta.gat,247,123,5	script	Gotanblue	709,
+{
+	if(TURTLE == 1) goto L_Turtle;
+	mes "[Gotanblue]";
+	mes "Ha ha! The sea seems endless!! We cannot begin to grasp it's size merely by gazing at it from land....";
+	next;
+	mes "[Gotanblue]";
+	mes "Do you know what I mean?.....";
+	close;
+
+L_Turtle:
+	mes "[Gotanblue]";
+	mes "Oh! Your eyes.... they tell me everything!! You must have been sent from that drunken old man!";
+M_Menu:
+	next;
+	menu "-Tell me about Turtle Island.",M_1, "-How Can I get there?",M_2, "-End Conversation",M_End;
+
+	M_1:
+		mes "[Gotanblue]";
+		mes "So you wanna know about Turtle Island?... You think it's a great place?... Do you like it that much?...";
+		next;
+		mes "[Gotanblue]";
+		mes "Well let me tell you something....";
+		next;
+		mes "[Gotanblue]";
+		mes "TURTLE ISLAND TOOK THE LIVES OF MY CLOSEST FRIENDS!!";
+		next;
+		mes "[Gotanblue]";
+		mes "Can you POSSIBLY understand??.........";
+		next;
+		mes "[Gotanblue]";
+		mes "It all happened a few decades ago....";
+		next;
+		mes "[Gotanblue]";
+		mes "^5555FFJornadan Niliria^000000 and our comrades set off on a journey to find out if the legends about the island were true.";
+		next;
+		mes "[Gotanblue]";
+		mes "It was summer when I was approached to become a member of Jornadan's team.";
+		mes "I was only 20 then, and it was a huge honor for me to be a part of such a well respected group of men.";
+		next;
+		mes "[Gotanblue]";
+		mes "Jornadan Niliria was a great treasure hunter, I was the best seaman of the bunch, and the others were all the very best at what they did.";
+		next;
+		mes "[Gotanblue]";
+		mes "We decided to start our great adventure here, in Alberta.  This was because of a clue we found that put the location of Turtle Island near Alberta.";
+		next;
+		mes "[Gotanblue]";
+		mes "We were all very exited and full of hope! We left everything behind and set sail to seek Turtle Island!";
+		mes "We sailed all day and all night.  We eventually ran adrift, and could do nothing but sit and wait as the days passed.....";
+		next;
+		mes "[Gotanblue]";
+		mes "Then one day... without warning... we were surrounded by a tremendously thick blanket of fog!!";
+		mes "It was impossible to see anything past the length of your own arm!";
+		next;
+		mes "[Gotanblue]";
+		mes "We could not tell which way was East and which way was West.  But it didn't matter... for we were all exhausted at that point.";
+		next;
+		mes "[Gotanblue]";
+		mes "Then what we feared most happened.  A huge rock formation piereced through the fog right in front of us!";
+		mes "There was no way to avoid it and we crashed violently into it, severly damaging our ship!!";
+		next;
+		mes "[Gotanblue]";
+		mes "Amazingly the ship held together and we were able to continue on.";
+		next;
+		mes "[Gotanblue]";
+		mes "Then like a beam of energy descending down from the heavens, the first ray of sunlight we had seen in weeks piereced through the fog onto our battered ship.";
+		next;
+		mes "[Gotanblue]";
+		mes "And like magic the fog lifted to reveal what we had been searching so long and hard for.... that legendary place.... TURTLE ISLAND!!!!";
+		next;
+		mes "[Gotanblue]";
+		mes "We set up camp immediately and rested our weary bodies.  A few days later we began to extensively search the island.";
+		mes "What we found was shocking! Apparently someone had found the island before us.  He left a very well kept journal of his expidition.";
+		next;
+		mes "[Gotanblue]";
+		mes "According to his journal, the man had come by himself to find the island.  Unfortunatley we could not find him anywhere.";
+		next;
+		mes "[Gotanblue]";
+		mes "Even though someone had beaten us to Turtle Island, we still felt that it was an accomplishment to have made it to the island.";
+		mes "We continued to explore the island and find out as much about it as we could.";
+		next;
+		mes "[Gotanblue]";
+		mes "A particular artifact caught our interest.  It was mentioned in that man's journal....";
+		mes "Oh, now I remeber his name... ^5555FF'Won'^000000... apparently a great sword master....";
+		next;
+		mes "[Gotanblue]";
+		mes "Anyway, he wrote about a '^FF5555Jewel Fragment'^000000 of some kind.  He described it as, 'the most beautifull thing in the world'.";
+		next;
+		mes "[Gotanblue]";
+		mes "We became intent on finding that jewel no matter what.  Day after day we searched for it.  Months passed.";
+		mes "But even with Won's journal records, we were not able to find the jewel fragment.  We had no choice but to give up.";
+		next;
+		mes "[Gotanblue]";
+		mes "So we packed up our belongings and headed home.  Again we passed througth the horrible dense fog.";
+		mes "After a month of sailing our journey was near its end... or so we thought.";
+		next;
+		mes "[Gotanblue]";
+		mes "We spotted land and I breathed a sigh of relief... unfortunatley that feeling of relief turned into bewilderment as I realized that..... that....";
+		next;
+		mes "[Gotanblue]";
+		mes "IT WAS TURTLE ISLAND!!! We had landed on the other side of the island! We had no idea how it happened but we immediatley cast off once again.";
+		next;
+		mes "[Gotanblue]";
+		mes "And as if some foul curse and been placed on our group, we again found ourselves on the shores of Turtle Island.";
+		mes "Time after time we attempted to flee the island only to find ourselves back on it.  A whole year passed and still, we were trapped!";
+		next;
+		mes "[Gotanblue]";
+		mes "It was beyond reason.... We had tried every possible path.... Our spirits were broken, our hopes were crushed....";
+		mes "And one by one, my comrades fell, no longer having the strength to find a way home....";
+		next;
+		mes "[Gotanblue]";
+		mes "CURSED ISLAND!!!!!";
+		next;
+		mes "[Gotanblue]";
+		mes "As you can see only I and Jornadan were able to make it out alive.  By pure luck we made back to Alberta....";
+		next;
+		mes "[Gotanblue]";
+		mes "(~sob~sob~sob)... I appologize... I'm am still very emotional about it after all these years... well that is all I have to say about Turtle Island.";
+		goto M_Menu;
+
+	M_2:
+		mes "[Gotanblue]";
+		mes "What's this? After my terrifying story about Turtle Island you still want to got there? You're not at all scared??";
+		next;
+		mes "[Gotanblue]";
+		mes "So be it... but you will need me as your guide and that will cost 10,000 zeny!";
+		next;
+		menu "Turtle Island -> 10000 zeny",sM_1, "Cancel",sM_End;
+
+		sM_1:
+			if(Zeny < 10000) goto sL_Zeny;
+			mes "[Gotanblue]";
+			mes "Alright!! You've made your choice! With my experience we will get to Turtle Island without any problems.";
+			mes "I admire your fighting spirit.  Carry it with you always!";
+			next;
+			mes "^5555FF(you and Gotanblue climb onboard his little steamboat)^000000";
+			next;
+			mes "[Gotanblue]";
+			mes "We are now heading towards Turtle Island.  Let us go withouth fear!!";
+			next;
+			mes "^5555FF(~choo~choooo~)^000000";
+			next;
+			set Zeny,0-10000;
+			warp "tur_dun01.gat",154,39;
+			close;
+
+			sL_Zeny:
+				mes "[Gotanblue]";
+				mes "What's this? I said 10000 zeny.  I will not guide you for less.  Good day!";
+				close;
+		sM_End:
+			mes "[Gotanblue]";
+			mes "A very good choice!! Turtle Island is a DREADFULL and EVIL place!";
+			mes "When I take people there, I feel as if I'm leading them to their DEATHS!";
+			close;
+
+	M_End:
+		mes "[Gotanblue]";
+		mes "To this day, Turtle Island is shrowded in mystery.  It is extremely hard to find, and almost impossible to escape from.";
+		mes "If you do not want to suffer great despair, then leave the truth behind Turtle Island as it is.... unknown....";
+		close; 
+}
+
+alberta_in.gat,23,104,2	script	Turtle Grandpa	120,
+{
+	mes "[Turtle Grandpa]";
+	mes "~Buuurrrpp!!!~ Oops...";
+	next;
+	mes "[Turtle Grandpa]";
+	mes "It's beyond me why people seem to think that Alberta is the center of world trade.";
+	mes "I mean, this place doesn't even have a decent bar for crying out loud!!";
+	next;
+	mes "[Turtle Grandpa]";
+	mes "Why is it that I have to resort to drinking in a place like this??";
+	next;
+	menu "-Tell me about Turtle Island.",M_0, "-How can I get there?",M_1, "-End conversation.",M_End;
+
+	M_0:
+		mes "[Turtle Grandpa]";
+		mes "There is an enormous stash of treasure hidden on Turtle Island.";
+		mes "There is also a special potion that can increase a person's lifespan on that island......";
+		next;
+		mes "[Turtle Grandpa]";
+		mes "There are so many myths and legends about the island, that no one even knows for sure if Turtle Island exist.";
+		next;
+		mes "[Turtle Grandpa]";
+		mes "I for one believe it does.... it HAS TOO!!......";
+		next;
+		mes "[Turtle Grandpa]";
+		mes "If you are any sort of seaman, if you have a spirit for adventure, and if you have the heart to become a great treasure hunter....";
+		mes "Then you may be worthy of the information I have to offer...";
+		next;
+		menu "-(~eyes twinkle~)",sM_0, "-Heck Ya! Gimme that information.",sM_1;
+
+		sM_0:
+			mes "[Turtle Grandpa]";
+			mes "His name was ^5555FFJornadan Niliria^000000.  Jornadan and his ten comrades set off on a journey to find the legendary Turtle Island.";
+			next;
+			mes "[Turtle Grandpa]";
+			mes "At first they had no idea where the island was.  They were ambitious and worked extemely hard to gather clues on the whereabouts of the island.";
+			next;
+			mes "[Turtle Grandpa]";
+			mes "These men were very strong, especially Jornadan.  He was so strong in fact, that his simple kicks were as powerfull as a level 10 bash!!!";
+			next;
+			mes "[Turtle Grandpa]";
+			mes "He could catch an arrow in one hand while healing a comrade with the other, all during the middle of a battle!";
+			next;
+			mes "[Turtle Grandpa]";
+			mes "Heh heh.  Well, it's just a rumor so take it for what it's worth.  As I was saying....";
+			next;
+			mes "[Turtle Grandpa]";
+			mes "After searching tirelessly Jornadan and his crew eventually found the famed, Turtle Island.";
+			next;
+			mes "[Turtle Grandpa]";
+			mes "But for reasons unknown, the crew became stranded on the island forever!!";
+			mes "Although I do not know why or how it happened, there IS one person that does.";
+			next;
+			mes "[Turtle Grandpa]";
+			mes "Go the docks on the east end of town.  Look for a scholar named.... ^FF3333Jornadan^000000... ^FF3333Niliria^000000...";
+			mes "Speak to him.  He should be able to tell you more..... ";
+			next;
+			mes "[Turtle Grandpa]";
+			mes "Oh! One more thing... look for his '^5555FFjournal^000000'.  He usually has it close by.  It's definately an interesting read.";
+			set TURTLE, 1;
+			set JORNADAN, 1;
+			close;
+		sM_1:
+			mes "[Turtle Grandpa]";
+			mes "No way! I have no interest in speaking with someone with greed in his/her heart!";
+			next;
+			mes "[Turtle Grandpa]";
+			mes "Get OUT of my sight!!! GO HOME!";
+			next;
+			mes "[Turtle Grandpa]";
+			mes "What's this?? You're still here?..... GO! GO AWAY!!............";
+			close;
+
+	M_1:
+		mes "[Turtle Grandpa]";
+		mes "It's is extremely hard to find, and even more difficult to reach.  The likelyhood of returning home is slim at best....";
+		next;
+		mes "[Turtle Grandpa]";
+		mes "Actually..... IT'S IMPOSSIBLE!!!!";
+		next;
+		mes "[Turtle Grandpa]";
+		mes "Yet you still want to go there??";
+		next;
+		mes "[Turtle Grandpa]";
+		mes "I want to warn you about the dangers of going there.... but.... I feel so dizzy..... wooah..... it must be the Vodka....";
+		next;
+		mes "[Turtle Grandpa]";
+		mes "Anywho, if you go the docks you'll find a fat, old, sailor.  His name is ^5555FFGotanblue^000000.";
+		mes "Tell him I sent you and maybe he'll tell you how to get to Turtle Island.  Well good luck.";
+		close;
+
+	M_End:
+		mes "[Turtle Grandpa]";
+		mes "whooops......";
+		next;
+		mes "!!KA-PLOP!!(collapses on the floor)";
+		next;
+		mes "[Turtle Grandpa]";
+		mes "he he he.... lookee me.... I'm a fish... I'm drunk like a fish..... enough for today..... ~ZZZZZzzzz~";
+		close;
+}
+
+alberta_in.gat,17,101,1	script	Letter of an explorer	111,
+{
+	mes "~ The letter reads... ~";
+	mes "- O/X/XOVX -";
+	mes "If you find this letter, it means that our expidition to Turtle Island has failed.  Please inform the others...";
+	next;
+	mes "~ continued...~";
+	mes "As of now, only half the number of our crew members are left.  Our food supply will only last for ten more days.  It is a grave situation we are facing....";
+	next;
+	mes "~ continued...~";
+	mes "- V/O/XOVX -";
+	mes "It seems my letters did not make it to the outside world, and have instead come back to me.... This damn island is CURSED!! Oh God.....";
+	next;
+	mes "~ continued...~";
+	mes "GOD FORSAKEN ISLAND!! There is nothing left to eat..... help... me... please.... HELP ME!!";
+	next;
+	mes "~ continued...~";
+	mes "- V/X/XOVX -";
+	mes "^5555FF- This section is serverly crumpled and tattered. -^000000";
+	mes "^5555FF- You are unable to read it. -^000000";
+	close;
+}
+
+alberta.gat,248,90,1	script	Jornadan Niliria	121,
+{
+	mes "[Jornadan Niliria]";
+	mes "Sometimes I think that the world around me is ever changing.";
+	mes "When I view the land it seems different, when I look up at the sky it too seems different....";
+	next;
+	mes "[Jornadan Niliria]";
+	mes "The way that Alberta and Turtle Island are different.  Hah hah hah....";
+	next;
+	menu "-About Turtle Island.",M_0, "-Um, did you get confused with Al De Baran?",M_1, "-End Conversation.",M_End;
+
+	M_0:
+		mes "[Jornadan Niliria]";
+		mes "Ah yes..... Turtle Island.... Do you know why it's named, 'Turtle' Island? Would you like to know? Haha......";
+		next;
+		mes "[Jornadan Niliria]";
+		mes "The reason behind the name is actually very easy to figure out and you might even feel a little foolish about not getting it in the first place.";
+		next;
+		mes "[Jornadan Niliria]";
+		mes "It's called 'Turtle' Island, because of the fact that it is shaped like an actual turtle.  Haha.  That's all there is to it.";
+		next;
+		mes "[Jornadan Niliria]";
+		mes "There is an unsually dense area of fog that surrounds the island.";
+		mes "At first we tried to figure what causes it but with no luck.  We figured that it was just one of nature's natural phenomenons.";
+		next;
+		mes "[Jornadan Niliria]";
+		mes "Then we found a cave along the coastline of the island.  Inside we were amazed to see a HUGE waterfall.";
+		mes "It turns out that this waterfall is what creates that extremely thick area of fog around that island.";
+		next;
+		mes "[Jornadan Niliria]";
+		mes "The reason is so simple and yet there are people who still try to find a deeper meaning behind it....";
+		next;
+		mes "[Jornadan Niliria]";
+		mes "I believe that people continue to probe into the matter because they do not want to feel that their efforts have been in vain.";
+		mes "Maybe they are afraid of the truth..... I for one was once afraid.... afraid of Turtle Island....";
+		next;
+		mes "[Jornadan Niliria]";
+		mes "But now that I trully understand all of the myths about Turtle Island, I feel at ease and at peace with the island.";
+		mes "There is still one lingering question about the island for me though..... it is the existence of the unknown ^FF5555'Jewel Fragment'^000000.";
+		next;
+		mes "[Jornadan Niliria]";
+		mes "I am still not certain about what it really is.  In the mean time I will continue to persue the matter untill I discover the truth! Hahaha!!";
+		close;
+
+	M_1:
+		mes "[Jornadan Niliria]";
+		mes "Whoops ! Oh that's right !! Confused !.... Yipe !..... WOOOOO !!!";		//have NO idea what this means.....
+		close;
+
+	M_End:
+		mes "[Jornadan Niliria]";
+		mes "When you're searching for the truth, make sure to keep trying.  Someday you will find the answers you seek...";
+		next;
+		mes "[Jornadan Niliria]";
+		mes "Hmmm.... by the way.... I feel hungry.  Why doesn't Alberta have a store or restaurant for some good Dim Sum??";
+		close;
+}
+
+alberta.gat,247,93,1	script	A Voyage Log	111,
+{
+	if(JORNADAN == 1) goto L_Treasure;
+	mes "[A Voyage Log]";
+	mes "= 03:20 am =";
+	mes "The moon was dark and I couldn't even see 100m in front of me.  I had a bad feeling about the situation..... I was not the only one...";
+	next;
+	mes "[A Voyage Log]";
+	mes "I could tell by the looks on my comrade's faces, that they too were worried.  No could sleep that night.  I hope we will see the sunrise soon....";
+	next;
+	mes "[A Voyage Log]";
+	mes "= 04:10 =";
+	mes "5 minutes ago one of our comrades, Cooker, died.  While he walking on deck, the flagpole suddently broke and fell on his head....";
+	next;
+	mes "[A Voyage Log]";
+	mes "He died at approximately 04:07.  The flagpole had been damaged when our ship hit a reef.";
+	mes "The ship sustained serious damage along the left side of the deck.  I called on the chief to repair it.";
+	next;
+	mes "[A Voyage Log]";
+	mes "= 04:45 =";
+	mes "While two of our wokers were fixing the bottom of the deck, monsters attacked them without warning.";
+	mes "Apparently they had gotten in through some openings in the deck.";
+	next;
+	mes "[A Voyage Log]";
+	mes "Two more men had been lost.  Fortunatley the ship has yet to sink and seems to be holding up.  Still, we must find land soon.";
+	next;
+	mes "[A Voyage Log]";
+	mes "Durring the collision with the reef we lost about 30% of our supplies.  In particular we lost food... a great deal of food....";
+	next;
+	mes "[A Voyage Log]";
+	mes "= 05:23 =";
+	mes "We've been noticing an increase in the amount of reefs and they are getting larger as well.";
+	mes "I wonder when we will find land.... I wonder if we can....";
+	next;
+	mes "[A Voyage Log]";
+	mes "- Written by -";
+	mes "- captain Jornadan Niliria -";
+	next;
+	mes "^5555FF- Closed the voyage log -^000000";
+	close;
+
+L_Treasure:
+	mes "^5555FF- The paper is torn -";
+	mes "- Seaweed and mold have -";
+	mes "- mixed with the paper -";
+	mes "- It looks to be in very poor";
+	mes "condition. -^000000";
+	next;
+	mes "^5555FF- Between some pages -";
+	mes "- Is a Banana leaf -";
+	mes "- this is written. -^000000";
+	next;
+	mes "[A Voyage Log]";
+	mes "= O/X date =";
+	mes "Just after we arrived to Turtle Island, we searched for some food to eat.  I am so skinny now...";
+	next;
+	mes "[A Voyage Log]";
+	mes "When I looked at myself in the mirror, it was horrible.  I was disturbed by what I saw...";
+	next;
+	mes "[A Voyage Log]";
+	mes "= X/X date =";
+	mes "We found some kind of fruit! It has a yellow color and a long shape.  It looks just like a banana!";
+	next;
+	mes "[A Voyage Log]";
+	mes "= XO/X date =";
+	mes "Although very similar, the fruit we found was not a banana.  We believe it is a relative of the banana.";
+	mes "It smells and tastes exactly like a banana.";
+	next;
+	mes "[A Voyage Log]";
+	mes "We were starving so we just refered to the fruit as bananas and gathered it for food.";
+	mes "Although there were a limited amount of trees, there was enough for our survival.";
+	next;
+	mes "[A Voyage Log]";
+	mes "It has become the answer to our lack of food and has become precious to us.";
+	mes "~ WE LOVE YOU BANANA!! ~";
+	next;
+	mes "[A Voyage Log]";
+	mes "= O/O date =";
+	mes "In the middle of the night, one of our comrades reported that he felt sick from something he ate.";
+	next;
+	mes "[A Voyage Log]";
+	mes "= OO/O date =";
+	mes "Another comrade fell ill.  He had the strongest digestive sytem among us.";
+	mes "He went by the name, 'Berot Berot', and he played a vital role in our group.";
+	next;
+	mes "[A Voyage Log]";
+	mes "The fact that he got sick from something he ate, made it very clear that there was something poisoning us.";
+	next;
+	mes "[A Voyage Log]";
+	mes "= XO/O date =";
+	mes "A third person became sick today while we were out exploring.  The first person to become ill has passed away.... We are all very worrired.";
+	next;
+	mes "[A Voyage Log]";
+	mes "We tried very hard to find the cause of the illness.  Then by observing the animals one day, we found it.";
+	mes "It was the very thing we thought to be our salvation and yet not one animal on the island would even touch it.....";
+	next;
+	mes "[A Voyage Log]";
+	mes "What was killing us was..... our beloved BANANA!!";
+	next;
+	mes "[A Voyage Log]";
+	mes "We decided to get rid of all of the bananas.  But for some reason they didn't seem to be decomposing.";
+	mes "Even when the skin was peeled off, the fruits remained the same.";
+	next;
+	mes "[A Voyage Log]";
+	mes "I think that the poison or some other agent within the fruit is allowing it to survive.";
+	mes "We may be able to use it for medicinal purposes later, but for now it is of no use to us.";
+	mes "Until we get back to Alberta, we have to decided to burry what is left of the fruit.";
+	next;
+	mes "[A Voyage Log]";
+	mes "This is the location where it's buried in case we forget:";
+	mes "^FF8888- tur_dun01 -";
+	mes "- X: 160, Y: 81 -^000000";
+	next;
+	mes "^5555FF- There is a thin Key -";
+	mes "- with a skull mark on it -";
+	mes "- You've gained -";
+	mes "- a 'Skull Key' -^000000";
+	set SKULLKEY, 1;
+	set JORNADAN, 0;
+	close;
+}
+
+turn_dun01,160,80,1	script	Skull Stone	111,
+{
+	if(SKULLKEY == 1) goto L_OpenBox;
+	mes "^5555FF(It's a frightening stone tomb with horrible skull on it.)^000000";
+	close;
+
+L_OpenBox:
+	mes "^5555FF(Under the stone is a tiny key hole with a skull mark.  You used the 'Skull Key' to open the box.)^000000";
+	next;
+	mes "^5555FF(~click!~click!~)^000000";
+	next;
+	mes "^5555FF(Suddenly the top of the stone opens with many things coming out!)^000000";
+	next;
+	mes "^5555FF(You got 5 Bananas, and 5 Banana Juices.)^000000";
+	getitem 634, 5;
+	getitem 532, 5;
+	set SKULLKEY, 0;
+	close;
+}
+

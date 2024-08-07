@@ -1,0 +1,293 @@
+//Jobchanger for Odin Server made by:Kengeki on September 25th, 2004
+prontera.gat,143,178,6	script	Jobchanger	105,{
+
+mes "[ Job Changer ]";
+mes "Ah Ready to change your job?";
+next;
+menu "First Class",LFirstClass,"Second Class (2-1)",LSecondClass,"Second Class (2-2)",LSecondClass2;
+
+LFirstClass:
+if(class !=0) goto Lnovice;
+if(joblevel<10) goto Ljobten;
+mes "[ Job Changer ]";
+mes "Alright what do you want for your job?";
+menu "Swordsman",LSword,"Mage",LMage,"Thief",LThief,"Merchant",LMerc,"Acolyte",LAco,"Archer",LArch,"Nevermind",LCancel;
+
+Lnovice:
+mes "[ Job Changer ]";
+mes "You arent a novice.";
+close;
+
+Ljobten:
+mes "[ Job Changer ]";
+mes "You need to be job level 10.";
+close;
+
+LSword:
+mes "[ Job Changer ]";
+ mes "Alright Swordsman it is!";
+jobchange 1;
+close;
+
+LMage:
+mes "[ Job Changer ]";
+mes "Alright Mage it is!";
+jobchange 2;
+close;
+
+LThief:
+mes "[ Job Changer ]";
+mes "Alright Thief it is!";
+jobchange 6;
+close;
+
+LMerc:
+mes "[ Job Changer ]";
+mes "Alright Merchent it is!";
+jobchange 5;
+close;
+
+LAco:
+mes "[ Job Changer ]";
+mes "Alright Acolyte it is!";
+jobchange 4;
+close;
+
+LArch:
+mes "[ Job Changer ]";
+mes "Alright Archer it is!";
+jobchange 3;
+close;
+
+LCancel:
+mes "[ Job Changer ]";
+mes "Alright if you say so..";
+close;
+
+LSecondClass:
+if(joblevel<40) goto Ljobforty;
+mes "[ Job Changer ]";
+mes "Alright what do you want for your job?";
+menu "Knight",LKnight,"Wizard",LWizard,"Hunter",LHunter,"Blacksmith",LBlacksmith,"Assassin",LAssassin,"Priest",LPriest,"Cancel",LCancel;
+
+Ljobforty:
+       mes "[ Job Changer ]";
+       mes "You must be at least Job Level 40.";
+       close;
+   LKnight:
+       if(GetJob !=1) goto LNotSword;
+       goto LKnight2;
+
+   LNotSword:
+       mes "[ Job Changer ]";
+ mes "You will have to become a swordsman in order to be a knight";
+     close;
+
+   LKnight2:
+       mes "[ Job Changer ]";
+       mes "Alright Knight it is";
+       jobchange 7;
+       close;
+
+   
+   LHunter:
+       if(GetJob !=3) goto LNotArcher;
+       goto LHun2;
+
+   LNotArcher:
+       mes "[ Job Changer ]";
+       mes "You need to be an archer in order to be a hunter";
+       close;
+
+   LHun2:
+       mes "[ Job Changer ]";
+       mes "Alright Hunter it is";
+  jobchange 11;
+        close;
+
+   LBlacksmith:
+       mes "[ Job Changer ]";
+       if(GetJob !=5) goto LNotMerc;
+       goto LBla2;
+
+   LNotMerc:
+       mes "[ Job Changer ]";
+       mes "Your not a Merchent, you need to be one to be a blacksmith";
+          close;
+
+   LBla2:
+       mes "[ Job Changer ]";
+       mes "Alright Blacksmith it is";
+       jobchange 10;
+       close;
+
+   LAssassin:
+       if(GetJob !=6) goto LNotThief;
+       goto LAssass2;
+
+   LNotThief:
+       mes "[ Job Changer ]";
+       mes "You need to be a Thief in order to be an Assassin";
+       close;
+
+
+   LAssass2:
+       mes "[ Job Changer ]";
+ mes "Alright Assassin it is";
+       jobchange 12;
+       close;
+
+   LPriest:
+       if(GetJob !=4) goto LNotAco;
+       goto LPri2;
+
+   LNotAco:
+       mes "[ Job Changer ]";
+       mes "You need to be a Acolyte before trying to become a Priest";
+       close;
+
+   LPri2:
+       mes "[ Job Changer ]";
+ mes "Alright Priest it is";
+      jobchange 8;
+       close;
+
+   LWizard:
+       if(GetJob !=2) goto LNotMage;
+       goto LWiz2;
+
+   LNotMage:
+       mes "[ Job Changer ]";
+       mes "Your not a mage, you need to be a mage before trying as a wizard";
+       close;
+
+   LWiz2:
+       mes "[ Job Changer ]";
+ mes "Alright Wizard it is";
+       jobchange 9;
+       close;
+
+LSecondClass2:
+if(joblevel<40) goto Ljobforty;
+if(sex==0) goto LFsecond2;
+if(sex==1) goto LMsecond2;
+
+LFsecond2:
+mes "[ Job Changer ]";
+mes "Alright what do you want for your job?";
+menu "Crusader",LCrusader,"Sage",LSage,"Dancer",LDancer,"Alchemist",LAlchemist,"Rogue",LRogue,"Monk",LMonk,"Cancel",LCancel;
+
+LMsecond2:
+mes "[ Job Changer ]";
+mes "Alright what do you want for your job?";
+menu "Crusader",LCrusader,"Sage",LSage,"Bard",LBard,"Alchemist",LAlchemist,"Rogue",LRogue,"Monk",LMonk,"Cancel",LCancel;
+   
+   LCrusader:
+       if(GetJob !=1) goto LNotSword2;
+       goto LCrus2;
+
+   LNotSword2:
+       mes "[ Job Changer ]";
+       mes "You need to be a swordsman in order to be a Crusader";
+     close;
+
+   LCrus2:
+       mes "[ Job Changer ]";
+       mes "Alright Crusader it is";
+       jobchange 14;
+       close;
+
+
+   LBard:
+       if(GetJob !=3) goto LNotArch3;
+       goto LBard2;
+
+   LNotArch3:
+       mes "[ Job Changer ]";
+       mes "You need to be an Archer before trying as a Bard";
+       close;
+
+   LBard2:
+       mes "[ Job Changer ]";
+ mes "Alright Bard it is";
+       jobchange 19;
+       close;
+
+   LDancer:
+       if(GetJob !=3) goto LNotArch2;
+       goto LDanc2;
+
+LNotArch2:
+       mes "[ Job Changer ]";
+       mes "You need to be an Archer in order to be a Dancer";
+       close;
+
+   LDanc2:
+       mes "[ Job Changer ]";
+ mes "Alright Dancer it is";
+       jobchange 20;
+       close;
+
+   LAlchemist:
+       mes "[ Job Changer ]";
+       if(GetJob !=5) goto LNotMerc2;
+       goto LAlch2;
+
+   LNotMerc2:
+       mes "[ Job Changer ]";
+       mes "You need to be a Merchent in order to be an Alchemist";
+       close;
+
+   LAlch2:
+       mes "[ Job Changer ]";
+       mes "Alright Alchemist it is";
+       jobchange 18;
+       close;
+
+   LRogue:
+       if(GetJob !=6) goto LNotThief2;
+       goto LRogue2;
+
+   LNotThief2:
+       mes "[ Job Changer ]";
+       mes "You need to be a Thief before trying as a rogue";
+       close;
+
+   LRogue2:
+       mes "[ Job Changer ]";
+       mes "Alright Rogue it is";
+       jobchange 17;
+       close;
+
+   LMonk:
+       if(GetJob !=4) goto LNotAco2;
+       goto LMonk2;
+
+   LNotAco2:
+       mes "[ Job Changer ]";
+       mes "You need to be an Acolyte in order to become a Monk";
+       close;
+
+LMonk2:
+       mes "[ Job Changer ]";
+       mes "Alright Monk it is";
+       jobchange 15;
+       close;
+
+   LSage:
+       if(GetJob !=2) goto LNotMage2;
+       goto LSage2;
+
+   LNotMage2:
+       mes "[ Job Changer ]";
+       mes "You need to become a Mage before trying as a Sage";
+       close;
+
+   LSage2:
+       mes "[ Job Changer ]";
+       mes "Alright Sage it is";
+       jobchange 16;
+       close;
+
+
+}

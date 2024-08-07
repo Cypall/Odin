@@ -1,0 +1,51 @@
+November 12, 2004
+------------------------- Angel Ex
+	*Added skill Cignum Crisis.
+	*Fix skills agi decrese, agi increse and blessing.
+	*Fix skill angelous.
+	*Fix skill timers on map_core.
+	*Fix resurection now cause instant dead on undead or ghost.
+	*Updated skill_do_damage function.
+	*Added statment special in character server. This variable will be used to store
+	 falcon cart or pecopeco. because option_z is used for statues and stuff if you 
+	 use a skill that recover status, and player have a cart it will be removed as well
+	 as the status cause, server will flush option_z. So we do this to prevent this 
+	 errors and make use of the options at its fulles without problems.
+
+November 11, 2004
+------------------------- Angel Ex
+	*Fix pvp map error not updating number of players when a player logout of server.
+	*Cleanup mmo_map_send0095 function. Removed unnused variables.
+	*Updated map_core timers.
+	*Updated skills heal, sight, runwatch. The last two now make hidden monsters to appear.
+	*Fix Provoke skill, endure skills.
+	*Fix client crash when changing maps.
+	*Added timers for drain sp and drain hp when hidden or poisoned or any other status that 
+	 can make use of them.
+	*Fix hidden, steal skills.
+	*Fix timers like remove_new_on_map not stoping after doing its function.
+
+November 11, 2004
+------------------------- Bl@ster
+
+	*Changed skilldb_job_check code in skill_db.c. Now skill check is faster that before. 
+	*Changed mmo.h variable spheres_timeamount[4] to spheres_timeamount[5].
+	*Fixed error displaying cast delay msg when using summon spirit spheres fast.
+	*Fixed the number of spheres can summon acording to skill lvl.
+
+November 10, 2004
+------------------------- Angel Ex
+
+	*Added blocks for Monk Sphere ability.
+	*Monk type caster can see its own spheres when he change of map.
+	*Added PvP Maps with timer and ranks 100% working.
+	*Fix del_block errors for monsters.
+	*Deleted variables never used on mmo.h structures.
+	*Fix PVP attack crash.
+	*Fix macros for in server comunication packets
+	*Added RFIFOFLUSH() to parse_login and parse_char
+	*Deleted timer for do periodic saves in character server. No need for this.
+
+
+
+

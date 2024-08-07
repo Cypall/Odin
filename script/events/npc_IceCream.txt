@@ -1,0 +1,183 @@
+// $Id: npc_IceCream.txt,v 1.1 2003/12/01 22:51:04 MivaBe Exp $
+//<--------------- Ice Cream Event [Update: Oct. 06, 2003] --------------->\\
+//ALBERTA
+alberta.gat,120,53,5	script	Ice Cream Maker	85,{
+	mes "[Ice Cream Maker]";
+	mes "Fresh Ice Cream made with snow from Lutie!";
+	mes "Enjoy it now, it won't be on sale for long!";
+	mes "^0000FF100 Zeny^000000 Ice Cream,";
+	mes "Ice Cream!";
+	next;
+	menu "Gimme Ice Cream!",L0,"Cancel Trade",LEnd;
+	
+	L0:
+		mes "[Ice Cream Maker]";
+		mes "Fresh Ice Cream made with snow from Lutie!";
+		mes "Everyone wants our delicious ice cream, but we have limited amount,";
+		mes "so you can only purchase 5 at a time!!";
+		next;
+		input;
+		mes "[Ice Cream Maker]";
+		if(Script_flag_num <= 0) goto inpC;
+		if(Script_flag_num > 5) goto inpM;
+		if(Zeny < Script_flag_num * 100) goto NoZ;
+		getitem 536,Script_flag_num;
+		setzeny Zeny,0 - 100 * Script_flag_num;
+		if(Script_flag_num == 1) goto get1;
+		if(Script_flag_num == 2) goto get2;
+		if(Script_flag_num == 3) goto get3;
+		if(Script_flag_num == 4) goto get4;
+		if(Script_flag_num == 5) goto get5;
+
+		get1:
+			mes "Here you go 1 Ice Cream for you.";
+			close;
+		get2:
+			mes "Here you go 2 Ice Cream for you.";
+			close;
+		get3:
+			mes "Here you go 3 Ice Cream for you.";
+			close;
+		get4:
+			mes "Here you go 4 Ice Cream for you.";
+			close;
+		get5:
+			mes "Here you go 5 Ice Cream for you.";
+			close;
+		inpC:
+			mes "Deal is canceled.";
+			close;
+		inpM:
+			mes "Sorry, but you can only buy 5 at a time.";
+			close;
+		NoZ:
+			mes "Sorry, but you need more money.";
+			close;
+	LEnd:
+		mes "[Ice Cream Maker]";
+		mes "Are you sure you don't want any?";
+		mes "I won't be selling it for long, and once I run out, there won't be anymore!!!";
+		close;
+}
+
+//MORROC FIELD
+moc_fild16.gat,88,304,4	script	Ice Cream Maker	85,{
+	mes "[Ice Cream Maker]";
+	mes "Fresh Ice Cream made with snow from Lutie!";
+	mes "Enjoy it now, it won't be on sale for long!";
+	mes "^0000FF100 Zeny^000000 Ice Cream!";
+	next;
+	menu "Gimme Ice Cream!",L0,"Cancel Trade",LEnd;
+	
+	L0:
+		mes "[Ice Cream Maker]";
+		mes "Fresh Ice Cream made with snow from Lutie!";
+		mes "Everyone wants our delicious ice cream, but we have limited amount,";
+		mes "so you can only purchase 5 at a time!!";
+		next;
+		input;
+		mes "[Ice Cream Maker]";
+		if(Script_flag_num <= 0) goto inpC;
+		if(Script_flag_num > 5) goto inpM;
+		if(Zeny < Script_flag_num * 100) goto NoZ;
+		getitem 536,Script_flag_num;
+		setzeny Zeny,0 - 100 * Script_flag_num;
+		if(Script_flag_num == 1) goto get1;
+		if(Script_flag_num == 2) goto get2;
+		if(Script_flag_num == 3) goto get3;
+		if(Script_flag_num == 4) goto get4;
+		if(Script_flag_num == 5) goto get5;
+
+		get1:
+			mes "Here you go 1 Ice Cream for you.";
+			close;
+		get2:
+			mes "Here you go 2 Ice Cream for you.";
+			close;
+		get3:
+			mes "Here you go 3 Ice Cream for you.";
+			close;
+		get4:
+			mes "Here you go 4 Ice Cream for you.";
+			close;
+		get5:
+			mes "Here you go 5 Ice Cream for you.";
+			close;
+		inpC:
+			mes "Deal is canceled.";
+			close;
+		inpM:
+			mes "Sorry, but you can only buy 5 at a time.";
+			close;
+		NoZ:
+			mes "Sorry, but you need more money.";
+			close;
+	LEnd:
+		mes "[Ice Cream Maker]";
+		mes "Are you sure you don't want any?";
+		mes "I won't be selling it for long,";
+		mes "and once I run out,";
+		mes "there won't be anymore!!!";
+		close;
+}
+
+//MORROC
+morocc.gat,160,144,4	script	Ice Cream Maker	85,{
+	mes "[Ice Cream Maker]";
+	mes "Fresh Ice Cream made with snow from Lutie!";
+	mes "Enjoy it now, it won't be on sale for long!";
+	mes "^0000FF100 Zeny^000000 Ice Cream!";
+	next;
+	menu "Gimme Ice Cream!",L0,"Cancel Trade",LEnd;
+	
+	L0:
+		mes "[Ice Cream Maker]";
+		mes "Fresh Ice Cream made with snow from Lutie!";
+		mes "Everyone wants our delicious ice cream, but we have limited amount,";
+		mes "so you can only purchase 5 at a time!!";
+		next;
+		input;
+		mes "[Ice Cream Maker]";
+		if(Script_flag_num <= 0) goto inpC;
+		if(Script_flag_num > 5) goto inpM;
+		if(Zeny < Script_flag_num * 100) goto NoZ;
+		getitem 536,Script_flag_num;
+		setzeny Zeny,0 - 100 * Script_flag_num;
+		if(Script_flag_num == 1) goto get1;
+		if(Script_flag_num == 2) goto get2;
+		if(Script_flag_num == 3) goto get3;
+		if(Script_flag_num == 4) goto get4;
+		if(Script_flag_num == 5) goto get5;
+
+		get1:
+			mes "Here you go 1 Ice Cream for you.";
+			close;
+		get2:
+			mes "Here you go 2 Ice Cream for you.";
+			close;
+		get3:
+			mes "Here you go 3 Ice Cream for you.";
+			close;
+		get4:
+			mes "Here you go 4 Ice Cream for you.";
+			close;
+		get5:
+			mes "Here you go 5 Ice Cream for you.";
+			close;
+		inpC:
+			mes "Deal is canceled.";
+			close;
+		inpM:
+			mes "Sorry, but you can only buy 5 at a time.";
+			close;
+		NoZ:
+			mes "Sorry, but you need more money.";
+			close;
+	LEnd:
+		mes "[Ice Cream Maker]";
+		mes "Are you sure you don't want any?";
+		mes "I won't be selling it for long,";
+		mes "and once I run out,";
+		mes "there won't be anymore!!!";
+		close;
+}

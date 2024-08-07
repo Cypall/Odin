@@ -1,0 +1,1486 @@
+// ANTHELL --------------------------------------------------------------------
+anthell01.gat,0,0,0,0	monster	Andre	1095,35
+anthell01.gat,0,0,0,0	monster	Ant Egg	1097,87
+anthell01.gat,0,0,0,0	monster	Deniro	1105,35
+anthell01.gat,0,0,0,0	monster	Farmiliar	1005,20
+anthell01.gat,0,0,0,0	monster	Giearth	1121,8
+anthell01.gat,0,0,0,0	monster	Phreeoni	1159,1
+anthell01.gat,0,0,0,0	monster	Piere	1160,35
+anthell01.gat,0,0,0,0	monster	Vitata	1176,20
+
+anthell02.gat,0,0,0,0	monster	Andre	1095,35
+anthell02.gat,0,0,0,0	monster	Ant Egg	1097,15
+anthell02.gat,0,0,0,0	monster	Deniro	1105,35
+anthell02.gat,0,0,0,0	monster	Farmiliar	1005,20
+anthell02.gat,0,0,0,0	monster	Giearth	1121,10
+anthell02.gat,0,0,0,0	monster	Martin	1145,10
+anthell02.gat,0,0,0,0	monster	Maya	1147,1
+anthell02.gat,0,0,0,0	monster	Piere	1160,35
+anthell02.gat,0,0,0,0	monster	Vitata	1176,20
+
+
+// BEACH DUNGEON --------------------------------------------------------------
+beach_dun.gat,0,0,0,0	monster	Chimera	1283,1
+beach_dun.gat,0,0,0,0	monster	Medusa	1148,1
+beach_dun.gat,0,0,0,0	monster	Megalith	1274,8
+beach_dun.gat,0,0,0,0	monster	Neraid	1255,25
+beach_dun.gat,0,0,0,0	monster	Penomena	1216,8
+beach_dun.gat,0,0,0,0	monster	Pest	1256,25
+beach_dun.gat,0,0,0,0	monster	Trijoint	1279,8
+
+beach_dun2.gat,0,0,0,0	monster	Hydra	1068,15
+beach_dun2.gat,0,0,0,0	monster	Megalith	1274,30
+beach_dun2.gat,0,0,0,0	monster	Merman	1264,5
+beach_dun2.gat,0,0,0,0	monster	Neraid	1255,5
+beach_dun2.gat,0,0,0,0	monster	Stalactic Golem	1278,40
+beach_dun2.gat,0,0,0,0	monster	Trijoint	1279,20
+
+beach_dun3.gat,0,0,0,0	monster	Hydra	1068,20
+beach_dun3.gat,0,0,0,0	monster	Megalodon	1064,30
+beach_dun3.gat,0,0,0,0	monster	Neraid	1255,2
+beach_dun3.gat,0,0,0,0	monster	Pest	1256,2
+beach_dun3.gat,0,0,0,0	monster	Shellfish	1074,25
+beach_dun3.gat,0,0,0,0	monster	Trijoint	1279,5
+
+//CLOCK TOWER -----------------------------------------------------------------
+c_tower1.gat,0,0,0,0	monster	Baphomet Jr	1101,26
+c_tower1.gat,0,0,0,0	monster	Bathory	1102,10
+c_tower1.gat,0,0,0,0	monster	Punk	1199,65
+c_tower1.gat,0,0,0,0	monster	Archer Skeleton	1016,10
+c_tower1.gat,0,0,0,0	monster	Tower Keeper	1270,1
+
+c_tower2.gat,0,0,0,0	monster	Alarm	1193,1
+c_tower2.gat,0,0,0,0	monster	Clock	1269,35
+c_tower2.gat,0,0,0,0	monster	Deviruchi	1109,6
+c_tower2.gat,0,0,0,0	monster	Punk	1199,45
+c_tower2.gat,0,0,0,0	monster	Archer Skeleton	1016,48
+c_tower2.gat,0,0,0,0	monster	Tower Keeper	1270,1
+
+c_tower3.gat,0,0,0,0	monster	Alarm	1193,50
+c_tower3.gat,0,0,0,0	monster	Archer Skeleton	1016,40
+c_tower3.gat,0,0,0,0	monster	Tower Keeper	1270,1
+
+c_tower4.gat,0,0,0,0	monster	Knight of Abyss	1219,1
+c_tower4.gat,0,0,0,0	monster	Alarm	1193,70
+c_tower4.gat,0,0,0,0	monster	Executioner	1205,1
+c_tower4.gat,0,0,0,0	monster	Horong	1129,1
+c_tower4.gat,0,0,0,0	monster	Mimic	1191,12
+c_tower4.gat,0,0,0,0	monster	Rideword	1195,15
+c_tower4.gat,0,0,0,0	monster	Archer Skeleton	1016,30
+c_tower4.gat,0,0,0,0	monster	Tower Keeper	1270,3
+
+// CLOCK UNDERGROUND ----------------------------------------------------------
+alde_dun01.gat,0,0,0,0	monster	Drainliar	1111,25
+alde_dun01.gat,0,0,0,0	monster	Stem Worm	1215,60
+
+alde_dun02.gat,0,0,0,0	monster	Drainliar	1111,40
+alde_dun02.gat,0,0,0,0	monster	High Orc	1213,40
+alde_dun02.gat,0,0,0,0	monster	Orc Archer	1189,25
+
+alde_dun03.gat,0,0,0,0	monster	Alarm	1193,2
+alde_dun03.gat,0,0,0,0	monster	Brilight	1211,47
+alde_dun03.gat,0,0,0,0	monster	Cramp	1209,46
+alde_dun03.gat,0,0,0,0	monster	Penomena	1216,123
+
+alde_dun04.gat,0,0,0,0	monster	Ambernite	1094,15
+alde_dun04.gat,0,0,0,0	monster	Anolian	1206,70
+
+
+// COAL MINES -----------------------------------------------------------------
+mjo_dun01.gat,0,0,0,0	monster	Andre	1095,15
+mjo_dun01.gat,0,0,0,0	monster	Deniro	1105,15
+mjo_dun01.gat,0,0,0,0	monster	Drainliar	1111,40
+mjo_dun01.gat,0,0,0,0	monster	Giearth	1121,10
+mjo_dun01.gat,0,0,0,0	monster	Farmiliar	1005,10
+mjo_dun01.gat,0,0,0,0	monster	Martin	1145,15
+mjo_dun01.gat,0,0,0,0	monster	Piere	1160,15
+mjo_dun01.gat,0,0,0,0	monster	Skel Worker	1169,5
+mjo_dun01.gat,0,0,0,0	monster	Smokie	1056,20
+mjo_dun01.gat,0,0,0,0	monster	Tarou	1175,40
+
+mjo_dun02.gat,0,0,0,0	monster	Drainliar	1111,20
+mjo_dun02.gat,0,0,0,0	monster	Martin	1145,65
+mjo_dun02.gat,0,0,0,0	monster	Skel Worker	1169,25
+
+mjo_dun03.gat,0,0,0,0	monster	Evil Druid	1117,5
+mjo_dun03.gat,0,0,0,0	monster	Martin	1145,15
+mjo_dun03.gat,0,0,0,0	monster	Myst	1151,35
+mjo_dun03.gat,0,0,0,0	monster	Skel Worker	1169,70
+
+// COMODO FIELDS --------------------------------------------------------------
+cmd_fild01.gat,0,0,0,0	monster	Cookie	1265,45
+cmd_fild01.gat,0,0,0,0	monster	Greatest General	1277,5
+cmd_fild01.gat,0,0,0,0	monster	Poporing	1031,20
+cmd_fild01.gat,0,0,0,0	monster	Poison Spore	1077,35
+cmd_fild01.gat,0,0,0,0	monster	Rocker	1052,30
+cmd_fild01.gat,0,0,0,0	monster	Vocal	1088,1
+
+cmd_fild02.gat,0,0,0,0	monster	Aster	1266,20
+cmd_fild02.gat,0,0,0,0	monster	Cornutus	1067,20
+cmd_fild02.gat,0,0,0,0	monster	Crab	1073,30
+cmd_fild02.gat,0,0,0,0	monster	Mobster	1313,1
+cmd_fild02.gat,0,0,0,0	monster	Raggler	1254,45
+cmd_fild02.gat,0,0,0,0	monster	Fur Seal	1317,20
+cmd_fild02.gat,0,0,0,0	monster	Shellfish	1074,40
+
+cmd_fild03.gat,0,0,0,0	monster	Anolian	1206,20
+cmd_fild03.gat,0,0,0,0	monster	Alligator	1271,50
+cmd_fild03.gat,0,0,0,0	monster	Mutant Dragonoid	1262,1
+cmd_fild03.gat,0,0,0,0	monster	Pest	1256,40
+cmd_fild03.gat,0,0,0,0	monster	Poporing	1031,10
+cmd_fild03.gat,0,0,0,0	monster	Poison Spore	1077,10
+cmd_fild03.gat,0,0,0,0	monster	Toad	1089,1
+
+cmd_fild04.gat,0,0,0,0	monster	Aster	1266,50
+cmd_fild04.gat,0,0,0,0	monster	Crab	1073,40
+cmd_fild04.gat,0,0,0,0	monster	Golem	1040,14
+cmd_fild04.gat,0,0,0,0	monster	Raggler	1254,20
+cmd_fild04.gat,0,0,0,0	monster	Sea Otter	1323,15
+cmd_fild04.gat,0,0,0,0	monster	Shellfish	1074,50
+
+cmd_fild05.gat,0,0,0,0	monster	Alligator	1271,25
+cmd_fild05.gat,0,0,0,0	monster	Anacondaq	1030,20
+cmd_fild05.gat,0,0,0,0	monster	Desert Wolf	1106,20
+cmd_fild05.gat,0,0,0,0	monster	Baby Desert Wolf	1107,10
+cmd_fild05.gat,0,0,0,0	monster	Frilldora	1119,5
+cmd_fild05.gat,0,0,0,0	monster	Wild Rose	1261,40
+
+cmd_fild06.gat,0,0,0,0	monster	Anacondaq	1030,20
+cmd_fild06.gat,0,0,0,0	monster	Drops	1113,20
+cmd_fild06.gat,0,0,0,0	monster	Gargoyle	1253,17
+cmd_fild06.gat,0,0,0,0	monster	Goblin Archer	1258,27
+cmd_fild06.gat,0,0,0,0	monster	Steam Goblin	1280,35
+cmd_fild06.gat,0,0,0,0	monster	Kobold Archer	1282,17
+
+cmd_fild07.gat,0,0,0,0	monster	Aster	1266,5
+cmd_fild07.gat,0,0,0,0	monster	Crab	1073,5
+cmd_fild07.gat,0,0,0,0	monster	Drops	1113,30
+cmd_fild07.gat,0,0,0,0	monster	Raggler	1254,5
+cmd_fild07.gat,0,0,0,0	monster	Shellfish	1074,5
+
+cmd_fild08.gat,0,0,0,0	monster	Drops	1113,10
+cmd_fild08.gat,0,0,0,0	monster	Gargoyle	1253,34
+cmd_fild08.gat,0,0,0,0	monster	Goblin Archer	1258,28
+cmd_fild08.gat,0,0,0,0	monster	Goblin Steamrider	1280,25
+cmd_fild08.gat,0,0,0,0	monster	Gryphon	1259,1
+cmd_fild08.gat,0,0,0,0	monster	Kobold Archer	1282,45
+cmd_fild08.gat,0,0,0,0	monster	Sandman	1165,15
+cmd_fild08.gat,0,0,0,0	monster	Side Winder	1037,20
+
+cmd_fild09.gat,0,0,0,0	monster	Anacondaq	1030,30
+cmd_fild09.gat,0,0,0,0	monster	Condor	1009,20
+cmd_fild09.gat,0,0,0,0	monster	Drops	1113,30
+cmd_fild09.gat,0,0,0,0	monster	Goblin Archer	1258,3
+cmd_fild09.gat,0,0,0,0	monster	Hode	1127,30
+cmd_fild09.gat,0,0,0,0	monster	Kobold Archer	1282,2
+cmd_fild09.gat,0,0,0,0	monster	Pecopeco	1019,28
+cmd_fild09.gat,0,0,0,0	monster	Pecopeco Egg	1047,15
+cmd_fild09.gat,0,0,0,0	monster	Picky	1049,30
+cmd_fild09.gat,0,0,0,0	monster	Super Picky	1050,30
+
+
+// GEFFEN DUNGEON -------------------------------------------------------------
+gef_dun00.gat,0,0,0,0	monster	Black Mushroom	1084,6
+gef_dun00.gat,0,0,0,0	monster	Green Plant	1080,1
+gef_dun00.gat,0,0,0,0	monster	Red Plant	1078,2
+gef_dun00.gat,0,0,0,0	monster	Shining Plant	1083,1
+gef_dun00.gat,0,0,0,0	monster	Yellow Plant	1081,1
+gef_dun00.gat,0,0,0,0	monster	Dustiness	1114,15
+gef_dun00.gat,0,0,0,0	monster	Farmiliar	1005,30
+gef_dun00.gat,0,0,0,0	monster	Poison Spore	1077,45
+gef_dun00.gat,0,0,0,0	monster	Poporing	1031,25
+
+gef_dun01.gat,0,0,0,0	monster	Black Mushroom	1084,3
+gef_dun01.gat,0,0,0,0	monster	Blue Plant	1079,1
+gef_dun01.gat,0,0,0,0	monster	White Plant	1082,5
+gef_dun01.gat,0,0,0,0	monster	Argos	1100,40
+gef_dun01.gat,0,0,0,0	monster	Bathory	1102,1
+gef_dun01.gat,0,0,0,0	monster	Dracula	1389,1
+gef_dun01.gat,0,0,0,0	monster	Dustiness	1114,30
+gef_dun01.gat,0,0,0,0	monster	Farmiliar	1005,20
+gef_dun01.gat,0,0,0,0	monster	Jakk	1130,20
+gef_dun01.gat,0,0,0,0	monster	Poison Spore	1077,20
+gef_dun01.gat,0,0,0,0	monster	Whisper	1179,30
+
+gef_dun02.gat,0,0,0,0	monster	White Plant	1082,5
+gef_dun02.gat,0,0,0,0	monster	Argos	1100,30
+gef_dun02.gat,0,0,0,0	monster	Bathory	1102,4
+gef_dun02.gat,0,0,0,0	monster	Doppelganger	1046,1
+gef_dun02.gat,0,0,0,0	monster	Jakk	1130,12
+gef_dun02.gat,0,0,0,0	monster	Joker	1131,5
+gef_dun02.gat,0,0,0,0	monster	Marionette	1143,14
+gef_dun02.gat,0,0,0,0	monster	Myst	1151,10
+gef_dun02.gat,0,0,0,0	monster	Nightmare	1061,8
+gef_dun02.gat,0,0,0,0	monster	Whisper	1179,30
+
+// GEFFEN FIELD ---------------------------------------------------------------
+gef_fild00.gat,0,0,0,0	monster	Blue Plant	1079,2
+gef_fild00.gat,0,0,0,0	monster	Green Plant	1080,6
+gef_fild00.gat,0,0,0,0	monster	Chonchon	1011,30
+gef_fild00.gat,0,0,0,0	monster	Fabre	1007,15
+gef_fild00.gat,0,0,0,0	monster	Martin	1145,5
+gef_fild00.gat,0,0,0,0	monster	Poring	1002,70
+gef_fild00.gat,0,0,0,0	monster	Pupa	1008,15
+gef_fild00.gat,0,0,0,0	monster	Willow	1010,20
+
+gef_fild01.gat,0,0,0,0	monster	Green Plant	1080,5
+gef_fild01.gat,0,0,0,0	monster	Hornet	1004,35
+gef_fild01.gat,0,0,0,0	monster	Poring	1002,20
+gef_fild01.gat,0,0,0,0	monster	Roda Frog	1012,55
+gef_fild01.gat,0,0,0,0	monster	Thara Frog	1034,10
+gef_fild01.gat,0,0,0,0	monster	Toad	1089,1
+
+gef_fild02.gat,0,0,0,0	monster	Blue Plant	1079,4
+gef_fild02.gat,0,0,0,0	monster	Green Plant	1080,8
+gef_fild02.gat,0,0,0,0	monster	Red Mushroom	1085,5
+gef_fild02.gat,0,0,0,0	monster	Shining Plant	1083,1
+gef_fild02.gat,0,0,0,0	monster	Goblin	1123,12
+gef_fild02.gat,0,0,0,0	monster	Goblin	1124,15
+gef_fild02.gat,0,0,0,0	monster	Goblin	1125,20
+gef_fild02.gat,0,0,0,0	monster	Goblin	1126,18
+gef_fild02.gat,0,0,0,0	monster	Goblin Archer	1258,8
+gef_fild02.gat,0,0,0,0	monster	Goblin Leader	1299,1
+gef_fild02.gat,0,0,0,0	monster	Goblin Steamrider	1280,2
+
+gef_fild03.gat,0,0,0,0	monster	Green Plant	1080,21
+gef_fild03.gat,0,0,0,0	monster	Coco	1104,55
+gef_fild03.gat,0,0,0,0	monster	Poporing	1031,15
+gef_fild03.gat,0,0,0,0	monster	Smokie	1056,35
+
+gef_fild04.gat,0,0,0,0	monster	Green Plant	1080,6
+gef_fild04.gat,0,0,0,0	monster	Ambernite	1094,10
+gef_fild04.gat,0,0,0,0	monster	Chonchon	1011,50
+gef_fild04.gat,0,0,0,0	monster	Fabre	1007,55
+gef_fild04.gat,0,0,0,0	monster	Poring	1002,55
+gef_fild04.gat,0,0,0,0	monster	Pupa	1008,20
+gef_fild04.gat,0,0,0,0	monster	Roda Frog	1012,30
+gef_fild04.gat,0,0,0,0	monster	Wilow	1010,30
+
+gef_fild05.gat,0,0,0,0	monster	Red Plant	1078,15
+gef_fild05.gat,0,0,0,0	monster	Chonchon	1011,20
+gef_fild05.gat,0,0,0,0	monster	Baby Desert Wolf	1107,5
+gef_fild05.gat,0,0,0,0	monster	Fabre	1007,30
+gef_fild05.gat,0,0,0,0	monster	Poring	1002,30
+gef_fild05.gat,0,0,0,0	monster	Pupa	1008,15
+gef_fild05.gat,0,0,0,0	monster	Rocker	1052,40
+gef_fild05.gat,0,0,0,0	monster	Roda Frog	1012,50
+gef_fild05.gat,0,0,0,0	monster	Savage Babe	1167,25
+gef_fild05.gat,0,0,0,0	monster	Wilow	1010,30
+
+gef_fild06.gat,0,0,0,0	monster	Shining Plant	1083,4
+gef_fild06.gat,0,0,0,0	monster	Creamy	1018,20
+gef_fild06.gat,0,0,0,0	monster	Earth Petit	1155,40
+gef_fild06.gat,0,0,0,0	monster	Poporing	1031,15
+gef_fild06.gat,0,0,0,0	monster	Sky Petit	1156,40
+gef_fild06.gat,0,0,0,0	monster	Stainer	1174,20
+
+gef_fild07.gat,0,0,0,0	monster	Shining Plant	1083,1
+gef_fild07.gat,0,0,0,0	monster	Blue Plant	1079,1
+gef_fild07.gat,0,0,0,0	monster	Green Plant	1080,6
+gef_fild07.gat,0,0,0,0	monster	Chonchon	1011,55
+gef_fild07.gat,0,0,0,0	monster	Fabre	1007,60
+gef_fild07.gat,0,0,0,0	monster	Poring	1002,60
+gef_fild07.gat,0,0,0,0	monster	Pupa	1008,15
+gef_fild07.gat,0,0,0,0	monster	Roda Frog	1012,30
+gef_fild07.gat,0,0,0,0	monster	Stainer	1174,5
+gef_fild07.gat,0,0,0,0	monster	Wilow	1010,30
+
+gef_fild08.gat,0,0,0,0	monster	Blue Plant	1079,8
+gef_fild08.gat,0,0,0,0	monster	Creamy	1018,40
+gef_fild08.gat,0,0,0,0	monster	Kobold	1133,20
+gef_fild08.gat,0,0,0,0	monster	Kobold	1134,20
+gef_fild08.gat,0,0,0,0	monster	Kobold	1135,20
+gef_fild08.gat,0,0,0,0	monster	Poporing	1031,15
+gef_fild08.gat,0,0,0,0	monster	Stainer	1174,35
+
+gef_fild09.gat,0,0,0,0	monster	Blue Plant	1079,3
+gef_fild09.gat,0,0,0,0	monster	Red Mushroom	1085,10
+gef_fild09.gat,0,0,0,0	monster	Ambernite	1094,60
+gef_fild09.gat,0,0,0,0	monster	Hornet	1004,25
+gef_fild09.gat,0,0,0,0	monster	Poring	1002,15
+
+gef_fild10.gat,0,0,0,0	monster	Blue Plant	1079,6
+gef_fild10.gat,0,0,0,0	monster	Green Plant	1080,3
+gef_fild10.gat,0,0,0,0	monster	Horn	1128,25
+gef_fild10.gat,0,0,0,0	monster	Orc Lady	1273,15
+gef_fild10.gat,0,0,0,0	monster	Orc Warrior	1023,50
+gef_fild10.gat,0,0,0,0	monster	Poporing	1031,5
+gef_fild10.gat,0,0,0,0	monster	Yoyo	1057,5
+
+gef_fild11.gat,0,0,0,0	monster	Black Mushroom	1084,21
+gef_fild11.gat,0,0,0,0	monster	Coco	1104,30
+gef_fild11.gat,0,0,0,0	monster	Goblin	1122,8
+gef_fild11.gat,0,0,0,0	monster	Goblin	1123,10
+gef_fild11.gat,0,0,0,0	monster	Goblin	1124,12
+gef_fild11.gat,0,0,0,0	monster	Goblin	1125,20
+gef_fild11.gat,0,0,0,0	monster	Goblin	1126,16
+gef_fild11.gat,0,0,0,0	monster	Panzer Goblin	1308,1
+gef_fild11.gat,0,0,0,0	monster	Rotor Gyro	1392,1
+gef_fild11.gat,0,0,0,0	monster	Smokie	1056,15
+
+gef_fild12.gat,0,0,0,0	monster	Kobold	1133,20
+gef_fild12.gat,0,0,0,0	monster	Kobold	1134,30
+gef_fild12.gat,0,0,0,0	monster	Kobold	1135,30
+gef_fild12.gat,0,0,0,0	monster	Kobold Archer	1282,40
+gef_fild12.gat,0,0,0,0	monster	Kobold Leader	1296,1
+gef_fild12.gat,0,0,0,0	monster	Poporing	1031,20
+
+gef_fild13.gat,0,0,0,0	monster	Ambernite	1094,20
+gef_fild13.gat,0,0,0,0	monster	Creamy	1018,40
+gef_fild13.gat,0,0,0,0	monster	Poporing	1031,20
+
+gef_fild14.gat,0,0,0,0	monster	High Orc	1213,20
+gef_fild14.gat,0,0,0,0	monster	Orc Archer	1189,20
+gef_fild14.gat,0,0,0,0	monster	Orc Hero	1087,1
+gef_fild14.gat,0,0,0,0	monster	Orc Lady	1273,40
+gef_fild14.gat,0,0,0,0	monster	Orc Warrior	1023,20
+
+
+// GLAST HEIM ----------------------------------------------------------
+// GLAST HEIM 1F -------------------------------------------------------
+gl_cas01.gat,0,0,0,0	monster	Alice	1275,1
+gl_cas01.gat,0,0,0,0	monster	Carat	1267,40
+gl_cas01.gat,0,0,0,0	monster	Dark Frame	1260,20
+gl_cas01.gat,0,0,0,0	monster	Joker	1131,10
+gl_cas01.gat,0,0,0,0	monster	Khalitzburg	1132,5
+gl_cas01.gat,0,0,0,0	monster	Owl Duke	1320,3
+gl_cas01.gat,0,0,0,0	monster	Rideword	1195,30
+gl_cas01.gat,0,0,0,0	monster	Sage Worm	1281,50
+gl_cas01.gat,0,0,0,0	monster	Tirfing	1204,1
+gl_cas01.gat,0,0,0,0	monster	Whisper	1179,10
+
+// GLAST HEIM 2F -------------------------------------------------------
+gl_cas02.gat,0,0,0,0	monster	Knight of Abyss	1219,4
+gl_cas02.gat,0,0,0,0	monster	Alice	1275,1
+gl_cas02.gat,0,0,0,0	monster	Baphomet	1039,1
+gl_cas02.gat,0,0,0,0	monster	Deviruchi	1109,4
+gl_cas02.gat,0,0,0,0	monster	Khalitzburg	1132,6
+gl_cas02.gat,0,0,0,0	monster	Marionette	1143,8
+gl_cas02.gat,0,0,0,0	monster	Mimic	1191,2
+gl_cas02.gat,0,0,0,0	monster	Mysteltainn	1203,2
+gl_cas02.gat,0,0,0,0	monster	Nightmare	1061,10
+gl_cas02.gat,0,0,0,0	monster	Raydric	1163,45
+gl_cas02.gat,0,0,0,0	monster	Raydric Archer	1276,20
+gl_cas02.gat,0,0,0,0	monster	Rideword	1195,19
+gl_cas02.gat,0,0,0,0	monster	Wanderer	1208,21
+gl_cas02.gat,0,0,0,0	monster	Whisper	1179,2
+
+// GLAST HEIM DUNGEON ----------------------------------------------------------
+gl_dun01.gat,0,0,0,0	monster	Arclouse	1194,100
+gl_dun01.gat,0,0,0,0	monster	Stalatic Golem	1278,40
+
+gl_dun02.gat,0,0,0,0	monster	Gargoyle	1253,20
+gl_dun02.gat,0,0,0,0	monster	Majorusros	1310,40
+
+// GLAST HEIM CHIVALRY --------------------------------------------------------
+gl_knt01.gat,0,0,0,0	monster	Black Mushroom	1084,12
+gl_knt01.gat,0,0,0,0	monster	Brilight	1211,10
+gl_knt01.gat,0,0,0,0	monster	Evil Druid	1117,5
+gl_knt01.gat,0,0,0,0	monster	Flora	1118,1
+gl_knt01.gat,0,0,0,0	monster	Mandragora	1020,22
+gl_knt01.gat,0,0,0,0	monster	Raydric Archer	1276,20
+gl_knt01.gat,0,0,0,0	monster	Raydric	1163,60
+gl_knt01.gat,0,0,0,0	monster	Rideword	1195,41
+gl_knt01.gat,0,0,0,0	monster	Whisper Boss	1186,1
+
+gl_knt02.gat,0,0,0,0	monster	Bloody Knight	1268,1
+gl_knt02.gat,0,0,0,0	monster	Joker	1131,20
+gl_knt02.gat,0,0,0,0	monster	Khalitzburg	1132,10
+gl_knt02.gat,0,0,0,0	monster	Knight of Abyss	1219,1
+gl_knt02.gat,0,0,0,0	monster	Raydric Archer	1276,40
+gl_knt02.gat,0,0,0,0	monster	Raydric	1163,50
+gl_knt02.gat,0,0,0,0	monster	Whisper	1179,10
+
+// GLAST HEIM -----------------------------------------------------------------
+glast_01.gat,0,0,0,0	monster	Blue Plant	1079,2
+glast_01.gat,0,0,0,0	monster	Green Plant	1080,8
+glast_01.gat,0,0,0,0	monster	Shining Plant	1083,1
+glast_01.gat,0,0,0,0	monster	Bathory	1102,5
+glast_01.gat,0,0,0,0	monster	Jakk	1130,5
+glast_01.gat,0,0,0,0	monster	Knight of Abyss	1219,1
+glast_01.gat,0,0,0,0	monster	Myst	1151,15
+glast_01.gat,0,0,0,0	monster	Poison Spore	1077,10
+
+// GLAST HEIM - ST. ABBEY -----------------------------------------------------
+gl_church.gat,0,0,0,0	monster	Brilight	1211,5
+gl_church.gat,0,0,0,0	monster	Evil Druid	1117,15
+gl_church.gat,0,0,0,0	monster	Ghoul	1036,25
+gl_church.gat,0,0,0,0	monster	Joker	1131,5
+gl_church.gat,0,0,0,0	monster	Nightmare	1061,20
+gl_church.gat,0,0,0,0	monster	Whisper	1179,20
+
+// GLAST HEIM - CHURCHYARD ----------------------------------------------------
+gl_chyard.gat,0,0,0,0	monster	Dark Lord	1272,1
+gl_chyard.gat,0,0,0,0	monster	Ghoul	1036,25
+gl_chyard.gat,0,0,0,0	monster	Hunter Fly	1035,15
+gl_chyard.gat,0,0,0,0	monster	Mimic	1191,1
+gl_chyard.gat,0,0,0,0	monster	Skel Prisoner	1196,10
+gl_chyard.gat,0,0,0,0	monster	Wraith	1192,5
+gl_chyard.gat,0,0,0,0	monster	Zombie	1015,20
+gl_chyard.gat,0,0,0,0	monster	Zombie Prisoner	1197,10
+
+// GLAST HEIM - STAIRCASE -----------------------------------------------------
+gl_step.gat,0,0,0,0	monster	Mimic	1191,30
+gl_step.gat,0,0,0,0	monster	Raydric Archer	1276,30
+gl_step.gat,0,0,0,0	monster	Wind Ghost	1236,15
+gl_step.gat,0,0,0,0	monster	Wraith	1192,50
+
+// GLAST HEIM - INSIDE --------------------------------------------------------
+gl_in01.gat,0,0,0,0	monster	Alice	1275,1
+gl_in01.gat,0,0,0,0	monster	Dark Frame	1260,10
+gl_in01.gat,0,0,0,0	monster	Marionette	1143,10
+gl_in01.gat,0,0,0,0	monster	Owl Duke	1320,12
+gl_in01.gat,0,0,0,0	monster	Rideword	1195,10
+gl_in01.gat,0,0,0,0	monster	Sage Worm	1281,20
+gl_in01.gat,0,0,0,0	monster	Wanderer	1208,1
+
+// GLAST HEIM - SEWER ---------------------------------------------------------
+gl_sew01.gat,0,0,0,0	monster	Anolian	1206,30
+gl_sew01.gat,0,0,0,0	monster	Cramp	1209,20
+gl_sew01.gat,0,0,0,0	monster	Drainliar	1111,50
+
+gl_sew02.gat,0,0,0,0	monster	Anolian	1206,40
+gl_sew02.gat,0,0,0,0	monster	Cramp	1209,30
+gl_sew02.gat,0,0,0,0	monster	Gargoyle	1253,30
+
+gl_sew03.gat,0,0,0,0	monster	Cramp	1209,40
+gl_sew03.gat,0,0,0,0	monster	Gargoyle	1253,40
+gl_sew03.gat,0,0,0,0	monster	Sting	1207,50
+
+gl_sew04.gat,0,0,0,0	monster	Cramp	1209,50
+gl_sew04.gat,0,0,0,0	monster	Sting	1207,30
+gl_sew04.gat,0,0,0,0	monster	Wind Ghost	1263,30
+
+
+// GLAST HEIM - PRISON --------------------------------------------------------
+gl_prison.gat,0,0,0,0	monster	Brilight	1211,20
+gl_prison.gat,0,0,0,0	monster	Hunter Fly	1035,10
+//gl_prison.gat,0,0,0,0	monster	Ribio	1200,5
+gl_prison.gat,0,0,0,0	monster	Zealotus	1200,1
+gl_prison.gat,0,0,0,0	monster	Skel Prisoner	1196,20
+gl_prison.gat,0,0,0,0	monster	Whisper	1179,10
+gl_prison.gat,0,0,0,0	monster	Zombie Prisoner	1197,20
+
+gl_prison1.gat,0,0,0,0	monster	Arclouse	1194,20
+gl_prison1.gat,0,0,0,0	monster	Brilight	1211,20
+gl_prison1.gat,0,0,0,0	monster	Cramp	1209,30
+gl_prison1.gat,0,0,0,0	monster	Injustice	1257,50
+gl_prison1.gat,0,0,0,0	monster	Phendark	1202,3
+//gl_prison1.gat,0,0,0,0	monster	Ribio	1200,5
+gl_prison1.gat,0,0,0,0	monster	Zealotus	1200,1
+
+// BYALAN ISLAND --------------------------------------------------------------
+iz_dun00.gat,0,0,0,0	monster	Black Mushroom	1084,5
+iz_dun00.gat,0,0,0,0	monster	Hydra	1068,45
+iz_dun00.gat,0,0,0,0	monster	Kukre	1070,55
+iz_dun00.gat,0,0,0,0	monster	Marina	1141,10
+iz_dun00.gat,0,0,0,0	monster	Plankton	1161,65
+iz_dun00.gat,0,0,0,0	monster	Vadon	1066,45
+
+iz_dun01.gat,0,0,0,0	monster	Black Mushroom	1084,5
+iz_dun01.gat,0,0,0,0	monster	Cornutus	1067,15
+iz_dun01.gat,0,0,0,0	monster	Hydra	1068,30
+iz_dun01.gat,0,0,0,0	monster	Kukre	1070,35
+iz_dun01.gat,0,0,0,0	monster	Marina	1141,45
+iz_dun01.gat,0,0,0,0	monster	Plankton	1161,10
+iz_dun01.gat,0,0,0,0	monster	Thara Frog	1034,55
+iz_dun01.gat,0,0,0,0	monster	Vadon	1066,60
+
+iz_dun02.gat,0,0,0,0	monster	Black Mushroom	1084,5
+iz_dun02.gat,0,0,0,0	monster	Cornutus	1067,60
+iz_dun02.gat,0,0,0,0	monster	Hydra	1068,40
+iz_dun02.gat,0,0,0,0	monster	Marse	1144,40
+iz_dun02.gat,0,0,0,0	monster	Obeaune	1044,40
+iz_dun02.gat,0,0,0,0	monster	Thara Frog	1034,40
+
+iz_dun03.gat,0,0,0,0	monster	Hydra	1068,40
+iz_dun03.gat,0,0,0,0	monster	Marc	1045,10
+iz_dun03.gat,0,0,0,0	monster	Marine Sphere	1142,20
+iz_dun03.gat,0,0,0,0	monster	Marse	1144,15
+iz_dun03.gat,0,0,0,0	monster	Merman	1264,3
+iz_dun03.gat,0,0,0,0	monster	Obeaune	1044,30
+iz_dun03.gat,0,0,0,0	monster	Phen	1158,45
+iz_dun03.gat,0,0,0,0	monster	Sword Fish	1069,40
+
+iz_dun04.gat,0,0,0,0	monster	Deviace	1108,1
+iz_dun04.gat,0,0,0,0	monster	Hydra	1068,18
+iz_dun04.gat,0,0,0,0	monster	Marc	1045,45
+iz_dun04.gat,0,0,0,0	monster	Marine Sphere	1142,10
+iz_dun04.gat,0,0,0,0	monster	Marse	1144,15
+iz_dun04.gat,0,0,0,0	monster	Merman	1264,7
+iz_dun04.gat,0,0,0,0	monster	Obeaune	1044,20
+iz_dun04.gat,0,0,0,0	monster	Penomena	1216,10
+iz_dun04.gat,0,0,0,0	monster	Strouf	1065,5
+iz_dun04.gat,0,0,0,0	monster	Sword Fish	1069,10
+
+// MJOLNIR --------------------------------------------------------------------
+mjolnir_01.gat,0,0,0,0	monster	Blue Plant	1079,5
+mjolnir_01.gat,0,0,0,0	monster	Green Plant	1080,10
+mjolnir_01.gat,0,0,0,0	monster	Shining Plant	1083,2
+mjolnir_01.gat,0,0,0,0	monster	Creamy	1018,20
+mjolnir_01.gat,0,0,0,0	monster	Hornet	1004,65
+mjolnir_01.gat,0,0,0,0	monster	Mandragora	1020,25
+mjolnir_01.gat,0,0,0,0	monster	Steel Chonchon	1042,10
+
+mjolnir_02.gat,0,0,0,0	monster	Red Plant	1078,6
+mjolnir_02.gat,0,0,0,0	monster	Blue Plant	1079,6
+mjolnir_02.gat,0,0,0,0	monster	Dustiness	1114,55
+mjolnir_02.gat,0,0,0,0	monster	Fabre	1007,45
+mjolnir_02.gat,0,0,0,0	monster	Green Plant	1080,23
+mjolnir_02.gat,0,0,0,0	monster	Pupa	1008,20
+
+mjolnir_03.gat,0,0,0,0	monster	Green Plant	1080,13
+mjolnir_03.gat,0,0,0,0	monster	Bigfoot	1060,15
+mjolnir_03.gat,0,0,0,0	monster	Caramel	1103,60
+mjolnir_03.gat,0,0,0,0	monster	Dustiness	1114,15
+mjolnir_03.gat,0,0,0,0	monster	Poporing	1031,10
+mjolnir_03.gat,0,0,0,0	monster	Shining Plant	1083,2
+mjolnir_03.gat,0,0,0,0	monster	Smokie	1056,15
+
+mjolnir_04.gat,0,0,0,0	monster	Caramel	1103,10
+mjolnir_04.gat,0,0,0,0	monster	Argos	1100,55
+mjolnir_04.gat,0,0,0,0	monster	Bigfoot	1060,10
+mjolnir_04.gat,0,0,0,0	monster	Flora	1118,35
+mjolnir_04.gat,0,0,0,0	monster	Poporing	1031,10
+
+mjolnir_05.gat,0,0,0,0	monster	Argos	1100,20
+mjolnir_05.gat,0,0,0,0	monster	Argiope	1099,15
+mjolnir_05.gat,0,0,0,0	monster	Blue Plant	1079,9
+mjolnir_05.gat,0,0,0,0	monster	Shining Plant	1083,1
+mjolnir_05.gat,0,0,0,0	monster	Flora	1118,5
+mjolnir_05.gat,0,0,0,0	monster	Hornet	1004,60
+mjolnir_05.gat,0,0,0,0	monster	Mantis	1139,45
+mjolnir_05.gat,0,0,0,0	monster	Mistress	1059,1
+mjolnir_05.gat,0,0,0,0	monster	Red Plant	1078,10
+
+mjolnir_06.gat,0,0,0,0	monster	Ambernite	1094,60
+mjolnir_06.gat,0,0,0,0	monster	Blue Plant	1079,2
+mjolnir_06.gat,0,0,0,0	monster	Chonchon	1011,25
+mjolnir_06.gat,0,0,0,0	monster	Coco	1104,30
+mjolnir_06.gat,0,0,0,0	monster	Horn	1128,10
+mjolnir_06.gat,0,0,0,0	monster	Red Mushroom	1085,8
+mjolnir_06.gat,0,0,0,0	monster	Steel Chonchon	1042,5
+mjolnir_06.gat,0,0,0,0	monster	Thief Bug	1053,10
+
+mjolnir_07.gat,0,0,0,0	monster	Blue Plant	1079,2
+mjolnir_07.gat,0,0,0,0	monster	Red Mushroom	1085,2
+mjolnir_07.gat,0,0,0,0	monster	Green Plant	1080,7
+mjolnir_07.gat,0,0,0,0	monster	Coco	1104,25
+mjolnir_07.gat,0,0,0,0	monster	Horn	1128,65
+mjolnir_07.gat,0,0,0,0	monster	Lunatic	1063,20
+mjolnir_07.gat,0,0,0,0	monster	Poporing	1031,15
+
+mjolnir_08.gat,0,0,0,0	monster	Blue Plant	1079,2
+mjolnir_08.gat,0,0,0,0	monster	Green Plant	1080,6
+mjolnir_08.gat,0,0,0,0	monster	Horn	1128,20
+mjolnir_08.gat,0,0,0,0	monster	Lunatic	1063,10
+mjolnir_08.gat,0,0,0,0	monster	Poporing	1031,15
+mjolnir_08.gat,0,0,0,0	monster	Stainer	1174,55
+mjolnir_08.gat,0,0,0,0	monster	Yoyo	1057,30
+
+mjolnir_09.gat,0,0,0,0	monster	Chonchon	1011,15
+mjolnir_09.gat,0,0,0,0	monster	Horn	1128,45
+mjolnir_09.gat,0,0,0,0	monster	Red Mushroom	1085,11
+mjolnir_09.gat,0,0,0,0	monster	Rocker	1052,55
+mjolnir_09.gat,0,0,0,0	monster	Stainer	1174,40
+mjolnir_09.gat,0,0,0,0	monster	Steel Chonchon	1042,10
+mjolnir_09.gat,0,0,0,0	monster	Thief Bug	1053,30
+mjolnir_09.gat,0,0,0,0	monster	Wolf	1013,25
+mjolnir_09.gat,0,0,0,0	monster	Worm Tail	1024,20
+
+mjolnir_10.gat,0,0,0,0	monster	Green Plant	1080,10
+mjolnir_10.gat,0,0,0,0	monster	Angeling	1096,1
+mjolnir_10.gat,0,0,0,0	monster	Argiope	1099,45
+mjolnir_10.gat,0,0,0,0	monster	Argos	1100,45
+mjolnir_10.gat,0,0,0,0	monster	Mastering	1090,1
+mjolnir_10.gat,0,0,0,0	monster	Poring	1002,80
+mjolnir_10.gat,0,0,0,0	monster	Shining Plant	1083,1
+
+mjolnir_11.gat,0,0,0,0	monster	Blue Plant	1079,2
+mjolnir_11.gat,0,0,0,0	monster	Green Plant	1080,11
+mjolnir_11.gat,0,0,0,0	monster	Andre	1095,40
+mjolnir_11.gat,0,0,0,0	monster	Ant Egg	1097,20
+mjolnir_11.gat,0,0,0,0	monster	Deniro	1105,10
+mjolnir_11.gat,0,0,0,0	monster	Horn	1128,15
+mjolnir_11.gat,0,0,0,0	monster	Piere	1160,25
+mjolnir_11.gat,0,0,0,0	monster	Rocker	1052,15
+mjolnir_11.gat,0,0,0,0	monster	Stainer	1174,10
+
+mjolnir_12.gat,0,0,0,0	monster	Ambernite	1094,35
+mjolnir_12.gat,0,0,0,0	monster	Mantis	1139,45
+mjolnir_12.gat,0,0,0,0	monster	Metaller	1058,20
+mjolnir_12.gat,0,0,0,0	monster	Earth Petit	1155,3
+mjolnir_12.gat,0,0,0,0	monster	Poporing	1031,15
+mjolnir_12.gat,0,0,0,0	monster	Rocker	1052,15
+mjolnir_12.gat,0,0,0,0	monster	Steel Chonchon	1042,15
+
+// MORROC FIELD ---------------------------------------------------------------
+moc_fild01.gat,0,0,0,0	monster	Condor	1009,20
+moc_fild01.gat,0,0,0,0	monster	Drops	1113,30
+moc_fild01.gat,0,0,0,0	monster	Pecopeco	1019,25
+moc_fild01.gat,0,0,0,0	monster	Pecopeco Egg	1047,20
+moc_fild01.gat,0,0,0,0	monster	Picky	1049,45
+moc_fild01.gat,0,0,0,0	monster	Picky	1050,45
+moc_fild01.gat,0,0,0,0	monster	Yellow Plant	1081,10
+
+moc_fild02.gat,0,0,0,0	monster	Yellow Plant	1081,7
+moc_fild02.gat,0,0,0,0	monster	Green Plant	1080,7
+moc_fild02.gat,0,0,0,0	monster	Drops	1113,20
+moc_fild02.gat,0,0,0,0	monster	Condor	1009,25
+moc_fild02.gat,0,0,0,0	monster	Pecopeco Egg	1047,15
+moc_fild02.gat,0,0,0,0	monster	Picky	1049,50
+moc_fild02.gat,0,0,0,0	monster	Picky	1050,50
+moc_fild02.gat,0,0,0,0	monster	Savage Babe	1167,20
+
+moc_fild03.gat,0,0,0,0	monster	Green Plant	1080,14
+moc_fild03.gat,0,0,0,0	monster	Boa	1025,25
+moc_fild03.gat,0,0,0,0	monster	Mastering	1090,1
+moc_fild03.gat,0,0,0,0	monster	Poring	1002,70
+moc_fild03.gat,0,0,0,0	monster	Roda Frog	1012,20
+moc_fild03.gat,0,0,0,0	monster	Wilow	1010,15
+
+moc_fild04.gat,0,0,0,0	monster	Yellow Plant	1081,10
+moc_fild04.gat,0,0,0,0	monster	Chonchon	1011,35
+moc_fild04.gat,0,0,0,0	monster	Drops	1113,10
+moc_fild04.gat,0,0,0,0	monster	Pecopeco	1019,75
+moc_fild04.gat,0,0,0,0	monster	Pecopeco Egg	1047,10
+moc_fild04.gat,0,0,0,0	monster	Picky	1049,15
+moc_fild04.gat,0,0,0,0	monster	Picky	1050,15
+moc_fild04.gat,0,0,0,0	monster	Wolf	1013,20
+
+moc_fild05.gat,0,0,0,0	monster	Yellow Plant	1081,5
+moc_fild05.gat,0,0,0,0	monster	Drops	1113,20
+moc_fild05.gat,0,0,0,0	monster	Pecopeco Egg	1047,10
+moc_fild05.gat,0,0,0,0	monster	Picky	1049,15
+moc_fild05.gat,0,0,0,0	monster	Picky	1050,15
+moc_fild05.gat,0,0,0,0	monster	Steel Chonchon	1042,70
+moc_fild05.gat,0,0,0,0	monster	Wolf	1013,45
+
+moc_fild06.gat,0,0,0,0	monster	Yellow Plant	1081,10
+moc_fild06.gat,0,0,0,0	monster	Baby Desert Wolf	1107,45
+moc_fild06.gat,0,0,0,0	monster	Chonchon	1011,45
+moc_fild06.gat,0,0,0,0	monster	Condor	1009,30
+moc_fild06.gat,0,0,0,0	monster	Dragon Fly	1091,1
+moc_fild06.gat,0,0,0,0	monster	Drops	1113,25
+moc_fild06.gat,0,0,0,0	monster	Muka	1055,35
+moc_fild06.gat,0,0,0,0	monster	Pecopeco Egg	1047,10
+moc_fild06.gat,0,0,0,0	monster	Picky	1049,30
+moc_fild06.gat,0,0,0,0	monster	Picky	1050,30
+
+moc_fild07.gat,0,0,0,0	monster	Yellow Plant	1081,5
+moc_fild07.gat,0,0,0,0	monster	Chonchon	1011,30
+moc_fild07.gat,0,0,0,0	monster	Drops	1113,60
+moc_fild07.gat,0,0,0,0	monster	Pecopeco Egg	1047,35
+moc_fild07.gat,0,0,0,0	monster	Picky	1049,60
+moc_fild07.gat,0,0,0,0	monster	Picky	1050,60
+
+moc_fild08.gat,0,0,0,0	monster	Baby Desert Wolf	1107,15
+moc_fild08.gat,0,0,0,0	monster	Golem	1040,40
+moc_fild08.gat,0,0,0,0	monster	Metaller	1058,30
+moc_fild08.gat,0,0,0,0	monster	Scorpion	1001,20
+
+moc_fild09.gat,0,0,0,0	monster	Condor	1009,15
+moc_fild09.gat,0,0,0,0	monster	Baby Desert Wolf	1107,50
+moc_fild09.gat,0,0,0,0	monster	Muka	1055,35
+moc_fild09.gat,0,0,0,0	monster	Pecopeco Egg	1047,10
+moc_fild09.gat,0,0,0,0	monster	Picky	1049,20
+moc_fild09.gat,0,0,0,0	monster	Picky	1050,20
+moc_fild09.gat,0,0,0,0	monster	Yellow Plant	1081,10
+
+moc_fild10.gat,0,0,0,0	monster	Yellow Plant	1081,10
+moc_fild10.gat,0,0,0,0	monster	Green Plant	1080,5
+moc_fild10.gat,0,0,0,0	monster	Condor	1009,30
+moc_fild10.gat,0,0,0,0	monster	Pecopeco	1019,35
+moc_fild10.gat,0,0,0,0	monster	Pecopeco Egg	1047,10
+moc_fild10.gat,0,0,0,0	monster	Picky	1049,45
+moc_fild10.gat,0,0,0,0	monster	Picky	1050,45
+
+moc_fild11.gat,0,0,0,0	monster	Andre	1095,5
+moc_fild11.gat,0,0,0,0	monster	Ant Egg	1097,40
+moc_fild11.gat,0,0,0,0	monster	Chonchon	1011,15
+moc_fild11.gat,0,0,0,0	monster	Deniro	1105,5
+moc_fild11.gat,0,0,0,0	monster	Drops	1113,75
+moc_fild11.gat,0,0,0,0	monster	Picky	1049,10
+moc_fild11.gat,0,0,0,0	monster	Picky	1050,10
+moc_fild11.gat,0,0,0,0	monster	Piere	1160,5
+moc_fild11.gat,0,0,0,0	monster	Shining Plant	1083,1
+
+moc_fild12.gat,0,0,0,0	monster	Andre	1095,15
+moc_fild12.gat,0,0,0,0	monster	Ant Egg	1097,25
+moc_fild12.gat,0,0,0,0	monster	Chonchon	1011,20
+moc_fild12.gat,0,0,0,0	monster	Drops	1113,40
+moc_fild12.gat,0,0,0,0	monster	Deniro	1105,15
+moc_fild12.gat,0,0,0,0	monster	Picky	1049,45
+moc_fild12.gat,0,0,0,0	monster	Picky	1050,45
+moc_fild12.gat,0,0,0,0	monster	Piere	1160,15
+moc_fild12.gat,0,0,0,0	monster	Yellow Plant	1081,10
+
+moc_fild13.gat,0,0,0,0	monster	Boa	1025,65
+moc_fild13.gat,0,0,0,0	monster	Condor	1009,120
+moc_fild13.gat,0,0,0,0	monster	Pecopeco	1019,40
+moc_fild13.gat,0,0,0,0	monster	Pecopeco Egg	1047,10
+moc_fild13.gat,0,0,0,0	monster	Picky	1049,35
+moc_fild13.gat,0,0,0,0	monster	Picky	1050,35
+moc_fild13.gat,0,0,0,0	monster	Red Mushroom	1085,13
+moc_fild13.gat,0,0,0,0	monster	Yellow Plant	1081,15
+
+moc_fild14.gat,0,0,0,0	monster	Shining Plant	1083,1
+moc_fild14.gat,0,0,0,0	monster	Yellow Plant	1081,5
+moc_fild14.gat,0,0,0,0	monster	Baby Desert Wolf	1107,25
+moc_fild14.gat,0,0,0,0	monster	Desert Wolf	1106,48
+moc_fild14.gat,0,0,0,0	monster	Hode	1127,15
+moc_fild14.gat,0,0,0,0	monster	Metaller	1058,20
+moc_fild14.gat,0,0,0,0	monster	Scorpion	1001,30
+
+moc_fild15.gat,0,0,0,0	monster	Yellow Plant	1081,12
+moc_fild15.gat,0,0,0,0	monster	Andre	1095,25
+moc_fild15.gat,0,0,0,0	monster	Ant Egg	1097,20
+moc_fild15.gat,0,0,0,0	monster	Deniro	1105,25
+moc_fild15.gat,0,0,0,0	monster	Piere	1160,25
+moc_fild15.gat,0,0,0,0	monster	Scorpion	1001,35
+
+moc_fild16.gat,0,0,0,0	monster	Hode	1127,40
+moc_fild16.gat,0,0,0,0	monster	Metaller	1058,15
+moc_fild16.gat,0,0,0,0	monster	Muka	1055,25
+moc_fild16.gat,0,0,0,0	monster	Sand Man	1165,40
+
+moc_fild17.gat,0,0,0,0	monster	Andre	1095,30
+moc_fild17.gat,0,0,0,0	monster	Blue Plant	1079,1
+moc_fild17.gat,0,0,0,0	monster	Deniro	1105,30
+moc_fild17.gat,0,0,0,0	monster	Drops	1113,25
+moc_fild17.gat,0,0,0,0	monster	Frilldora	1119,5
+moc_fild17.gat,0,0,0,0	monster	Hode	1127,35
+moc_fild17.gat,0,0,0,0	monster	Metaller	1058,20
+moc_fild17.gat,0,0,0,0	monster	Piere	1160,30
+moc_fild17.gat,0,0,0,0	monster	Sand Man	1165,15
+moc_fild17.gat,0,0,0,0	monster	Yellow Plant	1081,6
+
+moc_fild18.gat,0,0,0,0	monster	Anacondaq	1030,35
+moc_fild18.gat,0,0,0,0	monster	Chonchon	1011,15
+moc_fild18.gat,0,0,0,0	monster	Drops	1113,20
+moc_fild18.gat,0,0,0,0	monster	Hode	1127,55
+moc_fild18.gat,0,0,0,0	monster	Steel Chonchon	1042,25
+moc_fild18.gat,0,0,0,0	monster	Yellow Plant	1081,8
+
+// MUSHROOM DUNGEON (THIEF QUEST) ---------------------------------------------
+job_thief1.gat,0,0,0,0	monster	Black Mushroom	1084,1
+job_thief1.gat,0,0,0,0	monster	Chonchon	1011,15
+job_thief1.gat,0,0,0,0	monster	Fabre	1007,10
+job_thief1.gat,0,0,0,0	monster	Red Mushroom	1085,30
+job_thief1.gat,0,0,0,0	monster	Spore	1014,15
+
+
+// NEWBIE ---------------------------------------------------------------------
+new_1-3.gat,0,0,0	monster	Fabre	1184,5
+new_1-3.gat,0,0,0	monster	Fabre	1184,5
+new_1-3.gat,0,0,0	monster	Fabre	1184,5
+new_1-3.gat,0,0,0	monster	Fabre	1184,5
+new_1-3.gat,0,0,0	monster	Fabre	1184,5
+
+new_2-3.gat,0,0,0	monster	Fabre	1184,5
+new_2-3.gat,0,0,0	monster	Fabre	1184,5
+new_2-3.gat,0,0,0	monster	Fabre	1184,5
+new_2-3.gat,0,0,0	monster	Fabre	1184,5
+new_2-3.gat,0,0,0	monster	Fabre	1184,5
+
+new_3-3.gat,0,0,0	monster	Fabre	1184,5
+new_3-3.gat,0,0,0	monster	Fabre	1184,5
+new_3-3.gat,0,0,0	monster	Fabre	1184,5
+new_3-3.gat,0,0,0	monster	Fabre	1184,5
+new_3-3.gat,0,0,0	monster	Fabre	1184,5
+
+new_4-3.gat,0,0,0	monster	Fabre	1184,5
+new_4-3.gat,0,0,0	monster	Fabre	1184,5
+new_4-3.gat,0,0,0	monster	Fabre	1184,5
+new_4-3.gat,0,0,0	monster	Fabre	1184,5
+new_4-3.gat,0,0,0	monster	Fabre	1184,5
+
+new_5-3.gat,0,0,0	monster	Fabre	1184,5
+new_5-3.gat,0,0,0	monster	Fabre	1184,5
+new_5-3.gat,0,0,0	monster	Fabre	1184,5
+new_5-3.gat,0,0,0	monster	Fabre	1184,5
+new_5-3.gat,0,0,0	monster	Fabre	1184,5
+
+
+// ORCS DUNGEON ---------------------------------------------------------------
+orcsdun01.gat,0,0,0,0	monster	Black Mushroom	1084,10
+orcsdun01.gat,0,0,0,0	monster	White Plant	1082,3
+orcsdun01.gat,0,0,0,0	monster	Chonchon	1011,5
+orcsdun01.gat,0,0,0,0	monster	Drainliar	1111,5
+orcsdun01.gat,0,0,0,0	monster	Farmiliar	1005,15
+orcsdun01.gat,0,0,0,0	monster	Martin	1145,5
+orcsdun01.gat,0,0,0,0	monster	Orc Skeleton	1152,10
+orcsdun01.gat,0,0,0,0	monster	Orc Zombie	1153,50
+orcsdun01.gat,0,0,0,0	monster	Steel Chonchon	1042,10
+
+orcsdun02.gat,0,0,0,0	monster	Black Mushroom	1084,10
+orcsdun02.gat,0,0,0,0	monster	White Plant	1082,3
+orcsdun02.gat,0,0,0,0	monster	Chonchon	1011,10
+orcsdun02.gat,0,0,0,0	monster	Farmiliar	1005,15
+orcsdun02.gat,0,0,0,0	monster	Orc Archer	1189,3
+orcsdun02.gat,0,0,0,0	monster	Orc Lord	1190,1
+orcsdun02.gat,0,0,0,0	monster	Orc Skeleton	1152,30
+orcsdun02.gat,0,0,0,0	monster	Steel Chonchon	1042,10
+orcsdun02.gat,0,0,0,0	monster	Zenorc	1177,35
+
+// PAYON CAVE -----------------------------------------------------------------
+pay_dun00.gat,0,0,0,0	monster	Boa	1025,5
+pay_dun00.gat,0,0,0,0	monster	Farmiliar	1005,15
+pay_dun00.gat,0,0,0,0	monster	Red Mushroom	1085,5
+pay_dun00.gat,0,0,0,0	monster	Red Plant	1078,5
+pay_dun00.gat,0,0,0,0	monster	Spore	1014,20
+pay_dun00.gat,0,0,0,0	monster	Skeleton	1076,20
+pay_dun00.gat,0,0,0,0	monster	Zombie	1015,20
+
+pay_dun01.gat,0,0,0,0	monster	Black Mushroom	1084,7
+pay_dun01.gat,0,0,0,0	monster	Bon Gun	1188,1
+pay_dun01.gat,0,0,0,0	monster	Eggyra	1116,15
+pay_dun01.gat,0,0,0,0	monster	Farmiliar	1005,10
+pay_dun01.gat,0,0,0,0	monster	Magnolia	1138,10
+pay_dun01.gat,0,0,0,0	monster	Martin	1145,15
+pay_dun01.gat,0,0,0,0	monster	Munak	1026,1
+pay_dun01.gat,0,0,0,0	monster	Red Plant	1078,5
+pay_dun01.gat,0,0,0,0	monster	Smokie	1056,25
+pay_dun01.gat,0,0,0,0	monster	Soldier Skeleton	1028,2
+
+pay_dun02.gat,0,0,0,0	monster	Black Mushroom	1084,8
+pay_dun02.gat,0,0,0,0	monster	White Plant	1082,3
+pay_dun02.gat,0,0,0,0	monster	Hydra	1068,31
+pay_dun02.gat,0,0,0,0	monster	Archer Skeleton	1016,2
+pay_dun02.gat,0,0,0,0	monster	Bon Gun	1188,30
+pay_dun02.gat,0,0,0,0	monster	Farmiliar	1005,15
+pay_dun02.gat,0,0,0,0	monster	Magnolia	1138,15
+pay_dun02.gat,0,0,0,0	monster	Mandragora	1020,3
+pay_dun02.gat,0,0,0,0	monster	Munak	1026,40
+pay_dun02.gat,0,0,0,0	monster	Red Plant	1078,1
+pay_dun02.gat,0,0,0,0	monster	Soldier Skeleton	1028,5
+
+pay_dun03.gat,0,0,0,0	monster	Blue Plant	1079,1
+pay_dun03.gat,0,0,0,0	monster	White Plant	1082,1
+pay_dun03.gat,0,0,0,0	monster	Red Plant	1078,1
+pay_dun03.gat,0,0,0,0	monster	Yellow Plant	1081,1
+pay_dun03.gat,0,0,0,0	monster	Green Plant	1080,1
+pay_dun03.gat,0,0,0,0	monster	Archer Skeleton	1016,5
+pay_dun03.gat,0,0,0,0	monster	Bon Gun	1188,5
+pay_dun03.gat,0,0,0,0	monster	Greatest General	1277,3
+pay_dun03.gat,0,0,0,0	monster	Hydra	1068,17
+pay_dun03.gat,0,0,0,0	monster	Mandragora	1020,10
+pay_dun03.gat,0,0,0,0	monster	Munak	1026,5
+pay_dun03.gat,0,0,0,0	monster	Sohee	1170,65
+pay_dun03.gat,0,0,0,0	monster	Soldier Skeleton	1028,10
+pay_dun03.gat,0,0,0,0	monster	Whisper Boss	1186,1
+
+pay_dun04.gat,0,0,0,0	monster	Red Plant	1078,5
+pay_dun04.gat,0,0,0,0	monster	White Plant	1082,3
+pay_dun04.gat,0,0,0,0	monster	Shining Plant	1083,3
+pay_dun04.gat,0,0,0,0	monster	Archer Skeleton	1016,20
+pay_dun04.gat,0,0,0,0	monster	Greatest General	1277,9
+pay_dun04.gat,0,0,0,0	monster	Horong	1129,40
+pay_dun04.gat,0,0,0,0	monster	Mandragora	1020,21
+pay_dun04.gat,0,0,0,0	monster	Moonlight	1150,1
+pay_dun04.gat,0,0,0,0	monster	Sohee	1170,26
+pay_dun04.gat,0,0,0,0	monster	Soldier Skeleton	1028,30
+
+// PAYON FIELD ----------------------------------------------------------------
+pay_fild01.gat,0,0,0,0	monster	Green Plant	1080,5
+pay_fild01.gat,0,0,0,0	monster	Black Mushroom	1084,15
+pay_fild01.gat,0,0,0,0	monster	Fabre	1007,45
+pay_fild01.gat,0,0,0,0	monster	Lunatic	1063,10
+pay_fild01.gat,0,0,0,0	monster	Poring	1002,75
+pay_fild01.gat,0,0,0,0	monster	Pupa	1008,25
+pay_fild01.gat,0,0,0,0	monster	Wilow	1010,45
+
+pay_fild02.gat,0,0,0,0	monster	Green Plant	1080,4
+pay_fild02.gat,0,0,0,0	monster	Red Mushroom	1085,4
+pay_fild02.gat,0,0,0,0	monster	Fabre	1007,40
+pay_fild02.gat,0,0,0,0	monster	Lunatic	1063,10
+pay_fild02.gat,0,0,0,0	monster	Poring	1002,40
+pay_fild02.gat,0,0,0,0	monster	Boa	1025,10
+pay_fild01.gat,0,0,0,0	monster	Pupa	1008,15
+pay_fild02.gat,0,0,0,0	monster	Thief Bug	1051,15
+pay_fild02.gat,0,0,0,0	monster	Vagabond Wolf	1092,1
+pay_fild02.gat,0,0,0,0	monster	Wilow	1010,45
+pay_fild02.gat,0,0,0,0	monster	Wolf	1013,60
+
+pay_fild03.gat,0,0,0,0	monster	Red Mushroom	1085,6
+pay_fild03.gat,0,0,0,0	monster	Fabre	1007,55
+pay_fild03.gat,0,0,0,0	monster	Green Plant	1080,4
+pay_fild03.gat,0,0,0,0	monster	Lunatic	1063,15
+pay_fild03.gat,0,0,0,0	monster	Poring	1002,70
+pay_fild03.gat,0,0,0,0	monster	Pupa	1008,20
+pay_fild03.gat,0,0,0,0	monster	Wilow	1010,30
+pay_fild03.gat,0,0,0,0	monster	Worm Tail	1024,5
+
+pay_fild04.gat,0,0,0,0	monster	Green Plant	1080,5
+pay_fild04.gat,0,0,0,0	monster	Shining Plant	1083,1
+pay_fild04.gat,0,0,0,0	monster	Angeling	1096,1
+pay_fild04.gat,0,0,0,0	monster	Drops	1113,35
+pay_fild04.gat,0,0,0,0	monster	Ghostring	1120,1
+pay_fild04.gat,0,0,0,0	monster	Poporing	1031,35
+pay_fild04.gat,0,0,0,0	monster	Poring	1002,35
+
+pay_fild05.gat,0,0,0,0	monster	Green Plant	1080,8
+pay_fild05.gat,0,0,0,0	monster	Boa	1025,10
+pay_fild05.gat,0,0,0,0	monster	Poison Spore	1077,15
+pay_fild05.gat,0,0,0,0	monster	Poring	1002,30
+pay_fild05.gat,0,0,0,0	monster	Spore	1014,65
+
+pay_fild06.gat,0,0,0,0	monster	Green Plant	1080,10
+pay_fild06.gat,0,0,0,0	monster	Shining Plant	1083,1
+pay_fild06.gat,0,0,0,0	monster	Red Mushroom	1085,8
+pay_fild06.gat,0,0,0,0	monster	Fabre	1007,20
+pay_fild06.gat,0,0,0,0	monster	Lunatic	1063,15
+pay_fild06.gat,0,0,0,0	monster	Poring	1002,30
+pay_fild06.gat,0,0,0,0	monster	Pupa	1008,10
+pay_fild06.gat,0,0,0,0	monster	Roda Frog	1012,55
+pay_fild06.gat,0,0,0,0	monster	Spore	1014,40
+pay_fild06.gat,0,0,0,0	monster	Wilow	1010,45
+
+pay_fild07.gat,0,0,0,0	monster	Green Plant	1080,8
+pay_fild07.gat,0,0,0,0	monster	Bigfoot	1060,15
+pay_fild07.gat,0,0,0,0	monster	Caramel	1103,10
+pay_fild07.gat,0,0,0,0	monster	Dokebi	1110,40
+pay_fild07.gat,0,0,0,0	monster	Eggyra	1116,40
+pay_fild07.gat,0,0,0,0	monster	Poison Spore	1077,20
+pay_fild07.gat,0,0,0,0	monster	Poporing	1031,10
+
+pay_fild08.gat,0,0,0,0	monster	Green Plant	1080,10
+pay_fild08.gat,0,0,0,0	monster	Shining Plant	1083,1
+pay_fild08.gat,0,0,0,0	monster	Bigfoot	1060,5
+pay_fild08.gat,0,0,0,0	monster	Elder Wilow	1033,30
+pay_fild08.gat,0,0,0,0	monster	Poporing	1031,15
+pay_fild08.gat,0,0,0,0	monster	Smokie	1056,40
+
+pay_fild09.gat,0,0,0,0	monster	Green Plant	1080,10
+pay_fild09.gat,0,0,0,0	monster	Shining Plant	1083,1
+pay_fild09.gat,0,0,0,0	monster	Bigfoot	1060,15
+pay_fild09.gat,0,0,0,0	monster	Eggyra	1116,20
+pay_fild09.gat,0,0,0,0	monster	Elder Wilow	1033,20
+pay_fild09.gat,0,0,0,0	monster	Greatest General	1277,6
+pay_fild09.gat,0,0,0,0	monster	Poporing	1031,10
+pay_fild09.gat,0,0,0,0	monster	Sohee	1170,8
+pay_fild09.gat,0,0,0,0	monster	Wanderer	1208,1
+
+pay_fild10.gat,0,0,0,0	monster	Blue Plant	1079,3
+pay_fild10.gat,0,0,0,0	monster	Green Plant	1080,15
+pay_fild10.gat,0,0,0,0	monster	Bigfoot	1060,10
+pay_fild10.gat,0,0,0,0	monster	Eddga	1115,1
+pay_fild10.gat,0,0,0,0	monster	Eggyra	1116,20
+pay_fild10.gat,0,0,0,0	monster	Horong	1129,30
+pay_fild10.gat,0,0,0,0	monster	Munak	1026,5
+pay_fild10.gat,0,0,0,0	monster	Poison Spore	1077,20
+
+pay_fild11.gat,0,0,0,0	monster	Red Mushroom	1085,6
+pay_fild11.gat,0,0,0,0	monster	Brilight	1211,1
+pay_fild11.gat,0,0,0,0	monster	Dustiness	1114,10
+pay_fild11.gat,0,0,0,0	monster	Fabre	1007,20
+pay_fild11.gat,0,0,0,0	monster	Horn	1128,15
+pay_fild11.gat,0,0,0,0	monster	Pupa	1008,10
+pay_fild11.gat,0,0,0,0	monster	Stainer	1174,25
+pay_fild11.gat,0,0,0,0	monster	Stem Worm	1215,1
+pay_fild11.gat,0,0,0,0	monster	Worm Tail	1024,65
+
+// PRONTERA FIELD -------------------------------------------------------------
+prt_fild00.gat,0,0,0,0	monster	Fabre	1007,50
+prt_fild00.gat,0,0,0,0	monster	Hornet	1004,20
+prt_fild00.gat,0,0,0,0	monster	Poring	1002,55
+prt_fild00.gat,0,0,0,0	monster	Pupa	1008,10
+
+prt_fild01.gat,0,0,0,0	monster	Blue Plant	1079,1
+prt_fild01.gat,0,0,0,0	monster	Green Plant	1080,3
+prt_fild01.gat,0,0,0,0	monster	Fabre	1007,25
+prt_fild01.gat,0,0,0,0	monster	Lunatic	1063,70
+prt_fild01.gat,0,0,0,0	monster	Poring	1002,50
+prt_fild01.gat,0,0,0,0	monster	Pupa	1008,5
+prt_fild01.gat,0,0,0,0	monster	Roda Frog	1012,20
+prt_fild01.gat,0,0,0,0	monster	Thief Bug	1051,30
+prt_fild01.gat,0,0,0,0	monster	Thief Bug Egg	1048,10
+
+prt_fild02.gat,0,0,0,0	monster	Shining Plant	1083,1
+prt_fild02.gat,0,0,0,0	monster	Eclipse	1093,1
+prt_fild02.gat,0,0,0,0	monster	Fabre	1007,40
+prt_fild02.gat,0,0,0,0	monster	Lunatic	1063,30
+prt_fild02.gat,0,0,0,0	monster	Mandragora	1020,75
+prt_fild02.gat,0,0,0,0	monster	Poring	1002,50
+prt_fild02.gat,0,0,0,0	monster	Pupa	1008,15
+prt_fild02.gat,0,0,0,0	monster	Thief Bug	1051,20
+prt_fild02.gat,0,0,0,0	monster	Thief Bug	1053,15
+
+prt_fild03.gat,0,0,0,0	monster	Blue Plant	1079,2
+prt_fild03.gat,0,0,0,0	monster	Green Plant	1080,5
+prt_fild03.gat,0,0,0,0	monster	Choco	1214,3
+prt_fild03.gat,0,0,0,0	monster	Fabre	1007,40
+prt_fild03.gat,0,0,0,0	monster	Lunatic	1063,30
+prt_fild03.gat,0,0,0,0	monster	Poporing	1031,35
+prt_fild03.gat,0,0,0,0	monster	Pupa	1008,15
+prt_fild03.gat,0,0,0,0	monster	Thief Bug Egg	1048,10
+prt_fild03.gat,0,0,0,0	monster	Thief Bug	1051,5
+prt_fild03.gat,0,0,0,0	monster	Yoyo	1057,65
+
+prt_fild04.gat,0,0,0,0	monster	Green Plant	1080,15
+prt_fild04.gat,0,0,0,0	monster	Hornet	1004,15
+prt_fild04.gat,0,0,0,0	monster	Lunatic	1063,25
+prt_fild04.gat,0,0,0,0	monster	Poring	1002,35
+prt_fild04.gat,0,0,0,0	monster	Rocker	1052,45
+prt_fild04.gat,0,0,0,0	monster	Roda Frog	1012,10
+
+prt_fild05.gat,0,0,0,0	monster	Blue Plant	1079,1
+prt_fild05.gat,0,0,0,0	monster	Green Plant	1080,6
+prt_fild05.gat,0,0,0,0	monster	Fabre	1007,65
+prt_fild05.gat,0,0,0,0	monster	Lunatic	1063,35
+prt_fild05.gat,0,0,0,0	monster	Poring	1002,55
+prt_fild05.gat,0,0,0,0	monster	Pupa	1008,20
+prt_fild05.gat,0,0,0,0	monster	Roda Frog	1012,15
+
+prt_fild06.gat,0,0,0,0	monster	Green Plant	1080,15
+prt_fild06.gat,0,0,0,0	monster	Fabre	1007,60
+prt_fild06.gat,0,0,0,0	monster	Lunatic	1063,40
+prt_fild06.gat,0,0,0,0	monster	Poring	1002,60
+prt_fild06.gat,0,0,0,0	monster	Pupa	1008,10
+prt_fild06.gat,0,0,0,0	monster	Roda Frog	1012,20
+prt_fild06.gat,0,0,0,0	monster	Thief Bug	1051,20
+prt_fild06.gat,0,0,0,0	monster	Thief Bug Egg	1048,10
+
+prt_fild07.gat,0,0,0,0	monster	Black Mushroom	1084,3
+prt_fild07.gat,0,0,0,0	monster	Fabre	1007,45
+prt_fild07.gat,0,0,0,0	monster	Lunatic	1063,40
+prt_fild07.gat,0,0,0,0	monster	Poring	1002,45
+prt_fild07.gat,0,0,0,0	monster	Pupa	1008,5
+prt_fild07.gat,0,0,0,0	monster	Rocker	1052,67
+prt_fild07.gat,0,0,0,0	monster	Roda Frog	1012,30
+prt_fild07.gat,0,0,0,0	monster	Vocal	1088,1
+
+prt_fild08.gat,0,0,0,0	monster	Chonchon	1011,20
+prt_fild08.gat,0,0,0,0	monster	Fabre	1007,40
+prt_fild08.gat,0,0,0,0	monster	Lunatic	1063,15
+prt_fild08.gat,0,0,0,0	monster	Poring	1002,80
+prt_fild08.gat,0,0,0,0	monster	Pupa	1008,10
+prt_fild08.gat,0,0,0,0	monster	Roda Frog	1012,15
+
+moc_fild09.gat,0,0,0,0	monster	Yellow Plant	1081,3
+prt_fild09.gat,0,0,0,0	monster	Baby Desert Wolf	1107,20
+prt_fild09.gat,0,0,0,0	monster	Chonchon	1011,45
+prt_fild09.gat,0,0,0,0	monster	Condor	1009,25
+prt_fild09.gat,0,0,0,0	monster	Drops	1113,65
+prt_fild09.gat,0,0,0,0	monster	Muka	1055,5
+prt_fild09.gat,0,0,0,0	monster	Pecopeco Egg	1047,20
+prt_fild09.gat,0,0,0,0	monster	Picky	1049,40
+prt_fild09.gat,0,0,0,0	monster	Picky	1050,40
+prt_fild09.gat,0,0,0,0	monster	Steel Chonchon	1042,5
+
+prt_fild10.gat,0,0,0,0	monster	Red Mushroom	1085,15
+prt_fild10.gat,0,0,0,0	monster	Shining Plant	1083,1
+prt_fild10.gat,0,0,0,0	monster	Creamy	1018,10
+prt_fild10.gat,0,0,0,0	monster	Elder Wilow	1033,65
+prt_fild10.gat,0,0,0,0	monster	Lunatic	1063,10
+prt_fild10.gat,0,0,0,0	monster	Poporing	1031,15
+prt_fild10.gat,0,0,0,0	monster	Savage Babe	1167,45
+prt_fild10.gat,0,0,0,0	monster	Wilow	1010,5
+
+prt_fild11.gat,0,0,0,0	monster	Coco	1104,35
+prt_fild11.gat,0,0,0,0	monster	Elder Wilow	1033,10
+prt_fild11.gat,0,0,0,0	monster	Lunatic	1063,10
+prt_fild11.gat,0,0,0,0	monster	Poporing	1031,10
+prt_fild11.gat,0,0,0,0	monster	Red Mushroom	1085,10
+prt_fild11.gat,0,0,0,0	monster	Savage	1166,45
+prt_fild11.gat,0,0,0,0	monster	Savage Babe	1167,65
+prt_fild11.gat,0,0,0,0	monster	Yoyo	1057,5
+
+// HIDDEN TEMPLE --------------------------------------------------------------
+prt_maze01.gat,0,0,0,0	monster	Black Mushroom	1084,5
+prt_maze01.gat,0,0,0,0	monster	Blue Plant	1079,2
+prt_maze01.gat,0,0,0,0	monster	Red Mushroom	1085,2
+prt_maze01.gat,0,0,0,0	monster	Red Plant	1078,2
+prt_maze01.gat,0,0,0,0	monster	Shining Plant	1083,2
+prt_maze01.gat,0,0,0,0	monster	Argiope	1099,3
+prt_maze01.gat,0,0,0,0	monster	Argos	1100,3
+prt_maze01.gat,0,0,0,0	monster	Bigfoot	1060,5
+prt_maze01.gat,0,0,0,0	monster	Boa	1025,5
+prt_maze01.gat,0,0,0,0	monster	Caramel	1103,5
+prt_maze01.gat,0,0,0,0	monster	Chonchon	1011,5
+prt_maze01.gat,0,0,0,0	monster	Choco	1214,2
+prt_maze01.gat,0,0,0,0	monster	Coco	1104,5
+prt_maze01.gat,0,0,0,0	monster	Creamy	1018,1
+prt_maze01.gat,0,0,0,0	monster	Dustiness	1114,5
+prt_maze01.gat,0,0,0,0	monster	Fabre	1007,5
+prt_maze01.gat,0,0,0,0	monster	Horn	1128,5
+prt_maze01.gat,0,0,0,0	monster	Hunter Fly	1035,3
+prt_maze01.gat,0,0,0,0	monster	Lunatic	1063,5
+prt_maze01.gat,0,0,0,0	monster	Mantis	1139,3
+prt_maze01.gat,0,0,0,0	monster	Martin	1145,5
+prt_maze01.gat,0,0,0,0	monster	Poporing	1031,5
+prt_maze01.gat,0,0,0,0	monster	Poring	1002,5
+prt_maze01.gat,0,0,0,0	monster	Pupa	1008,5
+prt_maze01.gat,0,0,0,0	monster	Rocker	1052,5
+prt_maze01.gat,0,0,0,0	monster	Savage	1166,8
+prt_maze01.gat,0,0,0,0	monster	Side Winder	1037,3
+prt_maze01.gat,0,0,0,0	monster	Smokie	1056,5
+prt_maze01.gat,0,0,0,0	monster	Stainer	1174,5
+prt_maze01.gat,0,0,0,0	monster	Steel Chonchon	1042,5
+prt_maze01.gat,0,0,0,0	monster	Wolf	1013,5
+prt_maze01.gat,0,0,0,0	monster	Yoyo	1057,4
+
+prt_maze03.gat,0,0,0,0	monster	Black Mushroom	1084,2
+prt_maze03.gat,0,0,0,0	monster	Blue Plant	1079,2
+prt_maze03.gat,0,0,0,0	monster	Red Mushroom	1085,2
+prt_maze03.gat,0,0,0,0	monster	Red Plant	1078,2
+prt_maze03.gat,0,0,0,0	monster	Shining Plant	1083,2
+prt_maze03.gat,0,0,0,0	monster	Argiope	1099,3
+prt_maze03.gat,0,0,0,0	monster	Argos	1100,3
+prt_maze03.gat,0,0,0,0	monster	Baphomet	1039,1
+prt_maze03.gat,0,0,0,0	monster	Bigfoot	1060,5
+prt_maze03.gat,0,0,0,0	monster	Boa	1025,5
+prt_maze03.gat,0,0,0,0	monster	Caramel	1103,5
+prt_maze03.gat,0,0,0,0	monster	Choco	1214,2
+prt_maze03.gat,0,0,0,0	monster	Coco	1104,5
+prt_maze03.gat,0,0,0,0	monster	Creamy	1018,1
+prt_maze03.gat,0,0,0,0	monster	Dustiness	1114,5
+prt_maze03.gat,0,0,0,0	monster	Eclipse	1093,1
+prt_maze03.gat,0,0,0,0	monster	Fabre	1007,5
+prt_maze03.gat,0,0,0,0	monster	Horn	1128,5
+prt_maze03.gat,0,0,0,0	monster	Hunter Fly	1035,3
+prt_maze03.gat,0,0,0,0	monster	Lunatic	1063,5
+prt_maze03.gat,0,0,0,0	monster	Mantis	1139,3
+prt_maze03.gat,0,0,0,0	monster	Martin	1145,5
+prt_maze03.gat,0,0,0,0	monster	Mastering	1090,1
+prt_maze03.gat,0,0,0,0	monster	Poporing	1031,5
+prt_maze03.gat,0,0,0,0	monster	Poring	1002,5
+prt_maze03.gat,0,0,0,0	monster	Pupa	1008,5
+prt_maze03.gat,0,0,0,0	monster	Rocker	1052,5
+prt_maze03.gat,0,0,0,0	monster	Savage	1166,3
+prt_maze03.gat,0,0,0,0	monster	Side Winder	1037,3
+prt_maze03.gat,0,0,0,0	monster	Smokie	1056,5
+prt_maze03.gat,0,0,0,0	monster	Stainer	1174,5
+prt_maze03.gat,0,0,0,0	monster	Steel Chonchon	1042,5
+prt_maze03.gat,0,0,0,0	monster	Vagabond Wolf	1092,1
+prt_maze03.gat,0,0,0,0	monster	Vocal	1088,1
+prt_maze03.gat,0,0,0,0	monster	Wolf	1013,5
+prt_maze03.gat,0,0,0,0	monster	Yoyo	1057,4
+
+// CULVERT --------------------------------------------------------------------
+prt_sewb1.gat,0,0,0,0	monster	Farmiliar	1005,20
+prt_sewb1.gat,0,0,0,0	monster	Spore	1014,20
+prt_sewb1.gat,0,0,0,0	monster	Tarou	1175,10
+prt_sewb1.gat,0,0,0,0	monster	Thief Bug	1051,100
+prt_sewb1.gat,0,0,0,0	monster	Thief Bug Egg	1048,40
+
+prt_sewb2.gat,0,0,0,0	monster	Farmiliar	1005,10
+prt_sewb2.gat,0,0,0,0	monster	Plankton	1161,5
+prt_sewb2.gat,0,0,0,0	monster	Spore	1014,15
+prt_sewb2.gat,0,0,0,0	monster	Tarou	1175,50
+prt_sewb2.gat,0,0,0,0	monster	Thief Bug	1051,70
+prt_sewb2.gat,0,0,0,0	monster	Thief Bug	1053,30
+prt_sewb2.gat,0,0,0,0	monster	Thief Bug Egg	1048,20
+
+prt_sewb3.gat,0,0,0,0	monster	Farmiliar	1005,20
+prt_sewb3.gat,0,0,0,0	monster	Hydra	1068,5
+prt_sewb3.gat,0,0,0,0	monster	Poporing	1031,15
+prt_sewb3.gat,0,0,0,0	monster	Tarou	1175,25
+prt_sewb3.gat,0,0,0,0	monster	Thief Bug	1051,65
+prt_sewb3.gat,0,0,0,0	monster	Thief Bug	1053,65
+prt_sewb3.gat,0,0,0,0	monster	Thief Bug Egg	1048,10
+
+prt_sewb4.gat,0,0,0,0	monster	Golden Bug	1086,1
+prt_sewb4.gat,0,0,0,0	monster	Thief Bug	1051,60
+prt_sewb4.gat,0,0,0,0	monster	Thief Bug	1053,60
+prt_sewb4.gat,0,0,0,0	monster	Thief Bug	1054,60
+prt_sewb4.gat,0,0,0,0	monster	Thief Bug Egg	1048,40
+
+// MOROCC PYRAMIDES -----------------------------------------------------------
+moc_pryd01.gat,0,0,0,0	monster	Farmiliar	1005,20
+moc_pryd01.gat,0,0,0,0	monster	Poporing	1031,20
+moc_pryd01.gat,0,0,0,0	monster	Spore	1014,30
+
+moc_pryd02.gat,0,0,0,0	monster	Archer Skeleton	1016,35
+moc_pryd02.gat,0,0,0,0	monster	Drainliar	1111,30
+moc_pryd02.gat,0,0,0,0	monster	Poporing	1031,20
+moc_pryd02.gat,0,0,0,0	monster	Soldier Skeleton	1028,50
+
+moc_pryd03.gat,0,0,0,0	monster	Archer Skeleton	1016,15
+moc_pryd03.gat,0,0,0,0	monster	Drainliar	1111,15
+moc_pryd03.gat,0,0,0,0	monster	Mimic	1191,2
+moc_pryd03.gat,0,0,0,0	monster	Mummy	1041,45
+moc_pryd03.gat,0,0,0,0	monster	Soldier Skeleton	1028,5
+
+moc_pryd04.gat,0,0,0,0	monster	Ghoul	1036,20
+moc_pryd04.gat,0,0,0,0	monster	Isis	1029,30
+moc_pryd04.gat,0,0,0,0	monster	Matyr	1146,20
+moc_pryd04.gat,0,0,0,0	monster	Mummy	1041,45
+moc_pryd04.gat,0,0,0,0	monster	Mimic	1191,5
+moc_pryd04.gat,0,0,0,0	monster	Osiris	1038,1
+
+moc_pryd05.gat,0,0,0,0	monster	Ghoul	1036,5
+moc_pryd05.gat,0,0,0,0	monster	Minorous	1149,60
+moc_pryd05.gat,0,0,0,0	monster	Mummy	1041,25
+moc_pryd05.gat,0,0,0,0	monster	Verit	1032,30
+
+moc_pryd06.gat,0,0,0,0	monster	Ancient Mummy	1297,10
+moc_pryd06.gat,0,0,0,0	monster	Isis	1029,10
+moc_pryd06.gat,0,0,0,0	monster	Mummy	1041,20
+moc_pryd06.gat,0,0,0,0	monster	Mimic	1191,2
+moc_pryd06.gat,0,0,0,0	monster	Verit	1032,10
+
+// SPHINX DUNGEON -------------------------------------------------------------
+in_sphinx1.gat,0,0,0,0	monster	Anacondaq	1030,35
+in_sphinx1.gat,0,0,0,0	monster	Drainliar	1111,20
+in_sphinx1.gat,0,0,0,0	monster	Requiem	1164,5
+in_sphinx1.gat,0,0,0,0	monster	Zerom	1178,65
+
+in_sphinx2.gat,0,0,0,0	monster	Drainliar	1111,25
+in_sphinx2.gat,0,0,0,0	monster	Matyr	1146,45
+in_sphinx2.gat,0,0,0,0	monster	Requiem	1164,15
+in_sphinx2.gat,0,0,0,0	monster	Whisper	1179,15
+in_sphinx2.gat,0,0,0,0	monster	Zerom	1178,20
+
+in_sphinx3.gat,0,0,0,0	monster	Drainliar	1111,20
+in_sphinx3.gat,0,0,0,0	monster	Marduk	1140,5
+in_sphinx3.gat,0,0,0,0	monster	Matyr	1146,20
+in_sphinx3.gat,0,0,0,0	monster	Mimic	1191,2
+in_sphinx3.gat,0,0,0,0	monster	Pasana	1154,5
+in_sphinx3.gat,0,0,0,0	monster	Requiem	1164,55
+in_sphinx3.gat,0,0,0,0	monster	Whisper	1179,10
+
+in_sphinx4.gat,0,0,0,0	monster	Evil Druid	1117,1
+in_sphinx4.gat,0,0,0,0	monster	Marduk	1140,25
+in_sphinx4.gat,0,0,0,0	monster	Mimic	1191,4
+in_sphinx4.gat,0,0,0,0	monster	Minorous	1149,45
+in_sphinx4.gat,0,0,0,0	monster	Pasana	1154,5
+in_sphinx4.gat,0,0,0,0	monster	Side Winder	1037,15
+
+in_sphinx5.gat,0,0,0,0	monster	Marduk	1140,30
+in_sphinx5.gat,0,0,0,0	monster	Matyr	1146,10
+in_sphinx5.gat,0,0,0,0	monster	Mimic	1191,7
+in_sphinx5.gat,0,0,0,0	monster	Pasana	1154,5
+in_sphinx5.gat,0,0,0,0	monster	Pharaoh	1157,1
+in_sphinx5.gat,0,0,0,0	monster	Requiem	1164,25
+in_sphinx5.gat,0,0,0,0	monster	Side Winder	1037,10
+in_sphinx5.gat,0,0,0,0	monster	Whisper	1179,10
+in_sphinx5.gat,0,0,0,0	monster	Wraith	1192,1
+
+// TURTLE DUNGEON -------------------------------------------------------------
+tur_dun01.gat,0,0,0,0	monster	Dragon Tail	1321,25
+tur_dun01.gat,0,0,0,0	monster	Permeter	1314,10
+tur_dun01.gat,0,0,0,0	monster	Pest	1256,15
+tur_dun01.gat,0,0,0,0	monster	Spring Rabbit	1322,25
+tur_dun01.gat,0,0,0,0	monster	Thara Frog	1034,10
+
+tur_dun02.gat,0,0,0,0	monster	Permeter	1314,40
+tur_dun02.gat,0,0,0,0	monster	Freezer	1319,20
+tur_dun02.gat,0,0,0,0	monster	Pest	1256,15
+tur_dun02.gat,0,0,0,0	monster	Solider	1316,40
+
+tur_dun03.gat,0,0,0,0	monster	Assulter	1315,35
+tur_dun03.gat,0,0,0,0	monster	Freezer	1319,40
+tur_dun03.gat,0,0,0,0	monster	Heater	1318,10
+tur_dun03.gat,0,0,0,0	monster	Permeter	1314,15
+
+tur_dun04.gat,0,0,0,0	monster	Assulter	1315,35
+tur_dun04.gat,0,0,0,0	monster	Freezer	1319,25
+tur_dun04.gat,0,0,0,0	monster	Heater	1318,43
+tur_dun04.gat,0,0,0,0	monster	Permeter	1314,10
+tur_dun04.gat,0,0,0,0	monster	Turtle General	1312,1
+tur_dun04.gat,0,0,0,0	monster	Wanderer	1208,3
+
+// TREASURE -------------------------------------------------------------------
+treasure01.gat,0,0,0,0	monster	Ghostring	1120,1
+treasure01.gat,0,0,0,0	monster	Hydra	1068,71
+treasure01.gat,0,0,0,0	monster	Kukre	1070,15
+treasure01.gat,0,0,0,0	monster	Pirate Skel	1071,16
+treasure01.gat,0,0,0,0	monster	Plankton	1161,10
+treasure01.gat,0,0,0,0	monster	Poison Spore	1077,12
+treasure01.gat,0,0,0,0	monster	Poporing	1031,5
+treasure01.gat,0,0,0,0	monster	Thara Frog	1034,2
+treasure01.gat,0,0,0,0	monster	Whisper	1179,10
+
+treasure02.gat,0,0,0,0	monster	Drake	1112,1
+treasure02.gat,0,0,0,0	monster	Hydra	1068,18
+treasure02.gat,0,0,0,0	monster	Kukre	1070,20
+treasure02.gat,0,0,0,0	monster	Marionette	1143,1
+treasure02.gat,0,0,0,0	monster	Megalodon	1064,6
+treasure02.gat,0,0,0,0	monster	Mimic	1191,5
+treasure02.gat,0,0,0,0	monster	Penomena	1216,6
+treasure02.gat,0,0,0,0	monster	Pirate Skel	1071,12
+treasure02.gat,0,0,0,0	monster	Poison Spore	1077,3
+treasure02.gat,0,0,0,0	monster	Thara Frog	1034,10
+treasure02.gat,0,0,0,0	monster	Trijoint	1279,5
+treasure02.gat,0,0,0,0	monster	Whisper	1179,12
+
+// LUTIE FIELD ----------------------------------------------------------------
+xmas_fild01.gat,0,0,0,0	monster	Hatii	1252,1
+xmas_fild01.gat,0,0,0,0	monster	Marin	1242,25
+xmas_fild01.gat,0,0,0,0	monster	Sasquatch	1243,20
+
+// XMAS DUNGEON ---------------------------------------------------------------
+xmas_dun01.gat,0,0,0,0	monster	Angeling	1096,1
+xmas_dun01.gat,0,0,0,0	monster	Chepet	1250,1
+xmas_dun01.gat,0,0,0,0	monster	Cookie	1265,15
+xmas_dun01.gat,0,0,0,0	monster	Christmas Cookie	1246,30
+xmas_dun01.gat,0,0,0,0	monster	Drops	1113,10
+xmas_dun01.gat,0,0,0,0	monster	Marin	1242,20
+xmas_dun01.gat,0,0,0,0	monster	Mastering	1090,1
+xmas_dun01.gat,0,0,0,0	monster	Myst Case	1249,5
+xmas_dun01.gat,0,0,0,0	monster	Poporing	1031,20
+xmas_dun01.gat,0,0,0,0	monster	Poring	1002,10
+
+xmas_dun02.gat,0,0,0,0	monster	Christmas Cookie	1246,20
+xmas_dun02.gat,0,0,0,0	monster	Cookie	1265,10
+xmas_dun02.gat,0,0,0,0	monster	Cruiser	1248,35
+xmas_dun02.gat,0,0,0,0	monster	Myst Case	1249,60
+xmas_dun02.gat,0,0,0,0	monster	Stormy Knight	1251,1
+
+// GUILD DOUNGEN ------------------------------------------------------------------
+gld_dun01.gat,0,0,0,0	monster	Am Mut	1301,10
+gld_dun01.gat,0,0,0,0	monster	Cat O'Nine Tails	1307,3
+gld_dun01.gat,0,0,0,0	monster	Eddga	1115,1
+gld_dun01.gat,0,0,0,0	monster	Gajomart	1309,10
+gld_dun01.gat,0,0,0,0	monster	General Skeleton	1290,10
+gld_dun01.gat,0,0,0,0	monster	Vegabond Wolf	1092,1
+
+gld_dun02.gat,0,0,0,0	monster	Ancient Worm	1305,10
+gld_dun02.gat,0,0,0,0	monster	Doppelganger	1046,1
+gld_dun02.gat,0,0,0,0	monster	Giant Hornet	1303,10
+gld_dun02.gat,0,0,0,0	monster	Giant Spider	1304,10
+gld_dun02.gat,0,0,0,0	monster	Killer Mantis	1294,10
+gld_dun02.gat,0,0,0,0	monster	Owl Baron	1295,3
+
+gld_dun03.gat,0,0,0,0	monster	Caterpillar	1300,10
+gld_dun03.gat,0,0,0,0	monster	Creamy Fire	1293,10
+gld_dun03.gat,0,0,0,0	monster	Gullinbursti	1311,10
+gld_dun03.gat,0,0,0,0	monster	Leib Olmai	1306,10
+gld_dun03.gat,0,0,0,0	monster	Maya	1147,1
+gld_dun03.gat,0,0,0,0	monster	Maya Purple	1289,3
+
+gld_dun04.gat,0,0,0,0	monster	Dark Illusion	1302,1
+gld_dun04.gat,0,0,0,0	monster	Dark Lord	1272,1
+gld_dun04.gat,0,0,0,0	monster	Ghostring	1120,1
+gld_dun04.gat,0,0,0,0	monster	Mini Demon	1292,10
+gld_dun04.gat,0,0,0,0	monster	Wraith Dead	1291,10
+gld_dun04.gat,0,0,0,0	monster	Zombie Master	1298,10
+
+// YUNO FIELD -----------------------------------------------------------------
+yuno_fild01.gat,0,0,0,0	monster	Dustiness	1114,20
+yuno_fild01.gat,0,0,0,0	monster	Grand Peco	1269,20
+yuno_fild01.gat,0,0,0,0	monster	Poporing	1031,30
+yuno_fild01.gat,0,0,0,0	monster	Poring	1002,40
+
+yuno_fild02.gat,0,0,0,0	monster	Archangeling	1388,1
+yuno_fild02.gat,0,0,0,0	monster	Driller	1380,10
+yuno_fild02.gat,0,0,0,0	monster	Dustiness	1114,20
+yuno_fild02.gat,0,0,0,0	monster	Geographer	1368,10
+yuno_fild02.gat,0,0,0,0	monster	Grand Peco	1269,10
+yuno_fild02.gat,0,0,0,0	monster	Poring	1002,40
+yuno_fild02.gat,0,0,0,0	monster	Sleeper	1386,5
+
+yuno_fild03.gat,0,0,0,0	monster	Demon Fungus	1378,20
+yuno_fild03.gat,0,0,0,0	monster	Geographer	1368,10
+yuno_fild03.gat,0,0,0,0	monster	Goat	1372,20
+yuno_fild03.gat,0,0,0,0	monster	Harpy	1376,5
+yuno_fild03.gat,0,0,0,0	monster	Sleeper	1386,5
+
+yuno_fild04.gat,0,0,0,0	monster	Driller	1380,10
+yuno_fild04.gat,0,0,0,0	monster	Geographer	1368,10
+yuno_fild04.gat,0,0,0,0	monster	Goat	1372,10
+yuno_fild04.gat,0,0,0,0	monster	Harpy	1376,5
+yuno_fild04.gat,0,0,0,0	monster	Poring	1002,40
+yuno_fild04.gat,0,0,0,0	monster	Sleeper	1386,5
+
+// NOG ROAD -----------------------------------------------------------------------
+mag_dun01.gat,0,0,0,0	monster	Blazer	1367,10
+mag_dun01.gat,0,0,0,0	monster	Diabolic	1382,10
+mag_dun01.gat,0,0,0,0	monster	Explosion	1383,10
+mag_dun01.gat,0,0,0,0	monster	Grizzly	1381,5
+mag_dun01.gat,0,0,0,0	monster	Lava Golem	1366,3
+
+mag_dun02.gat,0,0,0,0	monster	Blazer	1367,10
+mag_dun02.gat,0,0,0,0	monster	Deleter	1384,5
+mag_dun02.gat,0,0,0,0	monster	Deleter	1385,5
+mag_dun02.gat,0,0,0,0	monster	Diabolic	1382,10
+mag_dun02.gat,0,0,0,0	monster	Gig	1387,10
+mag_dun02.gat,0,0,0,0	monster	Nightmare Terror	1379,3
+
+// AMATSU
+ama_fild01.gat,0,0,0,0	monster	Poporing	1031,13
+ama_fild01.gat,0,0,0,0	monster	Bigfoot	1060,8
+ama_fild01.gat,0,0,0,0	monster	Hydra	1068,8
+ama_fild01.gat,0,0,0,0	monster	Karakasa	1400,10
+ama_fild01.gat,0,0,0,0	monster	Poison Tode	1402,2
+ama_fild01.gat,0,0,0,0	monster	Miyabi Ningyo	1404,2
+ama_fild01.gat,0,0,0,0	monster	Kapha	1406,13
+
+ama_dun01.gat,0,0,0,0	monster	Shinobi	1401,1
+ama_dun01.gat,0,0,0,0	monster	Antique Firelock	1403,30
+ama_dun01.gat,0,0,0,0	monster	Miyabi Ningyo	1404,20
+
+ama_dun02.gat,0,0,0,0	monster	Horong	1129,5
+ama_dun02.gat,0,0,0,0	monster	The Paper	1375,3
+ama_dun02.gat,0,0,0,0	monster	Shinobi	1401,1
+ama_dun02.gat,0,0,0,0	monster	Poison Tode	1402,8
+ama_dun02.gat,0,0,0,0	monster	Antique Firelock	1403,8
+ama_dun02.gat,0,0,0,0	monster	Miyabi Ningyo	1404,5
+
+ama_dun03.gat,0,0,0,0	monster	Horong	1129,20
+ama_dun03.gat,0,0,0,0	monster	Mimic	1191,10
+ama_dun03.gat,0,0,0,0	monster	The Paper	1375,15
+ama_dun03.gat,0,0,0,0	monster	Shinobi	1401,8
+ama_dun03.gat,0,0,0,0	monster	Poison Tode	1402,15
+ama_dun03.gat,0,0,0,0	monster	Antique Firelock	1403,20
+ama_dun03.gat,0,0,0,0	monster	Miyabi Ningyo	1404,15
+ama_dun03.gat,0,0,0,0	monster	Tengu	1405,15,0,0,0
+ama_dun03.gat,0,0,0,0	monster	Incantation Samurai	1492,1
+
+// GONRYUN -----------------------------------------------------------------------
+gon_fild01.gat,0,0,0,0	monster	Zipper Bear	1417,15
+gon_fild01.gat,0,0,0,0	monster	Baby Leopard	1415,10
+gon_fild01.gat,0,0,0,0	monster	Nine-Tail	1080,5
+gon_fild01.gat,0,0,0,0	monster	Rice Cake Boy	1409,10
+
+gon_dun01.gat,0,0,0,0	monster	Zombie Dragon	1081,10
+gon_dun01.gat,0,0,0,0	monster	Blood Butterfly	1408,10
+gon_dun01.gat,0,0,0,0	monster	Live Peach Tree	1410,10
+gon_dun01.gat,0,0,0,0	monster	Zipper Bear	1417,15
+
+gon_dun02.gat,0,0,0,0	monster	Zombie Dragon	1081,10
+gon_dun02.gat,0,0,0,0	monster	Baby Leopard	1415,3
+gon_dun02.gat,0,0,0,0	monster	Blood Butterfly	1408,15
+gon_dun02.gat,0,0,0,0	monster	Live Peach Tree	1410,10
+gon_dun02.gat,0,0,0,0	monster	Evil Cloud Hermit	1412,10
+
+gon_dun03.gat,0,0,0,0	monster	Zombie Dragon	1081,10
+gon_dun03.gat,0,0,0,0	monster	Evil Cloud Hermit	1412,15
+gon_dun03.gat,0,0,0,0	monster	Wicked Nymph	1416,15
+gon_dun03.gat,0,0,0,0	monster	Wild Ginseng	1413,10
+gon_dun03.gat,0,0,0,0	monster	Dark Snake Lord	1418,1
+
+// UMBALA -----------------------------------------------------------------------
+um_fild01.gat,0,0,0,0	monster	Stem Worm	1215,15
+um_fild01.gat,0,0,0,0	monster	Wootan Fighter	1499,40
+um_fild01.gat,0,0,0,0	monster	Dryad	1493,15
+um_fild01.gat,0,0,0,0	monster	Harpy	1376,25
+
+um_fild02.gat,0,0,0,0	monster	Dustiness	1114,25
+um_fild02.gat,0,0,0,0	monster	Kind of Beetle	1494,15
+um_fild02.gat,0,0,0,0	monster	Wootan Fighter	1499,30
+um_fild02.gat,0,0,0,0	monster	Wootan Shooter	1498,20
+
+um_fild03.gat,0,0,0,0	monster	Pest	1256,25
+um_fild03.gat,0,0,0,0	monster	Parasite	1500,30
+um_fild03.gat,0,0,0,0	monster	Alligator	1271,15
+um_fild03.gat,0,0,0,0	monster	Dragon Tail	1321,20
+um_fild03.gat,0,0,0,0	monster	Gryphon	1447,1
+
+um_fild04.gat,0,0,0,0	monster	Stainer	1174,25
+um_fild04.gat,0,0,0,0	monster	Kind Beetle	1494,20
+um_fild04.gat,0,0,0,0	monster	Wootan Shooter	1498,20
+um_fild04.gat,0,0,0,0	monster	Wootan Fighter	1499,30
+um_fild04.gat,0,0,0,0	monster	Choco	1214,1
+
+um_dun01.gat,0,0,0,0	monster	Stainer	1174,35
+um_dun01.gat,0,0,0,0	monster	Dustiness	1114,15
+um_dun01.gat,0,0,0,0	monster	Wootan Fighter	1499,30
+um_dun01.gat,0,0,0,0	monster	Stone Shooter	1495,20
+
+um_dun02.gat,0,0,0,0	monster	Wootan Fighter	1499,35
+um_dun02.gat,0,0,0,0	monster	Wootan Shooter	1498,25
+um_dun02.gat,0,0,0,0	monster	Dryad	1493,10
+um_dun02.gat,0,0,0,0	monster	Wooden Golem	1497,25
+um_dun02.gat,0,0,0,0	monster	Stone Shooter	1495,25

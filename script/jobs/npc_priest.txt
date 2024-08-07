@@ -1,0 +1,48 @@
+// $Id: npc_priest.txt,v 1.1 2003/12/01 22:51:04 MivaBe Exp $
+//<--------------- Priest Job Quest [Update: Oct. 06, 2003] --------------->\\
+prt_church.gat,16,41,4	script	Cleric	60,{
+	mes "[Cleric]";
+	mes "May God bless your Soul. This is the Prontera Parish.";
+	next;
+	menu "Change a Job into a Priest.",M0,"The Requirements.",M1,"Quit.",MEnd;
+
+	M0:
+		mes "[Cleric]";
+		if(GetJob == Job_Priest) goto JobPri;
+		if(GetJob != Job_Acolyte) goto NotAco;
+		if(JobLevel < 40) goto NotLvl;
+		mes "Now you become a Priest.";
+		if(SkillPoint != 0) goto SPN0;
+		Release_All;
+		JobChange Job_Priest;
+		SPN0:
+		close;
+
+		NotLvl:
+			mes "You must be at least Job Level 40 before everything.";
+			close;
+		NotAco:
+			if(GetJob == Job_Novice) goto JobNov;
+			mes "Other jobs except 'Acolyte' are not permitted to be Priests.";
+			close;
+			
+			JobNov:
+				mes "Be an 'Acolyte' first.";
+				close;
+		JobPri:
+			mes "Dear you are already a Priest,the Servant of God.";
+			close;
+	M1:
+		mes "[Cleric]";
+		mes "You will realise the Truth while you devote on the Acolyte Job helping the Poor. We are the Priests, the Name of truth.";
+		mes "Also you will be able to join us if you reach at Job Level 40 or above as an Acolyte.";
+		next;
+		mes "[Cleric]";
+		mes "For now The souls in People are very pure,you can be their Salvation without difficulty.";
+		mes "But we, Priests are so afraid of the Evil Force getting powerful, it will try to conquer the world someday. Then you must show your deep faith on God if you wish to be a Priest later.";
+		mes "I am sorry to say, you won't be able to become a Priest without a Test in Future.";
+		mes "Please choose your way of devotion as soon as possible.";
+		close;
+	MEnd:
+		close;
+}

@@ -1,0 +1,3801 @@
+//<--------------- Upgrade/Refine NPCs [Update: Oct. 06, 2003] --------------->\\
+//<=========== Alberta - Begin ==========>\\
+alberta_in.gat,13,71,2	script	Kahlamanlith	86,{
+	mes "[Kahlamanlith]";
+	mes "I, the Honest and Diligent Merchant sell 2 kinds of Metal for tempering weaponry of iron or steel.";
+	mes "I have ^00F0F0Phracon^000000 for Lv 1 Weaponry... and ^00F0F0Emveretarcon^000000 for Lv 2 Weaponry. I got many, many of them... Haha.";
+	next;
+	menu "Phracon - 200z.",Phracon,"Emveretarcon - 1000z.",Emveretarcon,"Ask whether he has other stones.",Ask;
+	
+	Phracon:
+		mes "[Kahlamanlith]";
+		mes "How many do you wish to buy? If you want to quit, please note the number as `0'.";
+		next;
+		input;
+		mes "[Kahlamanlith]";
+		if(Script_flag_num <= 0) goto inpCan;
+		if(Zeny < Script_flag_num * 200) goto NoZeny;
+		getitem 1010,Script_flag_num;
+		setzeny Zeny,0 - 200 * Script_flag_num;
+		mes "Here you are, thank you for shopping at my shop.";
+		close;
+	Emveretarcon:
+		mes "[Kahlamanlith]";
+		mes "How many do you wish to buy? If you want to quit, please note the number as `0'.";
+		next;
+		input;
+		mes "[Kahlamanlith]";
+		if(Script_flag_num <= 0) goto inpCan;
+		if(Zeny < Script_flag_num * 1000) goto NoZeny;
+		setzeny Zeny,0 - 1000 * script_flag_num;
+		getitem 1011,Script_flag_num;
+		mes "Here you are, thank you for shopping at my shop. Please tell me anything you want.";
+		close;
+
+		inpCan:
+			mes "Deal has canceled.";
+			close;
+
+		NoZeny:
+			mes "[Kahlamanlith]";
+			mes "You don't have enough money";
+			close;
+	Ask:
+		mes "[Kahlamanlith]";
+		mes "Ahhh!!! You need the Metal for higher Leveled Weapons.";
+		mes "But you know, Oridecon or Elunium is ver very rare... so difficult to find...";
+		close;
+}
+
+alberta_in.gat,21,63,8	script	Xenophon	85,{
+	mes "[Xenophon Zolotas]";
+	mes "If you bring me ^FF0000Rough Oridecon^000000 or ^FF0000 Rough Elunium^000000, I can refine them into pure stones. I need 5 rough stones to have enough materials for a pure one.";
+	next;
+	menu "Purify Oridecon.",Lori,"Purify Elunium.",Lelu,"Cancel.",Lcancel;
+
+	Lori:
+		if(countitem(756) < 5) goto Llessori;
+		delitem 756,5;
+		getitem 984,1;
+  		mes "[Xenophon Zolotas]";
+	  	mes "Here is your Pure Oridecon. Thanks for your business.";
+  		close;
+
+		Llessori:
+			mes "[Xenophon Zolotas]";
+			mes "You don't have enough ores.";
+			mes "I need 5 rough stones to have enough to make a pure ore.";
+			close;
+	Lelu:
+		if(countitem(757) < 5) goto Llesselu;
+		delitem 757,5;
+	  	getitem 984,1;
+  		mes "[Xenophon Zolotas]";
+	  	mes "Here is your Pure Elunium. Thanks for your business.";
+  		close;
+
+		Llesselu:
+			mes "[Xenophon Zolotas]";
+			mes "You don't have enough ores.";
+			mes "I need 5 rough stones to have enough to make a pure ore.";
+			close;
+	Lcancel:
+		close;
+}
+
+alberta_in.gat,28,58,8	script	Fredrik	85,{
+	mes "[Fredrik]";
+	mes "I am the Armsmith, I can refine any king of Arms.";
+	mes "Tell me which Equippment you want to refine";
+	next;
+        menu "Top-Head",Tophead,"Middle-Head",Midhead,"Bottom-Head",Bottomhead,"Torso",Larmor,"Right hand",Lweapon,"Left hand",Rweapon,"Garment",Lgarment,"Foot",Lfoot,"Accessory 1",Noaccessory,"Accessory 2",Noaccessory,"Nothing",Nothing;
+
+	Rweapon:
+		if(checkequip(32) >= 99) goto Lweapon;
+		if(refinelvl(32) == 10) goto Nomore;
+		if(refinelvl(32) == 5) goto ALVL32;
+		if(refinelvl(32) == 6) goto ALVL32;
+		if(refinelvl(32) == 7) goto ALVL32;
+		if(refinelvl(32) == 8) goto ALVL32;
+		if(refinelvl(32) == 9) goto ALVL32;
+		mes "[Fredrik]";
+		mes "To refine this stuff,I need ^ff9999Elunium^000000 and the fee 2000 Zeny.";
+		mes "Continue?";
+		menu "Yes",successa32,"No",Nothing;	
+
+	Lweapon:
+		if(refinelvl(2) ==10) goto Nomore;
+		if(refinelvl(34) ==10) goto Nomore;
+		if(getwlvl == 1) goto wlvl1;
+		if(getwlvl == 2) goto wlvl2;
+		if(getwlvl == 3) goto wlvl3;
+		if(getwlvl == 4) goto wlvl4;
+		if(checkequip(2) >= 50) goto Noweapon;
+		if(checkequip(34) >= 50) goto Noweapon;
+
+		wlvl1:
+			if(refinelvl(2) >= 7) goto LVL;
+			if(refinelvl(34) >= 7) goto LVL;
+		wlvl12:
+			mes "[Fredrik]";
+			mes "This is Lvl 1 weapon.";
+			mes "So I need ^ff9999Phracon^000000 and 50 Zeny.";
+			mes "Are you sure you want to continue?";
+			menu "Yes",continue1,"No",Nothing;
+
+			continue1:
+				if(countitem(1010) == 0) goto NoP;
+				if(zeny < 50) goto NoM;
+				setzeny Zeny,0 - 50;
+				delitem 1010,1;
+				goto success;
+		wlvl2:
+			if(refinelvl(2) >= 6) goto LVL;
+			if(refinelvl(34) >= 6) goto LVL;
+		wlvl22:
+			mes "[Fredrik]";
+			mes "This is Lvl 2 weapon.";
+			mes "So I need ^ff9999Emveretarcon^000000 and 200 Zeny.";
+			mes "Are you sure you want to continue?";
+			menu "Yes",continue2,"No",Nothing;
+
+			continue2:
+				if(countitem(1011) == 0) goto NoP;
+				if(zeny < 200) goto NoM;
+				setzeny Zeny,0 - 200;
+				delitem 1011,1;
+				goto success;
+		wlvl3:
+			if(refinelvl(2) >= 5) goto LVL;
+			if(refinelvl(34) >= 5) goto LVL;
+		wlvl32:
+			mes "[Fredrik]";
+			mes "This is Lvl 3 weapon.";
+			mes "So I need ^ff9999Oridecon^000000 and 1000 Zeny.";
+			mes "Are you sure you want to continue?";
+			menu "Yes",continue3,"No",Nothing;
+
+			continue3:
+				if(countitem(984) == 0) goto NoP;
+				if(zeny < 1000) goto NoM;
+				setzeny Zeny,0 - 1000;
+				delitem 984,1;
+				goto success;
+		wlvl4:
+			if(refinelvl(2) >= 5) goto LVL;
+			if(refinelvl(34) >= 5) goto LVL;
+		wlvl42:
+			mes "[Fredrik]";
+			mes "This is Lvl 4 weapon.";
+			mes "So I need ^ff9999Oridecon^000000 and 10000 Zeny.";
+			mes "Are you sure you want to continue?";
+			menu "Yes",continue4,"No",Nothing;
+
+			continue4:
+				if(countitem(984) == 0) goto NoP;
+				if(zeny < 10000) goto NoM;
+				setzeny Zeny,0 - 10000;
+				delitem 984,1;
+				goto success;
+	Tophead:
+		if(checkequip(256) >= 99) goto Topmidhead;
+		if(refinelvl(256) == 10) goto Nomore;
+		if(refinelvl(256) == 5) goto ALVL256;
+		if(refinelvl(256) == 6) goto ALVL256;
+		if(refinelvl(256) == 7) goto ALVL256;
+		if(refinelvl(256) == 8) goto ALVL256;
+		if(refinelvl(256) == 9) goto ALVL256;
+		mes "[Fredrik]";
+		mes "To refine this stuff,I need ^ff9999Elunium^000000 and the fee 2000 Zeny.";
+		mes "Continue?";
+		menu "Yes",successa256,"No",Nothing;
+
+	Topmidhead:
+		if(checkequip(768) >= 99) goto Allhead;
+		if(refinelvl(768) == 10) goto Nomore;
+		if(refinelvl(768) == 5) goto ALVL768;
+		if(refinelvl(768) == 6) goto ALVL768;
+		if(refinelvl(768) == 7) goto ALVL768;
+		if(refinelvl(768) == 8) goto ALVL768;
+		if(refinelvl(768) == 9) goto ALVL768;
+		mes "[Fredrik]";
+		mes "To refine this stuff, I need ^ff9999Elunium^000000 and the fee 2000 Zeny.";
+		mes "Continue?";
+		menu "Yes",successa768,"No",Nothing;
+	Midhead:
+		if(checkequip(513) >= 99) goto Midbottomhead;
+		if(refinelvl(513) == 10) goto Nomore;
+		if(refinelvl(513) == 5) goto ALVL513;
+		if(refinelvl(513) == 6) goto ALVL513;
+		if(refinelvl(513) == 7) goto ALVL513;
+		if(refinelvl(513) == 8) goto ALVL513;
+		if(refinelvl(513) == 9) goto ALVL513;
+		mes "[Fredrik]";
+		mes "To refine this stuff, I need ^ff9999Elunium^000000 and the fee 2000 Zeny.";
+		mes "Continue?";
+		menu "Yes",successa513,"No",Nothing;
+
+	Midbottomhead:
+		if(checkequip(768)>=99) goto Allhead;
+		if(refinelvl(768)==10) goto Nomore;
+		if(refinelvl(768)==5) goto ALVL768;
+		if(refinelvl(768)==6) goto ALVL768;
+		if(refinelvl(768)==7) goto ALVL768;
+		if(refinelvl(768)==8) goto ALVL768;
+		if(refinelvl(768)==9) goto ALVL768;
+		mes "[Fredrik]";
+		mes "To refine this stuff, I need ^ff9999Elunium^000000 and the fee 2000 Zeny.";
+		mes "Continue?";
+		menu "Yes",successa768,"No",Nothing;
+	Bottomhead:
+		if(checkequip(1)>=99) goto Midbottomhead;
+		if(refinelvl(1)==10) goto Nomore;
+		if(refinelvl(1)==5) goto ALVL1;
+		if(refinelvl(1)==6) goto ALVL1;
+		if(refinelvl(1)==7) goto ALVL1;
+		if(refinelvl(1)==8) goto ALVL1;
+		if(refinelvl(1)==9) goto ALVL1;
+		mes "[Fredrik]";
+		mes "To refine this stuff, I need ^ff9999Elunium^000000 and the fee 2000 Zeny.";
+		mes "Continue?";
+		menu "Yes",successa1,"No",Nothing;
+	Allhead:
+		if(checkequip(769)>=99) goto Nohead;
+		if(refinelvl(769)==10) goto Nomore;
+		if(refinelvl(769)==5) goto ALVL769;
+		if(refinelvl(769)==6) goto ALVL769;
+		if(refinelvl(769)==7) goto ALVL769;
+		if(refinelvl(769)==8) goto ALVL769;
+		if(refinelvl(769)==9) goto ALVL769;
+		mes "[Fredrik]";
+		mes "To refine this stuff,I need ^ff9999Elunium^000000 and the fee 2000 Zeny.";
+		mes "Continue?";
+		menu "Yes",successa769,"No",Nothing;
+	Larmor:
+		if(checkequip(16)>=99) goto Noarmor;
+		if(refinelvl(16)==10) goto Nomore;
+		if(refinelvl(16)==5) goto ALVL16;
+		if(refinelvl(16)==6) goto ALVL16;
+		if(refinelvl(16)==7) goto ALVL16;
+		if(refinelvl(16)==8) goto ALVL16;
+		if(refinelvl(16)==9) goto ALVL16;
+		mes "[Fredrik]";
+		mes "To refine this stuff,I need ^ff9999Elunium^000000 and the fee 2000 Zeny.";
+		mes "Continue?";
+		menu "Yes",successa16,"No",Nothing;
+	Lfoot:
+		if(checkequip(64)>=99) goto Nofoot;
+		if(refinelvl(64)==10) goto Nomore;
+		if(refinelvl(64)==5) goto ALVL64;
+		if(refinelvl(64)==6) goto ALVL64;
+		if(refinelvl(64)==7) goto ALVL64;
+		if(refinelvl(64)==8) goto ALVL64;
+		if(refinelvl(64)==9) goto ALVL64;
+		mes "[Fredrik]";
+		mes "To refine this stuff,I need ^ff9999Elunium^000000 and the fee 2000 Zeny.";
+		mes "Continue?";
+		menu "Yes",successa64,"No",Nothing;
+	Lgarment:
+		if(checkequip(4)>=99) goto Nogarment;
+		if(refinelvl(4)==10) goto Nomore;
+		if(refinelvl(4)==5) goto ALVL4;
+		if(refinelvl(4)==6) goto ALVL4;
+		if(refinelvl(4)==7) goto ALVL4;
+		if(refinelvl(4)==8) goto ALVL4;
+		if(refinelvl(4)==9) goto ALVL4;
+		mes "[Fredrik]";
+		mes "To refine this stuff,I need ^ff9999Elunium^000000 and the fee 2000 Zeny.";
+		mes "Continue?";
+		menu "Yes",successa4,"No",Nothing;
+
+			LVL:
+				next;
+				mes "[Fredrik]";
+				mes "Oh my God!!";
+				mes "This appears as It has been refined too many times... It could be destroyed when it's refined more.";
+				mes "After destroyed, it will be useless one... Still do you want to refine?";
+				menu "Yes",LVLtest,"No",Nothing;
+		ALVL16:
+			next;
+			mes "[Fredrik]";
+			mes "Oh my God!!";
+			mes "This appears as It has been refined too many times... It could be destroyed when it's refined more.";
+			mes "After destroyed, it will be useless one... Still do you want to refine?";
+			menu "Yes",atest16,"No",Nothing;
+		ALVL256:
+			next;
+			mes "[Fredrik]";
+			mes "Oh my God!!";
+			mes "This appears as It has been refined too many times... It could be destroyed when it's refined more.";
+			mes "After destroyed, it will be useless one... Still do you want to refine?";
+			menu "Yes",atest256,"No",Nothing;
+		ALVL512:
+			next;
+			mes "[Fredrik]";
+			mes "Oh my God!!";
+			mes "This appears as It has been refined too many times... It could be destroyed when it's refined more.";
+			mes "After destroyed, it will be useless one... Still do you want to refine?";
+			menu "Yes",atest512,"No",Nothing;
+		ALVL1:
+			next;
+			mes "[Fredrik]";
+			mes "Oh my God!!";
+			mes "This appears as It has been refined too many times... It could be destroyed when it's refined more.";
+			mes "After destroyed, it will be useless one... Still do you want to refine?";
+			menu "Yes",atest1,"No",Nothing;
+		ALVL513:
+			next;
+			mes "[Fredrik]";
+			mes "Oh my God!!";
+			mes "This appears as It has been refined too many times... It could be destroyed when it's refined more.";
+			mes "After destroyed, it will be useless one... Still do you want to refine?";
+			menu "Yes",atest513,"No",Nothing;
+		ALVL768:
+			next;
+			mes "[Fredrik]";
+			mes "Oh my God!!";
+			mes "This appears as It has been refined too many times... It could be destroyed when it's refined more.";
+			mes "After destroyed, it will be useless one... Still do you want to refine?";
+			menu "Yes",atest768,"No",Nothing;
+		ALVL769:
+			next;
+			mes "[Fredrik]";
+			mes "Oh my God!!";
+			mes "This appears as It has been refined too many times... It could be destroyed when it's refined more.";
+			mes "After destroyed, it will be useless one... Still do you want to refine?";
+			menu "Yes",atest769,"No",Nothing;
+		ALVL64:
+			next;
+			mes "[Fredrik]";
+			mes "Oh my God!!";
+			mes "This appears as It has been refined too many times... It could be destroyed when it's refined more.";
+			mes "After destroyed, it will be useless one... Still do you want to refine?";
+			menu "Yes",atest64,"No",Nothing;
+		ALVL4:
+			next;
+			mes "[Fredrik]";
+			mes "Oh my God!!";
+			mes "This appears as It has been refined too many times... It could be destroyed when it's refined more.";
+			mes "After destroyed, it will be useless one... Still do you want to refine?";
+			menu "Yes",atest4,"No",Nothing;
+		ALVL32:
+			next;
+			mes "[Fredrik]";
+			mes "Oh my God!!";
+			mes "This appears as It has been refined too many times... It could be destroyed when it's refined more.";
+			mes "After destroyed, it will be useless one... Still do you want to refine?";
+			menu "Yes",atest32,"No",Nothing;
+
+				LVLtest:
+					if(getwlvl==1) goto LVL1;
+					if(getwlvl==2) goto LVL2;
+					if(getwlvl==3) goto LVL3;
+					if(getwlvl==4) goto LVL4;
+
+					LVL1:
+						if(refinelvl(2)==7) goto random50;
+						if(refinelvl(2)==8) goto random25;
+						if(refinelvl(2)==9) goto random10;
+						if(refinelvl(34)==7) goto random50;
+						if(refinelvl(34)==8) goto random25;
+						if(refinelvl(34)==9) goto random10;
+					LVL2:
+						if(refinelvl(2)==6) goto random50;
+						if(refinelvl(2)==7) goto random25;
+						if(refinelvl(2)==8) goto random10;
+						if(refinelvl(2)==9) goto random5;
+						if(refinelvl(34)==6) goto random50;
+						if(refinelvl(34)==7) goto random25;
+						if(refinelvl(34)==8) goto random10;
+						if(refinelvl(34)==9) goto random5;
+					LVL3:
+						if(refinelvl(2)==5) goto random50;
+						if(refinelvl(2)==6) goto random25;
+						if(refinelvl(2)==7) goto random10;
+						if(refinelvl(2)==8) goto random5;
+						if(refinelvl(2)==9) goto random2;
+						if(refinelvl(34)==5) goto random50;
+						if(refinelvl(34)==6) goto random25;
+						if(refinelvl(34)==7) goto random10;
+						if(refinelvl(34)==8) goto random5;
+						if(refinelvl(34)==9) goto random2;
+					LVL4:
+						if(refinelvl(2)==5) goto random50;
+						if(refinelvl(2)==6) goto random25;
+						if(refinelvl(2)==7) goto random10;
+						if(refinelvl(2)==8) goto random5;
+						if(refinelvl(2)==9) goto random2;
+						if(refinelvl(34)==5) goto random50;
+						if(refinelvl(34)==6) goto random25;
+						if(refinelvl(34)==7) goto random10;
+						if(refinelvl(34)==8) goto random5;
+						if(refinelvl(34)==9) goto random2;
+			atest16:
+				if(refinelvl(16)==5) goto arandom50;
+				if(refinelvl(16)==6) goto arandom25;
+				if(refinelvl(16)==7) goto arandom10;
+				if(refinelvl(16)==8) goto arandom5;
+				if(refinelvl(16)==9) goto arandom2;
+			atest256:
+				if(refinelvl(256)==5) goto 256arandom50;
+				if(refinelvl(256)==6) goto 256arandom25;
+				if(refinelvl(256)==7) goto 256arandom10;
+				if(refinelvl(256)==8) goto 256arandom5;
+				if(refinelvl(256)==9) goto 256arandom2;
+			atest512:
+				if(refinelvl(512)==5) goto 512arandom50;
+				if(refinelvl(512)==6) goto 512arandom25;
+				if(refinelvl(512)==7) goto 512arandom10;
+				if(refinelvl(512)==8) goto 512arandom5;
+				if(refinelvl(512)==9) goto 512arandom2;
+			atest1:
+				if(refinelvl(1)==5) goto 1arandom50;
+				if(refinelvl(1)==6) goto 1arandom25;
+				if(refinelvl(1)==7) goto 1arandom10;
+				if(refinelvl(1)==8) goto 1arandom5;
+				if(refinelvl(1)==9) goto 1arandom2;
+			atest513:
+				if(refinelvl(513)==5) goto 513arandom50;
+				if(refinelvl(513)==6) goto 513arandom25;
+				if(refinelvl(513)==7) goto 513arandom10;
+				if(refinelvl(513)==8) goto 513arandom5;
+				if(refinelvl(513)==9) goto 513arandom2;
+			atest768:
+				if(refinelvl(768)==5) goto 768arandom50;
+				if(refinelvl(768)==6) goto 768arandom25;
+				if(refinelvl(768)==7) goto 768arandom10;
+				if(refinelvl(768)==8) goto 768arandom5;
+				if(refinelvl(768)==9) goto 768arandom2;
+			atest769:
+				if(refinelvl(769)==5) goto 769arandom50;
+				if(refinelvl(769)==6) goto 769arandom25;
+				if(refinelvl(769)==7) goto 769arandom10;
+				if(refinelvl(769)==8) goto 769arandom5;
+				if(refinelvl(769)==9) goto 769arandom2;
+			atest64:
+				if(refinelvl(64)==5) goto 64arandom50;
+				if(refinelvl(64)==6) goto 64arandom25;
+				if(refinelvl(64)==7) goto 64arandom10;
+				if(refinelvl(64)==8) goto 64arandom5;
+				if(refinelvl(64)==9) goto 64arandom2;
+			atest4:
+				if(refinelvl(4)==5) goto 4arandom50;
+				if(refinelvl(4)==6) goto 4arandom25;
+				if(refinelvl(4)==7) goto 4arandom10;
+				if(refinelvl(4)==8) goto 4arandom5;
+				if(refinelvl(4)==9) goto 4arandom2;
+			atest32:
+				if(refinelvl(32)==5) goto 32arandom50;
+				if(refinelvl(32)==6) goto 32arandom25;
+				if(refinelvl(32)==7) goto 32arandom10;
+				if(refinelvl(32)==8) goto 32arandom5;
+				if(refinelvl(32)==9) goto 32arandom2;
+// Randomizer
+				random50:
+					if(randRef<=50) goto success;
+					goto failure1;
+				random25:
+					if(randRef<=25) goto success;
+					goto failure1;
+				random10:
+					if(randRef<=10) goto success;
+					goto failure1;
+				random5:
+					if(randRef<=5) goto success;
+					goto failure1;
+				random2:
+					if(randRef<=2) goto success;
+					goto failure1;
+// Randomizer for armors
+				arandom50:
+					if(randRef<=50) goto successa16;
+					goto afailure16;
+				arandom25:
+					if(randRef<=25) goto successa16;
+					goto afailure16;
+				arandom10:
+					if(randRef<=10) goto successa16;
+					goto afailure16;
+				arandom5:
+					if(randRef<=5) goto successa16;
+					goto afailure16;
+				arandom2:
+					if(randRef<=2) goto successa16;
+					goto afailure16;
+// Randomizer for head-parts
+				256arandom50:
+					if(randRef<=50) goto successa256;
+					goto afailure256;
+				256arandom25:
+					if(randRef<=25) goto successa256;
+					goto afailure256;
+				256arandom10:
+					if(randRef<=10) goto successa256;
+					goto afailure256;
+				256arandom5:
+					if(randRef<=5) goto successa256;
+					goto afailure256;
+				256arandom2:
+					if(randRef<=2) goto successa256;
+					goto afailure256;
+				512arandom50:
+					if(randRef<=50) goto successa512;
+					goto afailure512;
+				512arandom25:
+					if(randRef<=25) goto successa512;
+					goto afailure512;
+				512arandom10:
+					if(randRef<=10) goto successa512;
+					goto afailure512;
+				512arandom5:
+					if(randRef<=5) goto successa512;
+					goto afailure512;
+				512arandom2:
+					if(randRef<=2) goto successa512;
+					goto afailure512;
+				1arandom50:
+					if(randRef<=50) goto successa1;
+					goto afailure1;
+				1arandom25:
+					if(randRef<=25) goto successa1;
+					goto afailure1;
+				1arandom10:
+					if(randRef<=10) goto successa1;
+					goto afailure1;
+				1arandom5:
+					if(randRef<=5) goto successa1;
+					goto afailure1;
+				1arandom2:
+					if(randRef<=2) goto successa1;
+					goto afailure1;
+				513arandom50:
+					if(randRef<=50) goto successa513;
+					goto afailure513;
+				513arandom25:
+					if(randRef<=25) goto successa513;
+					goto afailure513;
+				513arandom10:
+					if(randRef<=10) goto successa513;
+					goto afailure513;
+				513arandom5:
+					if(randRef<=5) goto successa513;
+					goto afailure513;
+				513arandom2:
+					if(randRef<=2) goto successa513;
+					goto afailure513;
+				768arandom50:
+					if(randRef<=50) goto successa768;
+					goto afailure768;
+				768arandom25:
+					if(randRef<=25) goto successa768;
+					goto afailure768;
+				768arandom10:
+					if(randRef<=10) goto successa768;
+					goto afailure768;
+				768arandom5:
+					if(randRef<=5) goto successa768;
+					goto afailure768;
+				768arandom2:
+					if(randRef<=2) goto successa768;
+					goto afailure768;
+				769arandom50:
+					if(randRef<=50) goto successa769;
+					goto afailure769;
+				769arandom25:
+					if(randRef<=25) goto successa769;
+					goto afailure769;
+				769arandom10:
+					if(randRef<=10) goto successa769;
+					goto afailure769;
+				769arandom5:
+					if(randRef<=5) goto successa769;
+					goto afailure769;
+				769arandom2:
+					if(randRef<=2) goto successa769;
+					goto afailure769;
+// Randomizer for other stuff
+				64arandom50:
+					if(randRef<=50) goto successa64;
+					goto afailure64;
+				64arandom25:
+					if(randRef<=25) goto successa64;
+					goto afailure64;
+				64arandom10:
+					if(randRef<=10) goto successa64;
+					goto afailure64;
+				64arandom5:
+					if(randRef<=5) goto successa64;
+					goto afailure64;
+				64arandom2:
+					if(randRef<=2) goto successa64;
+					goto afailure64;
+				4arandom50:
+					if(randRef<=50) goto successa4;
+					goto afailure4;
+				4arandom25:
+					if(randRef<=25) goto successa4;
+					goto afailure4;
+				4arandom10:
+					if(randRef<=10) goto successa4;
+					goto afailure4;
+				4arandom5:
+					if(randRef<=5) goto successa4;
+					goto afailure4;
+				4arandom2:
+					if(randRef<=2) goto successa4;
+					goto afailure4;
+				32arandom50:
+					if(randRef<=50) goto successa32;
+					goto afailure32;
+				32arandom25:
+					if(randRef<=25) goto successa32;
+					goto afailure32;
+				32arandom10:
+					if(randRef<=10) goto successa32;
+					goto afailure32;
+				32arandom5:
+					if(randRef<=5) goto successa32;
+					goto afailure32;
+				32arandom2:
+					if(randRef<=2) goto successa32;
+					goto afailure32;
+
+				NoP:
+					next;
+					mes "[Fredrik]";
+					mes "Sorry, but you don't have enough raw materials.";
+					close;
+				NoM:
+					next;
+					mes "[Fredrik]";
+					mes "Is that all you got?";
+					mes "Unfortunately I can't work for you at lower price. Think on my side.";
+					close;
+		Nohead:
+			next;
+			mes "[Fredrik]";
+			mes "Do you want me to refine your Dumb Brain?";
+			close;
+		Noweapon:
+			next;
+			mes "[Fredrik]";
+			mes "I can't make your hand into the peerless one..";
+			close;
+		Noarmor:
+			next;
+			mes "[Fredrik]";
+			mes "I will melt your body with my Heat.";
+			close;
+		Nogarment:
+			next;
+			mes "[Fredrik]";
+			mes "Look at you. You don't have any Garment now.";
+			close;
+		Nofoot:
+			next;
+			mes "[Fredrik]";
+			mes "Wahh.. your feet stink a lot.";
+			close;
+		Noaccessory:
+			next;
+			mes "[Fredrik]";
+			mes "I don't think I can work on this item...";
+			close;
+
+					failure1:
+						next;
+						mes "[Fredrik]";
+						mes "Clang!Clang!Clang!";
+						next;
+						mes "[Fredrik]";
+						mes "Waaaaaaaaahhhh!!!!";
+						next;
+						failure 2;
+						failure 34;
+						mes "[Fredrik]";
+						mes "Eh..Ehem...";
+						mes "Failed. I am deeply ashamed of what I've done...But,";
+						mes "I...told...you..not to force me to do that.";
+						close;
+					afailure16:
+						next;
+						if(countitem(985) == 0) goto NoP;
+						delitem 985,1;
+						setzeny Zeny,0 - 2000;
+						mes "[Fredrik]";
+						mes "Clang!Clang!Clang!";
+						next;
+						mes "[Fredrik]";
+						mes "Waaaaaaaaahhhh!!!!";
+						next;
+						failure 16;
+						goto afailureend;
+					afailure256:
+						next;
+						if(countitem(985) == 0) goto NoP;
+						delitem 985,1;
+						setzeny Zeny,0 - 2000;
+						mes "[Fredrik]";
+						mes "Clang!Clang!Clang!";
+						next;
+						mes "[Fredrik]";
+						mes "Waaaaaaaaahhhh!!!!";
+						next;
+						failure 256;
+						goto afailureend;
+					afailure512:
+						next;
+						if(countitem(985) == 0) goto NoP;
+						delitem 985,1;
+						setzeny Zeny,0 - 2000;
+						mes "[Fredrik]";
+						mes "Clang!Clang!Clang!";
+						next;
+						failure 256;
+						goto afailureend;
+					afailure1:
+						next;
+						if(countitem(985) == 0) goto NoP;
+						delitem 985,1;
+						setzeny Zeny,0 - 2000;
+						mes "[Fredrik]";
+						mes "Clang!Clang!Clang!";
+						next;
+						failure 1;
+						goto afailureend;
+					afailure513:
+						next;
+						if(countitem(985) == 0) goto NoP;
+						delitem 985,1;
+						setzeny Zeny,0 - 2000;
+						mes "[Fredrik]";
+						mes "Clang!Clang!Clang!";
+						next;
+						failure 513;
+						goto afailureend;
+					afailure768:
+						next;
+						if(countitem(985) == 0) goto NoP;
+						delitem 985,1;
+						setzeny Zeny,0 - 2000;
+						mes "[Fredrik]";
+						mes "Clang!Clang!Clang!";
+						next;
+						failure 768;
+						goto afailureend;
+					afailure769:
+						next;
+						if(countitem(985) == 0) goto NoP;
+						delitem 985,1;
+						setzeny Zeny,0 - 2000;
+						mes "[Fredrik]";
+						mes "Clang!Clang!Clang!";
+						next;
+						failure 769;
+						goto afailureend;
+					afailure64:
+						next;
+						if(countitem(985) == 0) goto NoP;
+						delitem 985,1;
+						setzeny Zeny,0 - 2000;
+						mes "[Fredrik]";
+						mes "Clang!Clang!Clang!";
+						next;
+						mes "[Fredrik]";
+						mes "Waaaaaaaaahhhh!!!!";
+						next;
+						failure 64;
+						goto afailureend;
+					afailure4:
+						next;
+						if(countitem(985) == 0) goto NoP;
+						delitem 985,1;
+						setzeny Zeny,0 - 2000;
+						mes "[Fredrik]";
+						mes "Clang!Clang!Clang!";
+						next;
+						mes "[Fredrik]";
+						mes "Waaaaaaaaahhhh!!!!";
+						next;
+						failure 4;
+						goto afailureend;
+					afailure32:
+						next;
+						if(countitem(985) == 0) goto NoP;
+						delitem 985,1;
+						setzeny Zeny,0 - 2000;
+						mes "[Fredrik]";
+						mes "Clang!Clang!Clang!";
+						next;
+						mes "[Fredrik]";
+						mes "Waaaaaaaaahhhh!!!!";
+						next;
+						failure 32;
+						goto afailureend;
+					afailureend:
+						mes "[Fredrik]";
+						mes "Eh..Ehem...";
+						mes "Failed. I am deeply ashamed of what I've done...But,";
+						mes "I...told...you..not to force me to do that.";
+						close;
+					success:
+						next;	
+						mes "[Fredrik]";
+						mes "Clang!Clang!Clang!";
+						next;
+						refine 2;
+						refine 34;
+						mes "[Fredrik]";
+						mes "There you go.";
+						mes "It seems My skill doesn't have gotten a bit Rusty yet. It is my work,but still Splendid...";
+						close;
+					successa16:
+						next;
+						if(countitem(985) == 0) goto NoP;
+						delitem 985,1;
+						setzeny Zeny,0 - 2000;
+						mes "[Fredrik]";
+						mes "Clang!Clang!Clang!";
+						next;
+						refine 16;
+						goto asuccessend;
+					successa256:
+						next;
+						if(countitem(985) == 0) goto NoP;
+						delitem 985,1;
+						setzeny Zeny,0 - 2000;
+						mes "[Fredrik]";
+						mes "Clang!Clang!Clang!";
+						next;
+						refine 256;
+						goto asuccessend;
+					successa512:
+						next;
+						if(countitem(985) == 0) goto NoP;
+						delitem 985,1;
+						setzeny Zeny,0 - 2000;
+						mes "[Fredrik]";
+						mes "Clang!Clang!Clang!";
+						next;
+						refine 256;
+						goto asuccessend;
+					successa1:
+						next;
+						if(countitem(985) == 0) goto NoP;
+						delitem 985,1;
+						setzeny Zeny,0 - 2000;
+						mes "[Fredrik]";
+						mes "Clang!Clang!Clang!";
+						next;
+						refine 1;
+						goto asuccessend;
+					successa513:
+						next;
+						if(countitem(985) == 0) goto NoP;
+						delitem 985,1;
+						setzeny Zeny,0 - 2000;
+						mes "[Fredrik]";
+						mes "Clang!Clang!Clang!";
+						next;
+						refine 513;
+						goto asuccessend;
+					successa768:
+						next;
+						if(countitem(985) == 0) goto NoP;
+						delitem 985,1;
+						setzeny Zeny,0 - 2000;
+						mes "[Fredrik]";
+						mes "Clang!Clang!Clang!";
+						next;
+						refine 768;
+						goto asuccessend;
+					successa769:
+						next;
+						if(countitem(985) == 0) goto NoP;
+						delitem 985,1;
+						setzeny Zeny,0 - 2000;
+						mes "[Fredrik]";
+						mes "Clang!Clang!Clang!";
+						next;
+						refine 769;
+						goto asuccessend;
+					successa64:
+						next;
+						if(countitem(985) == 0) goto NoP;
+						delitem 985,1;
+						setzeny Zeny,0 - 2000;
+						mes "[Fredrik]";
+						mes "Clang!Clang!Clang!";
+						next;
+						refine 64;
+						goto asuccessend;
+					successa4:
+						next;
+						if(countitem(985) == 0) goto NoP;
+						delitem 985,1;
+						setzeny Zeny,0 - 2000;
+						mes "[Fredrik]";
+						mes "Clang!Clang!Clang!";
+						next;
+						refine 4;
+						goto asuccessend;
+					successa32:
+						next;
+						if(countitem(985) == 0) goto NoP;
+						delitem 985,1;
+						setzeny Zeny,0 - 2000;
+						mes "[Fredrik]";
+						mes "Clang!Clang!Clang!";
+						next;
+						refine 32;
+						goto asuccessend;
+					asuccessend:
+						mes "[Fredrik]";
+						mes "There you go.";
+						mes "It seems My skill doesn't have gotten a bit Rusty yet. It is my work,but still Splendid...";
+						close;
+		Nomore:
+			next;
+			mes "[Fredrik]";
+			mes "I must say this item doesn't accept more refining on it..";
+			close;
+
+			Nothing:
+				next;
+				mes "[Fredrik]";
+				mes "OK then....";
+				close;
+}
+//<=========== Alberta - End ==========>\\
+//===============================================================================================================================\\
+//<=========== Morroc - Begin ==========>\\
+morocc_in.gat,63,32,6	script	Sade	99,{
+	mes "[Sade]";
+	mes "I sell 2 kinds of Metal for tempering weaponry of iron or steel.";
+	mes "I have ^00F0F0Phracon^000000 for Lv 1 Weaponry... and ^00F0F0Emveretarcon^000000 for Lv 2 Weaponry. I got many, many of them... Haha.";
+	next;
+	menu "Phracon - 200z.",Phracon,"Emveretarcon - 1000z.",Emveretarcon,"Ask whether he has other stones.",Ask;
+	
+	Phracon:
+		mes "[Sade]";
+		mes "How many do you wish to buy? If you want to quit, please note the number as `0'.";
+		next;
+		input;
+		mes "[Sade]";
+		if(Script_flag_num <= 0) goto inpCan;
+		if(Zeny < Script_flag_num * 200) goto NoZeny;
+		getitem 1010,Script_flag_num;
+		setzeny Zeny,0 - 200 * Script_flag_num;
+		mes "Here you are, thank you for shopping at my shop.";
+		close;
+	Emveretarcon:
+		mes "[Sade]";
+		mes "How many do you wish to buy? If you want to quit, please note the number as `0'.";
+		next;
+		input;
+		mes "[Sade]";
+		if(Script_flag_num <= 0) goto inpCan;
+		if(Zeny < Script_flag_num * 1000) goto NoZeny;
+		getitem 1011,Script_flag_num;
+		setzeny Zeny,0 - 1000 * script_flag_num;
+		mes "[Sade]";
+		mes "Here you are, thank you for shopping at my shop. Please tell me anything you want.";
+		close;
+
+		inpCan:
+			mes "Deal has canceled.";
+			close;
+
+		NoZeny:
+			mes "[Sade]";
+			mes "You don't have enough money";
+			close;
+	Ask:
+		mes "[Sade]";
+		mes "Ahhh!!! You need the Metal for higher Leveled Weapons.";
+		mes "But you know, Oridecon or Elunium is ver very rare... so difficult to find...";
+		close;
+}
+
+morocc_in.gat,71,32,6	script	Abdula	99,{
+	mes "[Abdula Ralva]";
+	mes "If you bring me ^FF0000Rough Oridecon^000000 or ^FF0000 Rough Elunium^000000, I can refine them into pure stones. I need 5 rough stones to have enough materials for a pure one.";
+	next;
+	menu "Purify Oridecon.",Lori,"Purify Elunium.",Lelu,"Cancel.",Lcancel;
+
+	Lori:
+		if(countitem(756) < 5) goto Llessori;
+		delitem 756,5;
+		getitem 984,1;
+  		mes "[Abdula Ralva]";
+	  	mes "Here is your Pure Oridecon. Thanks for your business.";
+  		close;
+
+		Llessori:
+			mes "[Abdula Ralva]";
+			mes "You don't have enough ores.";
+			mes "I need 5 rough stones to have enough to make a pure ore.";
+			close;
+	Lelu:
+		if(countitem(757) < 5) goto Llesselu;
+		delitem 757,5;
+	  	getitem 984,1;
+  		mes "[Abdula Ralva]";
+	  	mes "Here is your Pure Elunium. Thanks for your business.";
+  		close;
+
+		Llesselu:
+			mes "[Abdula Ralva]";
+			mes "You don't have enough ores.";
+			mes "I need 5 rough stones to have enough to make a pure ore.";
+			close;
+	Lcancel:
+		close;
+}
+
+morocc_in.gat,73,38,6	script	Aragham	99,{
+	mes "[Aragham Salre]";
+	mes "Armsmith ~ of the Desert ~ Aragham Salre~ Yes, I am Aragham, I can Forge Anything~Lala.";
+	mes "So dear, What business brings you to me?";
+	next;
+        menu "Top-Head",Tophead,"Middle-Head",Midhead,"Bottom-Head",Bottomhead,"Torso",Larmor,"Right hand",Lweapon,"Left hand",Rweapon,"Garment",Lgarment,"Foot",Lfoot,"Accessory 1",Noaccessory,"Accessory 2",Noaccessory,"Nothing",Nothing;
+
+	Rweapon:
+		if(checkequip(32)>=99) goto Lweapon;
+		if(refinelvl(32)==10) goto Nomore;
+		if(refinelvl(32)==5) goto ALVL32;
+		if(refinelvl(32)==6) goto ALVL32;
+		if(refinelvl(32)==7) goto ALVL32;
+		if(refinelvl(32)==8) goto ALVL32;
+		if(refinelvl(32)==9) goto ALVL32;
+		mes "[Aragham Salre]";
+		mes "To refine this stuff,I need ^ff9999Elunium^000000 and the fee 2000 Zeny.";
+		mes "Continue?";
+		menu "Yes",successa32,"No",Nothing;	
+
+	Lweapon:
+		if(refinelvl(2)==10) goto Nomore;
+		if(refinelvl(34)==10) goto Nomore;
+		if(getwlvl==1) goto wlvl1;
+		if(getwlvl==2) goto wlvl2;
+		if(getwlvl==3) goto wlvl3;
+		if(getwlvl==4) goto wlvl4;
+		if(checkequip(2)>=50) goto Noweapon;
+		if(checkequip(34)>=50) goto Noweapon;
+
+		wlvl1:
+			if(refinelvl(2)>=7) goto LVL;
+			if(refinelvl(34)>=7) goto LVL;
+		wlvl12:
+			mes "[Aragham Salre]";
+			mes "This is Lvl 1 weapon.";
+			mes "So I need ^ff9999Phracon^000000 and 50 Zeny.";
+			mes "Are you sure you want to continue?";
+			menu "Yes",continue1,"No",Nothing;
+
+			continue1:
+				if(countitem(1010)==0) goto NoP;
+				if(zeny<50) goto NoM;
+				setzeny Zeny,0-50;
+				delitem 1010,1;
+				goto success;
+		wlvl2:
+			if(refinelvl(2)>=6) goto LVL;
+			if(refinelvl(34)>=6) goto LVL;
+		wlvl22:
+			mes "[Aragham Salre]";
+			mes "This is Lvl 2 weapon.";
+			mes "So I need ^ff9999Emveretarcon^000000 and 200 Zeny.";
+			mes "Are you sure you want to continue?";
+			menu "Yes",continue2,"No",Nothing;
+
+			continue2:
+				if(countitem(1011)==0) goto NoP;
+				if(zeny<200) goto NoM;
+				setzeny Zeny,0-200;
+				delitem 1011,1;
+				goto success;
+		wlvl3:
+			if(refinelvl(2)>=5) goto LVL;
+			if(refinelvl(34)>=5) goto LVL;
+		wlvl32:
+			mes "[Aragham Salre]";
+			mes "This is Lvl 3 weapon.";
+			mes "So I need ^ff9999Oridecon^000000 and 1000 Zeny.";
+			mes "Are you sure you want to continue?";
+			menu "Yes",continue3,"No",Nothing;
+
+			continue3:
+				if(countitem(984)==0) goto NoP;
+				if(zeny<1000) goto NoM;
+				setzeny Zeny,0-1000;
+				delitem 984,1;
+				goto success;
+		wlvl4:
+			if(refinelvl(2)>=5) goto LVL;
+			if(refinelvl(34)>=5) goto LVL;
+		wlvl42:
+			mes "[Aragham Salre]";
+			mes "This is Lvl 4 weapon.";
+			mes "So I need ^ff9999Oridecon^000000 and 10000 Zeny.";
+			mes "Are you sure you want to continue?";
+			menu "Yes",continue4,"No",Nothing;
+
+			continue4:
+				if(countitem(984)==0) goto NoP;
+				if(zeny<10000) goto NoM;
+				setzeny Zeny,0-10000;
+				delitem 984,1;
+				goto success;
+	Tophead:
+		if(checkequip(256)>=99) goto Topmidhead;
+		if(refinelvl(256)==10) goto Nomore;
+		if(refinelvl(256)==5) goto ALVL256;
+		if(refinelvl(256)==6) goto ALVL256;
+		if(refinelvl(256)==7) goto ALVL256;
+		if(refinelvl(256)==8) goto ALVL256;
+		if(refinelvl(256)==9) goto ALVL256;
+		mes "[Aragham Salre]";
+		mes "To refine this stuff,I need ^ff9999Elunium^000000 and the fee 2000 Zeny.";
+		mes "Continue?";
+		menu "Yes",successa256,"No",Nothing;
+
+	Topmidhead:
+		if(checkequip(768)>=99) goto Allhead;
+		if(refinelvl(768)==10) goto Nomore;
+		if(refinelvl(768)==5) goto ALVL768;
+		if(refinelvl(768)==6) goto ALVL768;
+		if(refinelvl(768)==7) goto ALVL768;
+		if(refinelvl(768)==8) goto ALVL768;
+		if(refinelvl(768)==9) goto ALVL768;
+		mes "[Aragham Salre]";
+		mes "To refine this stuff, I need ^ff9999Elunium^000000 and the fee 2000 Zeny.";
+		mes "Continue?";
+		menu "Yes",successa768,"No",Nothing;
+	Midhead:
+		if(checkequip(513)>=99) goto Midbottomhead;
+		if(refinelvl(513)==10) goto Nomore;
+		if(refinelvl(513)==5) goto ALVL513;
+		if(refinelvl(513)==6) goto ALVL513;
+		if(refinelvl(513)==7) goto ALVL513;
+		if(refinelvl(513)==8) goto ALVL513;
+		if(refinelvl(513)==9) goto ALVL513;
+		mes "[Aragham Salre]";
+		mes "To refine this stuff, I need ^ff9999Elunium^000000 and the fee 2000 Zeny.";
+		mes "Continue?";
+		menu "Yes",successa513,"No",Nothing;
+	Midbottomhead:
+		if(checkequip(768)>=99) goto Allhead;
+		if(refinelvl(768)==10) goto Nomore;
+		if(refinelvl(768)==5) goto ALVL768;
+		if(refinelvl(768)==6) goto ALVL768;
+		if(refinelvl(768)==7) goto ALVL768;
+		if(refinelvl(768)==8) goto ALVL768;
+		if(refinelvl(768)==9) goto ALVL768;
+		mes "[Aragham Salre]";
+		mes "To refine this stuff, I need ^ff9999Elunium^000000 and the fee 2000 Zeny.";
+		mes "Continue?";
+		menu "Yes",successa768,"No",Nothing;
+	Bottomhead:
+		if(checkequip(1)>=99) goto Midbottomhead;
+		if(refinelvl(1)==10) goto Nomore;
+		if(refinelvl(1)==5) goto ALVL1;
+		if(refinelvl(1)==6) goto ALVL1;
+		if(refinelvl(1)==7) goto ALVL1;
+		if(refinelvl(1)==8) goto ALVL1;
+		if(refinelvl(1)==9) goto ALVL1;
+		mes "[Aragham Salre]";
+		mes "To refine this stuff, I need ^ff9999Elunium^000000 and the fee 2000 Zeny.";
+		mes "Continue?";
+		menu "Yes",successa1,"No",Nothing;
+	Allhead:
+		if(checkequip(769)>=99) goto Nohead;
+		if(refinelvl(769)==10) goto Nomore;
+		if(refinelvl(769)==5) goto ALVL769;
+		if(refinelvl(769)==6) goto ALVL769;
+		if(refinelvl(769)==7) goto ALVL769;
+		if(refinelvl(769)==8) goto ALVL769;
+		if(refinelvl(769)==9) goto ALVL769;
+		mes "[Aragham Salre]";
+		mes "To refine this stuff,I need ^ff9999Elunium^000000 and the fee 2000 Zeny.";
+		mes "Continue?";
+		menu "Yes",successa769,"No",Nothing;
+	Larmor:
+		if(checkequip(16)>=99) goto Noarmor;
+		if(refinelvl(16)==10) goto Nomore;
+		if(refinelvl(16)==5) goto ALVL16;
+		if(refinelvl(16)==6) goto ALVL16;
+		if(refinelvl(16)==7) goto ALVL16;
+		if(refinelvl(16)==8) goto ALVL16;
+		if(refinelvl(16)==9) goto ALVL16;
+		mes "[Aragham Salre]";
+		mes "To refine this stuff,I need ^ff9999Elunium^000000 and the fee 2000 Zeny.";
+		mes "Continue?";
+		menu "Yes",successa16,"No",Nothing;
+	Lfoot:
+		if(checkequip(64)>=99) goto Nofoot;
+		if(refinelvl(64)==10) goto Nomore;
+		if(refinelvl(64)==5) goto ALVL64;
+		if(refinelvl(64)==6) goto ALVL64;
+		if(refinelvl(64)==7) goto ALVL64;
+		if(refinelvl(64)==8) goto ALVL64;
+		if(refinelvl(64)==9) goto ALVL64;
+		mes "[Aragham Salre]";
+		mes "To refine this stuff,I need ^ff9999Elunium^000000 and the fee 2000 Zeny.";
+		mes "Continue?";
+		menu "Yes",successa64,"No",Nothing;
+	Lgarment:
+		if(checkequip(4)>=99) goto Nogarment;
+		if(refinelvl(4)==10) goto Nomore;
+		if(refinelvl(4)==5) goto ALVL4;
+		if(refinelvl(4)==6) goto ALVL4;
+		if(refinelvl(4)==7) goto ALVL4;
+		if(refinelvl(4)==8) goto ALVL4;
+		if(refinelvl(4)==9) goto ALVL4;
+		mes "[Aragham Salre]";
+		mes "To refine this stuff,I need ^ff9999Elunium^000000 and the fee 2000 Zeny.";
+		mes "Continue?";
+		menu "Yes",successa4,"No",Nothing;
+
+			LVL:
+				next;
+				mes "[Aragham Salre]";
+				mes "Oh my God!!";
+				mes "This appears as It has been refined too many times... It could be destroyed when it's refined more.";
+				mes "After destroyed, it will be useless one... Still do you want to refine?";
+				menu "Yes",LVLtest,"No",Nothing;
+		ALVL16:
+			next;
+			mes "[Aragham Salre]";
+			mes "Oh my God!!";
+			mes "This appears as It has been refined too many times... It could be destroyed when it's refined more.";
+			mes "After destroyed, it will be useless one... Still do you want to refine?";
+			menu "Yes",atest16,"No",Nothing;
+		ALVL256:
+			next;
+			mes "[Aragham Salre]";
+			mes "Oh my God!!";
+			mes "This appears as It has been refined too many times... It could be destroyed when it's refined more.";
+			mes "After destroyed, it will be useless one... Still do you want to refine?";
+			menu "Yes",atest256,"No",Nothing;
+		ALVL512:
+			next;
+			mes "[Aragham Salre]";
+			mes "Oh my God!!";
+			mes "This appears as It has been refined too many times... It could be destroyed when it's refined more.";
+			mes "After destroyed, it will be useless one... Still do you want to refine?";
+			menu "Yes",atest512,"No",Nothing;
+		ALVL1:
+			next;
+			mes "[Aragham Salre]";
+			mes "Oh my God!!";
+			mes "This appears as It has been refined too many times... It could be destroyed when it's refined more.";
+			mes "After destroyed, it will be useless one... Still do you want to refine?";
+			menu "Yes",atest1,"No",Nothing;
+		ALVL513:
+			next;
+			mes "[Aragham Salre]";
+			mes "Oh my God!!";
+			mes "This appears as It has been refined too many times... It could be destroyed when it's refined more.";
+			mes "After destroyed, it will be useless one... Still do you want to refine?";
+			menu "Yes",atest513,"No",Nothing;
+		ALVL768:
+			next;
+			mes "[Aragham Salre]";
+			mes "Oh my God!!";
+			mes "This appears as It has been refined too many times... It could be destroyed when it's refined more.";
+			mes "After destroyed, it will be useless one... Still do you want to refine?";
+			menu "Yes",atest768,"No",Nothing;
+		ALVL769:
+			next;
+			mes "[Aragham Salre]";
+			mes "Oh my God!!";
+			mes "This appears as It has been refined too many times... It could be destroyed when it's refined more.";
+			mes "After destroyed, it will be useless one... Still do you want to refine?";
+			menu "Yes",atest769,"No",Nothing;
+		ALVL64:
+			next;
+			mes "[Aragham Salre]";
+			mes "Oh my God!!";
+			mes "This appears as It has been refined too many times... It could be destroyed when it's refined more.";
+			mes "After destroyed, it will be useless one... Still do you want to refine?";
+			menu "Yes",atest64,"No",Nothing;
+		ALVL4:
+			next;
+			mes "[Aragham Salre]";
+			mes "Oh my God!!";
+			mes "This appears as It has been refined too many times... It could be destroyed when it's refined more.";
+			mes "After destroyed, it will be useless one... Still do you want to refine?";
+			menu "Yes",atest4,"No",Nothing;
+		ALVL32:
+			next;
+			mes "[Aragham Salre]";
+			mes "Oh my God!!";
+			mes "This appears as It has been refined too many times... It could be destroyed when it's refined more.";
+			mes "After destroyed, it will be useless one... Still do you want to refine?";
+			menu "Yes",atest32,"No",Nothing;
+
+				LVLtest:
+					if(getwlvl==1) goto LVL1;
+					if(getwlvl==2) goto LVL2;
+					if(getwlvl==3) goto LVL3;
+					if(getwlvl==4) goto LVL4;
+
+					LVL1:
+						if(refinelvl(2)==7) goto random50;
+						if(refinelvl(2)==8) goto random25;
+						if(refinelvl(2)==9) goto random10;
+						if(refinelvl(34)==7) goto random50;
+						if(refinelvl(34)==8) goto random25;
+						if(refinelvl(34)==9) goto random10;
+					LVL2:
+						if(refinelvl(2)==6) goto random50;
+						if(refinelvl(2)==7) goto random25;
+						if(refinelvl(2)==8) goto random10;
+						if(refinelvl(2)==9) goto random5;
+						if(refinelvl(34)==6) goto random50;
+						if(refinelvl(34)==7) goto random25;
+						if(refinelvl(34)==8) goto random10;
+						if(refinelvl(34)==9) goto random5;
+					LVL3:
+						if(refinelvl(2)==5) goto random50;
+						if(refinelvl(2)==6) goto random25;
+						if(refinelvl(2)==7) goto random10;
+						if(refinelvl(2)==8) goto random5;
+						if(refinelvl(2)==9) goto random2;
+						if(refinelvl(34)==5) goto random50;
+						if(refinelvl(34)==6) goto random25;
+						if(refinelvl(34)==7) goto random10;
+						if(refinelvl(34)==8) goto random5;
+						if(refinelvl(34)==9) goto random2;
+					LVL4:
+						if(refinelvl(2)==5) goto random50;
+						if(refinelvl(2)==6) goto random25;
+						if(refinelvl(2)==7) goto random10;
+						if(refinelvl(2)==8) goto random5;
+						if(refinelvl(2)==9) goto random2;
+						if(refinelvl(34)==5) goto random50;
+						if(refinelvl(34)==6) goto random25;
+						if(refinelvl(34)==7) goto random10;
+						if(refinelvl(34)==8) goto random5;
+						if(refinelvl(34)==9) goto random2;
+			atest16:
+				if(refinelvl(16)==5) goto arandom50;
+				if(refinelvl(16)==6) goto arandom25;
+				if(refinelvl(16)==7) goto arandom10;
+				if(refinelvl(16)==8) goto arandom5;
+				if(refinelvl(16)==9) goto arandom2;
+			atest256:
+				if(refinelvl(256)==5) goto 256arandom50;
+				if(refinelvl(256)==6) goto 256arandom25;
+				if(refinelvl(256)==7) goto 256arandom10;
+				if(refinelvl(256)==8) goto 256arandom5;
+				if(refinelvl(256)==9) goto 256arandom2;
+			atest512:
+				if(refinelvl(512)==5) goto 512arandom50;
+				if(refinelvl(512)==6) goto 512arandom25;
+				if(refinelvl(512)==7) goto 512arandom10;
+				if(refinelvl(512)==8) goto 512arandom5;
+				if(refinelvl(512)==9) goto 512arandom2;
+			atest1:
+				if(refinelvl(1)==5) goto 1arandom50;
+				if(refinelvl(1)==6) goto 1arandom25;
+				if(refinelvl(1)==7) goto 1arandom10;
+				if(refinelvl(1)==8) goto 1arandom5;
+				if(refinelvl(1)==9) goto 1arandom2;
+			atest513:
+				if(refinelvl(513)==5) goto 513arandom50;
+				if(refinelvl(513)==6) goto 513arandom25;
+				if(refinelvl(513)==7) goto 513arandom10;
+				if(refinelvl(513)==8) goto 513arandom5;
+				if(refinelvl(513)==9) goto 513arandom2;
+			atest768:
+				if(refinelvl(768)==5) goto 768arandom50;
+				if(refinelvl(768)==6) goto 768arandom25;
+				if(refinelvl(768)==7) goto 768arandom10;
+				if(refinelvl(768)==8) goto 768arandom5;
+				if(refinelvl(768)==9) goto 768arandom2;
+			atest769:
+				if(refinelvl(769)==5) goto 769arandom50;
+				if(refinelvl(769)==6) goto 769arandom25;
+				if(refinelvl(769)==7) goto 769arandom10;
+				if(refinelvl(769)==8) goto 769arandom5;
+				if(refinelvl(769)==9) goto 769arandom2;
+			atest64:
+				if(refinelvl(64)==5) goto 64arandom50;
+				if(refinelvl(64)==6) goto 64arandom25;
+				if(refinelvl(64)==7) goto 64arandom10;
+				if(refinelvl(64)==8) goto 64arandom5;
+				if(refinelvl(64)==9) goto 64arandom2;
+			atest4:
+				if(refinelvl(4)==5) goto 4arandom50;
+				if(refinelvl(4)==6) goto 4arandom25;
+				if(refinelvl(4)==7) goto 4arandom10;
+				if(refinelvl(4)==8) goto 4arandom5;
+				if(refinelvl(4)==9) goto 4arandom2;
+			atest32:
+				if(refinelvl(32)==5) goto 32arandom50;
+				if(refinelvl(32)==6) goto 32arandom25;
+				if(refinelvl(32)==7) goto 32arandom10;
+				if(refinelvl(32)==8) goto 32arandom5;
+				if(refinelvl(32)==9) goto 32arandom2;
+// Randomizer
+				random50:
+					if(randRef<=50) goto success;
+					goto failure1;
+				random25:
+					if(randRef<=25) goto success;
+					goto failure1;
+				random10:
+					if(randRef<=10) goto success;
+					goto failure1;
+				random5:
+					if(randRef<=5) goto success;
+					goto failure1;
+				random2:
+					if(randRef<=2) goto success;
+					goto failure1;
+// Randomizer for armors
+				arandom50:
+					if(randRef<=50) goto successa16;
+					goto afailure16;
+				arandom25:
+					if(randRef<=25) goto successa16;
+					goto afailure16;
+				arandom10:
+					if(randRef<=10) goto successa16;
+					goto afailure16;
+				arandom5:
+					if(randRef<=5) goto successa16;
+					goto afailure16;
+				arandom2:
+					if(randRef<=2) goto successa16;
+					goto afailure16;
+// Randomizer for head-parts
+				256arandom50:
+					if(randRef<=50) goto successa256;
+					goto afailure256;
+				256arandom25:
+					if(randRef<=25) goto successa256;
+					goto afailure256;
+				256arandom10:
+					if(randRef<=10) goto successa256;
+					goto afailure256;
+				256arandom5:
+					if(randRef<=5) goto successa256;
+					goto afailure256;
+				256arandom2:
+					if(randRef<=2) goto successa256;
+					goto afailure256;
+				512arandom50:
+					if(randRef<=50) goto successa512;
+					goto afailure512;
+				512arandom25:
+					if(randRef<=25) goto successa512;
+					goto afailure512;
+				512arandom10:
+					if(randRef<=10) goto successa512;
+					goto afailure512;
+				512arandom5:
+					if(randRef<=5) goto successa512;
+					goto afailure512;
+				512arandom2:
+					if(randRef<=2) goto successa512;
+					goto afailure512;
+				1arandom50:
+					if(randRef<=50) goto successa1;
+					goto afailure1;
+				1arandom25:
+					if(randRef<=25) goto successa1;
+					goto afailure1;
+				1arandom10:
+					if(randRef<=10) goto successa1;
+					goto afailure1;
+				1arandom5:
+					if(randRef<=5) goto successa1;
+					goto afailure1;
+				1arandom2:
+					if(randRef<=2) goto successa1;
+					goto afailure1;
+				513arandom50:
+					if(randRef<=50) goto successa513;
+					goto afailure513;
+				513arandom25:
+					if(randRef<=25) goto successa513;
+					goto afailure513;
+				513arandom10:
+					if(randRef<=10) goto successa513;
+					goto afailure513;
+				513arandom5:
+					if(randRef<=5) goto successa513;
+					goto afailure513;
+				513arandom2:
+					if(randRef<=2) goto successa513;
+					goto afailure513;
+				768arandom50:
+					if(randRef<=50) goto successa768;
+					goto afailure768;
+				768arandom25:
+					if(randRef<=25) goto successa768;
+					goto afailure768;
+				768arandom10:
+					if(randRef<=10) goto successa768;
+					goto afailure768;
+				768arandom5:
+					if(randRef<=5) goto successa768;
+					goto afailure768;
+				768arandom2:
+					if(randRef<=2) goto successa768;
+					goto afailure768;
+				769arandom50:
+					if(randRef<=50) goto successa769;
+					goto afailure769;
+				769arandom25:
+					if(randRef<=25) goto successa769;
+					goto afailure769;
+				769arandom10:
+					if(randRef<=10) goto successa769;
+					goto afailure769;
+				769arandom5:
+					if(randRef<=5) goto successa769;
+					goto afailure769;
+				769arandom2:
+					if(randRef<=2) goto successa769;
+					goto afailure769;
+// Randomizer for other stuff
+				64arandom50:
+					if(randRef<=50) goto successa64;
+					goto afailure64;
+				64arandom25:
+					if(randRef<=25) goto successa64;
+					goto afailure64;
+				64arandom10:
+					if(randRef<=10) goto successa64;
+					goto afailure64;
+				64arandom5:
+					if(randRef<=5) goto successa64;
+					goto afailure64;
+				64arandom2:
+					if(randRef<=2) goto successa64;
+					goto afailure64;
+				4arandom50:
+					if(randRef<=50) goto successa4;
+					goto afailure4;
+				4arandom25:
+					if(randRef<=25) goto successa4;
+					goto afailure4;
+				4arandom10:
+					if(randRef<=10) goto successa4;
+					goto afailure4;
+				4arandom5:
+					if(randRef<=5) goto successa4;
+					goto afailure4;
+				4arandom2:
+					if(randRef<=2) goto successa4;
+					goto afailure4;
+				32arandom50:
+					if(randRef<=50) goto successa32;
+					goto afailure32;
+				32arandom25:
+					if(randRef<=25) goto successa32;
+					goto afailure32;
+				32arandom10:
+					if(randRef<=10) goto successa32;
+					goto afailure32;
+				32arandom5:
+					if(randRef<=5) goto successa32;
+					goto afailure32;
+				32arandom2:
+					if(randRef<=2) goto successa32;
+					goto afailure32;
+
+				NoP:
+					next;
+					mes "[Aragham Salre]";
+					mes "Sorry, but you don't have enough raw materials.";
+					close;
+				NoM:
+					next;
+					mes "[Aragham Salre]";
+					mes "Is that all you got?";
+					mes "Unfortunately I can't work for you at lower price. Think on my side.";
+					close;
+		Nohead:
+			next;
+			mes "[Aragham Salre]";
+			mes "Do you want me to refine your Dumb Brain?";
+			close;
+		Noweapon:
+			next;
+			mes "[Aragham Salre]";
+			mes "I can't make your hand into the peerless one..";
+			close;
+		Noarmor:
+			next;
+			mes "[Aragham Salre]";
+			mes "I will melt your body with my Heat.";
+			close;
+		Nogarment:
+			next;
+			mes "[Aragham Salre]";
+			mes "Look at you. You don't have any Garment now.";
+			close;
+		Nofoot:
+			next;
+			mes "[Aragham Salre]";
+			mes "Wahh.. your feet stink a lot.";
+			close;
+		Noaccessory:
+			next;
+			mes "[Aragham Salre]";
+			mes "I don't think I can work on this item...";
+			close;
+
+					failure1:
+						next;
+						mes "[Aragham Salre]";
+						mes "Clang!Clang!Clang!";
+						next;
+						mes "[Aragham Salre]";
+						mes "Waaaaaaaaahhhh!!!!";
+						next;
+						failure 2;
+						failure 34;
+						mes "[Aragham Salre]";
+						mes "Eh..Ehem...";
+						mes "Failed. I am deeply ashamed of what I've done...But,";
+						mes "I...told...you..not to force me to do that.";
+						close;
+					afailure16:
+						next;
+						if(countitem(985)==0) goto NoP;
+						delitem 985,1;
+						setzeny Zeny,0-2000;
+						mes "[Aragham Salre]";
+						mes "Clang!Clang!Clang!";
+						next;
+						mes "[Aragham Salre]";
+						mes "Waaaaaaaaahhhh!!!!";
+						next;
+						failure 16;
+						goto afailureend;
+					afailure256:
+						next;
+						if(countitem(985)==0) goto NoP;
+						delitem 985,1;
+						setzeny Zeny,0-2000;
+						mes "[Aragham Salre]";
+						mes "Clang!Clang!Clang!";
+						next;
+						mes "[Aragham Salre]";
+						mes "Waaaaaaaaahhhh!!!!";
+						next;
+						failure 256;
+						goto afailureend;
+					afailure512:
+						next;
+						if(countitem(985)==0) goto NoP;
+						delitem 985,1;
+						setzeny Zeny,0-2000;
+						mes "[Aragham Salre]";
+						mes "Clang!Clang!Clang!";
+						next;
+						failure 256;
+						goto afailureend;
+					afailure1:
+						next;
+						if(countitem(985)==0) goto NoP;
+						delitem 985,1;
+						setzeny Zeny,0-2000;
+						mes "[Aragham Salre]";
+						mes "Clang!Clang!Clang!";
+						next;
+						failure 1;
+						goto afailureend;
+					afailure513:
+						next;
+						if(countitem(985)==0) goto NoP;
+						delitem 985,1;
+						setzeny Zeny,0-2000;
+						mes "[Aragham Salre]";
+						mes "Clang!Clang!Clang!";
+						next;
+						failure 513;
+						goto afailureend;
+					afailure768:
+						next;
+						if(countitem(985)==0) goto NoP;
+						delitem 985,1;
+						setzeny Zeny,0-2000;
+						mes "[Aragham Salre]";
+						mes "Clang!Clang!Clang!";
+						next;
+						failure 768;
+						goto afailureend;
+					afailure769:
+						next;
+						if(countitem(985)==0) goto NoP;
+						delitem 985,1;
+						setzeny Zeny,0-2000;
+						mes "[Aragham Salre]";
+						mes "Clang!Clang!Clang!";
+						next;
+						failure 769;
+						goto afailureend;
+					afailure64:
+						next;
+						if(countitem(985)==0) goto NoP;
+						delitem 985,1;
+						setzeny Zeny,0-2000;
+						mes "[Aragham Salre]";
+						mes "Clang!Clang!Clang!";
+						next;
+						mes "[Aragham Salre]";
+						mes "Waaaaaaaaahhhh!!!!";
+						next;
+						failure 64;
+						goto afailureend;
+					afailure4:
+						next;
+						if(countitem(985)==0) goto NoP;
+						delitem 985,1;
+						setzeny Zeny,0-2000;
+						mes "[Aragham Salre]";
+						mes "Clang!Clang!Clang!";
+						next;
+						mes "[Aragham Salre]";
+						mes "Waaaaaaaaahhhh!!!!";
+						next;
+						failure 4;
+						goto afailureend;
+					afailure32:
+						next;
+						if(countitem(985)==0) goto NoP;
+						delitem 985,1;
+						setzeny Zeny,0-2000;
+						mes "[Aragham Salre]";
+						mes "Clang!Clang!Clang!";
+						next;
+						mes "[Aragham Salre]";
+						mes "Waaaaaaaaahhhh!!!!";
+						next;
+						failure 32;
+						goto afailureend;
+					afailureend:
+						mes "[Aragham Salre]";
+						mes "Eh..Ehem...";
+						mes "Failed. I am deeply ashamed of what I've done...But,";
+						mes "I...told...you..not to force me to do that.";
+						close;
+					success:
+						next;	
+						mes "[Aragham Salre]";
+						mes "Clang!Clang!Clang!";
+						next;
+						refine 2;
+						refine 34;
+						mes "[Aragham Salre]";
+						mes "There you go.";
+						mes "It seems My skill doesn't have gotten a bit Rusty yet. It is my work,but still Splendid...";
+						close;
+					successa16:
+						next;
+						if(countitem(985)==0) goto NoP;
+						delitem 985,1;
+						setzeny Zeny,0-2000;
+						mes "[Aragham Salre]";
+						mes "Clang!Clang!Clang!";
+						next;
+						refine 16;
+						goto asuccessend;
+					successa256:
+						next;
+						if(countitem(985)==0) goto NoP;
+						delitem 985,1;
+						setzeny Zeny,0-2000;
+						mes "[Aragham Salre]";
+						mes "Clang!Clang!Clang!";
+						next;
+						refine 256;
+						goto asuccessend;
+					successa512:
+						next;
+						if(countitem(985)==0) goto NoP;
+						delitem 985,1;
+						setzeny Zeny,0-2000;
+						mes "[Aragham Salre]";
+						mes "Clang!Clang!Clang!";
+						next;
+						refine 256;
+						goto asuccessend;
+					successa1:
+						next;
+						if(countitem(985)==0) goto NoP;
+						delitem 985,1;
+						setzeny Zeny,0-2000;
+						mes "[Aragham Salre]";
+						mes "Clang!Clang!Clang!";
+						next;
+						refine 1;
+						goto asuccessend;
+					successa513:
+						next;
+						if(countitem(985)==0) goto NoP;
+						delitem 985,1;
+						setzeny Zeny,0-2000;
+						mes "[Aragham Salre]";
+						mes "Clang!Clang!Clang!";
+						next;
+						refine 513;
+						goto asuccessend;
+					successa768:
+						next;
+						if(countitem(985)==0) goto NoP;
+						delitem 985,1;
+						setzeny Zeny,0-2000;
+						mes "[Aragham Salre]";
+						mes "Clang!Clang!Clang!";
+						next;
+						refine 768;
+						goto asuccessend;
+					successa769:
+						next;
+						if(countitem(985)==0) goto NoP;
+						delitem 985,1;
+						setzeny Zeny,0-2000;
+						mes "[Aragham Salre]";
+						mes "Clang!Clang!Clang!";
+						next;
+						refine 769;
+						goto asuccessend;
+					successa64:
+						next;
+						if(countitem(985)==0) goto NoP;
+						delitem 985,1;
+						setzeny Zeny,0-2000;
+						mes "[Aragham Salre]";
+						mes "Clang!Clang!Clang!";
+						next;
+						refine 64;
+						goto asuccessend;
+					successa4:
+						next;
+						if(countitem(985)==0) goto NoP;
+						delitem 985,1;
+						setzeny Zeny,0-2000;
+						mes "[Aragham Salre]";
+						mes "Clang!Clang!Clang!";
+						next;
+						refine 4;
+						goto asuccessend;
+					successa32:
+						next;
+						if(countitem(985)==0) goto NoP;
+						delitem 985,1;
+						setzeny Zeny,0-2000;
+						mes "[Aragham Salre]";
+						mes "Clang!Clang!Clang!";
+						next;
+						refine 32;
+						goto asuccessend;
+					asuccessend:
+						mes "[Aragham Salre]";
+						mes "There you go.";
+						mes "It seems My skill doesn't have gotten a bit Rusty yet. It is my work,but still Splendid...";
+						close;
+		Nomore:
+			next;
+			mes "[Aragham Salre]";
+			mes "I must say this item doesn't accept more refining on it..";
+			close;
+
+			Nothing:
+				next;
+				mes "[Aragham Salre]";
+				mes "OK then....";
+				close;
+}
+//<=========== Morroc - End ==========>\\
+//===============================================================================================================================\\
+//<=========== Payon - Begin ==========>\\
+payon_in01.gat,80,32,6	script	Hakhim	88,{
+	mes "[Hakhim]";
+	mes "If you bring me Rough Oridencons or Rough Eluniums, I can make the cutting ones out of them.";
+	mes "But make sure you bring 5 rough ones for the cutting.";
+	next;
+	menu "Make Oridecon",Oridecon,"Make Elunium",Elunium,"Ask about Enchanted Stone",Ask;
+	
+	Oridecon:
+		if(countitem(756) < 5) goto CantMakeOrid;
+		delitem 756,5;
+		getitem 984,1;
+		mes "[Hakhim]";
+		mes "Under development";
+		mes "Missing text";
+		close;
+		
+		CantMakeOrid:
+			mes "[Hakhim]";
+			mes "Under development";
+			mes "Missing text";
+			close;
+	Elunium:
+		if(countitem(757) < 5) goto CantMakeElun;
+		delitem 757,5;
+		getitem 985,1;
+		mes "[Hakhim]";
+		mes "Under development";
+		mes "Missing text";
+		close;
+
+		CantMakeElun:
+			mes "[Hakhim]";
+			mes "Under development";
+			mes "Missing text";
+			close;
+	Ask:
+		mes "[Hakhim]";
+		mes "Under development";
+		mes "Missing text";
+		close;
+}
+
+payon_in01.gat,90,32,6	script	Antonio	88,{
+	mes "[Antonio]";
+	mes "Cut the patter and show me your Item";
+	next;
+	menu "Top-Head",Tophead,"Middle-Head",Midhead,"Bottom-Head",Bottomhead,"Torso",Larmor,"Right hand",Lweapon,"Left hand",Rweapon,"Garment",Lgarment,"Foot",Lfoot,"Accessory 1",Noaccessory,"Accessory 2",Noaccessory,"Nothing",Nothing;
+
+	Rweapon:
+		if(checkequip(32)>=99) goto Lweapon;
+		if(refinelvl(32)==10) goto Nomore;
+		if(refinelvl(32)==5) goto ALVL32;
+		if(refinelvl(32)==6) goto ALVL32;
+		if(refinelvl(32)==7) goto ALVL32;
+		if(refinelvl(32)==8) goto ALVL32;
+		if(refinelvl(32)==9) goto ALVL32;
+		mes "[Antonio]";
+		mes "To refine this stuff,I need ^ff9999Elunium^000000 and the fee 2000 Zeny.";
+		mes "Continue?";
+		menu "Yes",successa32,"No",Nothing;	
+
+	Lweapon:
+		if(refinelvl(2)==10) goto Nomore;
+		if(refinelvl(34)==10) goto Nomore;
+		if(getwlvl==1) goto wlvl1;
+		if(getwlvl==2) goto wlvl2;
+		if(getwlvl==3) goto wlvl3;
+		if(getwlvl==4) goto wlvl4;
+		if(checkequip(2)>=50) goto Noweapon;
+		if(checkequip(34)>=50) goto Noweapon;
+
+		wlvl1:
+			if(refinelvl(2)>=7) goto LVL;
+			if(refinelvl(34)>=7) goto LVL;
+		wlvl12:
+			mes "[Antonio]";
+			mes "This is Lvl 1 weapon.";
+			mes "So I need ^ff9999Phracon^000000 and 50 Zeny.";
+			mes "Are you sure you want to continue?";
+			menu "Yes",continue1,"No",Nothing;
+
+			continue1:
+				if(countitem(1010)==0) goto NoP;
+				if(zeny<50) goto NoM;
+				setzeny Zeny,0-50;
+				delitem 1010,1;
+				goto success;
+		wlvl2:
+			if(refinelvl(2)>=6) goto LVL;
+			if(refinelvl(34)>=6) goto LVL;
+		wlvl22:
+			mes "[Antonio]";
+			mes "This is Lvl 2 weapon.";
+			mes "So I need ^ff9999Emveretarcon^000000 and 200 Zeny.";
+			mes "Are you sure you want to continue?";
+			menu "Yes",continue2,"No",Nothing;
+
+			continue2:
+				if(countitem(1011)==0) goto NoP;
+				if(zeny<200) goto NoM;
+				setzeny Zeny,0-200;
+				delitem 1011,1;
+				goto success;
+		wlvl3:
+			if(refinelvl(2)>=5) goto LVL;
+			if(refinelvl(34)>=5) goto LVL;
+		wlvl32:
+			mes "[Antonio]";
+			mes "This is Lvl 3 weapon.";
+			mes "So I need ^ff9999Oridecon^000000 and 1000 Zeny.";
+			mes "Are you sure you want to continue?";
+			menu "Yes",continue3,"No",Nothing;
+
+			continue3:
+				if(countitem(984)==0) goto NoP;
+				if(zeny<1000) goto NoM;
+				setzeny Zeny,0-1000;
+				delitem 984,1;
+				goto success;
+		wlvl4:
+			if(refinelvl(2)>=5) goto LVL;
+			if(refinelvl(34)>=5) goto LVL;
+		wlvl42:
+			mes "[Antonio]";
+			mes "This is Lvl 4 weapon.";
+			mes "So I need ^ff9999Oridecon^000000 and 10000 Zeny.";
+			mes "Are you sure you want to continue?";
+			menu "Yes",continue4,"No",Nothing;
+
+			continue4:
+				if(countitem(984)==0) goto NoP;
+				if(zeny<10000) goto NoM;
+				setzeny Zeny,0-10000;
+				delitem 984,1;
+				goto success;
+	Tophead:
+		if(checkequip(256)>=99) goto Topmidhead;
+		if(refinelvl(256)==10) goto Nomore;
+		if(refinelvl(256)==5) goto ALVL256;
+		if(refinelvl(256)==6) goto ALVL256;
+		if(refinelvl(256)==7) goto ALVL256;
+		if(refinelvl(256)==8) goto ALVL256;
+		if(refinelvl(256)==9) goto ALVL256;
+		mes "[Antonio]";
+		mes "To refine this stuff,I need ^ff9999Elunium^000000 and the fee 2000 Zeny.";
+		mes "Continue?";
+		menu "Yes",successa256,"No",Nothing;
+
+	Topmidhead:
+		if(checkequip(768)>=99) goto Allhead;
+		if(refinelvl(768)==10) goto Nomore;
+		if(refinelvl(768)==5) goto ALVL768;
+		if(refinelvl(768)==6) goto ALVL768;
+		if(refinelvl(768)==7) goto ALVL768;
+		if(refinelvl(768)==8) goto ALVL768;
+		if(refinelvl(768)==9) goto ALVL768;
+		mes "[Antonio]";
+		mes "To refine this stuff, I need ^ff9999Elunium^000000 and the fee 2000 Zeny.";
+		mes "Continue?";
+		menu "Yes",successa768,"No",Nothing;
+	Midhead:
+		if(checkequip(513)>=99) goto Midbottomhead;
+		if(refinelvl(513)==10) goto Nomore;
+		if(refinelvl(513)==5) goto ALVL513;
+		if(refinelvl(513)==6) goto ALVL513;
+		if(refinelvl(513)==7) goto ALVL513;
+		if(refinelvl(513)==8) goto ALVL513;
+		if(refinelvl(513)==9) goto ALVL513;
+		mes "[Antonio]";
+		mes "To refine this stuff, I need ^ff9999Elunium^000000 and the fee 2000 Zeny.";
+		mes "Continue?";
+		menu "Yes",successa513,"No",Nothing;
+
+	Midbottomhead:
+		if(checkequip(768)>=99) goto Allhead;
+		if(refinelvl(768)==10) goto Nomore;
+		if(refinelvl(768)==5) goto ALVL768;
+		if(refinelvl(768)==6) goto ALVL768;
+		if(refinelvl(768)==7) goto ALVL768;
+		if(refinelvl(768)==8) goto ALVL768;
+		if(refinelvl(768)==9) goto ALVL768;
+		mes "[Antonio]";
+		mes "To refine this stuff, I need ^ff9999Elunium^000000 and the fee 2000 Zeny.";
+		mes "Continue?";
+		menu "Yes",successa768,"No",Nothing;
+	Bottomhead:
+		if(checkequip(1)>=99) goto Midbottomhead;
+		if(refinelvl(1)==10) goto Nomore;
+		if(refinelvl(1)==5) goto ALVL1;
+		if(refinelvl(1)==6) goto ALVL1;
+		if(refinelvl(1)==7) goto ALVL1;
+		if(refinelvl(1)==8) goto ALVL1;
+		if(refinelvl(1)==9) goto ALVL1;
+		mes "[Antonio]";
+		mes "To refine this stuff, I need ^ff9999Elunium^000000 and the fee 2000 Zeny.";
+		mes "Continue?";
+		menu "Yes",successa1,"No",Nothing;
+	Allhead:
+		if(checkequip(769)>=99) goto Nohead;
+		if(refinelvl(769)==10) goto Nomore;
+		if(refinelvl(769)==5) goto ALVL769;
+		if(refinelvl(769)==6) goto ALVL769;
+		if(refinelvl(769)==7) goto ALVL769;
+		if(refinelvl(769)==8) goto ALVL769;
+		if(refinelvl(769)==9) goto ALVL769;
+		mes "[Antonio]";
+		mes "To refine this stuff,I need ^ff9999Elunium^000000 and the fee 2000 Zeny.";
+		mes "Continue?";
+		menu "Yes",successa769,"No",Nothing;
+	Larmor:
+		if(checkequip(16)>=99) goto Noarmor;
+		if(refinelvl(16)==10) goto Nomore;
+		if(refinelvl(16)==5) goto ALVL16;
+		if(refinelvl(16)==6) goto ALVL16;
+		if(refinelvl(16)==7) goto ALVL16;
+		if(refinelvl(16)==8) goto ALVL16;
+		if(refinelvl(16)==9) goto ALVL16;
+		mes "[Antonio]";
+		mes "To refine this stuff,I need ^ff9999Elunium^000000 and the fee 2000 Zeny.";
+		mes "Continue?";
+		menu "Yes",successa16,"No",Nothing;
+	Lfoot:
+		if(checkequip(64)>=99) goto Nofoot;
+		if(refinelvl(64)==10) goto Nomore;
+		if(refinelvl(64)==5) goto ALVL64;
+		if(refinelvl(64)==6) goto ALVL64;
+		if(refinelvl(64)==7) goto ALVL64;
+		if(refinelvl(64)==8) goto ALVL64;
+		if(refinelvl(64)==9) goto ALVL64;
+		mes "[Antonio]";
+		mes "To refine this stuff,I need ^ff9999Elunium^000000 and the fee 2000 Zeny.";
+		mes "Continue?";
+		menu "Yes",successa64,"No",Nothing;
+	Lgarment:
+		if(checkequip(4)>=99) goto Nogarment;
+		if(refinelvl(4)==10) goto Nomore;
+		if(refinelvl(4)==5) goto ALVL4;
+		if(refinelvl(4)==6) goto ALVL4;
+		if(refinelvl(4)==7) goto ALVL4;
+		if(refinelvl(4)==8) goto ALVL4;
+		if(refinelvl(4)==9) goto ALVL4;
+		mes "[Antonio]";
+		mes "To refine this stuff,I need ^ff9999Elunium^000000 and the fee 2000 Zeny.";
+		mes "Continue?";
+		menu "Yes",successa4,"No",Nothing;
+
+			LVL:
+				next;
+				mes "[Antonio]";
+				mes "Oh my God!!";
+				mes "This appears as It has been refined too many times... It could be destroyed when it's refined more.";
+				mes "After destroyed, it will be useless one... Still do you want to refine?";
+				menu "Yes",LVLtest,"No",Nothing;
+		ALVL16:
+			next;
+			mes "[Antonio]";
+			mes "Oh my God!!";
+			mes "This appears as It has been refined too many times... It could be destroyed when it's refined more.";
+			mes "After destroyed, it will be useless one... Still do you want to refine?";
+			menu "Yes",atest16,"No",Nothing;
+		ALVL256:
+			next;
+			mes "[Antonio]";
+			mes "Oh my God!!";
+			mes "This appears as It has been refined too many times... It could be destroyed when it's refined more.";
+			mes "After destroyed, it will be useless one... Still do you want to refine?";
+			menu "Yes",atest256,"No",Nothing;
+		ALVL512:
+			next;
+			mes "[Antonio]";
+			mes "Oh my God!!";
+			mes "This appears as It has been refined too many times... It could be destroyed when it's refined more.";
+			mes "After destroyed, it will be useless one... Still do you want to refine?";
+			menu "Yes",atest512,"No",Nothing;
+		ALVL1:
+			next;
+			mes "[Antonio]";
+			mes "Oh my God!!";
+			mes "This appears as It has been refined too many times... It could be destroyed when it's refined more.";
+			mes "After destroyed, it will be useless one... Still do you want to refine?";
+			menu "Yes",atest1,"No",Nothing;
+		ALVL513:
+			next;
+			mes "[Antonio]";
+			mes "Oh my God!!";
+			mes "This appears as It has been refined too many times... It could be destroyed when it's refined more.";
+			mes "After destroyed, it will be useless one... Still do you want to refine?";
+			menu "Yes",atest513,"No",Nothing;
+		ALVL768:
+			next;
+			mes "[Antonio]";
+			mes "Oh my God!!";
+			mes "This appears as It has been refined too many times... It could be destroyed when it's refined more.";
+			mes "After destroyed, it will be useless one... Still do you want to refine?";
+			menu "Yes",atest768,"No",Nothing;
+		ALVL769:
+			next;
+			mes "[Antonio]";
+			mes "Oh my God!!";
+			mes "This appears as It has been refined too many times... It could be destroyed when it's refined more.";
+			mes "After destroyed, it will be useless one... Still do you want to refine?";
+			menu "Yes",atest769,"No",Nothing;
+		ALVL64:
+			next;
+			mes "[Antonio]";
+			mes "Oh my God!!";
+			mes "This appears as It has been refined too many times... It could be destroyed when it's refined more.";
+			mes "After destroyed, it will be useless one... Still do you want to refine?";
+			menu "Yes",atest64,"No",Nothing;
+		ALVL4:
+			next;
+			mes "[Antonio]";
+			mes "Oh my God!!";
+			mes "This appears as It has been refined too many times... It could be destroyed when it's refined more.";
+			mes "After destroyed, it will be useless one... Still do you want to refine?";
+			menu "Yes",atest4,"No",Nothing;
+		ALVL32:
+			next;
+			mes "[Antonio]";
+			mes "Oh my God!!";
+			mes "This appears as It has been refined too many times... It could be destroyed when it's refined more.";
+			mes "After destroyed, it will be useless one... Still do you want to refine?";
+			menu "Yes",atest32,"No",Nothing;
+
+				LVLtest:
+					if(getwlvl==1) goto LVL1;
+					if(getwlvl==2) goto LVL2;
+					if(getwlvl==3) goto LVL3;
+					if(getwlvl==4) goto LVL4;
+
+					LVL1:
+						if(refinelvl(2)==7) goto random50;
+						if(refinelvl(2)==8) goto random25;
+						if(refinelvl(2)==9) goto random10;
+						if(refinelvl(34)==7) goto random50;
+						if(refinelvl(34)==8) goto random25;
+						if(refinelvl(34)==9) goto random10;
+					LVL2:
+						if(refinelvl(2)==6) goto random50;
+						if(refinelvl(2)==7) goto random25;
+						if(refinelvl(2)==8) goto random10;
+						if(refinelvl(2)==9) goto random5;
+						if(refinelvl(34)==6) goto random50;
+						if(refinelvl(34)==7) goto random25;
+						if(refinelvl(34)==8) goto random10;
+						if(refinelvl(34)==9) goto random5;
+					LVL3:
+						if(refinelvl(2)==5) goto random50;
+						if(refinelvl(2)==6) goto random25;
+						if(refinelvl(2)==7) goto random10;
+						if(refinelvl(2)==8) goto random5;
+						if(refinelvl(2)==9) goto random2;
+						if(refinelvl(34)==5) goto random50;
+						if(refinelvl(34)==6) goto random25;
+						if(refinelvl(34)==7) goto random10;
+						if(refinelvl(34)==8) goto random5;
+						if(refinelvl(34)==9) goto random2;
+					LVL4:
+						if(refinelvl(2)==5) goto random50;
+						if(refinelvl(2)==6) goto random25;
+						if(refinelvl(2)==7) goto random10;
+						if(refinelvl(2)==8) goto random5;
+						if(refinelvl(2)==9) goto random2;
+						if(refinelvl(34)==5) goto random50;
+						if(refinelvl(34)==6) goto random25;
+						if(refinelvl(34)==7) goto random10;
+						if(refinelvl(34)==8) goto random5;
+						if(refinelvl(34)==9) goto random2;
+			atest16:
+				if(refinelvl(16)==5) goto arandom50;
+				if(refinelvl(16)==6) goto arandom25;
+				if(refinelvl(16)==7) goto arandom10;
+				if(refinelvl(16)==8) goto arandom5;
+				if(refinelvl(16)==9) goto arandom2;
+			atest256:
+				if(refinelvl(256)==5) goto 256arandom50;
+				if(refinelvl(256)==6) goto 256arandom25;
+				if(refinelvl(256)==7) goto 256arandom10;
+				if(refinelvl(256)==8) goto 256arandom5;
+				if(refinelvl(256)==9) goto 256arandom2;
+			atest512:
+				if(refinelvl(512)==5) goto 512arandom50;
+				if(refinelvl(512)==6) goto 512arandom25;
+				if(refinelvl(512)==7) goto 512arandom10;
+				if(refinelvl(512)==8) goto 512arandom5;
+				if(refinelvl(512)==9) goto 512arandom2;
+			atest1:
+				if(refinelvl(1)==5) goto 1arandom50;
+				if(refinelvl(1)==6) goto 1arandom25;
+				if(refinelvl(1)==7) goto 1arandom10;
+				if(refinelvl(1)==8) goto 1arandom5;
+				if(refinelvl(1)==9) goto 1arandom2;
+			atest513:
+				if(refinelvl(513)==5) goto 513arandom50;
+				if(refinelvl(513)==6) goto 513arandom25;
+				if(refinelvl(513)==7) goto 513arandom10;
+				if(refinelvl(513)==8) goto 513arandom5;
+				if(refinelvl(513)==9) goto 513arandom2;
+			atest768:
+				if(refinelvl(768)==5) goto 768arandom50;
+				if(refinelvl(768)==6) goto 768arandom25;
+				if(refinelvl(768)==7) goto 768arandom10;
+				if(refinelvl(768)==8) goto 768arandom5;
+				if(refinelvl(768)==9) goto 768arandom2;
+			atest769:
+				if(refinelvl(769)==5) goto 769arandom50;
+				if(refinelvl(769)==6) goto 769arandom25;
+				if(refinelvl(769)==7) goto 769arandom10;
+				if(refinelvl(769)==8) goto 769arandom5;
+				if(refinelvl(769)==9) goto 769arandom2;
+			atest64:
+				if(refinelvl(64)==5) goto 64arandom50;
+				if(refinelvl(64)==6) goto 64arandom25;
+				if(refinelvl(64)==7) goto 64arandom10;
+				if(refinelvl(64)==8) goto 64arandom5;
+				if(refinelvl(64)==9) goto 64arandom2;
+			atest4:
+				if(refinelvl(4)==5) goto 4arandom50;
+				if(refinelvl(4)==6) goto 4arandom25;
+				if(refinelvl(4)==7) goto 4arandom10;
+				if(refinelvl(4)==8) goto 4arandom5;
+				if(refinelvl(4)==9) goto 4arandom2;
+			atest32:
+				if(refinelvl(32)==5) goto 32arandom50;
+				if(refinelvl(32)==6) goto 32arandom25;
+				if(refinelvl(32)==7) goto 32arandom10;
+				if(refinelvl(32)==8) goto 32arandom5;
+				if(refinelvl(32)==9) goto 32arandom2;
+// Randomizer
+				random50:
+					if(randRef<=50) goto success;
+					goto failure1;
+				random25:
+					if(randRef<=25) goto success;
+					goto failure1;
+				random10:
+					if(randRef<=10) goto success;
+					goto failure1;
+				random5:
+					if(randRef<=5) goto success;
+					goto failure1;
+				random2:
+					if(randRef<=2) goto success;
+					goto failure1;
+// Randomizer for armors
+				arandom50:
+					if(randRef<=50) goto successa16;
+					goto afailure16;
+				arandom25:
+					if(randRef<=25) goto successa16;
+					goto afailure16;
+				arandom10:
+					if(randRef<=10) goto successa16;
+					goto afailure16;
+				arandom5:
+					if(randRef<=5) goto successa16;
+					goto afailure16;
+				arandom2:
+					if(randRef<=2) goto successa16;
+					goto afailure16;
+// Randomizer for head-parts
+				256arandom50:
+					if(randRef<=50) goto successa256;
+					goto afailure256;
+				256arandom25:
+					if(randRef<=25) goto successa256;
+					goto afailure256;
+				256arandom10:
+					if(randRef<=10) goto successa256;
+					goto afailure256;
+				256arandom5:
+					if(randRef<=5) goto successa256;
+					goto afailure256;
+				256arandom2:
+					if(randRef<=2) goto successa256;
+					goto afailure256;
+				512arandom50:
+					if(randRef<=50) goto successa512;
+					goto afailure512;
+				512arandom25:
+					if(randRef<=25) goto successa512;
+					goto afailure512;
+				512arandom10:
+					if(randRef<=10) goto successa512;
+					goto afailure512;
+				512arandom5:
+					if(randRef<=5) goto successa512;
+					goto afailure512;
+				512arandom2:
+					if(randRef<=2) goto successa512;
+					goto afailure512;
+				1arandom50:
+					if(randRef<=50) goto successa1;
+					goto afailure1;
+				1arandom25:
+					if(randRef<=25) goto successa1;
+					goto afailure1;
+				1arandom10:
+					if(randRef<=10) goto successa1;
+					goto afailure1;
+				1arandom5:
+					if(randRef<=5) goto successa1;
+					goto afailure1;
+				1arandom2:
+					if(randRef<=2) goto successa1;
+					goto afailure1;
+				513arandom50:
+					if(randRef<=50) goto successa513;
+					goto afailure513;
+				513arandom25:
+					if(randRef<=25) goto successa513;
+					goto afailure513;
+				513arandom10:
+					if(randRef<=10) goto successa513;
+					goto afailure513;
+				513arandom5:
+					if(randRef<=5) goto successa513;
+					goto afailure513;
+				513arandom2:
+					if(randRef<=2) goto successa513;
+					goto afailure513;
+				768arandom50:
+					if(randRef<=50) goto successa768;
+					goto afailure768;
+				768arandom25:
+					if(randRef<=25) goto successa768;
+					goto afailure768;
+				768arandom10:
+					if(randRef<=10) goto successa768;
+					goto afailure768;
+				768arandom5:
+					if(randRef<=5) goto successa768;
+					goto afailure768;
+				768arandom2:
+					if(randRef<=2) goto successa768;
+					goto afailure768;
+				769arandom50:
+					if(randRef<=50) goto successa769;
+					goto afailure769;
+				769arandom25:
+					if(randRef<=25) goto successa769;
+					goto afailure769;
+				769arandom10:
+					if(randRef<=10) goto successa769;
+					goto afailure769;
+				769arandom5:
+					if(randRef<=5) goto successa769;
+					goto afailure769;
+				769arandom2:
+					if(randRef<=2) goto successa769;
+					goto afailure769;
+// Randomizer for other stuff
+				64arandom50:
+					if(randRef<=50) goto successa64;
+					goto afailure64;
+				64arandom25:
+					if(randRef<=25) goto successa64;
+					goto afailure64;
+				64arandom10:
+					if(randRef<=10) goto successa64;
+					goto afailure64;
+				64arandom5:
+					if(randRef<=5) goto successa64;
+					goto afailure64;
+				64arandom2:
+					if(randRef<=2) goto successa64;
+					goto afailure64;
+				4arandom50:
+					if(randRef<=50) goto successa4;
+					goto afailure4;
+				4arandom25:
+					if(randRef<=25) goto successa4;
+					goto afailure4;
+				4arandom10:
+					if(randRef<=10) goto successa4;
+					goto afailure4;
+				4arandom5:
+					if(randRef<=5) goto successa4;
+					goto afailure4;
+				4arandom2:
+					if(randRef<=2) goto successa4;
+					goto afailure4;
+				32arandom50:
+					if(randRef<=50) goto successa32;
+					goto afailure32;
+				32arandom25:
+					if(randRef<=25) goto successa32;
+					goto afailure32;
+				32arandom10:
+					if(randRef<=10) goto successa32;
+					goto afailure32;
+				32arandom5:
+					if(randRef<=5) goto successa32;
+					goto afailure32;
+				32arandom2:
+					if(randRef<=2) goto successa32;
+					goto afailure32;
+
+				NoP:
+					next;
+					mes "[Antonio]";
+					mes "Sorry, but you don't have enough raw materials.";
+					close;
+				NoM:
+					next;
+					mes "[Antonio]";
+					mes "Is that all you got?";
+					mes "Unfortunately I can't work for you at lower price. Think on my side.";
+					close;
+		Nohead:
+			next;
+			mes "[Antonio]";
+			mes "Do you want me to refine your Dumb Brain?";
+			close;
+		Noweapon:
+			next;
+			mes "[Antonio]";
+			mes "I can't make your hand into the peerless one..";
+			close;
+		Noarmor:
+			next;
+			mes "[Antonio]";
+			mes "I will melt your body with my Heat.";
+			close;
+		Nogarment:
+			next;
+			mes "[Antonio]";
+			mes "Look at you. You don't have any Garment now.";
+			close;
+		Nofoot:
+			next;
+			mes "[Antonio]";
+			mes "Wahh.. your feet stink a lot.";
+			close;
+		Noaccessory:
+			next;
+			mes "[Antonio]";
+			mes "I don't think I can work on this item...";
+			close;
+
+					failure1:
+						next;
+						mes "[Antonio]";
+						mes "Clang!Clang!Clang!";
+						next;
+						mes "[Antonio]";
+						mes "Waaaaaaaaahhhh!!!!";
+						next;
+						failure 2;
+						failure 34;
+						mes "[Antonio]";
+						mes "Eh..Ehem...";
+						mes "Failed. I am deeply ashamed of what I've done...But,";
+						mes "I...told...you..not to force me to do that.";
+						close;
+					afailure16:
+						next;
+						if(countitem(985)==0) goto NoP;
+						delitem 985,1;
+						setzeny Zeny,0-2000;
+						mes "[Antonio]";
+						mes "Clang!Clang!Clang!";
+						next;
+						mes "[Antonio]";
+						mes "Waaaaaaaaahhhh!!!!";
+						next;
+						failure 16;
+						goto afailureend;
+					afailure256:
+						next;
+						if(countitem(985)==0) goto NoP;
+						delitem 985,1;
+						setzeny Zeny,0-2000;
+						mes "[Antonio]";
+						mes "Clang!Clang!Clang!";
+						next;
+						mes "[Antonio]";
+						mes "Waaaaaaaaahhhh!!!!";
+						next;
+						failure 256;
+						goto afailureend;
+					afailure512:
+						next;
+						if(countitem(985)==0) goto NoP;
+						delitem 985,1;
+						setzeny Zeny,0-2000;
+						mes "[Antonio]";
+						mes "Clang!Clang!Clang!";
+						next;
+						failure 256;
+						goto afailureend;
+					afailure1:
+						next;
+						if(countitem(985)==0) goto NoP;
+						delitem 985,1;
+						setzeny Zeny,0-2000;
+						mes "[Antonio]";
+						mes "Clang!Clang!Clang!";
+						next;
+						failure 1;
+						goto afailureend;
+					afailure513:
+						next;
+						if(countitem(985)==0) goto NoP;
+						delitem 985,1;
+						setzeny Zeny,0-2000;
+						mes "[Antonio]";
+						mes "Clang!Clang!Clang!";
+						next;
+						failure 513;
+						goto afailureend;
+					afailure768:
+						next;
+						if(countitem(985)==0) goto NoP;
+						delitem 985,1;
+						setzeny Zeny,0-2000;
+						mes "[Antonio]";
+						mes "Clang!Clang!Clang!";
+						next;
+						failure 768;
+						goto afailureend;
+					afailure769:
+						next;
+						if(countitem(985)==0) goto NoP;
+						delitem 985,1;
+						setzeny Zeny,0-2000;
+						mes "[Antonio]";
+						mes "Clang!Clang!Clang!";
+						next;
+						failure 769;
+						goto afailureend;
+					afailure64:
+						next;
+						if(countitem(985)==0) goto NoP;
+						delitem 985,1;
+						setzeny Zeny,0-2000;
+						mes "[Antonio]";
+						mes "Clang!Clang!Clang!";
+						next;
+						mes "[Antonio]";
+						mes "Waaaaaaaaahhhh!!!!";
+						next;
+						failure 64;
+						goto afailureend;
+					afailure4:
+						next;
+						if(countitem(985)==0) goto NoP;
+						delitem 985,1;
+						setzeny Zeny,0-2000;
+						mes "[Antonio]";
+						mes "Clang!Clang!Clang!";
+						next;
+						mes "[Antonio]";
+						mes "Waaaaaaaaahhhh!!!!";
+						next;
+						failure 4;
+						goto afailureend;
+					afailure32:
+						next;
+						if(countitem(985)==0) goto NoP;
+						delitem 985,1;
+						setzeny Zeny,0-2000;
+						mes "[Antonio]";
+						mes "Clang!Clang!Clang!";
+						next;
+						mes "[Antonio]";
+						mes "Waaaaaaaaahhhh!!!!";
+						next;
+						failure 32;
+						goto afailureend;
+					afailureend:
+						mes "[Antonio]";
+						mes "Eh..Ehem...";
+						mes "Failed. I am deeply ashamed of what I've done...But,";
+						mes "I...told...you..not to force me to do that.";
+						close;
+					success:
+						next;	
+						mes "[Antonio]";
+						mes "Clang!Clang!Clang!";
+						next;
+						refine 2;
+						refine 34;
+						mes "[Antonio]";
+						mes "There you go.";
+						mes "It seems My skill doesn't have gotten a bit Rusty yet. It is my work,but still Splendid...";
+						close;
+					successa16:
+						next;
+						if(countitem(985)==0) goto NoP;
+						delitem 985,1;
+						setzeny Zeny,0-2000;
+						mes "[Antonio]";
+						mes "Clang!Clang!Clang!";
+						next;
+						refine 16;
+						goto asuccessend;
+					successa256:
+						next;
+						if(countitem(985)==0) goto NoP;
+						delitem 985,1;
+						setzeny Zeny,0-2000;
+						mes "[Antonio]";
+						mes "Clang!Clang!Clang!";
+						next;
+						refine 256;
+						goto asuccessend;
+					successa512:
+						next;
+						if(countitem(985)==0) goto NoP;
+						delitem 985,1;
+						setzeny Zeny,0-2000;
+						mes "[Antonio]";
+						mes "Clang!Clang!Clang!";
+						next;
+						refine 256;
+						goto asuccessend;
+					successa1:
+						next;
+						if(countitem(985)==0) goto NoP;
+						delitem 985,1;
+						setzeny Zeny,0-2000;
+						mes "[Antonio]";
+						mes "Clang!Clang!Clang!";
+						next;
+						refine 1;
+						goto asuccessend;
+					successa513:
+						next;
+						if(countitem(985)==0) goto NoP;
+						delitem 985,1;
+						setzeny Zeny,0-2000;
+						mes "[Antonio]";
+						mes "Clang!Clang!Clang!";
+						next;
+						refine 513;
+						goto asuccessend;
+					successa768:
+						next;
+						if(countitem(985)==0) goto NoP;
+						delitem 985,1;
+						setzeny Zeny,0-2000;
+						mes "[Antonio]";
+						mes "Clang!Clang!Clang!";
+						next;
+						refine 768;
+						goto asuccessend;
+					successa769:
+						next;
+						if(countitem(985)==0) goto NoP;
+						delitem 985,1;
+						setzeny Zeny,0-2000;
+						mes "[Antonio]";
+						mes "Clang!Clang!Clang!";
+						next;
+						refine 769;
+						goto asuccessend;
+					successa64:
+						next;
+						if(countitem(985)==0) goto NoP;
+						delitem 985,1;
+						setzeny Zeny,0-2000;
+						mes "[Antonio]";
+						mes "Clang!Clang!Clang!";
+						next;
+						refine 64;
+						goto asuccessend;
+					successa4:
+						next;
+						if(countitem(985)==0) goto NoP;
+						delitem 985,1;
+						setzeny Zeny,0-2000;
+						mes "[Antonio]";
+						mes "Clang!Clang!Clang!";
+						next;
+						refine 4;
+						goto asuccessend;
+					successa32:
+						next;
+						if(countitem(985)==0) goto NoP;
+						delitem 985,1;
+						setzeny Zeny,0-2000;
+						mes "[Antonio]";
+						mes "Clang!Clang!Clang!";
+						next;
+						refine 32;
+						goto asuccessend;
+					asuccessend:
+						mes "[Antonio]";
+						mes "There you go.";
+						mes "It seems My skill doesn't have gotten a bit Rusty yet. It is my work,but still Splendid...";
+						close;
+		Nomore:
+			next;
+			mes "[Antonio]";
+			mes "I must say this item doesn't accept more refining on it..";
+			close;
+
+			Nothing:
+				next;
+				mes "[Antonio]";
+				mes "OK then....";
+				close;
+}
+
+payon_in01.gat,95,19,6	script	Begnahd	88,{
+	mes "[Begnahd]";
+	mes "I sell 2 kinds of metal for tempering weaponry of iron or steel.";
+	mes "I have ^00C0C0Phracon^000000 for Lv 1 Weaponry... and ^00C0C0Emveretarcon^000000 for Lv 2 Weaponry. I got many, many of them... Haha.";
+	next;
+
+	menu "Phracon -> 200z.",Phracon,"Emveretarcon -> 1000z.",Emveretarcon,"Ask whether he has other Stones",Stones;
+	
+	Phracon:
+		mes "[Begnahd]";
+		mes "How many do you wish to buy? If you quit, please note the number as `0'.";
+		next;
+		input;
+		mes "[Begnahd]";
+		if(Script_flag_num <= 0) goto inpCan;
+		if(Zeny < Script_flag_num * 200) goto NoZeny;
+		getitem 1010,Script_flag_num;
+		setzeny Zeny,0 - 200 * Script_flag_num;
+		mes "Here you are, thank you for shopping at my shop.";
+		close;
+	Emveretarcon:
+		mes "[Begnahd]";
+		mes "How many do you wish to buy? If you quit, please note the number as `0'.";
+		next;
+		mes "[Begnahd]";
+		if(Script_flag_num <= 0) goto inpCan;
+		if(Zeny < Script_flag_num * 1000) goto NoZeny;
+		getitem 1011,Script_flag_num;
+		setzeny Zeny,0 - 1000 * Script_flag_num;
+		mes "Here you are, thank you for shopping at my shop. Please tell me anything you want.";
+		close;
+
+		inpCan:
+			mes "Deal has canceled.";
+			close;
+
+		NoZeny:
+			mes "You don't have enough money";
+			close;
+
+	Stones:
+		mes "[Begnahd]";
+		mes "Ahhh!!! You need the Metal for Higher Leveled Waepons.";
+		mes "But you know, Oridecon or Elunium is very very rare... so difficult to find...";
+		close;
+}
+//<=========== Payon - End ==========>\\
+//===============================================================================================================================\\
+//<=========== Prontera - Begin ==========>\\
+prt_in.gat,56,68,5	script	Vurewell	86,{
+	mes "[Vurewell]";
+	mes "I, the Honest and Diligent Merchant sell 2 kinds of Metal for tempering weaponry of iron or steel.";
+	mes "I have ^00F0F0Phracon^000000 for Lv 1 Weaponry... and ^00F0F0Emveretarcon^000000 for Lv 2 Weaponry. I got many, many of them... Haha.";
+	next;
+	menu "Phracon - 200z.",Phracon,"Emveretarcon - 1000z.",Emveretarcon,"Ask whether he has other stones.",Ask;
+	
+	Phracon:
+		mes "[Vurewell]";
+		mes "How many do you wish to buy? If you want to quit, please note the number as `0'.";
+		next;
+		input;
+		mes "[Vurewell]";
+		if(Script_flag_num <= 0) goto inpCan;
+		if(Zeny < Script_flag_num * 200) goto NoZeny;
+		getitem 1010,Script_flag_num;
+		setzeny Zeny,0 - 200 * Script_flag_num;
+		mes "Here you are, thank you for shopping at my shop.";
+		close;
+	Emveretarcon:
+		mes "[Vurewell]";
+		mes "How many do you wish to buy? If you want to quit, please note the number as `0'.";
+		next;
+		input;
+		mes "[Vurewell]";
+		if(Script_flag_num <= 0) goto inpCan;
+		if(Zeny < Script_flag_num * 1000) goto NoZeny;
+		getitem 1011,Script_flag_num;
+		setzeny Zeny,0 - 1000 * script_flag_num;
+		mes "[Vurewell]";
+		mes "Here you are, thank you for shopping at my shop. Please tell me anything you want.";
+		close;
+
+		inpCan:
+			mes "Deal has canceled.";
+			close;
+		NoZeny:
+			mes "[Vurewell]";
+			mes "You don't have enough money";
+			close;
+	Ask:
+		mes "[Vurewell]";
+		mes "Ahhh!!! You need the Metal for higher Leveled Weapons.";
+		mes "But you know, Oridecon or Elunium is ver very rare... so difficult to find...";
+		close;
+}
+
+prt_in.gat,63,60,8	script	Hollgrehenn	85,{
+	mes "[Hollgrehenn]";
+	mes "I am the Armsmith and I can refine any Arms you want.";
+	mes "Tell me which Equipment you want to refine.";
+	next;
+        menu "Top-Head",Tophead,"Middle-Head",Midhead,"Bottom-Head",Bottomhead,"Torso",Larmor,"Right hand",Lweapon,"Left hand",Rweapon,"Garment",Lgarment,"Foot",Lfoot,"Accessory 1",Noaccessory,"Accessory 2",Noaccessory,"Nothing",Nothing;
+
+	Rweapon:
+		if(checkequip(32)>=99) goto Lweapon;
+		if(refinelvl(32)==10) goto Nomore;
+		if(refinelvl(32)==5) goto ALVL32;
+		if(refinelvl(32)==6) goto ALVL32;
+		if(refinelvl(32)==7) goto ALVL32;
+		if(refinelvl(32)==8) goto ALVL32;
+		if(refinelvl(32)==9) goto ALVL32;
+		mes "[Hollgrehenn]";
+		mes "To refine this stuff,I need ^ff9999Elunium^000000 and the fee 2000 Zeny.";
+		mes "Continue?";
+		menu "Yes",successa32,"No",Nothing;	
+
+	Lweapon:
+		if(refinelvl(2)==10) goto Nomore;
+		if(refinelvl(34)==10) goto Nomore;
+		if(getwlvl==1) goto wlvl1;
+		if(getwlvl==2) goto wlvl2;
+		if(getwlvl==3) goto wlvl3;
+		if(getwlvl==4) goto wlvl4;
+		if(checkequip(2)>=50) goto Noweapon;
+		if(checkequip(34)>=50) goto Noweapon;
+
+		wlvl1:
+			if(refinelvl(2)>=7) goto LVL;
+			if(refinelvl(34)>=7) goto LVL;
+		wlvl12:
+			mes "[Hollgrehenn]";
+			mes "This is Lvl 1 weapon.";
+			mes "So I need ^ff9999Phracon^000000 and 50 Zeny.";
+			mes "Are you sure you want to continue?";
+			menu "Yes",continue1,"No",Nothing;
+
+			continue1:
+				if(countitem(1010)==0) goto NoP;
+				if(zeny<50) goto NoM;
+				setzeny Zeny,0-50;
+				delitem 1010,1;
+				goto success;
+		wlvl2:
+			if(refinelvl(2)>=6) goto LVL;
+			if(refinelvl(34)>=6) goto LVL;
+		wlvl22:
+			mes "[Hollgrehenn]";
+			mes "This is Lvl 2 weapon.";
+			mes "So I need ^ff9999Emveretarcon^000000 and 200 Zeny.";
+			mes "Are you sure you want to continue?";
+			menu "Yes",continue2,"No",Nothing;
+
+			continue2:
+				if(countitem(1011)==0) goto NoP;
+				if(zeny<200) goto NoM;
+				setzeny Zeny,0-200;
+				delitem 1011,1;
+				goto success;
+		wlvl3:
+			if(refinelvl(2)>=5) goto LVL;
+			if(refinelvl(34)>=5) goto LVL;
+		wlvl32:
+			mes "[Hollgrehenn]";
+			mes "This is Lvl 3 weapon.";
+			mes "So I need ^ff9999Oridecon^000000 and 1000 Zeny.";
+			mes "Are you sure you want to continue?";
+			menu "Yes",continue3,"No",Nothing;
+
+			continue3:
+				if(countitem(984)==0) goto NoP;
+				if(zeny<1000) goto NoM;
+				setzeny Zeny,0-1000;
+				delitem 984,1;
+				goto success;
+		wlvl4:
+			if(refinelvl(2)>=5) goto LVL;
+			if(refinelvl(34)>=5) goto LVL;
+		wlvl42:
+			mes "[Hollgrehenn]";
+			mes "This is Lvl 4 weapon.";
+			mes "So I need ^ff9999Oridecon^000000 and 10000 Zeny.";
+			mes "Are you sure you want to continue?";
+			menu "Yes",continue4,"No",Nothing;
+
+			continue4:
+				if(countitem(984)==0) goto NoP;
+				if(zeny<10000) goto NoM;
+				setzeny Zeny,0-10000;
+				delitem 984,1;
+				goto success;
+	Tophead:
+		if(checkequip(256)>=99) goto Topmidhead;
+		if(refinelvl(256)==10) goto Nomore;
+		if(refinelvl(256)==5) goto ALVL256;
+		if(refinelvl(256)==6) goto ALVL256;
+		if(refinelvl(256)==7) goto ALVL256;
+		if(refinelvl(256)==8) goto ALVL256;
+		if(refinelvl(256)==9) goto ALVL256;
+		mes "[Hollgrehenn]";
+		mes "To refine this stuff,I need ^ff9999Elunium^000000 and the fee 2000 Zeny.";
+		mes "Continue?";
+		menu "Yes",successa256,"No",Nothing;
+
+	Topmidhead:
+		if(checkequip(768)>=99) goto Allhead;
+		if(refinelvl(768)==10) goto Nomore;
+		if(refinelvl(768)==5) goto ALVL768;
+		if(refinelvl(768)==6) goto ALVL768;
+		if(refinelvl(768)==7) goto ALVL768;
+		if(refinelvl(768)==8) goto ALVL768;
+		if(refinelvl(768)==9) goto ALVL768;
+		mes "[Hollgrehenn]";
+		mes "To refine this stuff, I need ^ff9999Elunium^000000 and the fee 2000 Zeny.";
+		mes "Continue?";
+		menu "Yes",successa768,"No",Nothing;
+	Midhead:
+		if(checkequip(513)>=99) goto Midbottomhead;
+		if(refinelvl(513)==10) goto Nomore;
+		if(refinelvl(513)==5) goto ALVL513;
+		if(refinelvl(513)==6) goto ALVL513;
+		if(refinelvl(513)==7) goto ALVL513;
+		if(refinelvl(513)==8) goto ALVL513;
+		if(refinelvl(513)==9) goto ALVL513;
+		mes "[Hollgrehenn]";
+		mes "To refine this stuff, I need ^ff9999Elunium^000000 and the fee 2000 Zeny.";
+		mes "Continue?";
+		menu "Yes",successa513,"No",Nothing;
+
+	Midbottomhead:
+		if(checkequip(768)>=99) goto Allhead;
+		if(refinelvl(768)==10) goto Nomore;
+		if(refinelvl(768)==5) goto ALVL768;
+		if(refinelvl(768)==6) goto ALVL768;
+		if(refinelvl(768)==7) goto ALVL768;
+		if(refinelvl(768)==8) goto ALVL768;
+		if(refinelvl(768)==9) goto ALVL768;
+		mes "[Hollgrehenn]";
+		mes "To refine this stuff, I need ^ff9999Elunium^000000 and the fee 2000 Zeny.";
+		mes "Continue?";
+		menu "Yes",successa768,"No",Nothing;
+	Bottomhead:
+		if(checkequip(1)>=99) goto Midbottomhead;
+		if(refinelvl(1)==10) goto Nomore;
+		if(refinelvl(1)==5) goto ALVL1;
+		if(refinelvl(1)==6) goto ALVL1;
+		if(refinelvl(1)==7) goto ALVL1;
+		if(refinelvl(1)==8) goto ALVL1;
+		if(refinelvl(1)==9) goto ALVL1;
+		mes "[Hollgrehenn]";
+		mes "To refine this stuff, I need ^ff9999Elunium^000000 and the fee 2000 Zeny.";
+		mes "Continue?";
+		menu "Yes",successa1,"No",Nothing;
+	Allhead:
+		if(checkequip(769)>=99) goto Nohead;
+		if(refinelvl(769)==10) goto Nomore;
+		if(refinelvl(769)==5) goto ALVL769;
+		if(refinelvl(769)==6) goto ALVL769;
+		if(refinelvl(769)==7) goto ALVL769;
+		if(refinelvl(769)==8) goto ALVL769;
+		if(refinelvl(769)==9) goto ALVL769;
+		mes "[Hollgrehenn]";
+		mes "To refine this stuff,I need ^ff9999Elunium^000000 and the fee 2000 Zeny.";
+		mes "Continue?";
+		menu "Yes",successa769,"No",Nothing;
+	Larmor:
+		if(checkequip(16)>=99) goto Noarmor;
+		if(refinelvl(16)==10) goto Nomore;
+		if(refinelvl(16)==5) goto ALVL16;
+		if(refinelvl(16)==6) goto ALVL16;
+		if(refinelvl(16)==7) goto ALVL16;
+		if(refinelvl(16)==8) goto ALVL16;
+		if(refinelvl(16)==9) goto ALVL16;
+		mes "[Hollgrehenn]";
+		mes "To refine this stuff,I need ^ff9999Elunium^000000 and the fee 2000 Zeny.";
+		mes "Continue?";
+		menu "Yes",successa16,"No",Nothing;
+	Lfoot:
+		if(checkequip(64)>=99) goto Nofoot;
+		if(refinelvl(64)==10) goto Nomore;
+		if(refinelvl(64)==5) goto ALVL64;
+		if(refinelvl(64)==6) goto ALVL64;
+		if(refinelvl(64)==7) goto ALVL64;
+		if(refinelvl(64)==8) goto ALVL64;
+		if(refinelvl(64)==9) goto ALVL64;
+		mes "[Hollgrehenn]";
+		mes "To refine this stuff,I need ^ff9999Elunium^000000 and the fee 2000 Zeny.";
+		mes "Continue?";
+		menu "Yes",successa64,"No",Nothing;
+	Lgarment:
+		if(checkequip(4)>=99) goto Nogarment;
+		if(refinelvl(4)==10) goto Nomore;
+		if(refinelvl(4)==5) goto ALVL4;
+		if(refinelvl(4)==6) goto ALVL4;
+		if(refinelvl(4)==7) goto ALVL4;
+		if(refinelvl(4)==8) goto ALVL4;
+		if(refinelvl(4)==9) goto ALVL4;
+		mes "[Hollgrehenn]";
+		mes "To refine this stuff,I need ^ff9999Elunium^000000 and the fee 2000 Zeny.";
+		mes "Continue?";
+		menu "Yes",successa4,"No",Nothing;
+
+			LVL:
+				next;
+				mes "[Hollgrehenn]";
+				mes "Oh my God!!";
+				mes "This appears as It has been refined too many times... It could be destroyed when it's refined more.";
+				mes "After destroyed, it will be useless one... Still do you want to refine?";
+				menu "Yes",LVLtest,"No",Nothing;
+		ALVL16:
+			next;
+			mes "[Hollgrehenn]";
+			mes "Oh my God!!";
+			mes "This appears as It has been refined too many times... It could be destroyed when it's refined more.";
+			mes "After destroyed, it will be useless one... Still do you want to refine?";
+			menu "Yes",atest16,"No",Nothing;
+		ALVL256:
+			next;
+			mes "[Hollgrehenn]";
+			mes "Oh my God!!";
+			mes "This appears as It has been refined too many times... It could be destroyed when it's refined more.";
+			mes "After destroyed, it will be useless one... Still do you want to refine?";
+			menu "Yes",atest256,"No",Nothing;
+		ALVL512:
+			next;
+			mes "[Hollgrehenn]";
+			mes "Oh my God!!";
+			mes "This appears as It has been refined too many times... It could be destroyed when it's refined more.";
+			mes "After destroyed, it will be useless one... Still do you want to refine?";
+			menu "Yes",atest512,"No",Nothing;
+		ALVL1:
+			next;
+			mes "[Hollgrehenn]";
+			mes "Oh my God!!";
+			mes "This appears as It has been refined too many times... It could be destroyed when it's refined more.";
+			mes "After destroyed, it will be useless one... Still do you want to refine?";
+			menu "Yes",atest1,"No",Nothing;
+		ALVL513:
+			next;
+			mes "[Hollgrehenn]";
+			mes "Oh my God!!";
+			mes "This appears as It has been refined too many times... It could be destroyed when it's refined more.";
+			mes "After destroyed, it will be useless one... Still do you want to refine?";
+			menu "Yes",atest513,"No",Nothing;
+		ALVL768:
+			next;
+			mes "[Hollgrehenn]";
+			mes "Oh my God!!";
+			mes "This appears as It has been refined too many times... It could be destroyed when it's refined more.";
+			mes "After destroyed, it will be useless one... Still do you want to refine?";
+			menu "Yes",atest768,"No",Nothing;
+		ALVL769:
+			next;
+			mes "[Hollgrehenn]";
+			mes "Oh my God!!";
+			mes "This appears as It has been refined too many times... It could be destroyed when it's refined more.";
+			mes "After destroyed, it will be useless one... Still do you want to refine?";
+			menu "Yes",atest769,"No",Nothing;
+		ALVL64:
+			next;
+			mes "[Hollgrehenn]";
+			mes "Oh my God!!";
+			mes "This appears as It has been refined too many times... It could be destroyed when it's refined more.";
+			mes "After destroyed, it will be useless one... Still do you want to refine?";
+			menu "Yes",atest64,"No",Nothing;
+		ALVL4:
+			next;
+			mes "[Hollgrehenn]";
+			mes "Oh my God!!";
+			mes "This appears as It has been refined too many times... It could be destroyed when it's refined more.";
+			mes "After destroyed, it will be useless one... Still do you want to refine?";
+			menu "Yes",atest4,"No",Nothing;
+		ALVL32:
+			next;
+			mes "[Hollgrehenn]";
+			mes "Oh my God!!";
+			mes "This appears as It has been refined too many times... It could be destroyed when it's refined more.";
+			mes "After destroyed, it will be useless one... Still do you want to refine?";
+			menu "Yes",atest32,"No",Nothing;
+
+				LVLtest:
+					if(getwlvl==1) goto LVL1;
+					if(getwlvl==2) goto LVL2;
+					if(getwlvl==3) goto LVL3;
+					if(getwlvl==4) goto LVL4;
+
+					LVL1:
+						if(refinelvl(2)==7) goto random50;
+						if(refinelvl(2)==8) goto random25;
+						if(refinelvl(2)==9) goto random10;
+						if(refinelvl(34)==7) goto random50;
+						if(refinelvl(34)==8) goto random25;
+						if(refinelvl(34)==9) goto random10;
+					LVL2:
+						if(refinelvl(2)==6) goto random50;
+						if(refinelvl(2)==7) goto random25;
+						if(refinelvl(2)==8) goto random10;
+						if(refinelvl(2)==9) goto random5;
+						if(refinelvl(34)==6) goto random50;
+						if(refinelvl(34)==7) goto random25;
+						if(refinelvl(34)==8) goto random10;
+						if(refinelvl(34)==9) goto random5;
+					LVL3:
+						if(refinelvl(2)==5) goto random50;
+						if(refinelvl(2)==6) goto random25;
+						if(refinelvl(2)==7) goto random10;
+						if(refinelvl(2)==8) goto random5;
+						if(refinelvl(2)==9) goto random2;
+						if(refinelvl(34)==5) goto random50;
+						if(refinelvl(34)==6) goto random25;
+						if(refinelvl(34)==7) goto random10;
+						if(refinelvl(34)==8) goto random5;
+						if(refinelvl(34)==9) goto random2;
+					LVL4:
+						if(refinelvl(2)==5) goto random50;
+						if(refinelvl(2)==6) goto random25;
+						if(refinelvl(2)==7) goto random10;
+						if(refinelvl(2)==8) goto random5;
+						if(refinelvl(2)==9) goto random2;
+						if(refinelvl(34)==5) goto random50;
+						if(refinelvl(34)==6) goto random25;
+						if(refinelvl(34)==7) goto random10;
+						if(refinelvl(34)==8) goto random5;
+						if(refinelvl(34)==9) goto random2;
+			atest16:
+				if(refinelvl(16)==5) goto arandom50;
+				if(refinelvl(16)==6) goto arandom25;
+				if(refinelvl(16)==7) goto arandom10;
+				if(refinelvl(16)==8) goto arandom5;
+				if(refinelvl(16)==9) goto arandom2;
+			atest256:
+				if(refinelvl(256)==5) goto 256arandom50;
+				if(refinelvl(256)==6) goto 256arandom25;
+				if(refinelvl(256)==7) goto 256arandom10;
+				if(refinelvl(256)==8) goto 256arandom5;
+				if(refinelvl(256)==9) goto 256arandom2;
+			atest512:
+				if(refinelvl(512)==5) goto 512arandom50;
+				if(refinelvl(512)==6) goto 512arandom25;
+				if(refinelvl(512)==7) goto 512arandom10;
+				if(refinelvl(512)==8) goto 512arandom5;
+				if(refinelvl(512)==9) goto 512arandom2;
+			atest1:
+				if(refinelvl(1)==5) goto 1arandom50;
+				if(refinelvl(1)==6) goto 1arandom25;
+				if(refinelvl(1)==7) goto 1arandom10;
+				if(refinelvl(1)==8) goto 1arandom5;
+				if(refinelvl(1)==9) goto 1arandom2;
+			atest513:
+				if(refinelvl(513)==5) goto 513arandom50;
+				if(refinelvl(513)==6) goto 513arandom25;
+				if(refinelvl(513)==7) goto 513arandom10;
+				if(refinelvl(513)==8) goto 513arandom5;
+				if(refinelvl(513)==9) goto 513arandom2;
+			atest768:
+				if(refinelvl(768)==5) goto 768arandom50;
+				if(refinelvl(768)==6) goto 768arandom25;
+				if(refinelvl(768)==7) goto 768arandom10;
+				if(refinelvl(768)==8) goto 768arandom5;
+				if(refinelvl(768)==9) goto 768arandom2;
+			atest769:
+				if(refinelvl(769)==5) goto 769arandom50;
+				if(refinelvl(769)==6) goto 769arandom25;
+				if(refinelvl(769)==7) goto 769arandom10;
+				if(refinelvl(769)==8) goto 769arandom5;
+				if(refinelvl(769)==9) goto 769arandom2;
+			atest64:
+				if(refinelvl(64)==5) goto 64arandom50;
+				if(refinelvl(64)==6) goto 64arandom25;
+				if(refinelvl(64)==7) goto 64arandom10;
+				if(refinelvl(64)==8) goto 64arandom5;
+				if(refinelvl(64)==9) goto 64arandom2;
+			atest4:
+				if(refinelvl(4)==5) goto 4arandom50;
+				if(refinelvl(4)==6) goto 4arandom25;
+				if(refinelvl(4)==7) goto 4arandom10;
+				if(refinelvl(4)==8) goto 4arandom5;
+				if(refinelvl(4)==9) goto 4arandom2;
+			atest32:
+				if(refinelvl(32)==5) goto 32arandom50;
+				if(refinelvl(32)==6) goto 32arandom25;
+				if(refinelvl(32)==7) goto 32arandom10;
+				if(refinelvl(32)==8) goto 32arandom5;
+				if(refinelvl(32)==9) goto 32arandom2;
+// Randomizer
+				random50:
+					if(randRef<=50) goto success;
+					goto failure1;
+				random25:
+					if(randRef<=25) goto success;
+					goto failure1;
+				random10:
+					if(randRef<=10) goto success;
+					goto failure1;
+				random5:
+					if(randRef<=5) goto success;
+					goto failure1;
+				random2:
+					if(randRef<=2) goto success;
+					goto failure1;
+// Randomizer for armors
+				arandom50:
+					if(randRef<=50) goto successa16;
+					goto afailure16;
+				arandom25:
+					if(randRef<=25) goto successa16;
+					goto afailure16;
+				arandom10:
+					if(randRef<=10) goto successa16;
+					goto afailure16;
+				arandom5:
+					if(randRef<=5) goto successa16;
+					goto afailure16;
+				arandom2:
+					if(randRef<=2) goto successa16;
+					goto afailure16;
+// Randomizer for head-parts
+				256arandom50:
+					if(randRef<=50) goto successa256;
+					goto afailure256;
+				256arandom25:
+					if(randRef<=25) goto successa256;
+					goto afailure256;
+				256arandom10:
+					if(randRef<=10) goto successa256;
+					goto afailure256;
+				256arandom5:
+					if(randRef<=5) goto successa256;
+					goto afailure256;
+				256arandom2:
+					if(randRef<=2) goto successa256;
+					goto afailure256;
+				512arandom50:
+					if(randRef<=50) goto successa512;
+					goto afailure512;
+				512arandom25:
+					if(randRef<=25) goto successa512;
+					goto afailure512;
+				512arandom10:
+					if(randRef<=10) goto successa512;
+					goto afailure512;
+				512arandom5:
+					if(randRef<=5) goto successa512;
+					goto afailure512;
+				512arandom2:
+					if(randRef<=2) goto successa512;
+					goto afailure512;
+				1arandom50:
+					if(randRef<=50) goto successa1;
+					goto afailure1;
+				1arandom25:
+					if(randRef<=25) goto successa1;
+					goto afailure1;
+				1arandom10:
+					if(randRef<=10) goto successa1;
+					goto afailure1;
+				1arandom5:
+					if(randRef<=5) goto successa1;
+					goto afailure1;
+				1arandom2:
+					if(randRef<=2) goto successa1;
+					goto afailure1;
+				513arandom50:
+					if(randRef<=50) goto successa513;
+					goto afailure513;
+				513arandom25:
+					if(randRef<=25) goto successa513;
+					goto afailure513;
+				513arandom10:
+					if(randRef<=10) goto successa513;
+					goto afailure513;
+				513arandom5:
+					if(randRef<=5) goto successa513;
+					goto afailure513;
+				513arandom2:
+					if(randRef<=2) goto successa513;
+					goto afailure513;
+				768arandom50:
+					if(randRef<=50) goto successa768;
+					goto afailure768;
+				768arandom25:
+					if(randRef<=25) goto successa768;
+					goto afailure768;
+				768arandom10:
+					if(randRef<=10) goto successa768;
+					goto afailure768;
+				768arandom5:
+					if(randRef<=5) goto successa768;
+					goto afailure768;
+				768arandom2:
+					if(randRef<=2) goto successa768;
+					goto afailure768;
+				769arandom50:
+					if(randRef<=50) goto successa769;
+					goto afailure769;
+				769arandom25:
+					if(randRef<=25) goto successa769;
+					goto afailure769;
+				769arandom10:
+					if(randRef<=10) goto successa769;
+					goto afailure769;
+				769arandom5:
+					if(randRef<=5) goto successa769;
+					goto afailure769;
+				769arandom2:
+					if(randRef<=2) goto successa769;
+					goto afailure769;
+// Randomizer for other stuff
+				64arandom50:
+					if(randRef<=50) goto successa64;
+					goto afailure64;
+				64arandom25:
+					if(randRef<=25) goto successa64;
+					goto afailure64;
+				64arandom10:
+					if(randRef<=10) goto successa64;
+					goto afailure64;
+				64arandom5:
+					if(randRef<=5) goto successa64;
+					goto afailure64;
+				64arandom2:
+					if(randRef<=2) goto successa64;
+					goto afailure64;
+				4arandom50:
+					if(randRef<=50) goto successa4;
+					goto afailure4;
+				4arandom25:
+					if(randRef<=25) goto successa4;
+					goto afailure4;
+				4arandom10:
+					if(randRef<=10) goto successa4;
+					goto afailure4;
+				4arandom5:
+					if(randRef<=5) goto successa4;
+					goto afailure4;
+				4arandom2:
+					if(randRef<=2) goto successa4;
+					goto afailure4;
+				32arandom50:
+					if(randRef<=50) goto successa32;
+					goto afailure32;
+				32arandom25:
+					if(randRef<=25) goto successa32;
+					goto afailure32;
+				32arandom10:
+					if(randRef<=10) goto successa32;
+					goto afailure32;
+				32arandom5:
+					if(randRef<=5) goto successa32;
+					goto afailure32;
+				32arandom2:
+					if(randRef<=2) goto successa32;
+					goto afailure32;
+
+				NoP:
+					next;
+					mes "[Hollgrehenn]";
+					mes "Sorry, but you don't have enough raw materials.";
+					close;
+				NoM:
+					next;
+					mes "[Hollgrehenn]";
+					mes "Is that all you got?";
+					mes "Unfortunately I can't work for you at lower price. Think on my side.";
+					close;
+		Nohead:
+			next;
+			mes "[Hollgrehenn]";
+			mes "Do you want me to refine your Dumb Brain?";
+			close;
+		Noweapon:
+			next;
+			mes "[Hollgrehenn]";
+			mes "I can't make your hand into the peerless one..";
+			close;
+		Noarmor:
+			next;
+			mes "[Hollgrehenn]";
+			mes "I will melt your body with my Heat.";
+			close;
+		Nogarment:
+			next;
+			mes "[Hollgrehenn]";
+			mes "Look at you. You don't have any Garment now.";
+			close;
+		Nofoot:
+			next;
+			mes "[Hollgrehenn]";
+			mes "Wahh.. your feet stink a lot.";
+			close;
+		Noaccessory:
+			next;
+			mes "[Hollgrehenn]";
+			mes "I don't think I can work on this item...";
+			close;
+
+					failure1:
+						next;
+						mes "[Hollgrehenn]";
+						mes "Clang!Clang!Clang!";
+						next;
+						mes "[Hollgrehenn]";
+						mes "Waaaaaaaaahhhh!!!!";
+						next;
+						failure 2;
+						failure 34;
+						mes "[Hollgrehenn]";
+						mes "Eh..Ehem...";
+						mes "Failed. I am deeply ashamed of what I've done...But,";
+						mes "I...told...you..not to force me to do that.";
+						close;
+					afailure16:
+						next;
+						if(countitem(985)==0) goto NoP;
+						delitem 985,1;
+						setzeny Zeny,0-2000;
+						mes "[Hollgrehenn]";
+						mes "Clang!Clang!Clang!";
+						next;
+						mes "[Hollgrehenn]";
+						mes "Waaaaaaaaahhhh!!!!";
+						next;
+						failure 16;
+						goto afailureend;
+					afailure256:
+						next;
+						if(countitem(985)==0) goto NoP;
+						delitem 985,1;
+						setzeny Zeny,0-2000;
+						mes "[Hollgrehenn]";
+						mes "Clang!Clang!Clang!";
+						next;
+						mes "[Hollgrehenn]";
+						mes "Waaaaaaaaahhhh!!!!";
+						next;
+						failure 256;
+						goto afailureend;
+					afailure512:
+						next;
+						if(countitem(985)==0) goto NoP;
+						delitem 985,1;
+						setzeny Zeny,0-2000;
+						mes "[Hollgrehenn]";
+						mes "Clang!Clang!Clang!";
+						next;
+						failure 256;
+						goto afailureend;
+					afailure1:
+						next;
+						if(countitem(985)==0) goto NoP;
+						delitem 985,1;
+						setzeny Zeny,0-2000;
+						mes "[Hollgrehenn]";
+						mes "Clang!Clang!Clang!";
+						next;
+						failure 1;
+						goto afailureend;
+					afailure513:
+						next;
+						if(countitem(985)==0) goto NoP;
+						delitem 985,1;
+						setzeny Zeny,0-2000;
+						mes "[Hollgrehenn]";
+						mes "Clang!Clang!Clang!";
+						next;
+						failure 513;
+						goto afailureend;
+					afailure768:
+						next;
+						if(countitem(985)==0) goto NoP;
+						delitem 985,1;
+						setzeny Zeny,0-2000;
+						mes "[Hollgrehenn]";
+						mes "Clang!Clang!Clang!";
+						next;
+						failure 768;
+						goto afailureend;
+					afailure769:
+						next;
+						if(countitem(985)==0) goto NoP;
+						delitem 985,1;
+						setzeny Zeny,0-2000;
+						mes "[Hollgrehenn]";
+						mes "Clang!Clang!Clang!";
+						next;
+						failure 769;
+						goto afailureend;
+					afailure64:
+						next;
+						if(countitem(985)==0) goto NoP;
+						delitem 985,1;
+						setzeny Zeny,0-2000;
+						mes "[Hollgrehenn]";
+						mes "Clang!Clang!Clang!";
+						next;
+						mes "[Hollgrehenn]";
+						mes "Waaaaaaaaahhhh!!!!";
+						next;
+						failure 64;
+						goto afailureend;
+					afailure4:
+						next;
+						if(countitem(985)==0) goto NoP;
+						delitem 985,1;
+						setzeny Zeny,0-2000;
+						mes "[Hollgrehenn]";
+						mes "Clang!Clang!Clang!";
+						next;
+						mes "[Hollgrehenn]";
+						mes "Waaaaaaaaahhhh!!!!";
+						next;
+						failure 4;
+						goto afailureend;
+					afailure32:
+						next;
+						if(countitem(985)==0) goto NoP;
+						delitem 985,1;
+						setzeny Zeny,0-2000;
+						mes "[Hollgrehenn]";
+						mes "Clang!Clang!Clang!";
+						next;
+						mes "[Hollgrehenn]";
+						mes "Waaaaaaaaahhhh!!!!";
+						next;
+						failure 32;
+						goto afailureend;
+					afailureend:
+						mes "[Hollgrehenn]";
+						mes "Eh..Ehem...";
+						mes "Failed. I am deeply ashamed of what I've done...But,";
+						mes "I...told...you..not to force me to do that.";
+						close;
+					success:
+						next;	
+						mes "[Hollgrehenn]";
+						mes "Clang!Clang!Clang!";
+						next;
+						refine 2;
+						refine 34;
+						mes "[Hollgrehenn]";
+						mes "There you go.";
+						mes "It seems My skill doesn't have gotten a bit Rusty yet. It is my work,but still Splendid...";
+						close;
+					successa16:
+						next;
+						if(countitem(985)==0) goto NoP;
+						delitem 985,1;
+						setzeny Zeny,0-2000;
+						mes "[Hollgrehenn]";
+						mes "Clang!Clang!Clang!";
+						next;
+						refine 16;
+						goto asuccessend;
+					successa256:
+						next;
+						if(countitem(985)==0) goto NoP;
+						delitem 985,1;
+						setzeny Zeny,0-2000;
+						mes "[Hollgrehenn]";
+						mes "Clang!Clang!Clang!";
+						next;
+						refine 256;
+						goto asuccessend;
+					successa512:
+						next;
+						if(countitem(985)==0) goto NoP;
+						delitem 985,1;
+						setzeny Zeny,0-2000;
+						mes "[Hollgrehenn]";
+						mes "Clang!Clang!Clang!";
+						next;
+						refine 256;
+						goto asuccessend;
+					successa1:
+						next;
+						if(countitem(985)==0) goto NoP;
+						delitem 985,1;
+						setzeny Zeny,0-2000;
+						mes "[Hollgrehenn]";
+						mes "Clang!Clang!Clang!";
+						next;
+						refine 1;
+						goto asuccessend;
+					successa513:
+						next;
+						if(countitem(985)==0) goto NoP;
+						delitem 985,1;
+						setzeny Zeny,0-2000;
+						mes "[Hollgrehenn]";
+						mes "Clang!Clang!Clang!";
+						next;
+						refine 513;
+						goto asuccessend;
+					successa768:
+						next;
+						if(countitem(985)==0) goto NoP;
+						delitem 985,1;
+						setzeny Zeny,0-2000;
+						mes "[Hollgrehenn]";
+						mes "Clang!Clang!Clang!";
+						next;
+						refine 768;
+						goto asuccessend;
+					successa769:
+						next;
+						if(countitem(985)==0) goto NoP;
+						delitem 985,1;
+						setzeny Zeny,0-2000;
+						mes "[Hollgrehenn]";
+						mes "Clang!Clang!Clang!";
+						next;
+						refine 769;
+						goto asuccessend;
+					successa64:
+						next;
+						if(countitem(985)==0) goto NoP;
+						delitem 985,1;
+						setzeny Zeny,0-2000;
+						mes "[Hollgrehenn]";
+						mes "Clang!Clang!Clang!";
+						next;
+						refine 64;
+						goto asuccessend;
+					successa4:
+						next;
+						if(countitem(985)==0) goto NoP;
+						delitem 985,1;
+						setzeny Zeny,0-2000;
+						mes "[Hollgrehenn]";
+						mes "Clang!Clang!Clang!";
+						next;
+						refine 4;
+						goto asuccessend;
+					successa32:
+						next;
+						if(countitem(985)==0) goto NoP;
+						delitem 985,1;
+						setzeny Zeny,0-2000;
+						mes "[Hollgrehenn]";
+						mes "Clang!Clang!Clang!";
+						next;
+						refine 32;
+						goto asuccessend;
+					asuccessend:
+						mes "[Hollgrehenn]";
+						mes "There you go.";
+						mes "It seems My skill doesn't have gotten a bit Rusty yet. It is my work,but still Splendid...";
+						close;
+		Nomore:
+			next;
+			mes "[Hollgrehenn]";
+			mes "I must say this item doesn't accept more refining on it..";
+			close;
+
+			Nothing:
+				next;
+				mes "[Hollgrehenn]";
+				mes "OK then....";
+				close;
+}
+
+prt_in.gat,63,69,3	script	Dietrich	84,{ 
+	mes "[Dietrich]";
+	mes "If you bring me ^FF0000Rough Oridecon^000000 or ^FF0000 Rough Elunium^000000, I can refine them into pure stones. I need 5 rough stones to have enough materials for a pure one.";
+	next;
+	menu "Purify Oridecon.",Lori,"Purify Elunium.",Lelu,"Cancel.",Lcancel;
+
+	Lori:
+		if(countitem(756) < 5) goto Llessori;
+		delitem 756,5;
+		getitem 984,1;
+  		mes "[Dietrich]";
+	  	mes "Here is your Pure Oridecon. Thanks for your business.";
+  		close;
+
+		Llessori:
+			mes "[Dietrich]";
+			mes "You don't have enough ores.";
+			mes "I need 5 rough stones to have enough to make a pure ore.";
+			close;
+	Lelu:
+		if(countitem(757) < 5) goto Llesselu;
+		delitem 757,5;
+	  	getitem 985,1;
+  		mes "[Dietrich]";
+	  	mes "Here is your Pure Elunium. Thanks for your business.";
+  		close;
+
+		Llesselu:
+			mes "[Dietrich]";
+			mes "You don't have enough ores.";
+			mes "I need 5 rough stones to have enough to make a pure ore.";
+			close;
+	Lcancel:
+		close;
+}
+//<=========== Prontera - End ==========>\\

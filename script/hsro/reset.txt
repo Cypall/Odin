@@ -1,0 +1,40 @@
+//Reset NPC made by : HaVoC (ENJOY)
+prontera.gat,142,179,6	script	Reset	124,{
+
+	mes "[ Reset ]";
+	mes "Hello,";
+	mes "Stat Reset : Free^000000";
+	mes "Skill Reset : Free^000000";
+	mes "Reset Both : Free^000000";
+	next;
+	menu "Stats",STAT,"Skills",SKILL,"Reset Both",BOTH,"None",CANCEL;
+
+	BOTH:
+	mes "Here you go!";
+	mes "*Poof!*";
+	resetstatus;
+	resetskill;
+	mes "Have a Nice Day!";
+	close;
+
+	STAT:
+	mes "Here you go!";
+	mes "*Poof!*";
+	resetstatus;
+	mes "Have a Nice Day!";
+	close;
+
+
+	SKILL:
+	mes "Here you go!";
+	mes "*Poof!*";
+	resetskill;
+	mes "Have a Nice Day!";
+	close;
+
+
+	CANCEL:
+	mes "Okies, Have a Nice Day";
+	close;
+
+}

@@ -1,0 +1,291 @@
+// $Id: npc_swordman.txt,v 1.1 2003/12/01 22:51:04 MivaBe Exp $
+//<--------------- Swordman Job Quest [Update: Oct. 06, 2003] --------------->\\
+izlude_in.gat,30,163,8	script	Test Hall Staff	105,{
+	mes "[Test Hall Staff]";
+	set @TEMP,0;
+	if(GetJob != Job_Novice) goto L1;
+	if(job_sword_q == 1) goto jobswordqE1;
+	if(job_sword_q == 2) goto jobswordqE2;
+	if(job_sword_q == 3) goto jobswordqE3;
+	random @TEMP,2;
+	if(@TEMP != 0) goto L0;
+	mes "Dear me! How did you come inside, others are not supposed to be here. Please leave now!";
+	next;
+	warp "izlude_in.gat",66,170;
+	close;
+
+	L0:
+		mes "Who are you?! This place for the Swordman Test, You are not belong to here! Leave now!";
+		next;
+		warp "izlude_in.gat",66,170;
+		close;
+
+	jobswordqE1:
+		mes "So are you the one who wanna be a swordy? Alright! You look reliable!!";
+		mes "Relax yourself and keep up the good work. This is not a diffecult course.";
+		set job_sword_q,2;
+		next;
+		warp "sword_1-1.gat",10,245;
+		close;
+	jobswordqE2:
+		mes "Retesting....? Whatsoever, I like the man like you who never be afraid of challange! Now, drink this and cheer up!";
+		getitem 512,5;
+		set job_sword_q,3;
+		next;
+		warp "sword_1-1.gat",10,245;
+		close;
+	jobswordqE3:
+		mes "Don't ever give up! Now retesting!";
+		next;
+		warp "sword_1-1.gat",10,245;
+		close;
+}
+
+izlude_in.gat,30,175,4	script	Swordman	92,{
+	mes "[Swordman]";
+	mes "I will tell you about the Test! Listen to me, I won't repeat again.";
+	next;
+	mes "[Swordman]";
+	mes "Purpose of this test is confirmation of your qualification for Swordman. As you know, Swordman needs Physical Strength and the spirit!";
+	mes "Of course you might be rejected if you have no talent. For the next, it's about the progress of Test.";
+	next;
+	mes "[Swordman]";
+	mes "^0083CFCondition of Success^000000 is very simple!";
+	mes "Get a success messages from the manager located at the check point of 3rd course within ^FF000010 minutes^000000.";
+	next;
+	mes "[Swordman]";
+	mes "On the contrary,in case of `Surrender' or when you're `Off the time limit', you will be rejected.";
+	mes "If you want to quit, Go into entrances of each course or inquire at managers of each check point.";
+	next;
+	mes "[Swordman]";
+	mes "Test consists of 3 courses,you will fall down to random place in underneath cave in case you're trapped or out of the course!";
+	mes "It will waste your time much more than anything.";
+	next;
+	mes "[Swordman]";
+	mes "May God bless you.";
+	close;
+}
+			
+izlude_in.gat,62,170,6	script	Swordman	85,{
+	mes "[Swordman]";
+	if(GetJob==Job_Swordman) goto JobSwo;
+	if(GetJob !=Job_Novice) goto NotNov;
+	if(JobLevel < 10) goto JobLess10;
+	if(job_sword_q==4) goto JobQ4;
+	if(job_sword_q==0) goto JobQ0;
+	save "izlude_in.gat",65,165;
+	warp "izlude_in.gat",39,170;
+	close;
+	
+	JobSwo:
+		mes "Stop! This is Novice Test Hall!";
+		mes "Others are not permitted to go in! Go back!";
+		close;
+	NotNov:
+		mes "Who the hell are you?! Others except Novice are not permitted to go in! Go back!";
+		close;
+	JobLess9:
+		mes "Stop! This is not the place where the goof without Novice Skills can go in.";
+		mes "When you learn all Skills I will admit you to enter later.";
+		close;
+	JobQ4:
+		mes "Stay there! And inquire at the man in centre first!";
+		close;
+	JobQ0:
+		mes "Stop! Do you want to take the Swordman Test?";
+		mes "If so, sign up on the swordman application first!";
+		close;
+}
+
+izlude_in.gat,74,172,5	script	Sword Master	119,{
+	mes "[Swordman]";
+	mes "Welcome to the Swordman Association! So.. What business brings you to us!?";
+	next;
+	menu "Job Change",L0,"About Swordman.",L1,"About the Job requirements.",L2,"Cancel.",LEnd;
+        
+	L0:
+		mes "[Swordman]";
+		if(GetJob == Job_Swordman) goto L0a;
+		if(GetJob != Job_Novice) goto L0b;
+		goto L0c;
+
+		L0a:
+			mes "Muhahaha! You must be kidding me! You are already a swordman.";
+			close;
+		L0b:
+			mes "Haha! Oh boy. I reject your offer on the behalf of Swordman Association.";
+			mes "You have occupied with another Job, haven't you?";
+			close;
+		L0c:
+			if(job_sword_q == 0) goto L0d;
+			goto L00a;
+		L0d:
+			mes "Do you want to change your job? Fine, sign up first.";
+			next;
+			menu "Sign up.",L00,"Cancel.",L00End;
+
+			L00:
+				save "izlude_in.gat",65,165;
+				set job_sword_q,1;
+				mes "[Swordman]";
+				mes "Sign there.... Okay. I will present your registration as soon as I can.";
+				mes "Ah, if you already met the requirements, you can take an interview right now.";
+				mes "Do you want?";
+				next;
+				menu "Yes.",L000,"No.",L001;
+
+				L000:
+					mes "[Swordman]";
+					mes "Oh yeah? Let me check.";
+					next;
+					goto L00a;
+				L001:
+					mes "[Swordman]";
+					mes "Feel free to inquire of me whenever you need.";
+					mes "Now all you have to do is to meet the Requirements that we've laid down. Good luck, young man.";
+					close;
+			L00End:
+				mes "[Swordman]";
+				mes "Oh yeah..? Alright, come again anytime when you change your mind.";
+				close;
+		
+		L00a:
+			if(JobLevel < 10) goto NotJob10;
+			if(job_sword_q <= 3) goto jobswordqLE3;
+			if(job_sword_q == 4) goto jobswordqE4;
+		
+		NotJob10:
+			mes "Yo, You haven't learn all Basic Skills you needed to be a Swordman.";
+			mes "Check the requirements again and learn skills first.";
+			close;
+		jobswordqLE3:
+			mes "You have learned enough skills but didn't take a test yet.";
+			mes "If you don't pass the exam, your wish for Swordman will be way far off the universe.";
+			next;
+			mes "[Swordman]";
+			mes "The place where you can take a test is the right room next to me.";
+			mes "Even though that room seems to be blocked by a man afront, you can go inside. Please ask him.";
+			close;
+		jobswordqE4:
+			mes "Congratulations! Now you are fully qualified for Real Swordman!";
+			mes "I will transform you right away!!";
+			next;
+			if(SkillPoint != 0) goto SkillNot0;
+			Release_All;
+			JobChange Job_Swordman;
+			set job_sword_q,0;
+			goto SkillNot0;
+
+			SkillNot0:
+				mes "[Swordman]";
+				mes "Once again, I congratulate you, meanwhile I expect you will be on the go for the Swordman Assosiation.";
+				close;
+	L1:
+		mes "[Swordman]";
+		mes "Do you wanna know about Swordman? Alrighty! I will explain for you.";
+		next;
+		mes "[Swordman]";
+		mes "Priority of Swordman is the best melee attack among 6 jobs.";
+		mes "There are 3 reasons of why Swordy is the best for approch fight!";
+		next;
+		mes "[Swordman]";
+		mes "1st, Swordman gets the benefit on HP.";
+		mes "2nd, it can use more kinds of weapon than others.";
+		mes "3rd, Most of Swordy skills aid in physically attack.";
+		next;
+		mes "[Swordman]";
+		mes "Simple but enough explanation for Freshman like you.";
+		mes "Aside from this, in my personal opinion, 'Swordman' is the world-wide best job with great appearance!";
+		close;
+	L2:
+		mes "[Swordman]";
+		mes "Do you wish for swordman!?";
+		if(GetJob != Job_Novice) goto L2a;
+		goto L2d;
+		
+		L2a:
+			if(GetJob == Job_Swordman) goto L2b;
+			mes "But, You have another job...? You're too late for a swordman.";
+			goto L2c;
+			
+			L2b:
+				mes "....but you're already a Swordman...?";
+				goto L2c;
+
+			L2c:
+				mes "Still do you want to know about the Swordman...? Yeah.. Alright...";
+				goto L2d;
+
+				L2d:
+					next;
+					mes "[Swordman]";
+					mes "First, You must learn Basic Skill until Level 9. If you can't qualify this condition, you won't be able to become anything.";
+					next;
+					mes "[Swordman]";
+					mes "Secondly you must pass the Swordman Test. Inquire at the test manager located in the waiting room of swordman test.";
+					next;
+					mes "[Swordman]";
+					mes "You will be fully qualified with these 2 conditions, you can be a swordman anytime you want.";
+					close;
+	L3:
+		mes "[Swordman]";
+		mes "Enjoy your youth before you lose it~~";
+		close;
+}
+
+sword_1-1.gat,230,245,2	script	Medic	105,{
+	full_heal;
+	mes "[Medic]";
+	mes "This is the 1st check point! Cheer up!";
+	close;
+}
+	
+sword_1-1.gat,230,242,2	script	Test Hall Staff	105,{
+	mes "[Test Hall Staff]";
+	mes "Do you surrender?";
+	next;
+	menu "Yes.",L0,"No.",L1;
+
+	L0:
+//		broadcastinmap "Applicant $CharName  quit the test.";
+		warp "izlude_in.gat",65,165;
+		close;
+	L1:
+		mes "[Test Hall Staff]";
+		mes "Bravo! Go for it again!";
+   		close;
+}
+
+sword_1-1.gat,230,207,2	script	Medic	105,{
+	full_heal;
+	mes "[Medic]";
+	mes "This is the 2nd check point! Cheer up!";
+	close;
+}
+
+sword_1-1.gat,230,204,2	script	Test Hall Staff	105,{
+	mes "[Test Hall Staff]";
+	mes "Do you surrender?";
+	next;
+	menu "Yes.",L0,"No.",L1;
+
+	L0:
+//		broadcastinmap "Applicant $CharName  quit the test.";
+		warp "izlude_in.gat",65,165;
+		close;
+	L1:
+		mes "[Test Hall Staff]";
+		mes "Bravo! Go for it again!";
+   		close;
+}
+				
+sword_1-1.gat,223,167,2	script	Mae	92,{
+//	broadcastinmap "Applicant $CharName . You successfully passed the test.";
+	set job_sword_q,4;
+	mes "[Mae]";
+	mes "I sencerely congratulate you for passing the test!";
+	mes "I already sent your test result to the Job Department. Please inquire at the Officer in Centre. Thank you.";
+	next;
+	warp "izlude_in.gat",66,173;
+	close;
+}

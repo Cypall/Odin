@@ -1,0 +1,74 @@
+// $Id: npc_quest.txt,v 1.1 2003/12/01 22:51:04 MivaBe Exp $
+//-------------------- 'Balmung & Lord Kahos horns' Quest --------------------
+prontera.gat,158,356,4	script	Royal Messenger	105,{
+	mes "[Royal Messenger]";
+	mes "Welcome to prontera, i am the Royal Messenger in charge of the royal quest.";
+	next;
+	menu "Listen",Lok,"No",Lend;
+
+	Lok:
+		mes "[Royal Messenger]";
+		mes "There are too quests please chose the one you must like.";
+		next;
+		menu "Balmung",Lb,"Lord Kahos horns",Lkahos,"No",Lend;
+
+		Lb:
+			mes "[Royal Messenger]";
+			mes "The Balmung quest consist of the next items:";
+			mes "120 Steel";
+			mes "10 Oridecon";
+			mes "10 Rough Wind";
+			mes "10 Flame Heart";
+			mes "10 Mystic Frozen";
+			mes "10 Great Nature";
+			mes "1,000,000z";
+			next;
+			mes "[Royal Messenger]";
+			if((countitem(999) < 120) || (countitem(984) < 10) || (countitem(996) < 10) || (countitem(994) < 10) || (countitem(995) < 10) || (countitem(997) < 10)) goto Lend2;
+			if(Zeny < 1000000) goto NoGold;
+			goto Lget;
+			mes "Happy item hunting and good luck";
+			close;
+		Lkahos:
+			mes "[Royal Messenger]";
+			mes "The Lord Kahos horns quest consists of the next items:";
+			mes "1 Green Feelers";
+			mes "10 Star Dust";
+			mes "10 Rough Wind";
+			mes "10 Flame Heart";
+			mes "10 Mystic Frozen";
+			mes "10 Great Nature";
+			mes "1,000,000z";
+			next;
+			mes "[Royal Messenger]";
+			if((countitem(2298) < 1) || (countitem(1001) < 10) || (countitem(996) < 10) || (countitem(994) < 10) || (countitem(995) < 10) || (countitem(997) < 10)) goto Lend2;
+			if(Zeny < 1000000) goto NoGold;
+			goto Lget1;
+			mes"Happy item hunting and good luck";
+			close;
+		Lend:
+			mes "[Royal Messenger]";
+			mes "Have a nice day.";
+			close;
+
+			Lend2:
+				mes "Sorry you dont have all the items i need.";
+				mes "Come back when you have them all";
+				close;
+			NoGold:
+				mes "Sorry you dont have enought gold";
+				close;
+
+			Lget:
+				setzeny Zeny,0-1000000;
+				mes "I see you already have all the items you need.";
+				mes "nice work.";
+				getitem 1161,1;
+				close;
+			Lget1:
+				setzeny Zeny,0-1000000;
+				mes "I see you already have all the items you need.";
+				mes "nice work.";
+				getitem 5013,1;
+				close;
+}

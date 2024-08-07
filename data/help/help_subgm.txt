@@ -1,0 +1,17 @@
+Sub-GM Commands.
+!heal [hp] [sp]
+!jobchange <0-12/20>
+!shout <text>
+!broadcast <text>
+!kick <player>
+!sprite <0-18> <0-8> <0-4> [player]
+!nopain
+!status <param1> <param2> <param3>
+!killmob
+!revive <player>
+!spawn <id> [num]
+!msearch <id>/<name>
+!speed <1-140>
+!warp <map> <x> <y>
+!jumpto <player>
+!who

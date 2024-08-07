@@ -1,0 +1,86 @@
+prontera.gat,164,159,4	script	Traveler	732,{
+	mes "[Traveler]";
+	mes "I have come to show you the city of Umbala, Wanna go?";
+	next;
+	menu "Show me, please...",show,"^FF0000Nevermind...",stay;
+	close;
+	show:
+		warp "um_fild04.gat",	214,	333;	close;
+	stay:
+		close;
+}
+
+um_in.gat,39,125,4	script	Umbala Healer	71,{
+	mes "[Umbala Healer]";
+	mes "Welcome. Do you need healing?";
+	next;
+	menu "Yes",UH1,"No Thanks",UH2;
+UH1:
+	mes "[Umbala Healer]";
+	mes "Very Well";
+	full_heal;
+	close;
+UH2:
+	mes "[Umbala Healer]";
+	mes "Well, if you ever need healing, you know where we're at.";
+	close;
+}
+
+umbala.gat,65,253,4	script	Tree Guardian	752,{ 
+   mes "[Tree Guardian]"; 
+   mes "Stop, stranger, here is the entrance to the ancient tree!"; 
+   next; 
+   mes "[Tree Guardian]"; 
+   mes "I cannot allow you to enter, you look pretty weak!"; 
+   next; 
+   menu "Talk about tree",TALKTREE,"Talk about Umbala",TALKUMB,"Enter Dungeon",DUN,"Leave",Leave; 
+Leave:  
+ close; 
+TALKTREE: 
+   mes "[Tree Guardian]"; 
+   mes "The tree is an ancient relic of our culture!"; 
+   next; 
+   mes "[Tree Guardian]"; 
+   mes "But recently some monsters overwhelmed the tree and are now"; 
+   mes "slowly killing it...like a poison...from inside.."; 
+   next; 
+   goto MENU; 
+TALKUMB: 
+   mes "[Tree Guardian]"; 
+   mes "We don't have many visitors in our small town.."; 
+   next; 
+   mes "[Tree Guardian]"; 
+   mes "Most people don't find us or are just afraid of us!"; 
+   next; 
+   mes "[Tree Guardian]"; 
+   mes "And now, we are even more unpopular, because of that damn beast!"; 
+   next; 
+   menu "What beast?",BEAST,"Leave",exit; 
+   close; 
+BEAST: 
+   mes "[Tree Guardian]"; 
+   mes "The Werewolf of course!!"; 
+   next; 
+   mes "[Tree Guardian]"; 
+   mes "He is sneaking around our town and killing our soldiers at night!"; 
+   next; 
+   mes "[Tree Guardian]"; 
+   mes "Hey...if you could get rid of that beast!"; 
+   next; 
+   mes "[Tree Guardian]"; 
+   mes "I'll let you in!"; 
+   next; 
+   mes "[Tree Guardian]"; 
+   mes "From now on we can live in peace again, thanks to you!"; 
+   next; 
+   mes "[Tree Guardian]"; 
+   mes "You may enter the dungeon now!"; 
+   close; 
+DUN: 
+   mes "[Tree Guardian]"; 
+   mes "Come on in, brave warrior!"; 
+   warp "um_dun01.gat",42,30; 
+   close; 
+exit:
+	close;
+}

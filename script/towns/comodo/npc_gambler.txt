@@ -1,0 +1,98 @@
+///// 3 Card Monty /////
+comodo.gat,202,256,7	script	Card Shark	98,{
+set @TEMP,0;
+mes "[Sharkie]";
+mes "How's 'bout a game o' ^ff00003 Card Monty^000000?";
+mes "Only costs ya 100 zeny, and I'll give ya 500 bigguns if'n ya win.";
+next;
+mes "[Sharkie]";
+mes "So what'dya say?";
+next;
+menu "Sure",play,"Rules",rules,"Nope",cancel;
+
+cancel:
+mes "[Sharkie]";
+mes "What? Ya scared of a lil' friendly wager? Oh well, come on back when ya grow somethin tween your legs there mate! Har Har!";
+close;
+
+rules:
+mes "[Sharkie]";
+mes "What? Ya've never 'eard've ^ff00003 Card Monty^000000 before?";
+mes "Dun worry, Ol' Sharkie'll give ya the run down.";
+next;
+mes "[Sharkie]";
+mes "K, ya see this 'ere card? Well, she's what ya call the ^0000ffLucky Lady^000000.";
+mes "These other two cards won't win ya a durn thin, so don e'en bother with'em.";
+next;
+mes "[Sharkie]";
+mes "Once ya've laid your zeny down, Ol' Sharkie'll be flippin these 3 cards over, and swapping 'em all around the table.";
+mes "All you's gotta do is find the ^0000ffLucky Lady^000000 again. You tell me which card ya think it is, and if'n ya wins, Ol' Sharkie gives ya 500 smackers!";
+next;
+mes "[Sharkie]";
+mes "Pretty simple eh? So what's it gonna be mate?";
+next;
+menu "Sure",play,"Nope",cancel;
+
+play:
+if(zeny<100) goto NoZeny;
+setzeny Zeny,0-100;
+random @TEMP,6;
+mes "[Sharkie]";
+mes "K, 'ere she goes! Keep yer eyes peeled now!";
+next;
+mes "..........shuffle...........";
+next;
+mes "....shuffle....";
+next;
+mes "[Sharkie]";
+mes "All righty now! Point me out the ^0000ffLucky Lady^000000!";
+next;
+menu "Left",one,"Middle",two,"Right",three;
+
+NoZeny:
+mes "[Sharkie]";
+mes "Ya ain't got no money ya fool! get on outta here 'fore I kick yer groin inta yer chin!";
+close;
+
+one:
+if (@TEMP == 1) goto won;
+goto lost;
+
+two:
+if (@TEMP == 2) goto won;
+goto lost;
+
+three:
+if (@TEMP == 3) goto won;
+goto lost;
+
+won:
+setzeny Zeny,0+500;
+mes "[Sharkie]";
+mes "See now, that weren't near as hard as ya thought it was gonna be was it? Ya hit it right on!";
+next;
+mes "[Sharkie]";
+mes "True ta my word, I'll pay ya your zeny. Come back an play me agin anytime ya hear?";
+close;
+
+lost:
+mes "[Sharkie]";
+mes "Aww, you was 'this' close ta gettin 'er! Oh well, ya can always try agin later. Play me agin sometime!";
+close;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

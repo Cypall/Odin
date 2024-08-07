@@ -1,0 +1,876 @@
+begin_mons=alarm{
+	discovery_1=Tick Tock・ Tick Tock・ Tick Tock・
+	discovery_2=Alert!!  Alert!!  It's the enemy!! Enemy!!
+	attack_1=Eat This!!
+	attack_2=It is now your time to die!!
+	hp50_1=Tick Tock・ It's not quite time yet!... Tick Tock・
+	hp25_2=Tick... No! Not yet!! No!!.. Tock
+	kill_1=Muhahahaha.. Ding Ding Ding!!!
+	dead_1=Tick Tock, the Alarm is dead_1...
+	dead_2=Tick......  Tock......
+}
+
+begin_mons=alice{
+	attack_1=I thought it was my master but to think it was you...
+	attack_2=What is this!?!  You're not my master!!!
+	attack_3=You're not my master and you pretend to be!  How rude!!
+	hp50_1=I can't die yet!  Not until I see my master・
+	hp25_1=Ma・ Master・ Please come back・ I can't stand this any longer・
+	kill_1=Be happy, Master.  I have killed the imposter.
+	dead_1=Finish me・ You're not coming back, are you master・
+	dead_2=It's too late... I can't see my master anymore...
+}
+
+begin_mons=alligator{
+	discovery_1=I'm imaging how well you'd fit beneath my skin...
+	attack_1=Mmmm, time to give you a taste!
+	hp50_1=Grrrr...I'm not gonna die just yet!
+	hp25_1=You just want me for my shirt!
+	kill_1=My, my... Its time for a feast.
+	dead_1=Ack, how can this be?!.....
+}
+
+begin_mons=angeling{
+	discovery_1=You have offended GOD-POING!! Time to Die!
+	discovery_2=My name is Angeling!  You have killed my pals! Prepare to die!
+	attack_1=Feel the wrath of GOD-POING!
+	attack_2=Don't even think about running away!!
+	hp50_1=You will never defeat me!....
+	hp25_1=To think you want to try and destroy me....
+	kill_1=Fear me!!  For I have GOD-POING on my side!
+	dead_1=Ack!  *Pop*
+}
+
+begin_mons=anolian{
+	discovery_1=Time for a snack!!
+	attack_1=Let me taste you, just a little bit!
+	hp50_1=Grrrr... You will not skin me alive!
+	hp25_1=You just want me for my skin!...
+	kill_1=Haha!  Now to give you a taste!!
+	dead_1=Ugh... Hope you're happy with my skin for your damn headgear!!
+}
+
+begin_mons=archer_skeleton{
+	discovery_1=All living things around me... It is time for you death!
+	discovery_2=The smell of life... time to get rid of it!
+	attack_1=Die, you being full of life!!
+	hp50_1=Are you trying to rattle me bones?...
+	hp25_1=Rattling Me Bones...
+	kill_1=Wahahaha One Life down... One Less Life...
+	dead_1=Don't think this is the end of me!!
+}
+
+begin_mons=bathory{
+	discovery_1=Hehehe! Where are you going? This Granny will love you~!!
+	attack_1=Take this!  One serving of Granny's Loving~!!!
+	hp50_1=Ehehehehehe~
+	hp25_1=*cough*cough*...
+	kill_1=Was my lovin' too much for you? hehehehe~
+	dead_1=You didn't appreciate my loving...
+}
+
+begin_mons=bon_gun{
+	discovery_1=You know that you're going to die, why did you bother coming here?
+	attack_1=I shall kill you without suffering.
+	hp50_1=I did not know you'd fight this well...
+	hp50_2=Is it wrong to think that I will defeat you?
+	hp25_1=I can still fight in this condition!!
+	hp25_2=Hmmm, you are doing well in this fight.
+	kill_1=Don't come here again.  You aren't welcome.
+	kill_2=Dont bother trying to fight me again... I will always win!
+	dead_1=Ugh.. I lost...
+	dead_2=To think I lost to you...
+}
+
+begin_mons=deviruchi{
+	discovery_1=Ack, its a human!
+	attack_1=Die Die Die you Human!
+	attack_2=If I stab you, will you die?
+	hp50_1=Ack a Human is attacking me!!
+	hp25_1=You silly human, trying to kill me...
+	kill_1=Hey! You died... this isn't fun! get up!
+	kill_2=You died~ you're dead_1.. the human is dead_1~ ehehehehe
+	dead_1=Oh my god.. a human killed me....
+	dead_2=You.... You're going to regret this...
+}
+
+begin_mons=evil_druid{
+	discovery_1=Who is this human that has come into the darkness to find me?!
+	discovery_2=Welcome! This is your place to die!
+	attack_1=Die you human and go back into darkness!!
+	attack_2=Death is so nice.... and so dark... I shall show you!!
+	hp50_1=You seem to be fairing well, human! But not for long!
+	hp25_1=I shall not let it end like this!!
+	kill_1=Oh you died now?
+	kill_2=Dying brings peace...
+	dead_1=Do you think you can get rid of me so easily?!
+	dead_2=Ugh... Just you wait!
+}
+
+begin_mons=executioner{
+	discovery_1=Time to spill your blood!!
+	discovery_2=You have come just in time...
+	attack_1=Taste my wrath!!
+	attack_2=Do you actually think you can defeat me!?
+	hp50_1=Not yet! Its not time for me to part without spilling your blood!
+	hp25_1=Blasphemy!  I can still finish you!!
+	kill_1=That was too easy...
+	kill_2=I think next time, I'll let you live a little bit longer.
+	dead_1=This isn't the end!!
+	dead_2=This is only the beginning!!
+}
+
+begin_mons=ghostring{
+	discovery_1=Where are you~ Where are you~? Hmmm...
+	discovery_2=Are you there?  Is that where you are? Okay~ I'll be right there...
+	attack_1=Accept me!!!  Why are you doing this to me...
+	attack_2=Do you hate me?  Why do you hate me so...?
+	hp50_1=Why~ Why are you trying to kill me?  Do you hate me...?
+	hp25_1=Hmmm... Hmmm...
+	kill_1=Your body is cold... Now we can be together...
+	kill_2=Now we can be together... Hehehehe.
+	dead_1=Why me...
+	dead_2=So you DO hate me...
+}
+
+begin_mons=goblin_1{
+	discovery_1=Human Alert!!
+	attack_1=Attack!
+	hp50_1=Die!!
+	hp25_1=Ugh!!
+	kill_1=Ehehehehehe...
+	dead_1=Ack!!!
+}
+
+begin_mons=goblin_2{
+	discovery_1=Its a Human! A Human!!
+	attack_1=Lets Beat him up! Let's Beat him up!!!
+	hp50_1=Hee~!!!
+	hp25_1=Hoo Ha!!!!
+	kill_1=Hee Hee Hee!!
+	dead_1=Ack!
+}
+
+begin_mons=goblin_3{
+	discovery_1=Ack~ Human!!
+	attack_1=Die you Human!!
+	hp50_1=Ack! Danger!
+	hp25_1=Not yet!!
+	kill_1=Hee Hee!
+	dead_1=Ugh...!
+}
+
+begin_mons=goblin_4{
+	discovery_1=Its a Human!!
+	attack_1=kill the Human!
+	hp50_1=Hmph!
+	hp25_1=Ack!
+	kill_1=I win, I win...
+	dead_1=Bleh!
+}
+
+begin_mons=goblin_5{
+	discovery_1=Human...
+	attack_1=Die...
+	hp50_1=...
+	hp25_1=......
+	kill_1=*pokes* dead_1 already?...
+	dead_1=...........
+}
+
+begin_mons=goblin_archer{
+	discovery_1=You are nothing, you human
+	attack_1=Haha!  Die you human!
+	hp50_1=Oh ho~ You think you can beat me!
+	hp25_1=Ack!!
+	kill_1=Ehehehehe, I win!!!
+	dead_1=Oi...
+}
+
+begin_mons=golem{
+	attack_1=Guarding... kill_1ing...
+	hp50_1=Golem... hurt...
+	hp25_1=Pain.... Pain... Pain.....
+	kill_1=It got quiet... Its not talking... Its not moving...
+	dead_1=Golem... is turning back into to stone...
+}
+
+begin_mons=greatest_general{
+	discovery_1=Hey come here.. Come closer!!
+	attack_1=I shall give you a gift of... Splinters!!
+	hp50_1=Don't hit me in the trunk!!
+	hp25_1=Ack... *wobble*wobble*
+	kill_1=Is that warm blood spilling?
+	dead_1=I don't want to break!!
+}
+
+begin_mons=high_orc{
+	discovery_1=Heh! How did a human come in here?!
+	attack_1=Heh! kill the human!!
+	hp50_1=It hurts~ It Hurts!
+	hp25_1=I can endure this~ Just for a little bit longer...
+	kill_1=Human... I killed it!
+	dead_1=I died.... Human killed me...
+}
+
+begin_mons=injustice{
+	discovery_1=Breaking your neck isn't too hard...
+	attack_1=I shall let you meet your ancestors!
+	hp50_1=Hmmm!
+	hp25_1=Not bad...
+	kill_1=Your body stopped moving...Ehehehehe...
+	dead_1=How would I die to someone like you...
+}
+
+begin_mons=isis{
+	discovery_1=Hey~ What are you doing there?
+	attack_1=Be quiet!  Die quietly!
+	hp50_1=Why are you trying to get in the way?...
+	hp25_1=Will you please be quiet now?....
+	kill_1=Please be quiet for Osiris... He needs quiet...
+	dead_1=Nooo...I'm sorry Osiris....
+}
+
+begin_mons=joker{
+	discovery_1=There you are... I've been looking for you...
+	attack_1=Can you do this?...
+	hp50_1=Oh~ you interupted my magic~~
+	hp25_1=That wasn't very nice...
+	kill_1=Oi, that's it?...
+	dead_1=Aw.. this is too much....
+}
+
+begin_mons=khalitzburg{
+	discovery_1=I see a human... Time to kill_1...
+	attack_1=Die.. Die.. Die...
+	hp50_1=Lets make something dead_1...
+	hp25_1=I won't die... I won't die... I won't die...
+	kill_1=You're an undead_1~ You're an undead_1~ Whee~...
+	dead_1=My body is falling apart.....
+}
+
+begin_mons=knight_of_abyss{
+	discovery_1=You puny humans have come to fight me?
+	attack_1=Come and taste my steel blade!!
+	hp50_1=You're attack is strong.. but not strong enough!
+	hp25_1=I shall see you as my rival!!
+	kill_1=What.. You died!  I will no longer see you as my rival!
+	dead_1=You have defeated me... You are a worthy opponent!
+}
+
+begin_mons=kobold_1{
+	discovery_1=Bark Bark... Its a Human!!!
+	attack_1=Attack! Bark!!
+	hp50_1=Beat him! Beat him!
+	hp25_1=Ack~!!
+	kill_1=It's dead_1~ dead_1~~!!
+	dead_1=*whimper*!!
+}
+
+begin_mons=kobold_2{
+	discovery_1=Grrrrrrrrr!!!
+	attack_1=Grrrr, Time to bite!~
+	hp50_1=Bark! I can do this!!
+	hp25_1=Grrrr... Not yet...
+	kill_1=WooOoOoo~
+	dead_1=*whimper*!!
+}
+
+begin_mons=kobold_3{
+	discovery_1=*growl*
+	attack_1=Bark bark!  Tear him apart!
+	hp50_1=Grrrr... Go Go Go.. kill_1...
+	hp25_1=Bark! ...
+	kill_1=WoOooOo~!
+	dead_1=*whimper*!!
+}
+
+begin_mons=kobold_archer{
+	discovery_1=Bark! I found him! This way!!
+	attack_1=kill_1! Bark! kill_1! Bark!
+	hp50_1=Not yet....*whimper*..
+	hp25_1=I can still win~ bark!
+	kill_1=I win~ Bark! I win~~
+	dead_1=*whimper*
+}
+
+begin_mons=marduk{
+	discovery_1=Where did you get the courage to find your way here?...
+	attack_1=Here! Have a taste of my strength!
+	hp50_1=It takes more effort than that to kill me!
+	hp25_1=If you run away now, maybe you'll have a chance of living!
+	kill_1=Looks like someone needs to be my cautious!
+	dead_1=To think I lost to someone like you...
+}
+
+begin_mons=marionette{
+	discovery_1=Hey~ Come play with me~!
+	attack_1=If you catch on fire, it'll be more fun~
+	hp50_1=Ow~ You're hurting me!
+	hp25_1=I guess I need to burn you some more to quiet you.
+	kill_1=Was that too hot? But it was still fun~ wasn't it?
+	dead_1=Thank you for the sweet release...
+}
+
+begin_mons=merman{
+	discovery_1=I smell something human...
+	attack_1=I shall make sure you can't leave my underwater world...
+	hp50_1=This Human is tough!!
+	hp25_1=I underestimated you...
+	kill_1=What's this? You came all the way here just to die?...
+	dead_1=I'm returning to the ocean life.....
+}
+
+begin_mons=metaller{
+	attack_1=Why do you argue with me?
+	hp50_1=Why are you hitting me?
+	hp25_1=Is this fun? Is this fun? Is this fun?
+	kill_1=Whats this?  What a weakling!
+	dead_1=You broke my violin....!!
+}
+
+begin_mons=minorous{
+	discovery_1=You've come to be beaten by me?!
+	attack_1=I shall flatten you with my hammer!
+	hp50_1=You think you can win against me?
+	hp25_1=I shall tear you apart with my horns!!
+	kill_1=Hahahaha~ I flattened you good!~
+	dead_1=MoooOooOoOo~!!
+}
+
+begin_mons=mummy{
+	discovery_1=Time for you to join me!!
+	attack_1=For the throne of Osiris!!!
+	hp50_1=We don't exist anywhere...
+	hp25_1=If I go down yyou're going down with me...
+	kill_1=Death is the best escape.
+	dead_1=I can now be at ease.. Forgive me Osiris...
+}
+
+begin_mons=munak{
+	discovery_1=I found you~ Wait for me~...
+	attack_1=Being by yourself isn't good for you~
+	hp50_1=Why are you being like this?...
+	hp25_1=I want to be with you~ And to do that, I must die....
+	kill_1=Yes.. This way we can always be together...
+	dead_1=NoOoo~ I don't want things to end this way!
+}
+
+begin_mons=mutant_dragon{
+	discovery_1=I've been waiting to burn somebody!!!
+	attack_1=You shall burn now like you would in hell!!
+	hp50_1=You aren't buring as well I'd like...
+	hp25_1=Come On!!  Burn you!!
+	kill_1=Nice and crispy~
+	kill_2=You burned so well~ !!
+	dead_1=I am returning to the firey pits that I came from....
+}
+
+begin_mons=mysteltainn{
+	discovery_1=Wait for me.. I want to show you something!
+	attack_1=I want to teach you the ways to use a sword!
+	attack_1=Watch how you're attacking!!
+	hp50_1=You're doing well~ But how's this?!
+	hp25_1=Good Good!!  You're doing well!
+	kill_1=Hmm... You were not as good as I thought...
+	dead_1=You have learned the way of attacking very well...
+}
+
+begin_mons=obeaune{
+	discovery_1=I have found you, my love...
+	attack_1=Here~ Try taking this on!
+	hp50_1=You've gotten tougher...
+	hp25_1=It wasn't like this long time ago...!!
+	kill_1=This is far from over if you think you can escape me!
+	dead_1=You were finally able to defeat me.....
+}
+
+begin_mons=orc_archer{
+	discovery_1=You can't hide from my arrows!
+	attack_1=He who shoots more arrows wins!
+	hp50_1=The Human is tough~!!
+	hp25_1=My arrows will defeat you!!
+	kill_1=Orcs win it all! Humans are too easily defeated!
+	dead_1=The Orc throne is defeated by measly humans....
+}
+
+begin_mons=orc_lady{
+	discovery_1=Come here hot stuff!!
+	attack_1=Look at my beauty!!
+	hp50_1=You're going to hit beautiful me?!
+	hp25_1=Please... You need to stop hitting someone as beautiful as me...
+	kill_1=Was I just too beautiful for you?
+	dead_1=Don't hate me because I'm beautiful!!!
+}
+
+begin_mons=orc_skeleton{
+	discovery_1=Time for death has come...
+	attack_1=Die.. All living things must Die...
+	hp50_1=There will be no more suffering after death...
+	hp25_1=Death... Sweet death...
+	kill_1=Is Death still far off?...
+	dead_1=Now... Now is the time...
+}
+
+begin_mons=orc_zombie{
+	discovery_1=Life... Death... Time to bring death...
+	attack_1=kill_1ing... kill_1ing... time to die...
+	hp50_1=Body is.. breaking down...
+	hp25_1=My Body... is no longer...
+	kill_1=Must find next living being and kill_1...
+	dead_1=Return to the dead_1....
+}
+
+begin_mons=ork_warrior{
+	discovery_1=Who dares to disturb the orcs?!
+	attack_1=You dare to attack the orc?!
+	hp50_1=Oh~ you think you're tough?!
+	hp25_1=I wont lose that easily!!
+	kill_1=Victory is for the orcs!!
+	dead_1=I have been defeated! Grrr!
+}
+
+begin_mons=pirate_skel{
+	discovery_1=Ahoy~ Time to make some money~
+	attack_1=Its an attack!! kill for all they've got!
+	hp50_1=I will have your head for this!
+	hp25_1=I want your zeny! I wont go without your zeny~
+	kill_1=Loot the body!
+	dead_1=Even if we're dead_1... We will always be here...
+}
+
+begin_mons=poring{
+	discovery_1=Pori pori
+	attack_1=Pori!? Pori?
+	hp50_1=Pori!
+	kill_1=Pooooooooo!
+	dead_1=x_x
+}
+
+begin_mons=raydric{
+	discovery_1=Until you fall!!
+	attack_1=Fight me, 1 on 1..
+	hp50_1=Not yet! I can't lose so easily!
+	hp25_1=It is not time!
+	kill_1=The enemy has fallen and I am victorious!!
+	dead_1=Don't think this is the end!!
+}
+
+begin_mons=raydric_archer{
+	discovery_1=Time to to give you a taste of my arrows!
+	attack_1=Defeat the enemy!!
+	hp50_1=The enemy is strong but I am stronger!
+	hp25_1=The enemy is winning! I can't give up!
+	kill_1=The enemy loses!!
+	dead_1=Ugh.. This isn't the end...
+}
+
+begin_mons=requiem{
+	discovery_1=I shall make you a grave here...
+	attack_1=All for him!!
+	hp50_1=Things are as easy as it seems!
+	hp25_1=Now.. Now...
+	kill_1=Its all quiet now...
+	dead_1=So death is supposed to be like this...
+}
+
+begin_mons=rocker{
+	attack_1=AAaAaAhHhHhhh!
+	hp50_1=Someone give me a break!!
+	hp25_1=Things are getting dark!!!
+	kill_1=Ah! I win! I win!...
+	dead_1=The music will not end...
+}
+
+begin_mons=skel_prisoner{
+	discovery_1=Its heavy.. and such a burden.. living...
+	attack_1=Give me her body... Give me your body...
+	hp50_1=If you dont give me your body, I will take it from you...
+	hp25_1=Die already....
+	kill_1=Hehehehe.. Your body is mine...
+	dead_1=Nooo. all I wanted was a body...
+}
+
+begin_mons=soldier_skeleton{
+	discovery_1=Stop right there, you living thing!
+	attack_1=I will annihilate you!
+	hp50_1=My bones are crushing me...
+	hp25_1=My bones are falling apart...!
+	kill_1=You died to my daggers!
+	dead_1=Don't get happy over the fact that you've defeated me!!
+}
+
+begin_mons=stalactic_golem{
+	attack_1=Enemy~ its the Enemy~ Enemy~
+	hp50_1=Flatten.. Must flatten...
+	hp25_1=Lets shake the earth...
+	kill_1=Hehehe.. I flattened the enemy...
+	dead_1=Back to the ground...
+}
+
+begin_mons=steam_goblin{
+	discovery_1=Puhehehehehe~
+	attack_1=Double Punch Attack~
+	hp50_1=Toot toot, I can do better!!
+	hp25_1=Ack~ Ack~!...
+	kill_1=Are you out of steam already?
+	dead_1=You made me lose steam!
+}
+
+begin_mons=tirfing{
+	discovery_1=I must find my enemy and destroy~
+	attack_1=I might sever one more head today~
+	hp50_1=Fresh mean is always good~
+	hp25_1=I shall slice you into many pieces~
+	kill_1=I will make mince meat out of you~
+	dead_1=There are no reasons for me to be defeated!
+}
+
+begin_mons=vocal{
+	discovery_1=I will sing you a song~ !!
+	attack_1=Lalalalalalalala~!
+	hp50_1=Don't you enjoy my singing?
+	hp25_1=I am a singer~ Dont take that dream away from me~
+	kill_1=My song is so beautiful~
+	dead_1=Did you not like my singing?
+}
+
+begin_mons=wander_man{
+	discovery_1=Your footsteps are heavy, I could hear you coming.
+	attack_1=You shall taste my blade!
+	hp50_1=Your skils are good, but is it enough to defeat me?
+	hp25_1=Alright, who wants some... huh?
+	kill_1=Ahh, I love the smell of blood...
+	dead_1=I can finally rest.
+}
+
+begin_mons=wind_ghost{
+	discovery_1=I can see the sky so cleary, can you?
+	attack_1=Lightening attack!
+	hp50_1=Is it time yet?...
+	hp25_1=Did time go by?  Did my life go by?
+	kill_1=Your life fell from the sky~ can you see it?
+	dead_1=I see the light from the skies.. is that where I go?
+}
+
+begin_mons=wraith{
+	discovery_1=Constricting the life out of you is my specialty...
+	attack_1=Let me just give you a big bite!
+	hp50_1=Hm~...
+	hp25_1=Ack...
+	kill_1=You were tasty~ I want to eat you some more.
+	dead_1=........
+}
+
+begin_mons=zerom{
+	discovery_1=Why are you cowering over there...
+	attack_1=Time to get rid of you!!
+	hp50_1=Bleh...
+	hp25_1=Why.. Why Me?...
+	kill_1=Starting your life over isn't so bad!
+	dead_1=Mommy~...... T_T
+}
+
+begin_mons=zherlthsh{
+	discovery_1=Ohohohohoho~~ Time for fun~
+	attack_1=Now~ Call me your queen!!!
+	hp50_1=Yes~ That's it~ More, More!!
+	hp25_1=Not yet! Give me More~ More!!
+	kill_1=This was just the beginning and you give up already?
+	dead_1=More~~ Next time, give me more~~~
+}
+
+begin_mons=zombie_prisoner{
+	discovery_1=Grraaaaaaa...
+	attack_1=MrrrrrrrrrRrooaor!!
+	hp50_1=My Life......
+	hp25_1=Save me.. I don't want to die...
+	kill_1=I guess you wanted to die....
+	dead_1=I dont want to be in prison... save me....
+}
+
+begin_mons=am_mut{
+	discovery_1=I will find the enemy today~ lalala~
+	attack_1=Will it hurt if ! beat you with my club?
+	hp50_1=Ack!
+	hp25_1=Owwww!!!
+	kill_1=Aw, did I put a hole in your head?
+	dead_1=You cant take away my club...
+}
+
+begin_mons=ancient_mummy{
+	discovery_1=For the Pharaoh...
+	attack_1=I will save the Pharaoh from the likes of you...
+	hp50_1=Pharaoh! Give me the strength to defeat the enemy!!
+	hp25_1=Pharaoh! Give me strength to protect you!!
+	kill_1=I will return the throne to Pharaoh!
+	dead_1=Pharaoh~ Forgive me for my failure...
+}
+
+begin_mons=assulter{
+	discovery_1=State your reason for being here!
+	attack_1=Take this!!!
+	hp50_1=I will defeat you!
+	hp25_1=My life is to defeat you!!
+	kill_1=No one can defeat the ninja turtle!
+	dead_1=This is impossible...
+}
+
+begin_mons=cat_o_nine_tail{
+	discovery_1=Meow~ meow~
+	attack_1=Are you trying to make me wear pants?
+	hp50_1=Oow~~ it hurts...
+	hp25_1=Can't you just die now, please?
+	kill_1=How does it feel to kiss the ground?
+	dead_1=No~ I don't want to wear pants!!
+}
+
+begin_mons=dark_illusion{
+	discovery_1=Dare you touch the Dark Lord...
+	attack_1=I will get rid of you for the Dark Lord!
+	hp50_1=My powers are not coming to me...
+	hp25_1=My powers are fading!!
+	kill_1=You were too confident to think you'd defeat me!
+	dead_1=Back to the depths of hell I go!
+}
+
+begin_mons=goblin_leader{
+	discovery_1=Who has come to taunt me?
+	attack_1=Fight me with all you've got!!
+	hp50_1=You can't kill me yet...
+	hp25_1=That's it?  Fight me harder!!...
+	kill_1=You bore me...
+	dead_1=I let you win this time... Next time I won't be so easy on you...
+}
+
+begin_mons=kobold_leader{
+	discovery_1=As the Kobold Leader, I greet you...
+	attack_1=Even if you run away, I can sniff you out~
+	hp50_1=Who do you think I look like?
+	hp25_1=Grrrrrrr~
+	kill_1=WooOoOOoo! We got rid of the human!
+	dead_1=*whimper*~
+}
+
+begin_mons=majoruros{
+	discovery_1=I will flatten you...
+	attack_1=You will die to my hammer...
+	hp50_1=Ha!  My hammer is greater than you...
+	hp25_1=This isn't the end... You will die soon...
+	kill_1=You flatten too easily to my hammer...
+	dead_1=*Thud*~
+}
+
+begin_mons=maya_puple{
+	discovery_1=Have you seen my mother?
+	attack_1=You're the one that kidnapped my mother, isn't it?!
+	hp50_1=Give me back my mother!
+	hp25_1=Why did you kidnap her? Was it for the money?
+	kill_1=If you die, you can't answer me....
+	dead_1=Now I can't find my mother...
+}
+
+begin_mons=mobster{
+	discovery_1=Hey~ Come here!!
+	attack_1=Give it to me when I ask nicely!!
+	hp50_1=Haha! Are you that confident?
+	hp25_1=That's it, you want to fight me like that?
+	kill_1=You can't beat someone like me...
+	dead_1=That wasn't even a fair fight!
+}
+
+begin_mons=owl_baron{
+	discovery_1=What business do you have with me~
+	attack_1=Even without you, I still have business~
+	hp50_1=Oh~ You're pretty tough...
+	hp25_1=That's pretty good~
+	kill_1=I think you need to offer a better proposition.
+	dead_1=This wasn't part of the deal...
+}
+
+begin_mons=owl_duke{
+	discovery_1=Who are you and why are you here?
+	attack_1=Have you come to entertain me?!
+	hp50_1=I know you can give me more show than this...
+	hp25_1=Is this all the effort you're going to put in?...
+	kill_1=What do you think about this act?
+	dead_1=This wasn't entertaining at all...
+}
+
+begin_mons=panzer_goblin{
+	discovery_1=Do you know the truth about me?~
+	attack_1=Jet stream attack!!
+	hp50_1=My jet stream is stronger than you think!~
+	hp25_1=Ack! I'm over heating!~
+	kill_1=AH HA! I told you my jet stream always wins!~
+	dead_1=...............
+}
+
+begin_mons=skeleton_general{
+	discovery_1=I found you! Now its time for you to die!
+	attack_1=Don't beg for your life!
+	hp50_1=I shall scar you nicely!
+	hp25_1=You can't break my bones so easily!
+	kill_1=Death will always prevail!
+	dead_1=You... broke my bones....!!
+}
+
+begin_mons=wraith_dead_1{
+	discovery_1=I'll open my mouth and give you a bite!
+	attack_1=I can gobble you up in one bite?
+	hp50_1=Its good to be digested inside me.
+	hp25_1=You won't kill me!!
+	kill_1=You and I are now the same...
+	dead_1=I will make sure to kill you next time~
+}
+
+begin_mons=zombie_master{
+	discovery_1=Today I will find the enemy and...
+	attack_1=Its dark.. I feel my body getting better...
+	hp50_1=My body smells of rotting.. the way it should be..
+	hp25_1=The idea of my rotting body is so nice...
+	kill_1=Your body will rot along with mine now....hehehe...
+	dead_1=Living isn't any better than dieing anyway....
+}
+
+begin_mons=baphomet{
+	discovery_1=Want a piece of Big Poppa?!
+	attack_1=Who's your daddy?!?!
+	hp50_1=Baaaah!! You little Nublets!!
+	hp25_1=Juniors, Juniors, where are my juniors!?
+	kill_1=Bapho You!!
+	dead_1=I'll be back!!
+	dead_2=You think you're special now, don't you?
+}
+
+begin_mons=dark_lord{
+	discovery_1=Run little ones, Run!!
+	discovery_2=Oh... fresh meat... how entertaining!
+	attack_1=Mwahaha!  Is that all you can do?
+	attack_2=Allow me to personally take you to Niflheim!
+	hp50_1=HAHAHA!  Do you think you can kill something that is already dead_1?!
+	hp50_2=My undead_1 minions will devour your flesh!
+	hp25_1=Can anyone spare a heal?...oh, wait, never mind...
+	hp25_2=My dark powers will tear you limb from limb!
+	kill_1=I think you should've healed me and not yourself!
+	kill_2=Ahh...another minion to join my army!
+	dead_1=Argh!  You haven't seen the last of me...
+	dead_2=You may have beaten me...but I shall return, stronger than before!
+}
+
+begin_mons=doppelganger{
+	discovery_1=death...must kill_1...
+	attack_1=Feel he ease of death...my blade will show you how!
+	hp50_1=DEATH!  DESTRUCTION!  I WILL PREVAIL!
+	hp25_1=Mwahahahaha!  I will kill you all!
+	kill_1=And you actually thought you would beat me...pathetic...
+	dead_1=No, how could I lose to a mere mortal...?
+}
+
+begin_mons=drake{
+	discovery_1=Yo Ho Yo Ho, an undead_1 Pirate's Life for Meeee~~
+	attack_1=Ye want to taste the metal of me hook, do ye?! Arrrr!
+	hp50_1=Arr, I think me needs some more rum.!
+	hp25_1=Arg!! Ye be workin me down the me bones, says I.
+	kill_1=Welcome to my world, me matey...
+	dead_1=Arr, perhaps I shall find peace in Davy Jones's locker.
+}
+
+begin_mons=eddga{
+	discovery_1=Have you come to take my pipe?
+	attack_1=I will never give up my pipe to the likes of you!
+	hp50_1=You're tough, but how much longer can you last?
+	hp25_1=You're lasting longer then I thought, got much more in you?
+	kill_1=I figured you didn't have it in you..
+	dead_1=No.. I mustn't lose... my pipe, don't take my pipe...
+}
+
+begin_mons=knight_of_windstorm{
+	discovery_1=Ahh! New play toys!!
+	attack_1=Hahaha, it's play time!!!
+	hp50_1=You like to play rough? Alright, let's play rough!
+	hp25_1=I'm beginning to think you don't like playing with me...
+	kill_1=Aww, don't want to play anymore?
+	dead_1=I guess playtime's over...
+}
+
+begin_mons=bloody_knight{
+	discovery_1=...I smell... BLOOD...
+	attack_1=Give me your blood...
+	hp50_1=I need more blood, give it to me!
+	hp25_1=I am feeling weak... need blood...
+	kill_1=Ahh, blood...I want more...
+	dead_1=...I must... have.... blood...
+}
+
+begin_mons=maya{
+	discovery_1=So you're the one who's been killing my children!
+	attack_1=You will be punished for hurting my brood!
+	hp50_1=I will punish you for your crimes!
+	hp25_1=Why do you seek to kill us?
+	kill_1=We will feast upon your corpse later.
+	dead_1=My children, I have failed you...
+}
+
+begin_mons=mistress{
+	discovery_1=I am the queen bee!
+	attack_1=The enemy is here to dethrone the queen bee!
+	hp50_1=Don't get near my honey!
+	hp25_1=Stick it out the end!
+	kill_1=The Queen Bee wins!
+	dead_1=How dare you defeat someone like me!!
+}
+
+begin_mons=moonlight{
+	discovery_1=By the power of Moonlight, I will punish you!
+	attack_1=Moonlight Bell Power!!! Die! Die! Die!
+	hp50_1=Hee Hee~...
+	hp25_1=Ow~ Stop hurting me~!
+	kill_1=Even with no pants, I can still whoop you!!
+	dead_1=NyaaaAaAaAoooOoOoo..
+}
+
+begin_mons=orc_lord{
+	discovery_1=For the Kingdom of Orcs!!
+	attack_1=I shall show you my true strength!!
+	hp50_1=Fight, My Orcs, Fight!!
+	hp25_1=I feel my blood is about to spill!!
+	kill_1=Humans are so weak!!
+	dead_1=You may have won this time.. But its not the end!!
+}
+
+begin_mons=ork_hero{
+	discovery_1=Its a human!  My orcs! Come and attack!!
+	attack_1=I promise to show you the truth strength of the orcs!
+	hp50_1=I will no longer be opressed by the humans!
+	hp25_1=Dont give up until the very end!
+	kill_1=This is the end... The end for you, humans...
+	dead_1=Grrrrrrrr....
+}
+
+begin_mons=osiris{
+	discovery_1=Who is he that disturbs me sleep!
+	attack_1=You are in deep trouble for disturbing my sleep!
+	hp50_1=No matter how long you try to avoid me, it wont be for long!
+	hp25_1=I shall triumph over you!
+	kill_1=Your death is my peace..
+	dead_1=Now I can sleep without being disturbed...
+}
+
+begin_mons=phreeoni{
+	discovery_1=I shall lick you to death!!
+	attack_1=Fear the wrath of my tongue!!
+	hp50_1=*wobble wobble*~
+	hp25_1=*wobble* you taste....
+	kill_1=This was so fun~ You taste good~
+	dead_1=You taste so strong.. i don't like this... that flavor...
+}
+
+begin_mons=turtle_general{
+	discovery_1=Cowabunga, Dude!!
+	attack_1=Taste my hard shell!
+	hp50_1=You are one though shell to crack!
+	hp25_1=My shell is tougher than you think!
+	kill_1=Don't you wish you had a shell to hide in?!
+	dead_1=I'm turtle soup!!
+}
